@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打字机效果</title>
+    <style>
+        .cursor {
+            position: absolute;
+            display: inline-block;
+            width: 2px;
+            height: 16px;
+            background-color: #000;
+            animation: blink 1s infinite;
+            transform: translate(2px, 3px);
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+        .box1 {
+            line-height: 22px;
+            width: 300px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid pink;
+            margin-bottom: 10px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <span class="cursor"></span>
+    </div>
+    <button class="btn">添加文字</button>
+    <script>
+        const randomTextArr = ["萨嘎", '三', "agas", '大厦', '阿萨法施工', 'saf', '啊', '收到', '三个哈哈哈', '阿事实上事实上事实上', '事实上事实上少时诵诗书', '叫哦大家搜狗号度搜化工三打哈干撒的很尬山东干红手打很尬搜哈', '时间几节课MVvvvvvvvvvv啪啪啪啪啪啪PPT科技我IQ和瓦暖气，你', '撒啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊就你跟贵公司懂法守法收入与武器我先把发发花洒就你跟贵公司懂法守法收入与武器我先把发发花洒'];
+        const box1 = document.querySelector('.box1');
+        const btn = document.querySelector('.btn');
+        let showText = '';
+        let addTextArr = [];
+        let timer = null;
+
+        btn.onclick = () => {
+            getRandomText();
+            updateText();
+        }
+
+        function getRandomText() {
+            const randomTextArrLength = randomTextArr.length;
+            let randomNum = Math.random();
+            let addText = randomTextArr[Math.floor(Math.random() * randomTextArrLength)];
+            addTextArr.push(addText);
+            console.log(addText)
+        }
+
+        function updateText() {
+            let index = 0;
+            if (!timer) {
+                timer = setInterval(() => {
+                    if (addTextArr.length > 0) {
+                        if (index < addTextArr[0].length) {
+                            box1.innerHTML = showText + addTextArr[0][index] + `<span class="cursor"></span>`;
+                            showText += addTextArr[0][index];
+                            index ++;
+                        } else {
+                            index = 0;
+                            box1.innerHTML = showText;
+                            addTextArr.shift();
+                        }
+                    } else {
+                        clearInterval(timer);
+                        timer = null;
+                    }
+                }, 50)
+            }
+        }
+    </script>
+</body>
+</html>

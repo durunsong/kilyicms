@@ -1,0 +1,10 @@
+// 公共样式
+@mixin common-style {
+    width: 400px;
+    height: 280px;
+  }
+  @mixin onePlusFill {
+    width: 100%;
+    height: 100%;
+  }
+  

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Fingerprint2 TEST</title>
+    <style>
+        body {
+            color: #555;
+        }
+
+        #info {
+            font-size: 12px;
+        }
+
+        #control span {
+            color: #333;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="info">
+    <p>纯前端实现的浏览器指纹采集器，通过获取浏览器中所有能获取到的信息(部分通过base64转成String)，最后生成出md5，用于该用户在该设备上的唯一标识码，官方宣称准确度高达99.5%</p>
+</div>
+<div id="control">
+    <button onclick="start()">开始</button>
+    <span>userAgent:</span><input type="checkbox" id="userAgent" checked="checked">
+    <span>fonts:</span><input type="checkbox" id="fonts" checked="checked">
+    <span>fontsFlash:</span><input type="checkbox" id="fontsFlash" checked="checked">
+    <span>canvas:</span><input type="checkbox" id="canvas" checked="checked">
+    <span>webgl:</span><input type="checkbox" id="webgl" checked="checked">
+    <span>audio:</span><input type="checkbox" id="audio" checked="checked">
+    <span>enumerateDevices:</span><input type="checkbox" id="enumerateDevices" checked="checked">
+</div>
+<div id="view">
+</div>
+
+<script src="https://cdn.staticfile.org/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+<script>
+    function start() {
+        const start = new Date().getTime();
+        let view = document.querySelector('#view');
+        view.innerHTML = '';
+        let excludes = {};
+        if (!document.querySelector('#userAgent').checked) {
+            excludes.userAgent = true;
+        }
+        if (!document.querySelector('#audio').checked) {
+            excludes.audio = true;
+        }
+        if (!document.querySelector('#enumerateDevices').checked) {
+            excludes.enumerateDevices = true;
+        }
+        if (!document.querySelector('#fonts').checked) {
+            excludes.fonts = true;
+        }
+        if (!document.querySelector('#fontsFlash').checked) {
+            excludes.fontsFlash = true;
+        }
+        if (!document.querySelector('#webgl').checked) {
+            excludes.webgl = true;
+        }
+        if (!document.querySelector('#canvas').checked) {
+            excludes.canvas = true;
+        }
+        let options = {excludes: excludes}
+
+        Fingerprint2.get(options, function (components) {
+            // 参数
+            const values = components.map(function (component) {
+                return component.value
+            });
+            // 指纹
+            const murmur = Fingerprint2.x64hash128(values.join(''), 31);
+            view.innerHTML += '<p>指纹 : ' + murmur + '</p>';
+            view.innerHTML += '<p>消耗 : ' + (new Date().getTime() - start) + ' 毫秒</p>';
+            view.innerHTML += '<p>使用的参数 : </p>';
+            for (const c of components) {
+                view.innerHTML += '<p>' + c.key + ' : ' + c.value + '</p>';
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>循环数组操作</title>
+    <script>
+      function performOperation() {
+        const result = ['1', '2', '3'].map((value) => Reflect.apply(parseInt, null, [value]));
+        console.log(result); // [1, 2, 3]
+
+        // const arr1 = [1, 2, 3, 4, 5];
+        // const arr2 = ["面", "试"];
+        // const result = [];
+
+        // for (let i = 0; i < arr1.length; i++) {
+        //   // 使用模运算符（%）确保arr2的索引在0和arr2.length - 1之间循环
+        //   const j = i % arr2.length;
+        //   result.push(arr2[j]);
+        // }
+
+        // console.log(result); // 输出: ['面', '试', '面', '试', '面']
+        // const test = '🚀 '
+        // console.log(test.repeat(5)); // 输出: '🚀 🚀 🚀 🚀 🚀
+        setTimeout(() => {
+          console.log("A");
+        }, 100);
+
+        new Promise((resolve) => {
+          console.log("B");
+          resolve();
+        }).then(() => console.log("C"));
+
+        setTimeout(() => {
+          console.log("D");
+        }, 0);
+
+        async function main() {
+          await Promise.resolve();
+          console.log("E");
+        }
+
+        main();
+        console.log("F");
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="performOperation()">开始操作</button>
+    <body>
+      <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="transition-example"></div>
+      </div>
+    </body>
+    
+    <style>
+      .box {
+        display: flex;
+        flex-wrap: wrap;
+        width: 600px; 
+        height: 600px; 
+      }
+    
+      .box > div {
+        width: calc(33.33% - 20px);
+        height: calc(33.33% - 20px);
+        background-color: red;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .transition-example {
+        height: 0;
+        overflow: hidden; 
+        transition: height 2s;
+      }
+
+      .transition-example:hover {
+        height: 100px;
+      }
+    </style>
+    
+    
+</html>

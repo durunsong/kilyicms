@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    // url中有 链接/不可看的东西 时
+    // encodeURIComponent
+    const wd = 'hello world  dsfdshfus4';
+    const url = `http://www.baidu.com/wd=` + encodeURIComponent(wd);
+    console.log('EHFGDVDSGYUVG+++++++encodeUrl++++',url);
+
+    // encodeURI
+    const url2 = 'http://username/wd='+ encodeURI(wd);
+    console.log('EHFGDVDSGYUVG+++++++encodeUrl2++++',url2);
+   
+   </script> 
+</body>
+</html>

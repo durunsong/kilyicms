@@ -1,0 +1,73 @@
+{
+  "status": 200,
+  "message": "登录成功",
+  "data": {
+    "token": "mock_token_eyJhbGciOiJIUzUxMiJ9",
+    "userInfo": {
+      "id": 1,
+      "loginName": "admin",
+      "nickName": "管理员",
+      "roleIds": [179, 202, 211],
+      "logo": "https://c-ssl.dtstatic.com/uploads/blog/202107/07/20210707225226_74dcf.thumb.1000_0.jpg",
+      "avatar": "https://c-ssl.dtstatic.com/uploads/blog/202207/09/20220709150824_97667.thumb.1000_0.jpg"
+    }
+  }
+}
+
+
+{
+  "$id": "user",
+  "userInfo": {
+      "_object": {
+          "userInfo": {
+              "status": 200,
+              "message": "登录成功",
+              "data": {
+                  "token": "mock_token_eyJhbGciOiJIUzUxMiJ9",
+                  "userInfo": {
+                      "id": 1,
+                      "loginName": "admin",
+                      "nickName": "管理员",
+                      "roleIds": [
+                          179,
+                          202,
+                          211
+                      ],
+                      "logo": "https://c-ssl.dtstatic.com/uploads/blog/202107/07/20210707225226_74dcf.thumb.1000_0.jpg",
+                      "avatar": "https://c-ssl.dtstatic.com/uploads/blog/202207/09/20220709150824_97667.thumb.1000_0.jpg"
+                  }
+              }
+          },
+          "isCollapse": false
+      },
+      "_key": "userInfo",
+      "__v_isRef": true
+  },
+  "isCollapse": {
+      "_object": {
+          "userInfo": {
+              "status": 200,
+              "message": "登录成功",
+              "data": {
+                  "token": "mock_token_eyJhbGciOiJIUzUxMiJ9",
+                  "userInfo": {
+                      "id": 1,
+                      "loginName": "admin",
+                      "nickName": "管理员",
+                      "roleIds": [
+                          179,
+                          202,
+                          211
+                      ],
+                      "logo": "https://c-ssl.dtstatic.com/uploads/blog/202107/07/20210707225226_74dcf.thumb.1000_0.jpg",
+                      "avatar": "https://c-ssl.dtstatic.com/uploads/blog/202207/09/20220709150824_97667.thumb.1000_0.jpg"
+                  }
+              }
+          },
+          "isCollapse": false
+      },
+      "_key": "isCollapse",
+      "__v_isRef": true
+  },
+  "_isOptionsAPI": true
+}
