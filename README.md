@@ -1,13 +1,13 @@
 # kilyicms项目
 
 ## 简介
-kilyicms项目是一个使用Vue3和vite构建的应用程序，用于kilyicms管理后台。该项目使用了Element Plus组件库，以及其他一些常用的Vue生态工具和库。
+kilyicms项目是一个使用Vue3和vite构建的应用程序，用于kilyimall商城管理后台。该项目使用了Element Plus组件库，以及其他一些常用的Vue生态工具和库。
 
 ## 安装
 确保你已经安装了Node.js和npm（或者使用yarn/pnpm）。然后运行以下命令安装项目的依赖项：
 
 ## 环境准备
-Node 18+ 
+Node 20+ 
 
 ### 使用[阿里云NPM镜像](https://www.npmmirror.com/)
 ``` 
