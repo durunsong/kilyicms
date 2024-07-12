@@ -13,8 +13,7 @@
     "build:test": "vite build --mode test ",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
-    "prepare": "husky install"
+    "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",

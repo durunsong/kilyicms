@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 export const routes = [
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/home",
   },
   {
     path: "/login",
@@ -149,32 +149,32 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
-router.afterEach((to, from, next) => {
-  if (typeof to.meta?.title === "string") {
-    document.title = to.meta?.title;
-  } else {
-    return true;
-  }
-});
+// router.afterEach((to, from, next) => {
+//   if (typeof to.meta?.title === "string") {
+//     document.title = to.meta?.title;
+//   } else {
+//     return true;
+//   }
+// });
 
-router.beforeEach((to, from) => {
-  if (to.fullPath === "/login") {
-    //已经登录了,直接跳到home页面
-    if (localStorage.getItem("token")) {
-      return {
-        path: "/home",
-      };
-    }
-    return true;
-  } else if (localStorage.getItem("token")) {
-    //已经登录了,直接跳转
-    return true;
-  } else {
-    return {
-      //如果没有登陆就跳转到登录页面
-      path: "/login",
-    };
-  }
-});
+// router.beforeEach((to, from) => {
+//   if (to.fullPath === "/login") {
+//     //已经登录了,直接跳到home页面
+//     if (localStorage.getItem("token")) {
+//       return {
+//         path: "/home",
+//       };
+//     }
+//     return true;
+//   } else if (localStorage.getItem("token")) {
+//     //已经登录了,直接跳转
+//     return true;
+//   } else {
+//     return {
+//       //如果没有登陆就跳转到登录页面
+//       path: "/login",
+//     };
+//   }
+// });
 
 export default router;
