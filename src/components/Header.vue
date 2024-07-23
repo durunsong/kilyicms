@@ -28,7 +28,7 @@ import { ArrowDown, Expand, Fold } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { computed, ref } from "vue";
 import { userPomotionStore } from "@/store";
-const emptyImage = ref(require('@/assets/images/pkqiou.png'));
+const emptyImage = ref('../assets/images/pkqiou.png');
 
 const errorHandler = (event:any) => {
   event.target.src = emptyImage.value;

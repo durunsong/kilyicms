@@ -35,10 +35,10 @@ export const routes = [
           {
             path: "setting",
             name: "setting",
-            label: "个人设置",
+            label: "用户管理",
             meta: {
-              name: "个人设置",
-              title: "个人设置",
+              name: "用户管理",
+              title: "用户管理",
             },
             component: () => import("@/views/userCenter/userList.vue"),
           }

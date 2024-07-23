@@ -21,20 +21,20 @@ interface ItemResponse {
 }
 
 // 查询列表
-export const getListApi = (params: { page: number, pageSize: number, keyword: string }): Promise<AxiosResponse<ListResponse>> =>
-  request({ url: "/api/list", method: "GET" , params:params});
+export const getListApi = (params: { page: number, pageSize: number, keywords: string }): Promise<AxiosResponse<ListResponse>> =>
+  request({ url: "/api/users", method: "GET" , params:params});
 
 // 添加项目
 export const addItemApi = (params: Omit<ListItem, 'id'>): Promise<AxiosResponse<ItemResponse>> =>
-  request({ url: "/api/list", method: "POST", data: params });
+  request({ url: "/api/users", method: "POST", data: params });
 
 // 更新项目
 export const updateItemApi = (id: number, params: Omit<ListItem, 'id'>): Promise<AxiosResponse<ItemResponse>> =>
-  request({ url: `/api/list/${id}`, method: "PUT", data: params });
+  request({ url: `/api/users/${id}`, method: "PUT", data: params });
 
 // 删除项目
 export const deleteItemApi=(id: number) : Promise<AxiosResponse<ListResponse>> =>request({
-        url: `/api/list/${id}`,
+        url: `/api/users/${id}`,
         method: 'DELETE'
     }
   )

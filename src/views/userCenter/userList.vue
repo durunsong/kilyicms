@@ -1,10 +1,20 @@
 <template>
   <div>
     <div class="search_container">
-      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="搜索关键字" @keyup.enter="searchItems" clearable
-        @clear="handleclear" />
+      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="搜索关键字" @keyup.enter="searchItems"
+        clearable @clear="handleclear" />
+        <el-date-picker
+        v-model="pickerDatas"
+        type="datetimerange"
+        start-placeholder="Start date"
+        end-placeholder="End date"
+        format="YYYY-MM-DD HH:mm:ss"
+        date-format="YYYY/MM/DD ddd"
+        time-format="A hh:mm:ss"
+      />
       <el-button class="search_btn" type="primary" @click="searchItems">搜索</el-button>
     </div>
+    {{ pickerDatas }}
     <el-button class="add_btn" type="primary" @click="showAddDialog = true">添加项目</el-button>
     <el-table :data="userList" style="width: 100%">
       <el-table-column label="序号" width="100">
@@ -13,7 +23,8 @@
         </template>
       </el-table-column>
       <el-table-column prop="name" label="名称" align="center"></el-table-column>
-      <el-table-column prop="description" label="描述" align="center"></el-table-column>
+      <el-table-column prop="create_time" label="创建时间" align="center"></el-table-column>
+      <el-table-column prop="update_time" label="更新时间" align="center"></el-table-column>
       <el-table-column label="操作" align="center">
         <template #default="scope">
           <el-button @click="editItem(scope.row)">编辑</el-button>
@@ -22,16 +33,19 @@
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination small background @size-change="handleSizeChange" @current-change="handleCurrentChange"
-        layout="prev, pager, next, jumper" :total="total" :current-page="queryParams.page"
-        :page-size="queryParams.pageSize" />
+      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+        layout="prev, pager, next, jumper" :total="total" :current-page="queryParams.pageNum"
+        :page-size="queryParams.pageSize"/>
     </div>
 
     <!-- 添加项目的对话框 -->
     <el-dialog title="添加项目" v-model="showAddDialog">
       <el-form :model="newItem">
-        <el-form-item label="名称">
+        <el-form-item label="账号名称">
           <el-input v-model="newItem.name"></el-input>
+        </el-form-item>
+        <el-form-item label="密码">
+          <el-input v-model="newItem.password"></el-input>
         </el-form-item>
         <el-form-item label="描述">
           <el-input v-model="newItem.description"></el-input>
@@ -48,6 +62,9 @@
       <el-form :model="editItemData">
         <el-form-item label="名称">
           <el-input v-model="editItemData.name"></el-input>
+        </el-form-item>
+        <el-form-item label="密码">
+          <el-input v-model="editItemData.password"></el-input>
         </el-form-item>
         <el-form-item label="描述">
           <el-input v-model="editItemData.description"></el-input>
@@ -72,32 +89,54 @@ interface ListItem {
   description: string;
 }
 
+interface User extends Omit<ListItem, 'id'> {
+  account: string;
+  is_delete: number;
+  password: string;
+  token: string;
+  login_name: string;
+  nick_name: string;
+  role_ids: number[];
+  logo: string;
+  avatar: string;
+}
+
+const pickerDatas = ref<string[]>([]);
 const userList = ref<ListItem[]>([]);
 const total = ref<number>(0);
 const searchKeyword = ref<string>('');
 const showAddDialog = ref<boolean>(false);
 const showEditDialog = ref<boolean>(false);
-const newItem = ref<Omit<ListItem, 'id'>>({ name: '', description: '' });
-const editItemData = ref<Omit<ListItem, 'id'>>({ name: '', description: '' });
+const newItem = ref<Omit<User, 'id'>>({
+  name: '',
+  description: '',
+  password: '',
+});
+
+const editItemData = ref<Omit<ListItem, 'id'>>({
+  name: '',
+  description: '',
+  password: '',
+});
 const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
-  page: 1,
-  pageSize: 3,
-  keyword: '',
+  pageNum: 1,
+  pageSize: 5,
 });
 
 watch(searchKeyword, (newValue) => {
   if (newValue === '') {
-    queryParams.keyword = ''
+    queryParams.keywords = null;
   } else {
-    queryParams.keyword = newValue
+    queryParams.keywords = newValue
   }
 });
 
 // 获取数据
 const fetchItems = async () => {
+  console.log('searchKeyword:+++++++++++', pickerDatas.value[0]);
   try {
-    const response:any = await getListApi(queryParams);
+    const response: any = await getListApi(queryParams);
     userList.value = response.data;
     total.value = response.total;
   } catch (error) {
@@ -109,24 +148,29 @@ const fetchItems = async () => {
 const addItem = async () => {
   try {
     const addData = { ...newItem.value, id: userList.value.length + 1 };
+    console.log('addData:+++++++++++', addData);
     const response: any = await addItemApi(addData);
-    if (response.status === 200) {
-      fetchItems();
+    if (response.status == 200) {
       showAddDialog.value = false;
       newItem.value.name = '';
+      newItem.value.password = '';
       newItem.value.description = '';
       ElMessage.success('添加成功');
+      fetchItems();
     } else {
       ElMessage.error(response.message);
     }
   } catch (error) {
+    console.log('addItemApi error:+++++++++++', error);
     ElMessage.error('添加失败');
   }
 };
+
 // 编辑按钮
 const editItem = (item: ListItem) => {
   editingItemId.value = item.id;
   editItemData.value.name = item.name;
+  editItemData.value.password = item.password;
   editItemData.value.description = item.description;
   showEditDialog.value = true;
 };
@@ -165,25 +209,25 @@ const deleteItem = async (id: number) => {
 
 // 搜索
 const searchItems = () => {
-  queryParams.page = 1;
+  queryParams.pageNum = 1;
   fetchItems();
 };
 
 const handleclear = () => {
   searchKeyword.value = '';
-  queryParams.keyword = '';
-  queryParams.page = 1;
+  queryParams.keywords = null;
+  queryParams.pageNum = 1;
   fetchItems();
 };
 
 const handleSizeChange = (val: number) => {
   queryParams.pageSize = val;
-  queryParams.page = 1;
+  queryParams.pageNum = 1;
   fetchItems();
 };
 
 const handleCurrentChange = (val: number) => {
-  queryParams.page = val;
+  queryParams.pageNum = val;
   fetchItems();
 };
 
@@ -193,16 +237,18 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.search_container{
+.search_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  .search_input{
+
+  .search_input {
     width: 400px;
     height: 42px;
   }
-  .search_btn{
+
+  .search_btn {
     height: 41px;
     width: 100px;
   }
@@ -211,12 +257,14 @@ onMounted(() => {
 .dialog-footer {
   text-align: right;
 }
-.add_btn{
+
+.add_btn {
   width: 100px;
   height: 41px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
 .pagination {
   margin-top: 10px;
   text-align: right;

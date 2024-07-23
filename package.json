@@ -1,7 +1,7 @@
 {
   "name": "kilyicms",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite --mode development",
@@ -27,6 +27,7 @@
     "pinia-plugin-persistedstate": "^3.2.1",
     "sass": "^1.77.6",
     "terser": "^5.31.1",
+    "uuid": "^10.0.0",
     "vue": "^3.4.29",
     "vue-clipboard3": "^2.0.0",
     "vue-i18n": "^9.13.1",
