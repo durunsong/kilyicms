@@ -3,6 +3,7 @@
     <component v-if="isCollapse == true" :is="Expand" @click="handleClick" class="expandFold"></component>
     <component v-else :is="Fold" @click="handleClick" class="expandFold"></component>
     <div class="avatar_dropdown">
+      <screenfull class="right-menu-item hover-effect" />
       <el-avatar :size="50" class="avatar_img" :src="imageList" @error="errorHandler"></el-avatar>
       <el-dropdown @command="quitOut">
         <span class="el-dropdown-link">
@@ -28,6 +29,8 @@ import { ArrowDown, Expand, Fold } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { computed, ref } from "vue";
 import { userPomotionStore } from "@/store";
+import Screenfull from "@/components/Screenfull/index.vue";
+
 const emptyImage = ref('../assets/images/pkqiou.png');
 
 const errorHandler = (event:any) => {

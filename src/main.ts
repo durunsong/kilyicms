@@ -2,6 +2,8 @@
 import '@/assets/base.scss'
 import "element-plus/theme-chalk/dark/css-vars.css";
 import 'element-plus/dist/index.css'
+import 'virtual:svg-icons-register' // svg
+
 
 import { setupStore } from "@/store";
 import ElementPlus from 'element-plus'
@@ -23,5 +25,5 @@ app.mount('#app')
 
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component);
-  }
+  app.component(key, component);
+}

@@ -17,8 +17,9 @@ export const routes = [
     name: "home",
     label: "主页",
     meta: {
-      name: "主页",
       title: "主页",
+       hidden: false,
+      icon: 'House',
     },
     component: () => import("@/views/Home.vue"),
     children: [
@@ -27,8 +28,9 @@ export const routes = [
         path: "mine",
         name: "mine",
         meta: {
-          name: "个人中心",
           title: "个人中心",
+           hidden: false,
+          icon: 'User',
         },
         component: () => import("@/views/userCenter/userView.vue"),
         children: [
@@ -37,10 +39,22 @@ export const routes = [
             name: "setting",
             label: "用户管理",
             meta: {
-              name: "用户管理",
               title: "用户管理",
+               hidden: false,
+              icon: 'UserFilled',
             },
             component: () => import("@/views/userCenter/userList.vue"),
+          },
+          {
+            path: "user_recycle_bin",
+            name: "user_recycle_bin",
+            label: "用户回收站",
+            meta: {
+              title: "用户回收站",
+              hidden: false,
+              icon: 'DeleteFilled',
+            },
+            component: () => import("@/views/userCenter/user_recycle_bin.vue"),
           }
         ],
       },
@@ -49,8 +63,9 @@ export const routes = [
         path: "rich_text",
         name: "rich_text",
         meta: {
-          name: "富文本总结",
           title: "富文本总结",
+           hidden: true,
+          icon: 'UserFilled',
         },
         component: () => import("@/views/rich_text/rich_text_view.vue"),
         children: [
@@ -59,8 +74,9 @@ export const routes = [
             name: "wang",
             label: "@wang富文本",
             meta: {
-              name: "@wang富文本",
               title: "@wang富文本",
+               hidden: false,
+              icon: 'UserFilled',
             },
             component: () => import("@/views/rich_text/wang_one.vue"),
           },
@@ -71,8 +87,9 @@ export const routes = [
         path: "vantV",
         name: "vantV",
         meta: {
-          name: "vantV总结",
           title: "vantV总结",
+           hidden: false,
+          icon: 'Operation',
         },
         component: () => import("@/views/g6/index.vue"),
         children: [
@@ -81,8 +98,9 @@ export const routes = [
             name: "g6_1",
             label: "g6_1",
             meta: {
-              name: "@g6_1",
               title: "@g6_1",
+               hidden: false,
+              icon: 'Stopwatch',
             },
             component: () => import("@/views/g6/g6_1.vue"),
           }]
@@ -92,8 +110,9 @@ export const routes = [
         path: "notes",
         name: "notes",
         meta: {
-          name: "总结笔记",
           title: "总结笔记",
+           hidden: false,
+          icon: 'Calendar',
         },
         component: () => import("@/views/learn_notes/index.vue"),
         children: [
@@ -102,8 +121,9 @@ export const routes = [
             name: "note_one",
             label: "笔记1",
             meta: {
-              name: "@笔记1",
               title: "@笔记1",
+               hidden: false,
+              icon: 'Bowl',
             },
             component: () => import("@/views/learn_notes/note_one.vue"),
           },
@@ -112,8 +132,9 @@ export const routes = [
             name: "note_two",
             label: "笔记2",
             meta: {
-              name: "@笔记2",
               title: "@笔记2",
+               hidden: false,
+              icon: 'Sugar',
             },
             component: () => import("@/views/learn_notes/note_two.vue"),
           },
@@ -122,8 +143,9 @@ export const routes = [
             name: "note_three",
             label: "笔记3",
             meta: {
-              name: "@笔记3",
               title: "@笔记3",
+               hidden: false,
+              icon: 'MilkTea',
             },
             component: () => import("@/views/learn_notes/note_three.vue"),
           },
@@ -149,6 +171,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
+
 // router.afterEach((to, from, next) => {
 //   if (typeof to.meta?.title === "string") {
 //     document.title = to.meta?.title;

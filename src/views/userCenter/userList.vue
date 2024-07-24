@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="search_container">
-      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="搜索关键字" @keyup.enter="handleSearchItems"
+      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="请输入搜索关键字" @keyup.enter="handleSearchItems"
         clearable @clear="handleclearIpt" />
       <div class="date_time_picker">
         <el-date-picker v-model="pickerDatas" type="datetimerange" start-placeholder="开始时间" end-placeholder="结束时间"
-          format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD HH:mm:ss" @change="formatHandleChange"/>
+          format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD" @change="formatHandleChange"/>
       </div>
-      <el-button class="search_btn" type="default" @click="handleClearItems">清除</el-button>
-      <el-button class="search_btn" type="primary" @click="handleSearchItems">搜索</el-button>
+      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">清除</el-button>
+      <el-button class="search_btn" type="primary" @click="handleSearchItems" icon="Search">搜索</el-button>
     </div>
     <el-button class="add_btn" type="primary" @click="showAddDialog = true">添加项目</el-button>
     <el-table :data="userList" style="width: 100%">
@@ -120,7 +120,7 @@ const editItemData = ref<Omit<ListItem, 'id'>>({
 const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
   pageNum: 1,
-  pageSize: 5,
+  pageSize: 7,
   startTime: null as string | null,
   endTime: null as string | null,
   keywords: null as string | null,
@@ -137,10 +137,12 @@ const formatHandleChange = (value: [Date, Date] | null) => {
 }
 // 清空
 const handleClearItems = () => {
-  pickerDatas.value = null;
-  formatHandleChange(null);
-  handleclearIpt();
-  ElMessage.success('清空成功');
+  if(pickerDatas.value||searchKeyword.value){
+    pickerDatas.value = null;
+    formatHandleChange(null);
+    handleclearIpt();
+    ElMessage.success('清空成功');
+  }
 };
 
 watch(searchKeyword, (newValue) => {
@@ -225,8 +227,11 @@ const deleteItem = async (id: number) => {
 
 // 搜索
 const handleSearchItems = () => {
+  // 搜索防抖
+  if(pickerDatas.value||searchKeyword.value){
   queryParams.pageNum = 1;
   fetchItems();
+  }
 };
 
 const handleclearIpt = () => {
@@ -255,6 +260,9 @@ onMounted(() => {
 <style scoped>
 :deep(.el-date-editor) {
   height: 41px;
+}
+:deep(.el-table__header){
+  background-color:#eaeaea;
 }
 
 .search_container {

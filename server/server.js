@@ -32,8 +32,9 @@ connection.connect(err => {
 app.post('/api/users', (req, res) => {
     const { name, password, description } = req.body;
 
-    const create_time = moment().format('YYYY-MM-DD HH:mm:ss');
-    const update_time = moment().format('YYYY-MM-DD HH:mm:ss');
+    // 增加8小时以适应中国时区
+    const create_time = moment().add(8, 'hours').format('YYYY-MM-DD HH:mm:ss');
+    const update_time = moment().add(8, 'hours').format('YYYY-MM-DD HH:mm:ss');
 
     // 待处理数据权限菜单转化
     const account = "testuser";
@@ -114,7 +115,7 @@ app.put('/api/users/:id', (req, res) => {
     const { id } = req.params;
     const { name, password, description } = req.body;
 
-    const update_time = moment().format('YYYY-MM-DD HH:mm:ss');
+    const update_time = moment().add(8, 'hours').format('YYYY-MM-DD HH:mm:ss');
 
     // 待处理数据权限菜单转化
     const account = "testuser";
