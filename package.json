@@ -23,6 +23,7 @@
     "@wangeditor/editor-for-vue": "5.1.12",
     "axios": "^1.7.2",
     "element-plus": "^2.7.6",
+    "moment": "^2.30.1",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "sass": "^1.77.6",

@@ -1,20 +1,15 @@
 <template>
   <div>
     <div class="search_container">
-      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="搜索关键字" @keyup.enter="searchItems"
-        clearable @clear="handleclear" />
-        <el-date-picker
-        v-model="pickerDatas"
-        type="datetimerange"
-        start-placeholder="Start date"
-        end-placeholder="End date"
-        format="YYYY-MM-DD HH:mm:ss"
-        date-format="YYYY/MM/DD ddd"
-        time-format="A hh:mm:ss"
-      />
-      <el-button class="search_btn" type="primary" @click="searchItems">搜索</el-button>
+      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="搜索关键字" @keyup.enter="handleSearchItems"
+        clearable @clear="handleclearIpt" />
+      <div class="date_time_picker">
+        <el-date-picker v-model="pickerDatas" type="datetimerange" start-placeholder="开始时间" end-placeholder="结束时间"
+          format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD HH:mm:ss" @change="formatHandleChange"/>
+      </div>
+      <el-button class="search_btn" type="default" @click="handleClearItems">清除</el-button>
+      <el-button class="search_btn" type="primary" @click="handleSearchItems">搜索</el-button>
     </div>
-    {{ pickerDatas }}
     <el-button class="add_btn" type="primary" @click="showAddDialog = true">添加项目</el-button>
     <el-table :data="userList" style="width: 100%">
       <el-table-column label="序号" width="100">
@@ -35,7 +30,7 @@
     <div class="pagination">
       <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
         layout="prev, pager, next, jumper" :total="total" :current-page="queryParams.pageNum"
-        :page-size="queryParams.pageSize"/>
+        :page-size="queryParams.pageSize" />
     </div>
 
     <!-- 添加项目的对话框 -->
@@ -82,6 +77,7 @@
 import { ref, onMounted, reactive, watch } from 'vue';
 import { ElMessage } from 'element-plus';
 import { getListApi, addItemApi, updateItemApi, deleteItemApi } from '@/service/user';
+import useMomentFormat from '@/hooks/useMomentFormat';
 
 interface ListItem {
   id: number;
@@ -89,6 +85,7 @@ interface ListItem {
   description: string;
 }
 
+// 测试字段类型 ----不用可删除----
 interface User extends Omit<ListItem, 'id'> {
   account: string;
   is_delete: number;
@@ -101,7 +98,9 @@ interface User extends Omit<ListItem, 'id'> {
   avatar: string;
 }
 
-const pickerDatas = ref<string[]>([]);
+const startTime = ref<Date | null>(null);
+const endTime = ref<Date | null>(null);
+const pickerDatas = ref<[Date, Date] | null>(null);
 const userList = ref<ListItem[]>([]);
 const total = ref<number>(0);
 const searchKeyword = ref<string>('');
@@ -122,7 +121,27 @@ const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
   pageNum: 1,
   pageSize: 5,
+  startTime: null as string | null,
+  endTime: null as string | null,
+  keywords: null as string | null,
 });
+
+const formatHandleChange = (value: [Date, Date] | null) => {
+  if (value) {
+    queryParams.startTime = useMomentFormat(value[0] || '');
+    queryParams.endTime = useMomentFormat(value[1] || '');
+  } else {
+    queryParams.startTime = null;
+    queryParams.endTime = null;
+  }
+}
+// 清空
+const handleClearItems = () => {
+  pickerDatas.value = null;
+  formatHandleChange(null);
+  handleclearIpt();
+  ElMessage.success('清空成功');
+};
 
 watch(searchKeyword, (newValue) => {
   if (newValue === '') {
@@ -134,7 +153,6 @@ watch(searchKeyword, (newValue) => {
 
 // 获取数据
 const fetchItems = async () => {
-  console.log('searchKeyword:+++++++++++', pickerDatas.value[0]);
   try {
     const response: any = await getListApi(queryParams);
     userList.value = response.data;
@@ -148,7 +166,6 @@ const fetchItems = async () => {
 const addItem = async () => {
   try {
     const addData = { ...newItem.value, id: userList.value.length + 1 };
-    console.log('addData:+++++++++++', addData);
     const response: any = await addItemApi(addData);
     if (response.status == 200) {
       showAddDialog.value = false;
@@ -161,7 +178,6 @@ const addItem = async () => {
       ElMessage.error(response.message);
     }
   } catch (error) {
-    console.log('addItemApi error:+++++++++++', error);
     ElMessage.error('添加失败');
   }
 };
@@ -208,12 +224,12 @@ const deleteItem = async (id: number) => {
 };
 
 // 搜索
-const searchItems = () => {
+const handleSearchItems = () => {
   queryParams.pageNum = 1;
   fetchItems();
 };
 
-const handleclear = () => {
+const handleclearIpt = () => {
   searchKeyword.value = '';
   queryParams.keywords = null;
   queryParams.pageNum = 1;
@@ -237,15 +253,23 @@ onMounted(() => {
 </script>
 
 <style scoped>
+:deep(.el-date-editor) {
+  height: 41px;
+}
+
 .search_container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 
+  .date_time_picker {
+    width: 450px;
+  }
+
   .search_input {
-    width: 400px;
+    width: 250px;
     height: 42px;
+    margin-right: 15px;
   }
 
   .search_btn {
