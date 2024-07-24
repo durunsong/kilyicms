@@ -8,7 +8,7 @@
           format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD" @change="formatHandleChange"/>
       </div>
       <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">清除</el-button>
-      <el-button class="search_btn" type="primary" @click="handleSearchItems" icon="Search">搜索</el-button>
+      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">搜索</el-button>
     </div>
     <el-button class="add_btn" type="primary" @click="showAddDialog = true">添加项目</el-button>
     <el-table :data="userList" style="width: 100%">
@@ -233,6 +233,24 @@ const handleSearchItems = () => {
   fetchItems();
   }
 };
+
+//   -----搜索防抖-----
+const debounce = (func: Function, wait: number, immediate = false) => {
+  let timeout: ReturnType<typeof setTimeout>;
+  return function (...args: any[]) {
+    const later = () => {
+      timeout = null!;
+      if (!immediate) func(...args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func(...args);
+  };
+};
+
+//   -----搜索防抖2秒-----
+const debouncedHandleSearchItems = debounce(handleSearchItems, 2000, true);
 
 const handleclearIpt = () => {
   searchKeyword.value = '';
