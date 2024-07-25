@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { CustomRouteRecordRaw } from "@/types/routerType";
 
-export const routes = [
+export const routes: Array<CustomRouteRecordRaw> = [
   {
     path: "/",
     redirect: "/home",
@@ -18,10 +19,10 @@ export const routes = [
     label: "主页",
     meta: {
       title: "主页",
-       hidden: false,
-      icon: 'House',
+      hidden: false,
+      icon: "House",
     },
-    component: () => import("@/views/Home.vue"),
+    component: () => import("@/views/home/index.vue"),
     children: [
       {
         label: "个人中心",
@@ -29,8 +30,8 @@ export const routes = [
         name: "mine",
         meta: {
           title: "个人中心",
-           hidden: false,
-          icon: 'User',
+          hidden: false,
+          icon: "User",
         },
         component: () => import("@/views/userCenter/userView.vue"),
         children: [
@@ -40,8 +41,8 @@ export const routes = [
             label: "用户管理",
             meta: {
               title: "用户管理",
-               hidden: false,
-              icon: 'UserFilled',
+              hidden: false,
+              icon: "UserFilled",
             },
             component: () => import("@/views/userCenter/userList.vue"),
           },
@@ -52,10 +53,10 @@ export const routes = [
             meta: {
               title: "用户回收站",
               hidden: false,
-              icon: 'DeleteFilled',
+              icon: "DeleteFilled",
             },
             component: () => import("@/views/userCenter/user_recycle_bin.vue"),
-          }
+          },
         ],
       },
       {
@@ -64,8 +65,8 @@ export const routes = [
         name: "rich_text",
         meta: {
           title: "富文本总结",
-           hidden: true,
-          icon: 'UserFilled',
+          hidden: true,
+          icon: "UserFilled",
         },
         component: () => import("@/views/rich_text/rich_text_view.vue"),
         children: [
@@ -75,44 +76,45 @@ export const routes = [
             label: "@wang富文本",
             meta: {
               title: "@wang富文本",
-               hidden: false,
-              icon: 'UserFilled',
+              hidden: false,
+              icon: "UserFilled",
             },
             component: () => import("@/views/rich_text/wang_one.vue"),
           },
         ],
       },
       {
-        label: "vantV总结",
-        path: "vantV",
-        name: "vantV",
+        label: "AntV",
+        path: "AntV",
+        name: "AntV",
         meta: {
-          title: "vantV总结",
-           hidden: false,
-          icon: 'Operation',
+          title: "AntV",
+          hidden: false,
+          icon: "Operation",
         },
         component: () => import("@/views/g6/index.vue"),
         children: [
           {
-            path: "g6_1",
-            name: "g6_1",
-            label: "g6_1",
+            path: "g6-1",
+            name: "g6演示",
+            label: "g6-1",
             meta: {
-              title: "@g6_1",
-               hidden: false,
-              icon: 'Stopwatch',
+              title: "g6演示",
+              hidden: false,
+              icon: "Stopwatch",
             },
-            component: () => import("@/views/g6/g6_1.vue"),
-          }]
-        },
+            component: () => import("@/views/g6/g6-1.vue"),
+          },
+        ],
+      },
       {
-        label: "总结笔记",
+        label: "笔记",
         path: "notes",
         name: "notes",
         meta: {
-          title: "总结笔记",
-           hidden: false,
-          icon: 'Calendar',
+          title: "笔记",
+          hidden: false,
+          icon: "Calendar",
         },
         component: () => import("@/views/learn_notes/index.vue"),
         children: [
@@ -122,8 +124,8 @@ export const routes = [
             label: "笔记1",
             meta: {
               title: "@笔记1",
-               hidden: false,
-              icon: 'Bowl',
+              hidden: false,
+              icon: "Bowl",
             },
             component: () => import("@/views/learn_notes/note_one.vue"),
           },
@@ -133,8 +135,8 @@ export const routes = [
             label: "笔记2",
             meta: {
               title: "@笔记2",
-               hidden: false,
-              icon: 'Sugar',
+              hidden: false,
+              icon: "Sugar",
             },
             component: () => import("@/views/learn_notes/note_two.vue"),
           },
@@ -144,8 +146,8 @@ export const routes = [
             label: "笔记3",
             meta: {
               title: "@笔记3",
-               hidden: false,
-              icon: 'MilkTea',
+              hidden: false,
+              icon: "MilkTea",
             },
             component: () => import("@/views/learn_notes/note_three.vue"),
           },
@@ -161,9 +163,9 @@ export const routes = [
   {
     path: "/:pathMatch(.*)*",
     meta: {
-      title: "哦豁!找不到对象啦!!!",
+      title: "哦豁!404",
     },
-    component: () => import("@/views/notFound.vue"),
+    component: () => import("@/views/notFound/index.vue"),
   },
 ];
 

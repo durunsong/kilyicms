@@ -1,12 +1,7 @@
 <template>
   <div class="wrong">
     <div class="not_found">
-      <el-image :src="imgs" alt="404" class="img" />
-    </div>
-    <div class="btn_back">
-      <div class="btn_back_in">
-        <el-button @click="goHome" class="btn">goHome</el-button>
-      </div>
+      <el-image @click="goHome" :src="imgs" alt="404" class="not_found_img" />
     </div>
   </div>
 </template>
@@ -14,11 +9,9 @@
 <script setup lang="ts">
 import router from "@/router";
 import { ref } from "vue";
-import { userPomotionStore } from "@/store";
-
-const store = userPomotionStore();
-const tuiguangURL = store.tuiguangURL;
-const imgs = ref(tuiguangURL + "/common/404.png");
+const imgs = ref(
+  "https://img.zcool.cn/community/01c2ea586c65a2a8012060c86b5bf8.png@1280w_1l_2o_100sh.png"
+);
 const goHome = () => {
   router.push("/");
 };
@@ -38,30 +31,9 @@ const goHome = () => {
     justify-content: center;
     margin-top: 50px;
 
-    .img {
-      width: 700px;
+    .not_found_img {
+      width: 1000px;
       height: 580px;
-    }
-  }
-
-  .btn_back {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .btn_back_in {
-      display: flex;
-      align-items: center;
-
-      .btn {
-        width: 120px;
-        background-color: #64fcd9;
-        height: 40px;
-        margin-top: 20px;
-        border-radius: 10px;
-        color: #f15b41;
-        font-size: 18px;
-      }
     }
   }
 }
@@ -80,30 +52,9 @@ const goHome = () => {
       justify-content: center;
       margin-top: 120px;
 
-      .img {
-        width: 350px;
-        height: 290px;
-      }
-    }
-
-    .btn_back {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .btn_back_in {
-        display: flex;
-        align-items: center;
-
-        .btn {
-          width: 120px;
-          background-color: #64fcd9;
-          height: 40px;
-          margin-top: 20px;
-          border-radius: 10px;
-          color: #f15b41;
-          font-size: 18px;
-        }
+      .not_found_img {
+        width: 450px;
+        height: 260px;
       }
     }
   }

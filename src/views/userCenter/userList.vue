@@ -78,6 +78,7 @@ import { ref, onMounted, reactive, watch } from 'vue';
 import { ElMessage } from 'element-plus';
 import { getListApi, addItemApi, updateItemApi, deleteItemApi } from '@/service/user';
 import useMomentFormat from '@/hooks/useMomentFormat';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface ListItem {
   id: number;
@@ -227,30 +228,15 @@ const deleteItem = async (id: number) => {
 
 // 搜索
 const handleSearchItems = () => {
-  // 搜索防抖
+  // 搜索非空防抖
   if(pickerDatas.value||searchKeyword.value){
   queryParams.pageNum = 1;
   fetchItems();
   }
 };
 
-//   -----搜索防抖-----
-const debounce = (func: Function, wait: number, immediate = false) => {
-  let timeout: ReturnType<typeof setTimeout>;
-  return function (...args: any[]) {
-    const later = () => {
-      timeout = null!;
-      if (!immediate) func(...args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func(...args);
-  };
-};
-
-//   -----搜索防抖2秒-----
-const debouncedHandleSearchItems = debounce(handleSearchItems, 2000, true);
+//   -----搜索防抖2秒一次-----
+const debouncedHandleSearchItems = useDebounce(handleSearchItems, 2000, true);
 
 const handleclearIpt = () => {
   searchKeyword.value = '';
