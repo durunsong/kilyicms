@@ -1,10 +1,8 @@
 <template>
   <div class="screenfull_container">
     <div class="fullscreen" @click="onToggle">
-      <el-tooltip :effect="tooltipEffect" :content="tooltipContent" placement="top">
-        <svg width="32" height="32">
-          <use :xlink:href="iconHref" fill="red"></use>
-        </svg>
+      <el-tooltip :effect="tooltipEffect" :content="tooltipContent" placement="bottom">
+        <SvgIcon :name="iconHref" width="32" height="32"/>
       </el-tooltip>
     </div>
   </div>
@@ -13,6 +11,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import screenfull from "screenfull";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const isFullscreen = ref<boolean>(false);
 
@@ -34,7 +33,7 @@ onUnmounted(() => {
 
 const tooltipEffect = ref<string>("dark");
 const tooltipContent = computed<string>(() => (isFullscreen.value ? "退出全屏" : "全屏"));
-const iconHref = computed<string>(() => (isFullscreen.value ? "#icon-exit_full_screen" : "#icon-full_screen"));
+const iconHref = computed<string>(() => (isFullscreen.value ? "exit_full_screen" : "full_screen"));
 </script>
 
 <style lang="scss" scoped>

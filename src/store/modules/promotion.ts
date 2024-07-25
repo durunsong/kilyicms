@@ -4,6 +4,7 @@ import type { MetaInfo, UserPromotionState, UserPromotionStateKeys } from '@/typ
 export const userPomotionStore = defineStore('promotion', {
   state: (): UserPromotionState => {
     return {
+      dark_and_light: false,
       userInfo: {},
       isCollapse: false,
       metaInfo: {

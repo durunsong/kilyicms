@@ -23,6 +23,8 @@ export const routes: Array<CustomRouteRecordRaw> = [
       icon: "House",
     },
     component: () => import("@/views/home/index.vue"),
+    // 首页重定向页面
+    redirect: "/home/data_conversion/statement1",
     children: [
       {
         label: "个人中心",
@@ -153,13 +155,37 @@ export const routes: Array<CustomRouteRecordRaw> = [
           },
         ],
       },
+      {
+        label: "数据转化",
+        path: "data_conversion",
+        name: "data_conversion",
+        meta: {
+          title: "数据转化",
+          hidden: true,
+          icon: "Tickets",
+        },
+        component: () => import("@/views/data_conversion/index.vue"),
+        children: [
+          {
+            path: "statement1",
+            name: "statement1",
+            label: "数据报表1",
+            meta: {
+              title: "数据报表1",
+              hidden: false,
+              icon: "TrendCharts",
+            },
+            component: () => import("@/views/data_conversion/statement1.vue"),
+          },
+        ],
+      },
     ],
   },
-  {
-    path: "/about",
-    name: "about",
-    component: () => import("@/views/AboutView.vue"),
-  },
+  // {
+  //   path: "/about",
+  //   name: "about",
+  //   component: () => import("@/views/AboutView.vue"),
+  // },
   {
     path: "/:pathMatch(.*)*",
     meta: {

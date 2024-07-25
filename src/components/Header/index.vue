@@ -1,104 +1,127 @@
 <template>
-    <el-header class="top">
-      <component v-if="isCollapse == true" :is="Expand" @click="handleClick" class="expandFold"></component>
-      <component v-else :is="Fold" @click="handleClick" class="expandFold"></component>
-      <div class="avatar_dropdown">
-        <screenfull class="right-menu-item hover-effect" />
-        <el-avatar :size="50" class="avatar_img" :src="imageList" @error="errorHandler"></el-avatar>
-        <el-dropdown @command="quitOut">
-          <span class="el-dropdown-link">
-            <span v-if="userInfo && userInfo !== null">你好: {{ userInfo?.userInfo?.loginName }}</span>
-            <el-icon class="el-icon--right">
-              <arrow-down />
-            </el-icon>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="a">关于</el-dropdown-item>
-              <el-dropdown-item command="q">退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+  <el-header class="header_top">
+    <component
+      :is="isCollapse ? Expand : Fold"
+      @click="handleClick"
+      class="expandFold"
+    ></component>
+    <div class="avatar_dropdown">
+      <div class="avatar_dropdown_plane_switch">
+        <el-tooltip
+          :effect="tooltipEffect"
+          :content="tooltipContent"
+          placement="bottom"
+        >
+          <PlaneSwitch />
+        </el-tooltip>
       </div>
-    </el-header>
-  </template>
-  
-  <script setup lang="ts">
-  import { ElMessage } from "element-plus";
-  import { ArrowDown, Expand, Fold } from "@element-plus/icons-vue";
-  import { useRouter } from "vue-router";
-  import { computed, ref } from "vue";
-  import { userPomotionStore } from "@/store";
-  import Screenfull from "@/components/Screenfull/index.vue";
-  
-  const emptyImage = ref('../assets/images/pkqiou.png');
-  
-  const errorHandler = (event:any) => {
-    event.target.src = emptyImage.value;
-  };
-  const router = useRouter();
-  const store = userPomotionStore();
-  const userInfo = computed(() => store.userInfo);
-  const imageList = computed(() => userInfo.value?.userInfo?.avatar);
-  
-  const isCollapse = computed(() => store.isCollapse);
-  const handleClick = () => {
-    store.statusChange();
-  };
-  
-  const quitOut = (str: any) => {
-    switch (str) {
-      case "a":
-        ElMessage({
-          message: "暂不处理",
-          type: "warning",
-        });
-        break;
-      case "q":
-        localStorage.removeItem("token");
-        store.$state.userInfo = {};
-        router.push("/login");
-        break;
-      default:
-        break;
-    }
-  };
-  </script>
-  
-  <style lang="scss" scoped>
-  .top {
-    padding-top: 40px;
+      <ScreenFull />
+      <el-avatar
+        :size="50"
+        class="avatar_img"
+        :src="imageList"
+        @error="errorHandler"
+      ></el-avatar>
+      <el-dropdown @command="quitOut">
+        <span class="el-dropdown-link">
+          <span v-if="userInfo">你好: {{ userInfo.loginName }}</span>
+          <el-icon class="el-icon--right">
+            <ArrowDown />
+          </el-icon>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="a">关于</el-dropdown-item>
+            <el-dropdown-item command="q">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
+  </el-header>
+</template>
+
+<script setup lang="ts">
+import { ElMessage } from "element-plus";
+import { ArrowDown, Expand, Fold } from "@element-plus/icons-vue";
+import { useRouter } from "vue-router";
+import { computed, ref } from "vue";
+import { userPomotionStore } from "@/store";
+import ScreenFull from "@/components/ScreenFull/index.vue";
+import PlaneSwitch from "@/components/PlaneSwitch/index.vue";
+import emptyImagePath from "../../assets/images/pkqiou.png";
+
+
+const store = userPomotionStore();
+const darkAndLight = computed(() => store.dark_and_light);
+const emptyImage = ref(emptyImagePath);
+const tooltipEffect = ref<string>("dark");
+const tooltipContent = computed<string>(() => (darkAndLight.value ? "关灯" : "开灯"));
+const errorHandler = (event: Event) => {
+  (event.target as HTMLImageElement).src = emptyImage.value;
+};
+
+const router = useRouter();
+const userInfo = computed(() => store.userInfo?.userInfo);
+const imageList = computed(() => userInfo.value?.avatar || emptyImage.value);
+const isCollapse = computed(() => store.isCollapse);
+
+const handleClick = () => {
+  store.statusChange();
+};
+
+const quitOut = (command: string) => {
+  switch (command) {
+    case "a":
+      ElMessage({
+        message: "暂不处理",
+        type: "warning",
+      });
+      break;
+    case "q":
+      localStorage.removeItem("token");
+      store.$reset();
+      router.push("/login");
+      break;
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.avatar_dropdown_plane_switch {
+  margin-right: 10px;
+}
+.header_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 14px;
+  height: 100px;
+  width: 100%;
+  background-color: #d2cbcb;
+
+  .expandFold {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .avatar_dropdown {
     display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    text-align: right;
-    font-size: 14px;
-    height: 100px;
-    width: 100%;
-    background-color: #d2cbcb;
-  
-    .expandFold {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
-  
-    .avatar_dropdown {
-      display: flex;
-  
-      .avatar_img {
-        margin-top: -10px;
-        margin-right: 10px;
-      }
+    align-items: center;
+    .avatar_img {
+      margin-top: -10px;
+      margin-right: 10px;
     }
   }
-  
-  .el-dropdown-link {
+}
+
+.el-dropdown-link {
+  outline: none;
+
+  &:hover {
     outline: none;
-  
-    &:hover {
-      outline: none;
-    }
   }
-  </style>
-  
+}
+</style>
