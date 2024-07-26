@@ -4,7 +4,7 @@ import type { MetaInfo, UserPromotionState, UserPromotionStateKeys } from '@/typ
 export const userPomotionStore = defineStore('promotion', {
   state: (): UserPromotionState => {
     return {
-      dark_and_light: false,
+      dark_and_light: true,
       userInfo: {},
       isCollapse: false,
       metaInfo: {
@@ -64,6 +64,6 @@ export const userPomotionStore = defineStore('promotion', {
   persist: {
     // 使用默认配置进行持久化
     storage: localStorage,
-    paths: ['userInfo', 'isCollapse']
+    paths: ['userInfo', 'isCollapse','dark_and_light']
   },
 });

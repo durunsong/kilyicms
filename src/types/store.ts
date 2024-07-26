@@ -4,6 +4,7 @@ export interface MetaInfo {
     description: string;
   }
   export interface UserPromotionState {
+    dark_and_light:boolean;
     userInfo: Record<string, any>;
     isCollapse: boolean;
     affcode: string;

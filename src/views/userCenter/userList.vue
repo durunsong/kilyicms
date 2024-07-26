@@ -84,6 +84,7 @@ interface ListItem {
   id: number;
   name: string;
   description: string;
+  password:string;
 }
 
 // 测试字段类型 ----不用可删除----
@@ -99,8 +100,6 @@ interface User extends Omit<ListItem, 'id'> {
   avatar: string;
 }
 
-const startTime = ref<Date | null>(null);
-const endTime = ref<Date | null>(null);
 const pickerDatas = ref<[Date, Date] | null>(null);
 const userList = ref<ListItem[]>([]);
 const total = ref<number>(0);

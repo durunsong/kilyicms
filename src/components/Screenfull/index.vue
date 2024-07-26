@@ -2,7 +2,7 @@
   <div class="screenfull_container">
     <div class="fullscreen" @click="onToggle">
       <el-tooltip :effect="tooltipEffect" :content="tooltipContent" placement="bottom">
-        <SvgIcon :name="iconHref" width="32" height="32"/>
+        <SvgIcon :name="iconHref" width="32" height="32" />
       </el-tooltip>
     </div>
   </div>

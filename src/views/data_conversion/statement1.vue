@@ -1,5 +1,6 @@
 <template>
     <div>
+      主页
       <PlaneSwitch />
     </div>
   </template>

@@ -13,20 +13,25 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref,computed } from 'vue';
-  import SvgIcon from "@/components/SvgIcon/index.vue";
-  import { userPomotionStore } from "@/store";
-  const store = userPomotionStore();
+import { ref, watch } from 'vue';
+import SvgIcon from "@/components/SvgIcon/index.vue";
+import { userPomotionStore } from "@/store";
+const store = userPomotionStore();
 
-  const darkAndLight = computed(() => store.dark_and_light);
+const checked = ref(store.dark_and_light);
 
-  const checked = ref(false);
+watch(() => store.dark_and_light, (newVal) => {
+  checked.value = newVal;
+});
 
-  const handleChange = () => {
-    console.log('Switch toggled', checked.value);
-    store.dark_and_light = checked.value;
-  };
-  </script>
+watch(checked, (newVal) => {
+  store.dark_and_light = newVal;
+});
+
+const handleChange = () => {
+  console.log('Switch toggled', checked.value);
+};
+</script>
   
   <style scoped>
   body {

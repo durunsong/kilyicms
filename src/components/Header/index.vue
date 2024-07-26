@@ -1,27 +1,17 @@
 <template>
   <el-header class="header_top">
-    <component
-      :is="isCollapse ? Expand : Fold"
-      @click="handleClick"
-      class="expandFold"
-    ></component>
+    <div class="expandFoldAndIsCollapse">
+      <component :is="isCollapse ? Expand : Fold" @click="handleClick" class="expandFold"></component>
+      <TabBreadcrumb/>
+    </div>
     <div class="avatar_dropdown">
-      <div class="avatar_dropdown_plane_switch">
-        <el-tooltip
-          :effect="tooltipEffect"
-          :content="tooltipContent"
-          placement="bottom"
-        >
+      <el-tooltip :effect="tooltipEffect" :content="tooltipContent" placement="bottom">
+        <div class="avatar_dropdown_plane_switch">
           <PlaneSwitch />
-        </el-tooltip>
-      </div>
+        </div>
+      </el-tooltip>
       <ScreenFull />
-      <el-avatar
-        :size="50"
-        class="avatar_img"
-        :src="imageList"
-        @error="errorHandler"
-      ></el-avatar>
+      <el-avatar :size="50" class="avatar_img" :src="imageList" @error="errorHandler"></el-avatar>
       <el-dropdown @command="quitOut">
         <span class="el-dropdown-link">
           <span v-if="userInfo">你好: {{ userInfo.loginName }}</span>
@@ -49,13 +39,13 @@ import { userPomotionStore } from "@/store";
 import ScreenFull from "@/components/ScreenFull/index.vue";
 import PlaneSwitch from "@/components/PlaneSwitch/index.vue";
 import emptyImagePath from "../../assets/images/pkqiou.png";
-
+import TabBreadcrumb from "@/components/TabBreadcrumb/index.vue";
 
 const store = userPomotionStore();
 const darkAndLight = computed(() => store.dark_and_light);
 const emptyImage = ref(emptyImagePath);
 const tooltipEffect = ref<string>("dark");
-const tooltipContent = computed<string>(() => (darkAndLight.value ? "关灯" : "开灯"));
+const tooltipContent = computed<string>(() => (darkAndLight.value ? "开灯" : "关灯"));
 const errorHandler = (event: Event) => {
   (event.target as HTMLImageElement).src = emptyImage.value;
 };
@@ -90,6 +80,7 @@ const quitOut = (command: string) => {
 .avatar_dropdown_plane_switch {
   margin-right: 10px;
 }
+
 .header_top {
   display: flex;
   justify-content: space-between;
@@ -100,16 +91,24 @@ const quitOut = (command: string) => {
   height: 100px;
   width: 100%;
   background-color: #d2cbcb;
-
-  .expandFold {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+  
+  
+  .expandFoldAndIsCollapse{
+    display: flex;
+    align-items: center;
+    .expandFold {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      margin-right: 20px
+    }
   }
+
 
   .avatar_dropdown {
     display: flex;
     align-items: center;
+
     .avatar_img {
       margin-top: -10px;
       margin-right: 10px;

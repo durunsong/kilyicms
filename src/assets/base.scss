@@ -15,3 +15,21 @@
   a:hover {
     color: #ff2840;
   }
+
+  :root {
+    --bg-color: #fff;
+    background-color: var(--bg-color);
+  }
+  
+  :root.dark {
+    --bg-color: #000;
+  }
+  
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation: none;
+  }
+  
+  .dark::view-transition-old(root) {
+    z-index: 1000;
+  }

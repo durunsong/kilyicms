@@ -1,4 +1,4 @@
-// 事件防抖函数
+// 事件防抖hooks
 import { ref, onUnmounted } from 'vue';
 
 type Timer = ReturnType<typeof setTimeout> | null;

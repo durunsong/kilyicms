@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { Edit } from "@element-plus/icons-vue";
-import DrButton from "../../components/DrButton.vue";
+import DrButton from "../组件测试/DrButton.vue";
 </script>
 
 <style scoped></style>
