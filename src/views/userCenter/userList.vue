@@ -1,29 +1,31 @@
 <template>
   <div>
     <div class="search_container">
-      <el-input class="search_input" v-model.trim="searchKeyword" placeholder="请输入搜索关键字" @keyup.enter="handleSearchItems"
-        clearable @clear="handleclearIpt" />
+      <el-input class="search_input" v-model.trim="searchKeyword" :placeholder="t('please_enter')"
+        @keyup.enter="handleSearchItems" clearable @clear="handleclearIpt" />
       <div class="date_time_picker">
-        <el-date-picker v-model="pickerDatas" type="datetimerange" start-placeholder="开始时间" end-placeholder="结束时间"
-          format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD" @change="formatHandleChange"/>
+        <el-date-picker v-model="pickerDatas" type="datetimerange" :start-placeholder="t('start_time')"
+          :end-placeholder="t('end_time')" format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD"
+          @change="formatHandleChange" />
       </div>
-      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">清除</el-button>
-      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">搜索</el-button>
+      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t('clear') }}</el-button>
+      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems"
+        icon="Search">{{ t('search') }}</el-button>
     </div>
-    <el-button class="add_btn" type="primary" @click="showAddDialog = true">添加项目</el-button>
+    <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{ t('Add_personnel') }}</el-button>
     <el-table :data="userList" style="width: 100%">
-      <el-table-column label="序号" width="100">
+      <el-table-column :label="t('serial_number')" width="100">
         <template #default="scope">
           {{ scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="名称" align="center"></el-table-column>
-      <el-table-column prop="create_time" label="创建时间" align="center"></el-table-column>
-      <el-table-column prop="update_time" label="更新时间" align="center"></el-table-column>
-      <el-table-column label="操作" align="center">
+      <el-table-column prop="name" :label="t('name')" align="center"></el-table-column>
+      <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
+      <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
+      <el-table-column :label="t('operates')" align="center">
         <template #default="scope">
-          <el-button @click="editItem(scope.row)">编辑</el-button>
-          <el-button type="danger" @click="deleteItem(scope.row.id)">删除</el-button>
+          <el-button @click="editItem(scope.row)">{{ t('edit') }}</el-button>
+          <el-button type="danger" @click="deleteItem(scope.row.id)">{{ t('delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -32,42 +34,41 @@
         layout="prev, pager, next, jumper" :total="total" :current-page="queryParams.pageNum"
         :page-size="queryParams.pageSize" />
     </div>
-
-    <!-- 添加项目的对话框 -->
-    <el-dialog title="添加项目" v-model="showAddDialog">
+    <!-- add dialog -->
+    <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
       <el-form :model="newItem">
-        <el-form-item label="账号名称">
+        <el-form-item :label="t('Account_name')">
           <el-input v-model="newItem.name"></el-input>
         </el-form-item>
-        <el-form-item label="密码">
+        <el-form-item :label="t('password')">
           <el-input v-model="newItem.password"></el-input>
         </el-form-item>
-        <el-form-item label="描述">
+        <el-form-item :label="t('description')">
           <el-input v-model="newItem.description"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="showAddDialog = false">取消</el-button>
-        <el-button type="primary" @click="addItem">添加</el-button>
+        <el-button @click="showAddDialog = false">{{ t('confirm_cancel_text') }}</el-button>
+        <el-button type="primary" @click="addItem">{{ t('add') }}</el-button>
       </div>
     </el-dialog>
 
-    <!-- 编辑项目的对话框 -->
-    <el-dialog title="编辑项目" v-model="showEditDialog">
+    <!-- edit dialog -->
+    <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
       <el-form :model="editItemData">
-        <el-form-item label="名称">
+        <el-form-item :label="t('name')">
           <el-input v-model="editItemData.name"></el-input>
         </el-form-item>
-        <el-form-item label="密码">
+        <el-form-item :label="t('password')">
           <el-input v-model="editItemData.password"></el-input>
         </el-form-item>
-        <el-form-item label="描述">
+        <el-form-item :label="t('description')">
           <el-input v-model="editItemData.description"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="showEditDialog = false">取消</el-button>
-        <el-button type="primary" @click="updateItem">更新</el-button>
+        <el-button @click="showEditDialog = false">{{ t('confirm_cancel_text') }}</el-button>
+        <el-button type="primary" @click="updateItem">{{ t('update') }}</el-button>
       </div>
     </el-dialog>
   </div>
@@ -79,12 +80,15 @@ import { ElMessage } from 'element-plus';
 import { getListApi, addItemApi, updateItemApi, deleteItemApi } from '@/service/user';
 import useMomentFormat from '@/hooks/useMomentFormat';
 import { useDebounce } from '@/hooks/useDebounce';
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
 
 interface ListItem {
   id: number;
   name: string;
   description: string;
-  password:string;
+  password: string;
 }
 
 // 测试字段类型 ----不用可删除----
@@ -137,11 +141,11 @@ const formatHandleChange = (value: [Date, Date] | null) => {
 }
 // 清空
 const handleClearItems = () => {
-  if(pickerDatas.value||searchKeyword.value){
+  if (pickerDatas.value || searchKeyword.value) {
     pickerDatas.value = null;
     formatHandleChange(null);
     handleclearIpt();
-    ElMessage.success('清空成功');
+    ElMessage.success(t('Clear_successfully'));
   }
 };
 
@@ -160,7 +164,7 @@ const fetchItems = async () => {
     userList.value = response.data;
     total.value = response.total;
   } catch (error) {
-    ElMessage.error('获取数据失败');
+    ElMessage.error(t('Data_acquisition_failure'));
   }
 };
 
@@ -174,13 +178,13 @@ const addItem = async () => {
       newItem.value.name = '';
       newItem.value.password = '';
       newItem.value.description = '';
-      ElMessage.success('添加成功');
+      ElMessage.success(t('Add_successful'));
       fetchItems();
     } else {
       ElMessage.error(response.message);
     }
   } catch (error) {
-    ElMessage.error('添加失败');
+    ElMessage.error(t('fail_to_add'));
   }
 };
 
@@ -200,13 +204,13 @@ const updateItem = async () => {
       if (response.status === 200) {
         fetchItems();
         showEditDialog.value = false;
-        ElMessage.success('更新成功');
+        ElMessage.success(t('update_successfully'));
       } else {
-        ElMessage.error(response.message || '更新失败');
+        ElMessage.error(response.message || t('Update_failure'));
       }
     }
   } catch (error) {
-    ElMessage.error('更新失败');
+    ElMessage.error(t('Update_failure'));
   }
 };
 
@@ -216,21 +220,21 @@ const deleteItem = async (id: number) => {
     const response = await deleteItemApi(id);
     if (response.status === 200) {
       fetchItems();
-      ElMessage.success('删除成功');
+      ElMessage.success(t('successfully_delete'));
     } else {
-      ElMessage.error('删除失败');
+      ElMessage.error(t('fail_to_delete'));
     }
   } catch (error) {
-    ElMessage.error('删除失败');
+    ElMessage.error(t('fail_to_delete'));
   }
 };
 
 // 搜索
 const handleSearchItems = () => {
   // 搜索非空防抖
-  if(pickerDatas.value||searchKeyword.value){
-  queryParams.pageNum = 1;
-  fetchItems();
+  if (pickerDatas.value || searchKeyword.value) {
+    queryParams.pageNum = 1;
+    fetchItems();
   }
 };
 
@@ -264,8 +268,9 @@ onMounted(() => {
 :deep(.el-date-editor) {
   height: 41px;
 }
-:deep(.el-table__header){
-  background-color:#eaeaea;
+
+:deep(.el-table__header) {
+  background-color: #eaeaea;
 }
 
 .search_container {

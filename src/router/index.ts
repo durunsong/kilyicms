@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory ,RouteRecordRaw  } from "vue-router";
 import { CustomRouteRecordRaw } from "@/types/routerType";
 
 export const routes: Array<CustomRouteRecordRaw> = [
@@ -9,16 +9,16 @@ export const routes: Array<CustomRouteRecordRaw> = [
   {
     path: "/login",
     meta: {
-      title: "登录",
+      title: 'router_login',
     },
     component: () => import("@/views/login/index.vue"),
   },
   {
     path: "/home",
     name: "home",
-    label: "主页",
+    label: 'router_home',
     meta: {
-      title: "主页",
+      title: 'router_home',
       hidden: false,
       icon: "House",
     },
@@ -27,22 +27,23 @@ export const routes: Array<CustomRouteRecordRaw> = [
     redirect: "/home/data_conversion/statement1",
     children: [
       {
-        label: "个人中心",
+        label: "router_user",
         path: "mine",
         name: "mine",
         meta: {
-          title: "个人中心",
+          title: "router_user",
           hidden: false,
           icon: "User",
         },
+        redirect: "/home/mine/setting",
         component: () => import("@/views/userCenter/userView.vue"),
         children: [
           {
             path: "setting",
             name: "setting",
-            label: "用户管理",
+            label: "router_user_management",
             meta: {
-              title: "用户管理",
+              title: "router_user_management",
               hidden: false,
               icon: "UserFilled",
             },
@@ -51,9 +52,9 @@ export const routes: Array<CustomRouteRecordRaw> = [
           {
             path: "user_recycle_bin",
             name: "user_recycle_bin",
-            label: "用户回收站",
+            label: "router_user_recycle_bin",
             meta: {
-              title: "用户回收站",
+              title: "router_user_recycle_bin",
               hidden: false,
               icon: "DeleteFilled",
             },
@@ -62,46 +63,48 @@ export const routes: Array<CustomRouteRecordRaw> = [
         ],
       },
       {
-        label: "富文本总结",
+        label: "router_Rich_text_summary",
         path: "rich_text",
         name: "rich_text",
         meta: {
-          title: "富文本总结",
-          hidden: true,
-          icon: "UserFilled",
+          title: "router_Rich_text_summary",
+          hidden: false,
+          icon: "Edit",
         },
+        redirect: "/home/rich_text/wang",
         component: () => import("@/views/rich_text/rich_text_view.vue"),
         children: [
           {
             path: "wang",
             name: "wang",
-            label: "@wang富文本",
+            label: "router_wang_rich_text",
             meta: {
-              title: "@wang富文本",
+              title: "router_wang_rich_text",
               hidden: false,
-              icon: "UserFilled",
+              icon: "EditPen",
             },
             component: () => import("@/views/rich_text/wang_one.vue"),
           },
         ],
       },
       {
-        label: "AntV",
+        label: "router_AntV",
         path: "AntV",
         name: "AntV",
         meta: {
-          title: "AntV",
+          title: "router_AntV",
           hidden: false,
           icon: "Operation",
         },
+        redirect: "/home/AntV/g6-1",
         component: () => import("@/views/g6/index.vue"),
         children: [
           {
             path: "g6-1",
-            name: "g6演示",
-            label: "g6-1",
+            name: "router_g6_Demo",
+            label: "router_g6_Demo",
             meta: {
-              title: "g6演示",
+              title: "router_g6_Demo",
               hidden: false,
               icon: "Stopwatch",
             },
@@ -110,22 +113,23 @@ export const routes: Array<CustomRouteRecordRaw> = [
         ],
       },
       {
-        label: "笔记",
+        label: "router_note",
         path: "notes",
         name: "notes",
         meta: {
-          title: "笔记",
+          title: "router_note",
           hidden: false,
           icon: "Calendar",
         },
+        redirect: "/home/notes/note_one",
         component: () => import("@/views/learn_notes/index.vue"),
         children: [
           {
             path: "note_one",
             name: "note_one",
-            label: "笔记1",
+            label: "router_note1",
             meta: {
-              title: "@笔记1",
+              title: "router_note1",
               hidden: false,
               icon: "Bowl",
             },
@@ -134,9 +138,9 @@ export const routes: Array<CustomRouteRecordRaw> = [
           {
             path: "note_two",
             name: "note_two",
-            label: "笔记2",
+            label: "router_note2",
             meta: {
-              title: "@笔记2",
+              title: "router_note2",
               hidden: false,
               icon: "Sugar",
             },
@@ -145,9 +149,9 @@ export const routes: Array<CustomRouteRecordRaw> = [
           {
             path: "note_three",
             name: "note_three",
-            label: "笔记3",
+            label: "router_note3",
             meta: {
-              title: "@笔记3",
+              title: "router_note3",
               hidden: false,
               icon: "MilkTea",
             },
@@ -156,22 +160,23 @@ export const routes: Array<CustomRouteRecordRaw> = [
         ],
       },
       {
-        label: "数据转化",
+        label: "router_data_conversion",
         path: "data_conversion",
         name: "data_conversion",
         meta: {
-          title: "数据转化",
+          title: "router_data_conversion",
           hidden: true,
           icon: "Tickets",
         },
+        redirect: "/home/data_conversion/statement1",
         component: () => import("@/views/data_conversion/index.vue"),
         children: [
           {
             path: "statement1",
             name: "statement1",
-            label: "数据报表1",
+            label: "router_data_report1",
             meta: {
-              title: "数据报表1",
+              title: "router_data_report1",
               hidden: false,
               icon: "TrendCharts",
             },
@@ -181,15 +186,10 @@ export const routes: Array<CustomRouteRecordRaw> = [
       },
     ],
   },
-  // {
-  //   path: "/about",
-  //   name: "about",
-  //   component: () => import("@/views/AboutView.vue"),
-  // },
   {
     path: "/:pathMatch(.*)*",
     meta: {
-      title: "哦豁!404",
+      title: "wow!404",
     },
     component: () => import("@/views/notFound/index.vue"),
   },
@@ -197,7 +197,7 @@ export const routes: Array<CustomRouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+  routes : routes as RouteRecordRaw[],
 });
 
 // router.afterEach((to, from, next) => {

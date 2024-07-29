@@ -11,7 +11,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import screenfull from "screenfull";
-import SvgIcon from "@/components/SvgIcon/index.vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 const isFullscreen = ref<boolean>(false);
 
@@ -32,7 +33,7 @@ onUnmounted(() => {
 });
 
 const tooltipEffect = ref<string>("dark");
-const tooltipContent = computed<string>(() => (isFullscreen.value ? "退出全屏" : "全屏"));
+const tooltipContent = computed<string>(() => (isFullscreen.value ? t('Exit_full_screen') : t('Enter_full_screen')));
 const iconHref = computed<string>(() => (isFullscreen.value ? "exit_full_screen" : "full_screen"));
 </script>
 

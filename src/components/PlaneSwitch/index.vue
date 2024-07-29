@@ -14,7 +14,6 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import SvgIcon from "@/components/SvgIcon/index.vue";
 import { userPomotionStore } from "@/store";
 const store = userPomotionStore();
 

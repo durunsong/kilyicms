@@ -10,4 +10,5 @@ export function setupStore(app: App<Element>) {
   app.use(store);
 }
 export * from "./modules/promotion";
+// export * from "./modules/langStore";
 export { store };

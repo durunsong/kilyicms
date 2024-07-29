@@ -11,6 +11,9 @@
         </div>
       </el-tooltip>
       <ScreenFull />
+      <div class='select_language_popover'>
+        <LanguageSwitcher/>
+      </div>
       <el-avatar :size="50" class="avatar_img" :src="imageList" @error="errorHandler"></el-avatar>
       <el-dropdown @command="quitOut">
         <span class="el-dropdown-link">
@@ -40,12 +43,15 @@ import ScreenFull from "@/components/ScreenFull/index.vue";
 import PlaneSwitch from "@/components/PlaneSwitch/index.vue";
 import emptyImagePath from "../../assets/images/pkqiou.png";
 import TabBreadcrumb from "@/components/TabBreadcrumb/index.vue";
+import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 const store = userPomotionStore();
 const darkAndLight = computed(() => store.dark_and_light);
 const emptyImage = ref(emptyImagePath);
 const tooltipEffect = ref<string>("dark");
-const tooltipContent = computed<string>(() => (darkAndLight.value ? "开灯" : "关灯"));
+const tooltipContent = computed<string>(() => (darkAndLight.value ? t('dark') : t('light')));
 const errorHandler = (event: Event) => {
   (event.target as HTMLImageElement).src = emptyImage.value;
 };
@@ -112,6 +118,11 @@ const quitOut = (command: string) => {
     .avatar_img {
       margin-top: -10px;
       margin-right: 10px;
+    }
+    .select_language_popover{
+      display: flex;
+      align-items: center;
+      margin-right: 10px
     }
   }
 }

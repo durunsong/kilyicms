@@ -1,13 +1,15 @@
-import { RouteRecordRaw } from "vue-router";
-
 interface CustomMeta {
   title: string;
   hidden?: boolean;
   icon?: string;
 }
 
-// 自定义label
-export interface CustomRouteRecordRaw extends Omit<RouteRecordRaw, 'meta'> {
+export interface CustomRouteRecordRaw {
+  path: string;
+  name?: string;
   label?: string;
   meta?: CustomMeta;
+  redirect?: string;
+  component?: any;
+  children?: CustomRouteRecordRaw[];
 }

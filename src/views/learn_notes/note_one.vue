@@ -33,9 +33,6 @@ import { Delete, Plus, ZoomIn } from "@element-plus/icons-vue";
 import {
   reactive,
   ref,
-  defineProps,
-  defineEmits,
-  computed,
   getCurrentInstance,
 } from "vue";
 import { ElMessage } from "element-plus";
