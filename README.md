@@ -24,7 +24,7 @@ kilyicms 项目是一个使用 Vue3 和 vite 构建的应用程序，用于 kily
 15.自定义指令全局封装
 ```
 
-## 安装
+## 项目安装
 
 确保你已经安装了 Node.js 和 npm（或者使用 pnpm/yarn）。然后运行以下命令安装项目的依赖项：
 
@@ -119,4 +119,12 @@ Axios
 Vue-Router
 Vue-I18n
 Vue-Clipboard3
+```
+
+### 自动化翻译程序
+##### 准备：百度翻译api---------> appid appkey
+##### 代码仓库 (具体看百度翻译api文档)
+```
+https://github.com/durunsong/Baidu-trans.git
+
 ```
