@@ -141,7 +141,7 @@ mysql2
 [点击这里访问我的另一个仓库](https://github.com/durunsong/Baidu-trans.git)
 
 
-#### 该仓库代码提交git规范
+### 该仓库代码提交git规范
 ```
 feat - 新功能 feature
 fix - 修复 bug
