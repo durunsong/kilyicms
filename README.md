@@ -96,7 +96,6 @@ pnpm run start
 ##### 命令
 vercel --cwd ./kilyicms/
 
-``` json
 {
   "projectId": "prj_rQGnnAhMevC2sjiwCCppvCu48nny",
   "orgId": "team_j4xDsAAIpUmffVZAX8ry8btS",
@@ -105,26 +104,38 @@ vercel --cwd ./kilyicms/
   ]
 }
 
-````
 
 ### 技术栈
 
-```
-Vue3
-Vite5
+前端部分：
+vue3
+vite5
 Pinia
-TypeScript
-Element-Plus
-Axios
-Vue-Router
-Vue-I18n
-Vue-Clipboard3
-```
+pinia-plugin-persistedstate
+typeScript
+element-Plus
+axios
+vue-Router
+vue-I18n
+vue-Clipboard3
+fingerprintjs
+moment
+@wangeditor
+screenfull
+sass
+terser
+uuid
 
-### 自动化翻译程序
+后端部分：
+body-parser
+cors
+express
+moment
+mysql2
+
+
+### 国际化多语言自动化翻译程序
 ##### 准备：百度翻译api---------> appid appkey
 ##### 代码仓库 (具体看百度翻译api文档)
-```
-https://github.com/durunsong/Baidu-trans.git
 
-```
+[点击这里访问我的另一个仓库](https://github.com/durunsong/Baidu-trans.git)
