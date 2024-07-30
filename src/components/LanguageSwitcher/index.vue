@@ -107,10 +107,10 @@ const confirmLang = () => {
 
 :deep(.is-checked) {
   border: 1px solid #1296db;
-  background-color: #0e90aa33;
+  background-color: #1296db;
 
   .el-checkbox__label {
-    color: #1296db;
+    color: #ffffff;
   }
 
   .el-checkbox__input {
@@ -119,7 +119,7 @@ const confirmLang = () => {
 }
 
 :deep(.el-checkbox.is-bordered.is-checked) {
-  border-color: #1296db;
+  border-color: #176ec5;
 }
 
 :deep(.el-checkbox) {
