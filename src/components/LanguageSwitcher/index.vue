@@ -135,6 +135,9 @@ const confirmLang = () => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    color: #1296db;
+  }
 }
 
 .category_btn_cate {
@@ -157,6 +160,10 @@ const confirmLang = () => {
       align-items: center;
       justify-content: center;
       margin-top: 10px;
+      &:hover {
+        background-color: rgba(40, 167, 235, 0.87);
+        color: #ffffff;
+      }
     }
   }
 
@@ -185,6 +192,9 @@ const confirmLang = () => {
       height: 30px;
       border-radius: 5px;
       cursor: pointer;
+      &:hover {
+        background-color: #0e90aa;
+      }
     }
   }
 
@@ -205,6 +215,9 @@ const confirmLang = () => {
       height: 30px;
       border-radius: 5px;
       cursor: pointer;
+      &:hover {
+        background-color: #d6d6d6;
+      }
     }
   }
 

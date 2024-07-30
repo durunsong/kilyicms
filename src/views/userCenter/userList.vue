@@ -299,7 +299,7 @@ onMounted(() => {
 }
 
 .add_btn {
-  width: 100px;
+  width: fit-content;
   height: 41px;
   margin-top: 10px;
   margin-bottom: 20px;
