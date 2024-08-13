@@ -1,10 +1,10 @@
 <template>
   <div class="landingpage2">
     <div class="top_landingpage">
-      <el-image :src="tuiguangURL + '/common/HagoBuy.png'" class="tg_logo" lazy />
+      <el-image :src="tuiguangURL + '/common/kilyimall.png'" class="tg_logo" lazy />
       <div class="top_landingpage_right">
-        <el-button class="top_landingpage_red_button" @click="goHagoBuyRe">SIGN UP</el-button>
-        <el-button class="top_landingpage_white_button" @click="goHagoBuyLogin">SIGN IN</el-button>
+        <el-button class="top_landingpage_red_button" @click="gokilyimallRe">SIGN UP</el-button>
+        <el-button class="top_landingpage_white_button" @click="gokilyimallLogin">SIGN IN</el-button>
       </div>
       <!-- 移动端效果 -->
       <div class="top_landingpage_icon">
@@ -18,8 +18,8 @@
     <transition name="fade">
       <div class="banner_land_page" v-if="isFlag">
         <div class="banner_land_page_in">
-          <el-button class="btn1" @click="goHagoBuyRe">SIGN UP</el-button>
-          <el-button class="btn2" @click="goHagoBuyLogin">SIGN IN</el-button>
+          <el-button class="btn1" @click="gokilyimallRe">SIGN UP</el-button>
+          <el-button class="btn2" @click="gokilyimallLogin">SIGN IN</el-button>
         </div>
       </div>
     </transition>
@@ -27,30 +27,30 @@
       <div class="posi_images">
         <div class="podsition_div">
           <div class="btn_div">
-            <span class="btn_click" @click.stop="confirmHandler('GG-HAGOBUYS_GOOD')">Click to claim</span>
+            <span class="btn_click" @click.stop="confirmHandler('GG-kilyimallS_GOOD')">Click to claim</span>
           </div>
         </div>
         <el-image src="https://nuxt-static-oss.oss-cn-hangzhou.aliyuncs.com/laoza.png" class="banner_img" lazy />
       </div>
       <el-image src="https://nuxt-static-oss.oss-cn-hangzhou.aliyuncs.com/laoza.png" class="banner_img"
-        @click="goHagoBuyRe" lazy />
+        @click="gokilyimallRe" lazy />
       <div class="swiper_product">
         <el-carousel indicator-position="none" :height="carouselHeight" ref="slideCarousel" :autoplay="autoplayTa">
           <el-carousel-item v-for="item in 5" :key="item">
             <el-image :src="'https://nuxt-static-oss.oss-cn-hangzhou.aliyuncs.com/mao-' + item + '.png'"
-              @click="goHagoBuyRe" class="banner_img_swiper" lazy />
+              @click="gokilyimallRe" class="banner_img_swiper" lazy />
           </el-carousel-item>
         </el-carousel>
       </div>
       <el-image src="https://nuxt-static-oss.oss-cn-hangzhou.aliyuncs.com/laoza.png" class="banner_img"
-        @click="goHagoBuyRe" lazy />
+        @click="gokilyimallRe" lazy />
       <el-image src="https://nuxt-static-oss.oss-cn-hangzhou.aliyuncs.com/laoza.png" class="banner_img"
-        @click="goHagoBuyRe" lazy />
+        @click="gokilyimallRe" lazy />
       <el-image src="https://nuxt-static-oss.oss-cn-hangzhou.aliyuncs.com/laoza.png" class="banner_img"
-        @click="goHagoBuyRe" lazy />
+        @click="gokilyimallRe" lazy />
     </div>
     <div class="fixed_btn" v-if="showFixedBtn">
-      <div class="flxed_btn_in" @click.stop="confirmHandler('GG-HAGOBUYS_GOOD')">
+      <div class="flxed_btn_in" @click.stop="confirmHandler('GG-kilyimallS_GOOD')">
         <span>Click to claim</span>
       </div>
     </div>
@@ -63,7 +63,7 @@
         <el-button @click="centerDialogVisible = false">{{
         t("confirm_cancel_text")
       }}</el-button>
-        <el-button type="danger" @click="confirmHandler('GG-HAGOBUYS_GOOD')">
+        <el-button type="danger" @click="confirmHandler('GG-kilyimallS_GOOD')">
           {{ t("confirm_ok_text") }}
         </el-button>
       </div>
@@ -123,25 +123,25 @@ const arr2 = ['面', '试']
 const confirmHandler = async (text: string): Promise<void> => {
   // centerDialogVisible.value = false;
   await toClipboard(text);
-  await goHagoBuyRe();
+  await gokilyimallRe();
 };
 const handlerDialog = () => {
   centerDialogVisible.value = true;
 };
 
-const goHagoBuyLogin = () => {
-  window.open(store.dynamicURLKeys('hagobuyLoginURL'), "_blank");  // pc
-  // window.open(store.dynamicURLKeys('m_hagobuyLoginURL'), "_blank");  // mobile
+const gokilyimallLogin = () => {
+  window.open(store.dynamicURLKeys('kilyimallLoginURL'), "_blank");  // pc
+  // window.open(store.dynamicURLKeys('m_kilyimallLoginURL'), "_blank");  // mobile
 };
 
-const goHagoBuyRe = () => {
-  window.open(store.dynamicURLKeys('hagobuyURL'), "_blank");  // pc
-  // window.open(store.dynamicURLKeys('m_hagobuyURL'), "_blank");  // mobile
+const gokilyimallRe = () => {
+  window.open(store.dynamicURLKeys('kilyimallURL'), "_blank");  // pc
+  // window.open(store.dynamicURLKeys('m_kilyimallURL'), "_blank");  // mobile
 };
 
-const goHagoBuyHome = () => {
-  window.open(store.dynamicURLKeys('hagobuy'), "_blank"); // pc
-  // window.open(store.dynamicURLKeys('m_hagobuy'), "_blank");  // mobile
+const gokilyimallHome = () => {
+  window.open(store.dynamicURLKeys('kilyimall'), "_blank"); // pc
+  // window.open(store.dynamicURLKeys('m_kilyimall'), "_blank");  // mobile
 };
 
 const unfoldHandler = () => {

@@ -10,7 +10,9 @@
           <PlaneSwitch />
         </div>
       </el-tooltip>
-      <ScreenFull />
+      <el-tooltip :effect="tooltipEffectFull" :content="tooltipContentFull" placement="bottom">
+        <ScreenFull />
+      </el-tooltip>
       <div class='select_language_popover'>
         <LanguageSwitcher/>
       </div>
@@ -52,6 +54,8 @@ const darkAndLight = computed(() => store.dark_and_light);
 const emptyImage = ref(emptyImagePath);
 const tooltipEffect = ref<string>("dark");
 const tooltipContent = computed<string>(() => (darkAndLight.value ? t('dark') : t('light')));
+const tooltipEffectFull = ref<string>("dark");
+const tooltipContentFull = computed<string>(() => (store.is_screen_full ? t('Exit_full_screen') : t('Enter_full_screen')));
 const errorHandler = (event: Event) => {
   (event.target as HTMLImageElement).src = emptyImage.value;
 };

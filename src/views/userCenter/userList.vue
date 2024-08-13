@@ -110,7 +110,7 @@ const total = ref<number>(0);
 const searchKeyword = ref<string>('');
 const showAddDialog = ref<boolean>(false);
 const showEditDialog = ref<boolean>(false);
-const newItem = ref<Omit<User, 'id'>>({
+const newItem =  ref<Omit<ListItem, 'id'>>({
   name: '',
   description: '',
   password: '',
@@ -132,8 +132,8 @@ const queryParams = reactive({
 
 const formatHandleChange = (value: [Date, Date] | null) => {
   if (value) {
-    queryParams.startTime = useMomentFormat(value[0] || '');
-    queryParams.endTime = useMomentFormat(value[1] || '');
+    queryParams.startTime = useMomentFormat(value[0]?.toISOString() || '');
+    queryParams.endTime = useMomentFormat(value[1]?.toISOString() || '');
   } else {
     queryParams.startTime = null;
     queryParams.endTime = null;

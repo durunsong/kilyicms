@@ -62,6 +62,15 @@ const en = {
   "Enter_full_screen":"Enter full screen",
   "light":"light",
   "dark":"dark",
+
+
+  "shift_delete":"Are you sure you want to delete this item completely?",
+  "restore":"Restore",
+  "sure_Restore":"Are you sure you want to restore this one?",
+  "Restore_successfully":"Restore successfully",
+  "Restore_failure":"Restore failure",
+
+
 }
 
 export default en;

@@ -63,6 +63,14 @@ const zh = {
   "Enter_full_screen":"全屏",
   "light":"开灯",
   "dark":"关灯",
+
+
+  "shift_delete":"你确定要彻底删除这一项吗?",
+  "restore":"还原",
+  "sure_Restore":"你确定要还原这一项吗?",
+  "Restore_successfully":"还原成功",
+  "Restore_failure":"还原失败",
+
 }
 
 export default zh

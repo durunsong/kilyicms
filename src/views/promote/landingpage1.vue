@@ -3,7 +3,7 @@
   <div id="promote">
     <!-- 移动端 头栏 -->
     <div class="promote-header">
-      <a :href="store.dynamicURLKeys('hagobuy')" class="logo">
+      <a :href="store.dynamicURLKeys('kilyimall')" class="logo">
         <el-image :src="`${mainStore}/logo.png`" lazy class="img_logo"/>
       </a>
       <div class="switch-language">
@@ -32,7 +32,7 @@
           <span class="desc-span">{{ t("promote_banner_desc") }}</span>
           <button class="code-btn" @click="handlerDialog">
             <div class="code">
-              {{ t("promote_banner_btn_code") }} GG-HAGOBUYS_GOOD
+              {{ t("promote_banner_btn_code") }} GG-kilyimallS_GOOD
             </div>
             <span class="code-desc">{{ t("promote_banner_btn_desc") }}</span>
           </button>
@@ -46,10 +46,10 @@
           <span>{{ t("promote_about_desc2") }}</span>
           <span>{{ t("promote_about_desc3") }}</span>
           <div class="action-btn">
-            <a :href="store.dynamicURLKeys('hagobuy')" class="common-a purchasing">{{
+            <a :href="store.dynamicURLKeys('kilyimall')" class="common-a purchasing">{{
               t("promote_about_purchasing")
             }}</a>
-            <a :href="store.dynamicURLKeys('hagobuyURLforwarding')" class="common-a transport">{{
+            <a :href="store.dynamicURLKeys('kilyimallURLforwarding')" class="common-a transport">{{
               t("promote_about_transport")  
             }}   </a>
           </div>
@@ -87,7 +87,7 @@
           <el-button @click="centerDialogVisible = false">{{
             t("confirm_cancel_text")
           }}</el-button>
-          <el-button type="danger" @click="confirmHandler('GG-HAGOBUYS_GOOD')">
+          <el-button type="danger" @click="confirmHandler('GG-kilyimallS_GOOD')">
             {{ t("confirm_ok_text") }}
           </el-button>
         </div>
@@ -157,12 +157,12 @@ const handlerDialog = () => {
 };
 
 const freeFreight = () => {
-  window.open(store.dynamicURLKeys('hagobuyURL'),'_blank');
+  window.open(store.dynamicURLKeys('kilyimallURL'),'_blank');
   
 };
 
 const signUp = () => {
-  window.open(store.dynamicURLKeys('hagobuyURL'),'_blank');
+  window.open(store.dynamicURLKeys('kilyimallURL'),'_blank');
 };
 </script>
 

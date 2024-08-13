@@ -4,6 +4,7 @@ import type { MetaInfo, UserPromotionState, UserPromotionStateKeys } from '@/typ
 export const userPomotionStore = defineStore('promotion', {
   state: (): UserPromotionState => {
     return {
+      is_screen_full: false,
       dark_and_light: true,
       userInfo: {},
       isCollapse: false,
@@ -13,15 +14,15 @@ export const userPomotionStore = defineStore('promotion', {
         description: '',
       },
       affcode: '',
-      hagobuyLoginURL: 'https://www.hagobuy.com/login',
+      kilyimallLoginURL: 'https://www.kilyimall.com/login',
       tuiguangURL: 'https://cfstatic.hagoby.com/tg',
-      hagobuy: 'https://www.hagobuy.com',
-      hagobuyURL: 'https://www.hagobuy.com/register',
-      hagobuyURLforwarding: 'https://www.hagobuy.com/forwarding',
+      kilyimall: 'https://www.kilyimall.com',
+      kilyimallURL: 'https://www.kilyimall.com/register',
+      kilyimallURLforwarding: 'https://www.kilyimall.com/forwarding',
       imageUrl: 'https://cfstatic.hagoby.com/www/pic',
-      m_hagobuyLoginURL: 'https://www.hagobuy.com/login',
-      m_hagobuyURL: 'https://www.hagobuy.com/register',
-      m_hagobuy: 'https://www.hagobuy.com',
+      m_kilyimallLoginURL: 'https://www.kilyimall.com/login',
+      m_kilyimallURL: 'https://www.kilyimall.com/register',
+      m_kilyimall: 'https://www.kilyimall.com',
     };
   },
   getters: {
@@ -64,6 +65,6 @@ export const userPomotionStore = defineStore('promotion', {
   persist: {
     // 使用默认配置进行持久化
     storage: localStorage,
-    paths: ['userInfo', 'isCollapse','dark_and_light']
+    paths: ['userInfo', 'isCollapse','dark_and_light','is_screen_full']
   },
 });

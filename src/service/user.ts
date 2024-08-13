@@ -21,20 +21,37 @@ interface ItemResponse {
 }
 
 // 查询列表
-export const getListApi = (params: { page: number, pageSize: number, keywords: string }): Promise<AxiosResponse<ListResponse>> =>
-  request({ url: "/api/users", method: "GET" , params:params});
+export const getListApi = (params: { pageNum: number; pageSize: number; keywords: string | null; startTime?: string | null; endTime?: string | null; }): Promise<AxiosResponse<ListResponse>> =>
+  request({ url: "/api/users", method: "GET", params: params });
 
-// 添加项目
+// 添加用户
 export const addItemApi = (params: Omit<ListItem, 'id'>): Promise<AxiosResponse<ItemResponse>> =>
   request({ url: "/api/users", method: "POST", data: params });
 
-// 更新项目
+// 更新用户
 export const updateItemApi = (id: number, params: Omit<ListItem, 'id'>): Promise<AxiosResponse<ItemResponse>> =>
   request({ url: `/api/users/${id}`, method: "PUT", data: params });
 
-// 删除项目
-export const deleteItemApi=(id: number) : Promise<AxiosResponse<ListResponse>> =>request({
-        url: `/api/users/${id}`,
-        method: 'DELETE'
-    }
-  )
+// 删除用户
+export const deleteItemApi = (id: number): Promise<AxiosResponse<ListResponse>> => request({
+  url: `/api/users/${id}`,
+  method: 'DELETE'
+}
+)
+
+// 获取删除列表
+export const getDeleteUserItem = (params: { pageNum: number; pageSize: number; keywords: string | null; startTime?: string | null; endTime?: string | null; }): Promise<AxiosResponse<ListResponse>> =>
+  request({ url: "/api/users/deleteList", method: "GET", params: params });
+
+// 彻底删除用户
+export const deleteItemSift = (id: number): Promise<AxiosResponse<ListResponse>> => request({
+  url: `/api/users/deleteList/${id}`,
+  method: 'DELETE'
+}
+)
+
+// 恢复删除用户
+export const restoreUser = (id: number): Promise<AxiosResponse<ListResponse>> => request({
+  url: `/api/users/restore/${id}`,
+  method: 'PUT'
+})

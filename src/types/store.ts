@@ -4,20 +4,21 @@ export interface MetaInfo {
     description: string;
   }
   export interface UserPromotionState {
+    is_screen_full: boolean;
     dark_and_light:boolean;
     userInfo: Record<string, any>;
     isCollapse: boolean;
     affcode: string;
     tuiguangURL: string;
-    hagobuy: string;
-    hagobuyURL: string;
-    hagobuyLoginURL:string;
-    hagobuyURLforwarding: string;
+    kilyimall: string;
+    kilyimallURL: string;
+    kilyimallLoginURL:string;
+    kilyimallURLforwarding: string;
     imageUrl: string;
     metaInfo: MetaInfo;
-    m_hagobuyLoginURL:string, 
-    m_hagobuyURL:string,
-    m_hagobuy:string,
+    m_kilyimallLoginURL:string, 
+    m_kilyimallURL:string,
+    m_kilyimall:string,
   }
   
   export type UserPromotionStateKeys = keyof UserPromotionState;
