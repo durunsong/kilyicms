@@ -41,7 +41,7 @@
           <el-input v-model="newItem.name"></el-input>
         </el-form-item>
         <el-form-item :label="t('password')">
-          <el-input v-model="newItem.password"></el-input>
+          <el-input v-model="newItem.password" autocomplete="new-password"></el-input>
         </el-form-item>
         <el-form-item :label="t('description')">
           <el-input v-model="newItem.description"></el-input>
@@ -60,7 +60,7 @@
           <el-input v-model="editItemData.name"></el-input>
         </el-form-item>
         <el-form-item :label="t('password')">
-          <el-input v-model="editItemData.password"></el-input>
+          <el-input v-model="editItemData.password" autocomplete="new-password"></el-input>
         </el-form-item>
         <el-form-item :label="t('description')">
           <el-input v-model="editItemData.description"></el-input>
