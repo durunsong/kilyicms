@@ -11,7 +11,8 @@ const zh = {
   "router_Rich_text_summary":"富文本管理",
   "router_wang_rich_text":"wang富文本",
   "router_AntV":'AntV图表',
-  "router_g6_Demo":"g6演示",
+  "router_g6_Demo1":"g6演示-1",
+  "router_g6_Demo2":"g6演示-2",
   "router_note":"笔记",
   "router_note1":"笔记1",
   "router_note2":"笔记2",
@@ -64,13 +65,11 @@ const zh = {
   "light":"开灯",
   "dark":"关灯",
 
-
   "shift_delete":"你确定要彻底删除这一项吗?",
   "restore":"还原",
   "sure_Restore":"你确定要还原这一项吗?",
   "Restore_successfully":"还原成功",
   "Restore_failure":"还原失败",
-
 }
 
 export default zh

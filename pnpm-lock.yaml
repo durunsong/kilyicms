@@ -62,6 +62,9 @@ importers:
       vue-router:
         specifier: ^4.4.0
         version: 4.4.0(vue@3.4.31(typescript@5.5.3))
+      vue3-slide-verify:
+        specifier: ^1.1.5
+        version: 1.1.5(typescript@5.5.3)
     devDependencies:
       '@types/node':
         specifier: ^20.14.10
@@ -2154,6 +2157,9 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
+
+  vue3-slide-verify@1.1.5:
+    resolution: {integrity: sha512-CP6OH0+NRt94+cvprdDSG5a3/D0KgOWGUJu1hUmNw02SC7SLYUcjotUt6dlfhrcsoibu0wr5lx0MOsCfXSnwDw==}
 
   vue@3.4.31:
     resolution: {integrity: sha512-njqRrOy7W3YLAlVqSKpBebtZpDVg21FPoaq1I7f/+qqBThK9ChAIjkRWgeP6Eat+8C+iia4P3OYqpATP21BCoQ==}
@@ -4446,6 +4452,12 @@ snapshots:
       '@vue/language-core': 2.0.26(typescript@5.5.3)
       semver: 7.6.2
       typescript: 5.5.3
+
+  vue3-slide-verify@1.1.5(typescript@5.5.3):
+    dependencies:
+      vue: 3.4.31(typescript@5.5.3)
+    transitivePeerDependencies:
+      - typescript
 
   vue@3.4.31(typescript@5.5.3):
     dependencies:

@@ -38,7 +38,6 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { loginApi } from "@/service/index";
-import { Avatar, Key } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import { userPomotionStore } from "@/store";

@@ -101,14 +101,25 @@ export const routes: Array<CustomRouteRecordRaw> = [
         children: [
           {
             path: "g6-1",
-            name: "router_g6_Demo",
-            label: "router_g6_Demo",
+            name: "router_g6_Demo1",
+            label: "router_g6_Demo1",
             meta: {
-              title: "router_g6_Demo",
+              title: "router_g6_Demo1",
               hidden: false,
               icon: "Stopwatch",
             },
             component: () => import("@/views/g6/g6-1.vue"),
+          },
+          {
+            path: "g6-2",
+            name: "router_g6_Demo2",
+            label: "router_g6_Demo2",
+            meta: {
+              title: "router_g6_Demo2",
+              hidden: false,
+              icon: "Stopwatch",
+            },
+            component: () => import("@/views/g6/g6-2.vue"),
           },
         ],
       },

@@ -10,14 +10,15 @@ const en = {
   "router_Rich_text_summary":"Rich Text Summary",
   "router_wang_rich_text":"wang rich text",
   "router_AntV":'AntV',
-  "router_g6_Demo":"g6 Demo",
+  "router_g6_Demo1":"g6 Demo1",
+  "router_g6_Demo2":"g6 Demo2",
   "router_note":"Note",
   "router_note1":"Note1",
   "router_note2":"Note2",
   "router_note3":"Note3",
   "router_data_conversion":"Data Conversion",
   "router_data_report1":"Data Report1",
-
+// 其他字段
   'select_language': 'Select Language',
   'confirm_ok_text': 'Confirm',
   'confirm_cancel_text': 'Cancel',
