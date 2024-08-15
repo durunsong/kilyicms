@@ -18,7 +18,7 @@
           {{ scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="name" :label="t('name')" align="center"></el-table-column>
+      <el-table-column prop="userName" :label="t('name')" align="center"></el-table-column>
       <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
       <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
       <el-table-column :label="t('operates')" align="center">
@@ -59,7 +59,7 @@ const { t } = useI18n();
 
 interface ListItem {
   id: number;
-  name: string;
+  userName: string;
   description: string;
   password: string;
 }

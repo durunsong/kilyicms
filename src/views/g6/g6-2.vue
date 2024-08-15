@@ -1,6 +1,5 @@
 <template>
     <div class="login_container">
-        <el-button @click="handlerClickOutside">Show Slider</el-button>
         <el-image :src="imgUrl" fit="cover" class="login_banner"></el-image>
         <el-card class="box_login_card" :class="isShow ? 'box_card_style' : ''">
             <h3 v-if="!isShow">账号登录</h3>
@@ -100,17 +99,13 @@ import type { FormInstance } from "element-plus";
 import imgUrl from "@/assets/images/login_banner.gif"
 import SlideVerify from "@/components/SlideVerify/index.vue";
 const sliderVisible = ref<boolean>(false) //滑动验证ui
+const isSlider = ref<boolean>(false) //滑动验证ui
 
-const handleSlideSuccess = () => {
-    sliderVisible.value = false
-    // 登录
-    console.log('执行登录操作++++++++++___1111');
-}
 
 interface LoginForm {
     userName: string;
     password: string;
-    confirmPassword?: string;
+    confirmPassword?: string | undefined;
 }
 
 const loading = ref(false);
@@ -120,7 +115,7 @@ const store = userPomotionStore();
 const form = reactive<LoginForm>({
     userName: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: undefined,
 });
 
 const ref_form = ref<FormInstance | null>(null);
@@ -153,83 +148,111 @@ const registerRules = {
     ]
 };
 
-// 验证弹窗
-const handlerClickOutside = () => {
-    if(sliderVisible.value){
-        // 执行登录操作
-        console.log('执行登录操作');
-        
-    }else{
-        sliderVisible.value = true;
-    }
+// 图片验证码通过
+const handleSlideSuccess = () => {
+    setTimeout(() => {
+        isSlider.value = true;
+        sliderVisible.value = false;
+        // 登录
+        handlerExecutiveLogging();
+    }, 1200)
+}
+
+// 登录接口请求验证
+const handlerExecutiveLogging = () => {
+    // 执行登录操作
+    loading.value = true;
+    const params = form;
+    loginApi(params)
+        .then((res: any) => {
+            console.log("88888---", res);
+            if (res.status === 200) {
+                ElMessage({
+                    message: res.message,
+                    type: "success",
+                });
+                // pinia存用户信息
+                store.userInfo = res.data;
+                store.isCollapse = false;
+                localStorage.setItem("token", res.data.token);
+                router.push("/home");
+            } else if (res.status === 403) {
+                ElMessage({
+                    message: res.message,
+                    type: "warning",
+                });
+            } else {
+                ElMessage({
+                    message: res.message,
+                    type: "warning",
+                });
+            }
+            loading.value = false;
+        })
+        .catch((error: Error) => {
+            console.log("error", error);
+            loading.value = false;
+        });
+}
+
+// 图形验证弹窗
+const onLoginConfirm = () => {
+    ref_form.value?.validate((valid: boolean) => {
+        if (valid) {
+            if (isSlider.value) {
+                // 登录
+                handlerExecutiveLogging();
+            } else {
+                sliderVisible.value = true;
+            }
+        } else {
+            loading.value = false;
+        }
+    });
 };
 
 const toggleForm = () => {
     isShow.value = !isShow.value;
+    isSlider.value = false;
 };
 
-const onLoginConfirm = () => {
-    sliderVisible.value = true;
-    // loading.value = true;
-    // ref_form.value?.validate((valid: boolean) => {
-    //     if (valid) {
-    //         loginApi(form)
-    //             .then((res: any) => {
-    //                 if (res.status === 200) {
-    //                     ElMessage({
-    //                         message: res.message,
-    //                         type: "success"
-    //                     });
-    //                     store.userInfo = res.data;
-    //                     store.isCollapse = false;
-    //                     localStorage.setItem("token", res.data.token);
-    //                     router.push("/home");
-    //                 } else {
-    //                     ElMessage({
-    //                         message: res.message,
-    //                         type: "warning"
-    //                     });
-    //                 }
-    //                 loading.value = false;
-    //             })
-    //             .catch((error: Error) => {
-    //                 console.log("error", error);
-    //                 loading.value = false;
-    //             });
-    //     } else {
-    //         loading.value = false;
-    //     }
-    // });
-};
-
-const onRegister = () => {
+// 注册接口验证
+const handlerExecutiveRegister = () => {
     loading.value = true;
-    // ref_form.value?.validate((valid: boolean) => {
-    //   if (valid) {
     //     registerApi(form)
-    //       .then((res: any) => {
-    //         if (res.status === 200) {
-    //           ElMessage({
-    //             message: res.message,
-    //             type: "success"
-    //           });
-    //           toggleForm(); // Switch back to login form after successful registration
-    //         } else {
-    //           ElMessage({
-    //             message: res.message,
-    //             type: "warning"
-    //           });
+    //         .then((res: any) => {
+    //             if (res.status === 200) {
+    //                 ElMessage({
+    //                     message: res.message,
+    //                     type: "success"
+    //                 });
+    //                 toggleForm(); // 假设在登录和注册表单之间切换
+    //             } else {
+    //                 ElMessage({
+    //                     message: res.message,
+    //                     type: "warning"
+    //                 });
+    //             }
+    //         })
+    //         .catch((error: Error) => {
+    //             ElMessage({
+    //                 message: "An error occurred during registration.",
+    //                 type: "error"
+    //             });
+    //             console.log("error", error);
+    //         })
+    //         .finally(() => {
+    //             loading.value = false;
+    //         });
+    // };
+
+    // const onRegister = () => {
+    //     loading.value = true;
+    //     ref_form.value?.validate((valid: boolean) => {
+    //         if (valid) {
+    //             handlerExecutiveRegister();
     //         }
-    //         loading.value = false;
-    //       })
-    //       .catch((error: Error) => {
-    //         console.log("error", error);
-    //         loading.value = false;
-    //       });
-    //   } else {
-    //     loading.value = false;
-    //   }
-    // });
+    //     });
 };
 </script>
 

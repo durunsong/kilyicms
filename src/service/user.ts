@@ -3,7 +3,7 @@ import type { AxiosResponse } from "axios";
 
 interface ListItem {
   id: number;
-  name: string;
+  userName: string;
   description: string;
 }
 

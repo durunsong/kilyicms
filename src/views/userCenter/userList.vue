@@ -19,7 +19,7 @@
           {{ scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="name" :label="t('name')" align="center"></el-table-column>
+      <el-table-column prop="userName" :label="t('name')" align="center"></el-table-column>
       <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
       <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
       <el-table-column :label="t('operates')" align="center">
@@ -38,7 +38,7 @@
     <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
       <el-form :model="newItem">
         <el-form-item :label="t('Account_name')">
-          <el-input v-model="newItem.name"></el-input>
+          <el-input v-model="newItem.userName"></el-input>
         </el-form-item>
         <el-form-item :label="t('password')">
           <el-input v-model="newItem.password" autocomplete="new-password"></el-input>
@@ -57,7 +57,7 @@
     <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
       <el-form :model="editItemData">
         <el-form-item :label="t('name')">
-          <el-input v-model="editItemData.name"></el-input>
+          <el-input v-model="editItemData.userName"></el-input>
         </el-form-item>
         <el-form-item :label="t('password')">
           <el-input v-model="editItemData.password" autocomplete="new-password"></el-input>
@@ -86,7 +86,7 @@ const { t } = useI18n();
 
 interface ListItem {
   id: number;
-  name: string;
+  userName: string;
   description: string;
   password: string;
 }
@@ -97,7 +97,7 @@ interface User extends Omit<ListItem, 'id'> {
   is_delete: number;
   password: string;
   token: string;
-  login_name: string;
+  userName: string;
   nick_name: string;
   role_ids: number[];
   logo: string;
@@ -111,13 +111,13 @@ const searchKeyword = ref<string>('');
 const showAddDialog = ref<boolean>(false);
 const showEditDialog = ref<boolean>(false);
 const newItem =  ref<Omit<ListItem, 'id'>>({
-  name: '',
+  userName: '',
   description: '',
   password: '',
 });
 
 const editItemData = ref<Omit<ListItem, 'id'>>({
-  name: '',
+  userName: '',
   description: '',
   password: '',
 });
@@ -175,7 +175,7 @@ const addItem = async () => {
     const response: any = await addItemApi(addData);
     if (response.status == 200) {
       showAddDialog.value = false;
-      newItem.value.name = '';
+      newItem.value.userName = '';
       newItem.value.password = '';
       newItem.value.description = '';
       ElMessage.success(t('Add_successful'));
@@ -191,7 +191,7 @@ const addItem = async () => {
 // 编辑按钮
 const editItem = (item: ListItem) => {
   editingItemId.value = item.id;
-  editItemData.value.name = item.name;
+  editItemData.value.userName = item.userName;
   editItemData.value.password = item.password;
   editItemData.value.description = item.description;
   showEditDialog.value = true;
