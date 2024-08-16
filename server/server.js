@@ -19,11 +19,11 @@ app.use(cors());
 
 //解决跨域
 app.all("*", function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*")
-	res.header("Access-Control-Allow-Headers", "Content-Type")
-	res.header("Access-Control-Allow-Methods", "*")
-	res.header("Content-Type", "application/json;charset=utf-8")
-	next()
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Content-Type")
+    res.header("Access-Control-Allow-Methods", "*")
+    res.header("Content-Type", "application/json;charset=utf-8")
+    next()
 })
 
 // MySQL 链接
@@ -41,6 +41,35 @@ connection.connect(err => {
     } else {
         console.log('已连接到数据库');
     }
+});
+
+// 加密密码/登录或者注册
+const saltRounds = 10;
+connection.query('SELECT * FROM users', (err, results) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    results.forEach(user => {
+        if (user.password && !user.password.startsWith('$2b$')) { // 假设bcrypt的密码前缀为$2b$
+            bcrypt.hash(user.password, saltRounds, (err, hash) => {
+                if (err) {
+                    console.error('Error hashing password for user:', user.userName);
+                    return;
+                }
+
+                const updateUserQuery = 'UPDATE users SET password = ? WHERE id = ?';
+                connection.query(updateUserQuery, [hash, user.id], (err) => {
+                    if (err) {
+                        console.error('Error updating password for user:', user.userName);
+                    } else {
+                        console.log('Password updated for user:', user.userName);
+                    }
+                });
+            });
+        }
+    });
 });
 
 // 添加用户
@@ -64,8 +93,8 @@ app.post('/api/users', (req, res) => {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
     const values = [
-        account, create_time, is_delete, password, update_time, 
-        description, token, userName, nick_name, 
+        account, create_time, is_delete, password, update_time,
+        description, token, userName, nick_name,
         JSON.stringify(role_ids), logo, avatar
     ];
 
@@ -283,25 +312,60 @@ app.post('/api/login', (req, res) => {
         }
 
         const user = results[0];
-        
         const hashFromDb = user.password;
-        console.log('Hash from DB:', hashFromDb);
-        console.log('Password to compare:', password);
-        // 验证密码
-        // const passWordMatch = await bcrypt.compare(password, hashFromDb);
-        // console.log('Password Match:', passWordMatch);
-        // if (!passWordMatch) {
-        //     return res.status(401).json({ message: '密码错误' });
-        // }
+
+        // 验证密码 检查密码是否匹配
+        const passWordMatch = await bcrypt.compare(password, hashFromDb);
+
+        if (!passWordMatch) {
+            return res.status(401).json({ message: '密码错误' });
+        }
 
         // 生成 JWT
-        const token = jwt.sign({ userId: user.id, userName: user.userName }, 'your_jwt_secret', { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id, userName: user.userName }, 'jwt_secret', { expiresIn: '1h' });
 
-        res.status(200).json({ message: '登录成功', token });
+        // 登录时间
+        const login_time = moment().format('YYYY-MM-DD HH:mm:ss'); 
+
+        // 返回用户信息
+        const userInfo = {
+            userName: user.userName,
+            account: user.account,
+            avatar: user.avatar,
+            description: user.description,
+            create_time: user.create_time,
+            update_time: user.update_time,
+            is_delete: user.is_delete,
+            token: token,  // 如果需要保存更新后的 token
+            nick_name: user.nick_name,
+            role_ids: user.role_ids,
+            logo: user.logo,
+            login_time: login_time
+        };
+
+        res.status(200).json({ message: '登录成功', status: 200, token, userInfo });
     });
 });
 
+// 刷新jwt
+app.post('/api/refresh-token', (req, res) => {
+    const { refreshToken } = req.body;
 
+    if (!refreshToken) {
+        return res.status(400).json({ message: '刷新令牌是必需的' });
+    }
+
+    jwt.verify(refreshToken, 'refresh_token_secret', (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: '无效的刷新令牌' });
+        }
+
+        // 生成新的 JWT
+        const newToken = jwt.sign({ userId: user.userId, userName: user.userName }, 'jwt_secret', { expiresIn: '1h' });
+
+        res.status(200).json({ token: newToken });
+    });
+});
 
 
 app.listen(port, () => {

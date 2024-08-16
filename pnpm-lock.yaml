@@ -26,6 +26,9 @@ importers:
       axios:
         specifier: ^1.7.2
         version: 1.7.2
+      core-js:
+        specifier: ^3.38.0
+        version: 3.38.0
       element-plus:
         specifier: ^2.7.6
         version: 2.7.6(vue@3.4.31(typescript@5.5.3))
@@ -935,6 +938,9 @@ packages:
   copy-descriptor@0.1.1:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
     engines: {node: '>=0.10.0'}
+
+  core-js@3.38.0:
+    resolution: {integrity: sha512-XPpwqEodRljce9KswjZShh95qJ1URisBeKCjUdq27YdenkslVe7OO0ZJhlYXAChW7OhXaRLl8AAba7IBfoIHug==}
 
   cors@2.8.5:
     resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
@@ -3093,6 +3099,8 @@ snapshots:
   convert-source-map@2.0.0: {}
 
   copy-descriptor@0.1.1: {}
+
+  core-js@3.38.0: {}
 
   cors@2.8.5:
     dependencies:

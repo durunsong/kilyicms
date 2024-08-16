@@ -93,7 +93,7 @@
 import { ref, reactive, onMounted } from "vue";
 import { loginApi } from "@/service/index";
 import { useRouter } from "vue-router";
-import { ClickOutside, ElMessage } from "element-plus";
+import { ElMessage } from "element-plus";
 import { userPomotionStore } from "@/store";
 import type { FormInstance } from "element-plus";
 import imgUrl from "@/assets/images/login_banner.gif"
@@ -174,7 +174,7 @@ const handlerExecutiveLogging = () => {
                 // pinia存用户信息
                 store.userInfo = res.data;
                 store.isCollapse = false;
-                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("token", res.token);
                 router.push("/home");
             } else if (res.status === 403) {
                 ElMessage({
@@ -245,15 +245,15 @@ const handlerExecutiveRegister = () => {
     //             loading.value = false;
     //         });
     // };
-
-    // const onRegister = () => {
-    //     loading.value = true;
-    //     ref_form.value?.validate((valid: boolean) => {
-    //         if (valid) {
-    //             handlerExecutiveRegister();
-    //         }
-    //     });
 };
+const onRegister = () => {
+    loading.value = true;
+    ref_form.value?.validate((valid: boolean) => {
+        if (valid) {
+            handlerExecutiveRegister();
+        }
+    });
+}
 </script>
 
 <style lang="scss" scoped>

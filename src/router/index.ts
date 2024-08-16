@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory ,RouteRecordRaw  } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { CustomRouteRecordRaw } from "@/types/routerType";
 
 export const routes: Array<CustomRouteRecordRaw> = [
@@ -208,7 +208,7 @@ export const routes: Array<CustomRouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes : routes as RouteRecordRaw[],
+  routes: routes as RouteRecordRaw[],
 });
 
 // router.afterEach((to, from, next) => {
@@ -219,24 +219,24 @@ const router = createRouter({
 //   }
 // });
 
-// router.beforeEach((to, from) => {
-//   if (to.fullPath === "/login") {
-//     //已经登录了,直接跳到home页面
-//     if (localStorage.getItem("token")) {
-//       return {
-//         path: "/home",
-//       };
-//     }
-//     return true;
-//   } else if (localStorage.getItem("token")) {
-//     //已经登录了,直接跳转
-//     return true;
-//   } else {
-//     return {
-//       //如果没有登陆就跳转到登录页面
-//       path: "/login",
-//     };
-//   }
-// });
+router.beforeEach((to, from) => {
+  if (to.fullPath === "/login") {
+    //已经登录了,直接跳到home页面
+    if (localStorage.getItem("token")) {
+      return {
+        path: "/home",
+      };
+    }
+    return true;
+  } else if (localStorage.getItem("token")) {
+    //已经登录了,直接跳转
+    return true;
+  } else {
+    return {
+      //如果没有登陆就跳转到登录页面
+      path: "/login",
+    };
+  }
+});
 
 export default router;

@@ -2,7 +2,7 @@
   <el-header class="header_top">
     <div class="expandFoldAndIsCollapse">
       <component :is="isCollapse ? Expand : Fold" @click="handleClick" class="expandFold"></component>
-      <TabBreadcrumb/>
+      <TabBreadcrumb />
     </div>
     <div class="avatar_dropdown">
       <el-tooltip :effect="tooltipEffect" :content="tooltipContent" placement="bottom">
@@ -14,12 +14,12 @@
         <ScreenFull />
       </el-tooltip>
       <div class='select_language_popover'>
-        <LanguageSwitcher/>
+        <LanguageSwitcher />
       </div>
       <el-avatar :size="50" class="avatar_img" :src="imageList" @error="errorHandler"></el-avatar>
       <el-dropdown @command="quitOut">
         <span class="el-dropdown-link">
-          <span v-if="userInfo">你好: {{ userInfo.loginName }}</span>
+          <span v-if="userInfo">你好: {{ userInfo.userName }}</span>
           <el-icon class="el-icon--right">
             <ArrowDown />
           </el-icon>
@@ -61,8 +61,8 @@ const errorHandler = (event: Event) => {
 };
 
 const router = useRouter();
-const userInfo = computed(() => store.userInfo?.userInfo);
-const imageList = computed(() => userInfo.value?.avatar || emptyImage.value);
+const userInfo = computed(() => store.userInfo);
+const imageList = computed(() => store.userInfo.avatar);
 const isCollapse = computed(() => store.isCollapse);
 
 const handleClick = () => {
@@ -101,11 +101,12 @@ const quitOut = (command: string) => {
   height: 100px;
   width: 100%;
   background-color: #d2cbcb;
-  
-  
-  .expandFoldAndIsCollapse{
+
+
+  .expandFoldAndIsCollapse {
     display: flex;
     align-items: center;
+
     .expandFold {
       width: 30px;
       height: 30px;
@@ -123,7 +124,8 @@ const quitOut = (command: string) => {
       margin-top: -10px;
       margin-right: 10px;
     }
-    .select_language_popover{
+
+    .select_language_popover {
       display: flex;
       align-items: center;
       margin-right: 10px

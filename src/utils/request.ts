@@ -1,46 +1,65 @@
-// axios二次封装
 import axios from "axios";
-// import { request } from "http";
-
 import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
-// 利用axios对象的create方法,去创建axios实例(配置路径/超时....)
 
 let request = axios.create({
-  baseURL: import.meta.env.VITE_BASE_API, //基础路径上会携带/api
+  baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会携带/api
   timeout: 5000,
 });
-// console.log("title++++++++",import.meta.env) // NODE_ENV
-// 2. request 实例添加请求与响应拦截器
-request.interceptors.request.use((config: any) => {
-  //  config配置对象,headers 属性请求头,经常给服务器携带公共参数
-  // 返回配置对象
-  console.log("dgfyfb", config);
 
+// 请求拦截器
+request.interceptors.request.use((config: any) => {
+  // 从 localStorage 中获取 token
+  const token = localStorage.getItem('token');
+  
+  // 如果 token 存在，将其添加到请求头中
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  
   return config;
 });
 
-// 3.响应拦截器
+// 响应拦截器
 request.interceptors.response.use(
   (response) => {
-    console.log("拦截", response);
-
-    // 响应成功(成功回调)
+    // 响应成功，返回数据
     return response.data;
   },
-  (error) => {
-    // 响应失败(失败回调):处理http网络错误
-    // return Promise.reject(error);
-    // 定义一个变量:存储网络错误信息
+  async (error) => {
     let errorInfo = "";
-    let status = error.response.status;
+    const status = error.response.status;
+
     switch (status) {
-      case 400:
-        errorInfo = "请求错误";
-        break;
       case 401:
         errorInfo = "未授权，请登录";
+
+        // 检查是否有刷新令牌
+        const refreshToken = localStorage.getItem('refreshToken');
+        if (refreshToken) {
+          try {
+            // 请求新的访问令牌
+            const { data } = await axios.post('/api/refresh-token', { refreshToken });
+            
+            // 保存新的访问令牌
+            localStorage.setItem('token', data.token);
+            
+            // 更新请求头并重新发送原来的请求
+            error.config.headers['Authorization'] = `Bearer ${data.token}`;
+            return request(error.config);
+          } catch (refreshError) {
+            console.error('刷新令牌失败：', refreshError);
+            // 重定向到登录页
+            router.push("/login");
+          }
+        } else {
+          // 没有刷新令牌，重定向到登录页
+          router.push("/login");
+        }
         break;
+
       case 403:
         errorInfo = "拒绝访问";
         break;
@@ -69,12 +88,14 @@ request.interceptors.response.use(
         errorInfo = "网络出现问题!!!!";
         break;
     }
+
     // 提示错误信息
     ElMessage({
       message: errorInfo,
       type: "error",
       duration: 1 * 1000,
     });
+
     return Promise.reject(error);
   }
 );
