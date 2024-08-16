@@ -70,6 +70,9 @@ const en = {
   "sure_Restore":"Are you sure you want to restore this one?",
   "Restore_successfully":"Restore successfully",
   "Restore_failure":"Restore failure",
+  "good_morning":"Good morning",
+  "good_afternoon":"Good afternoon",
+  "good_evening":"Good evening",
 
 
 }

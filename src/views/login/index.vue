@@ -101,6 +101,8 @@ import SlideVerify from "@/components/SlideVerify/index.vue";
 import { useGreeting } from '@/hooks/useGreeting';
 const sliderVisible = ref<boolean>(false) //滑动验证ui
 const isSlider = ref<boolean>(false) //滑动验证ui
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 
 interface LoginForm {

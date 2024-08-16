@@ -70,6 +70,9 @@ const zh = {
   "sure_Restore":"你确定要还原这一项吗?",
   "Restore_successfully":"还原成功",
   "Restore_failure":"还原失败",
+  "good_morning":"早上好",
+  "good_afternoon":"下午好",
+  "good_evening":"晚上好",
 }
 
 export default zh
