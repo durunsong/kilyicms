@@ -2,7 +2,7 @@
   <div class="slide_box1">
     <el-button :icon="Close" size="small" class="slider_close_btn" circle @click="handleClose" />
     <div class="slide_inner_box">
-      <SlideVerify class="slide_box" ref="block" slider-text="向右滑动" :accuracy="1" @again="onAgain" @success="onSuccess"
+      <SlideVerify class="slide_box" ref="block" :slider-text="t('swipe_right')" :accuracy="1" @again="onAgain" @success="onSuccess"
         @fail="onFail" @refresh="onRefresh" :imgs="img"></SlideVerify>
       <div class="msg_box" :style="'color:' + fontColor">{{ msg }}</div>
     </div>
@@ -15,6 +15,8 @@ import SlideVerify, { SlideVerifyInstance } from "vue3-slide-verify"; //引入�
 import "vue3-slide-verify/dist/style.css"; //引入滑动验证组件样式
 import slideImg from "@/assets/images/slideimg.png";
 import { Close } from "@element-plus/icons-vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 const msg = ref<string>("");
 //自定义图片
@@ -25,14 +27,14 @@ const emit = defineEmits(['again', 'success', 'fail', 'refresh', 'close']);
 const fontColor = ref("");
 
 const onAgain = () => {
-  msg.value = "检测到非人为操作！";
+  msg.value = t('Non-human_operation_detected');
   fontColor.value = "red"
   // 刷新
   block.value?.refresh();
 };
 //成功的回调
 const onSuccess = (times: number) => {
-  msg.value = "验证通过，耗时" + (times / 1000).toFixed(1) + "秒";
+  msg.value = t('successful_which_takes') + (times / 1000).toFixed(1) + t('seconds');
   fontColor.value = "green"
   emit("success")
 
@@ -43,7 +45,7 @@ const handleClose = () => {
 }
 //失败的回调
 const onFail = () => {
-  msg.value = "验证不通过";
+  msg.value = t('Verification_failed');
   fontColor.value = "red"
 
   setTimeout(() => {

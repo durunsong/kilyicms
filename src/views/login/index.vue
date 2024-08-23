@@ -2,13 +2,13 @@
   <div class="login_container">
     <el-image :src="imgUrl" fit="cover" class="login_banner"></el-image>
     <el-card class="box_login_card" :class="isShow ? 'box_card_style' : ''">
-      <h3 v-if="!isShow">账号登录</h3>
-      <h3 v-else>账号注册</h3>
+      <h3 v-if="!isShow">{{ t("user_login") }}</h3>
+      <h3 v-else>{{ t("user_register") }}</h3>
       <transition name="el-fade-in-linear">
         <el-form v-if="!isShow" :model="form" :rules="rules" class="login_form" ref="ref_form"
           @keyup.enter="onLoginConfirm">
-          <el-form-item prop="userName" label="用户名" label-width="80px">
-            <el-input v-model.trim="form.userName" placeholder="请输入用户名" size="large">
+          <el-form-item prop="userName" :label="t('user_name')" label-width="80px">
+            <el-input v-model.trim="form.userName" :placeholder="t('Please_enter_your_username')" size="large">
               <template #prepend>
                 <el-icon :size="20">
                   <Avatar />
@@ -16,8 +16,9 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="password" label="密码" label-width="80px">
-            <el-input size="large" v-model.trim="form.password" show-password placeholder="请输入密码">
+          <el-form-item prop="password" :label="t('password')" label-width="80px">
+            <el-input size="large" v-model.trim="form.password" show-password
+              :placeholder="t('Please_enter_your_password')">
               <template #prepend>
                 <el-icon :size="20">
                   <Key />
@@ -31,21 +32,21 @@
           <el-form-item>
             <div class="button_side">
               <el-button class="submit_but" type="primary" @click="onLoginConfirm" :loading="loading">
-                登录
+                {{ t('login') }}
               </el-button>
             </div>
           </el-form-item>
           <el-form-item>
             <div class="toggle-form button_login_side">
-              <el-button class="side_btn" link @click="toggleForm">没有账号？去注册</el-button>
+              <el-button class="side_btn" link @click="toggleForm">{{ t('Go_to_Register') }}</el-button>
             </div>
           </el-form-item>
         </el-form>
 
         <el-form v-else :model="form" :rules="registerRules" class="register_form" ref="ref_form"
           @keyup.enter="onRegister">
-          <el-form-item prop="userName" label="用户名" label-width="80px">
-            <el-input v-model.trim="form.userName" placeholder="请输入用户名" size="large">
+          <el-form-item prop="userName" :label="t('user_name')" label-width="80px">
+            <el-input v-model.trim="form.userName" :placeholder="t('Please_enter_your_username')" size="large">
               <template #prepend>
                 <el-icon :size="20">
                   <Avatar />
@@ -53,8 +54,8 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="password" label="密码" label-width="80px">
-            <el-input size="large" v-model.trim="form.password" show-password placeholder="请输入密码">
+          <el-form-item prop="password" :label="t('password')" label-width="80px">
+            <el-input size="large" v-model.trim="form.password" show-password :placeholder="t('Please_confirm_the_password')">
               <template #prepend>
                 <el-icon :size="20">
                   <Key />
@@ -62,8 +63,9 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="confirmPassword" label="确认密码" label-width="80px">
-            <el-input size="large" v-model.trim="form.confirmPassword" show-password placeholder="请确认密码">
+          <el-form-item prop="confirmPassword" :label="t('confirm_password')" label-width="80px">
+            <el-input size="large" v-model.trim="form.confirmPassword" show-password
+              :placeholder="t('Please_confirm_the_password')">
               <template #prepend>
                 <el-icon :size="20">
                   <Key />
@@ -74,13 +76,13 @@
           <el-form-item>
             <div class="button_side">
               <el-button class="submit_but" type="primary" @click="onRegister" :loading="loading">
-                注册
+                {{ t('router_register') }}
               </el-button>
             </div>
           </el-form-item>
           <el-form-item>
             <div class="toggle-form button_register_side">
-              <el-button class="side_btn" link @click="toggleForm">已有账号？去登录</el-button>
+              <el-button class="side_btn" link @click="toggleForm">{{ t('Go_and_log_in') }}</el-button>
             </div>
           </el-form-item>
         </el-form>
@@ -100,7 +102,7 @@ import imgUrl from "@/assets/images/login_banner.gif"
 import SlideVerify from "@/components/SlideVerify/index.vue";
 import { useGreeting } from '@/hooks/useGreeting';
 const sliderVisible = ref<boolean>(false) //滑动验证ui
-const isSlider = ref<boolean>(false) //滑动验证ui
+const isSlider = ref<boolean>(false) // 是否开启验证
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
@@ -129,15 +131,15 @@ onMounted(() => {
 });
 
 const rules = {
-  userName: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-  password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+  userName: [{ required: true, message: t('Please_enter_your_username'), trigger: "blur" }],
+  password: [{ required: true, message: t('Please_enter_your_password'), trigger: "blur" }]
 };
 
 const registerRules = {
-  userName: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-  password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+  userName: [{ required: true, message: t('Please_enter_your_username'), trigger: "blur" }],
+  password: [{ required: true, message: t('Please_enter_your_password'), trigger: "blur" }],
   confirmPassword: [
-    { required: true, message: "请确认密码", trigger: "blur" },
+    { required: true, message: t('Please_confirm_the_password'), trigger: "blur" },
     {
       validator: (
         rule: FormItemRule,
@@ -145,7 +147,7 @@ const registerRules = {
         callback: (error?: Error) => void
       ) => {
         if (value !== form.password) {
-          callback(new Error("两次输入的密码不一致"));
+          callback(new Error(t('passwords_are_different')));
         } else {
           callback();
         }
@@ -171,7 +173,7 @@ const handlerExecutiveLogging = () => {
   loading.value = true;
   const params = form;
   // 登录问候语
-  const { showGreetingNotification } = useGreeting();
+  const { showGreetingNotification } = useGreeting(t);
   loginApi(params)
     .then((res: any) => {
       console.log("88888---", res);
