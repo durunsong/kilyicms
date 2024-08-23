@@ -18,6 +18,6 @@ CREATE TABLE IF NOT EXISTS users (
     avatar VARCHAR(255)
 );
 
--- Optional: Inserting a sample user for testing
+-- Optional: users sql表 结构
 INSERT INTO users (account, create_time, is_delete, password, update_time, description, token, userName, nick_name, role_ids, logo, avatar)
 VALUES ('testuser', NOW(), 0, 'test_name', 'test_password', NOW(), 'test_description', 'mock_token_eyJhbGciOiJIUzUxMiJ9', 'admin', '管理员', JSON_ARRAY(101, 102, 301), 'https://c-ssl.dtstatic.com/uploads/blog/202207/09/20220709150824_97667.thumb.1000_0.jpg', 'https://c-ssl.dtstatic.com/uploads/blog/202207/09/20220709150824_97667.thumb.1000_0.jpg');

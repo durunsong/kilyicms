@@ -124,6 +124,7 @@ watch(searchKeyword, (newValue) => {
 const fetchItems = async () => {
   try {
     const response: any = await getDeleteUserItem(queryParams);
+    ElMessage.success(response.message);
     userList.value = response.data;
     total.value = response.total;
   } catch (error) {

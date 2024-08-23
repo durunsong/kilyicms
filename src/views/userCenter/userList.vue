@@ -9,8 +9,8 @@
           @change="formatHandleChange" />
       </div>
       <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t('clear') }}</el-button>
-      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems"
-        icon="Search">{{ t('search') }}</el-button>
+      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{ t('search')
+        }}</el-button>
     </div>
     <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{ t('Add_personnel') }}</el-button>
     <el-table :data="userList" style="width: 100%">
@@ -110,7 +110,7 @@ const total = ref<number>(0);
 const searchKeyword = ref<string>('');
 const showAddDialog = ref<boolean>(false);
 const showEditDialog = ref<boolean>(false);
-const newItem =  ref<Omit<ListItem, 'id'>>({
+const newItem = ref<Omit<ListItem, 'id'>>({
   userName: '',
   description: '',
   password: '',
@@ -161,8 +161,9 @@ watch(searchKeyword, (newValue) => {
 const fetchItems = async () => {
   try {
     const response: any = await getListApi(queryParams);
-    userList.value = response.data;
-    total.value = response.total;
+      ElMessage.success(response.message);
+      userList.value = response.data;
+      total.value = response.total;
   } catch (error) {
     ElMessage.error(t('Data_acquisition_failure'));
   }
