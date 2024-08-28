@@ -13,9 +13,25 @@ CREATE TABLE IF NOT EXISTS users (
     userName VARCHAR(50),
     nick_name VARCHAR(50),
     role_ids JSON,
-    avatar VARCHAR(255)
+    avatar VARCHAR(255),
+    uuid VARCHAR(36) NOT NULL,
+    token VARCHAR(255)
 );
 
 -- Optional: users sql表 结构
-INSERT INTO users (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar)
-VALUES ('testuser', NOW(), 0, 'test_name', 'test_password', NOW(), 'test_description', 'admin', '管理员', JSON_ARRAY(101, 102, 301), 'https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800');
+INSERT INTO users (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, uuid, token)
+VALUES (
+    'testuser',
+    NOW(),
+    0,
+    'test_password',
+    NOW(),
+    'test_description',
+    'admin',
+    '管理员',
+    JSON_ARRAY(101, 102, 301),
+    'https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800',
+    UUID(),
+    ''
+);
+
