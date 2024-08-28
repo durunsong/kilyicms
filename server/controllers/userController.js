@@ -42,7 +42,6 @@ const createUser = (req, res) => {
     const update_time = moment().format('YYYY-MM-DD HH:mm:ss');
     const account = "testuser";
     const is_delete = 0;
-    const token = "mock_token_eyJhbGciOiJIUzUxMiJ9";
     const nick_name = "管理员";
     const role_ids = [101, 102, 301];
     const avatar = "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
@@ -53,11 +52,11 @@ const createUser = (req, res) => {
             return;
         }
         const query = `INSERT INTO users 
-            (account, create_time, is_delete, password, update_time, description, token, userName, nick_name, role_ids, avatar) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+            (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         const values = [
             account, create_time, is_delete, hashedPassword, update_time,
-            description, token, userName, nick_name,
+            description, userName, nick_name,
             JSON.stringify(role_ids), avatar
         ];
         connection.query(query, values, (err, results) => {
@@ -77,23 +76,19 @@ const getUsers = (req, res) => {
     let query = 'SELECT * FROM users WHERE is_delete = 0';
     let countQuery = 'SELECT COUNT(*) AS total FROM users WHERE is_delete = 0';
     const queryParams = [];
-
     if (keywords) {
         query += ' AND (userName LIKE ? OR description LIKE ?)';
         countQuery += ' AND (userName LIKE ? OR description LIKE ?)';
         const keywordPattern = `%${keywords}%`;
         queryParams.push(keywordPattern, keywordPattern);
     }
-
     if (startTime && endTime) {
         query += ' AND create_time BETWEEN ? AND ?';
         countQuery += ' AND create_time BETWEEN ? AND ?';
         queryParams.push(startTime, endTime);
     }
-
     query += ' LIMIT ?, ?';
     queryParams.push(parseInt(offset), parseInt(pageSize));
-
     connection.query(query, queryParams, (err, results) => {
         if (err) {
             console.error(err);
@@ -126,26 +121,33 @@ const updateUser = (req, res) => {
     // 待处理数据权限菜单转化
     const account = "testuser";
     const is_delete = 0;
-    const token = "mock_token_eyJhbGciOiJIUzUxMiJ9";
     const nick_name = "管理员";
     const role_ids = [101, 102, 301];
     const avatar = "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
-    const query = `UPDATE users SET 
-        account = ?, is_delete = ?, password = ?, update_time = ?, description = ?, token = ?, userName = ?, 
-        nick_name = ?, role_ids = ?, avatar = ? 
-        WHERE id = ?`;
-    const values = [
-        account, is_delete, password, update_time, description, token, userName,
-        nick_name, JSON.stringify(role_ids), avatar, id
-    ];
-    connection.query(query, values, (err, results) => {
+    // 对密码进行加密
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
         if (err) {
-            res.status(500).json({ status: 500, message: '更新失败', error: err });
+            res.status(500).json({ status: 500, message: '密码加密失败', error: err });
             return;
         }
-        res.status(200).json({ status: 200, message: '更新成功', data: results });
+        const query = `UPDATE users SET 
+            account = ?, is_delete = ?, password = ?, update_time = ?, description = ?, userName = ?, 
+            nick_name = ?, role_ids = ?, avatar = ? 
+            WHERE id = ?`;
+        const values = [
+            account, is_delete, hashedPassword, update_time, description, userName,
+            nick_name, JSON.stringify(role_ids), avatar, id
+        ];
+        connection.query(query, values, (err, results) => {
+            if (err) {
+                res.status(500).json({ status: 500, message: '更新失败', error: err });
+                return;
+            }
+            res.status(200).json({ status: 200, message: '更新成功', data: results });
+        });
     });
 };
+
 
 // 删除用户（软删除）接口
 const deleteUser = (req, res) => {

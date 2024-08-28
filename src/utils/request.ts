@@ -10,12 +10,12 @@ let request = axios.create({
 request.interceptors.request.use((config: any) => {
   // 从 localStorage 中获取 token
   const token = localStorage.getItem('token');
-  
+
   // 如果 token 存在，将其添加到请求头中
   if (token) {
     config.headers['Authorization'] = `Bearer ${token}`;
   }
-  
+
   return config;
 });
 

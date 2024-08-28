@@ -1,6 +1,6 @@
 ### 简介
 
-kilyicms 项目是一个使用 Vue3 和 vite 构建的应用程序，用于 kilyimall 商城管理后台。该项目使用了 Element Plus 组件库，以及其他一些常用的 Vue 生态工具和库。
+kilyicms 项目是一个使用 Vue3 和 vite 构建的管理后台应用程序。该项目使用了 Element Plus 组件库，支持16种语言切换，以及其他一些常用的 Vue 生态工具和库。
 
 - 非开源，非商用，维权必究
 - 如需版权完整代码，联系WX：DU2603948701

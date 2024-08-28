@@ -96,7 +96,6 @@ interface User extends Omit<ListItem, 'id'> {
   account: string;
   is_delete: number;
   password: string;
-  token: string;
   userName: string;
   nick_name: string;
   role_ids: number[];
@@ -160,7 +159,6 @@ watch(searchKeyword, (newValue) => {
 const fetchItems = async () => {
   try {
     const response: any = await getListApi(queryParams);
-      ElMessage.success(response.message);
       userList.value = response.data;
       total.value = response.total;
   } catch (error) {
