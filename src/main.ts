@@ -24,7 +24,7 @@ app.use(i18n)
 app.use(ElementPlus)
 app.use(globalComponents)
 
-app.mount('#app')
+app.mount('#kilyimall')
 
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {

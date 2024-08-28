@@ -27,6 +27,9 @@ router.put('/restore/:id', userController.restoreUser);
 // 登录接口
 router.post('/login', userController.loginUser);
 
+// 注册接口
+router.post('/register', userController.registerUser);
+
 // 刷新jwt
 router.post('/refresh-token', userController.refreshToken);
 

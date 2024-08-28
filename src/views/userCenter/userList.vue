@@ -100,7 +100,6 @@ interface User extends Omit<ListItem, 'id'> {
   userName: string;
   nick_name: string;
   role_ids: number[];
-  logo: string;
   avatar: string;
 }
 

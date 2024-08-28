@@ -32,13 +32,15 @@
           <el-form-item>
             <div class="button_side">
               <el-button class="submit_but" type="primary" @click="onLoginConfirm" :loading="loading">
-                {{ t('login') }}
+                {{ t("login") }}
               </el-button>
             </div>
           </el-form-item>
           <el-form-item>
             <div class="toggle-form button_login_side">
-              <el-button class="side_btn" link @click="toggleForm">{{ t('Go_to_Register') }}</el-button>
+              <el-button class="side_btn" link @click="toggleForm">{{
+                t("Go_to_Register")
+              }}</el-button>
             </div>
           </el-form-item>
         </el-form>
@@ -55,7 +57,8 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="password" :label="t('password')" label-width="80px">
-            <el-input size="large" v-model.trim="form.password" show-password :placeholder="t('Please_confirm_the_password')">
+            <el-input size="large" v-model.trim="form.password" show-password
+              :placeholder="t('Please_confirm_the_password')">
               <template #prepend>
                 <el-icon :size="20">
                   <Key />
@@ -76,13 +79,15 @@
           <el-form-item>
             <div class="button_side">
               <el-button class="submit_but" type="primary" @click="onRegister" :loading="loading">
-                {{ t('router_register') }}
+                {{ t("router_register") }}
               </el-button>
             </div>
           </el-form-item>
           <el-form-item>
             <div class="toggle-form button_register_side">
-              <el-button class="side_btn" link @click="toggleForm">{{ t('Go_and_log_in') }}</el-button>
+              <el-button class="side_btn" link @click="toggleForm">
+                {{ t("Go_and_log_in") }}
+              </el-button>
             </div>
           </el-form-item>
         </el-form>
@@ -93,19 +98,18 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
-import { loginApi } from "@/service/index";
+import { loginApi, registerApi } from "@/service/index";
 import { useRouter } from "vue-router";
-import { ElNotification } from 'element-plus'
+import { ElNotification } from "element-plus";
 import { userPomotionStore } from "@/store";
 import type { FormInstance, FormItemRule } from "element-plus";
-import imgUrl from "@/assets/images/login_banner.gif"
+import imgUrl from "@/assets/images/login_banner.gif";
 import SlideVerify from "@/components/SlideVerify/index.vue";
-import { useGreeting } from '@/hooks/useGreeting';
-const sliderVisible = ref<boolean>(false) //滑动验证ui
-const isSlider = ref<boolean>(false) // 是否开启验证
+import { useGreeting } from "@/hooks/useGreeting";
+const sliderVisible = ref<boolean>(false); //滑动验证ui
+const isSlider = ref<boolean>(false); // 是否开启验证
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-
 
 interface LoginForm {
   userName: string;
@@ -131,15 +135,43 @@ onMounted(() => {
 });
 
 const rules = {
-  userName: [{ required: true, message: t('Please_enter_your_username'), trigger: "blur" }],
-  password: [{ required: true, message: t('Please_enter_your_password'), trigger: "blur" }]
+  userName: [
+    {
+      required: true,
+      message: t("Please_enter_your_username"),
+      trigger: "blur",
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: t("Please_enter_your_password"),
+      trigger: "blur",
+    },
+  ],
 };
 
 const registerRules = {
-  userName: [{ required: true, message: t('Please_enter_your_username'), trigger: "blur" }],
-  password: [{ required: true, message: t('Please_enter_your_password'), trigger: "blur" }],
+  userName: [
+    {
+      required: true,
+      message: t("Please_enter_your_username"),
+      trigger: "blur",
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: t("Please_enter_your_password"),
+      trigger: "blur",
+    },
+  ],
   confirmPassword: [
-    { required: true, message: t('Please_confirm_the_password'), trigger: "blur" },
+    {
+      required: true,
+      message: t("Please_confirm_the_password"),
+      trigger: "blur",
+    },
     {
       validator: (
         rule: FormItemRule,
@@ -147,14 +179,14 @@ const registerRules = {
         callback: (error?: Error) => void
       ) => {
         if (value !== form.password) {
-          callback(new Error(t('passwords_are_different')));
+          callback(new Error(t("passwords_are_different")));
         } else {
           callback();
         }
       },
-      trigger: "blur"
-    }
-  ]
+      trigger: "blur",
+    },
+  ],
 };
 
 // 图片验证码通过
@@ -164,8 +196,8 @@ const handleSlideSuccess = () => {
     sliderVisible.value = false;
     // 登录
     handlerExecutiveLogging();
-  }, 1500)
-}
+  }, 1500);
+};
 
 // 登录接口请求验证
 const handlerExecutiveLogging = () => {
@@ -176,7 +208,6 @@ const handlerExecutiveLogging = () => {
   const { showGreetingNotification } = useGreeting(t);
   loginApi(params)
     .then((res: any) => {
-      console.log("88888---", res);
       if (res.status === 200) {
         // 显示问候语
         showGreetingNotification(res.message, res.userInfo.userName);
@@ -184,20 +215,17 @@ const handlerExecutiveLogging = () => {
         store.userInfo = res.userInfo;
         store.isCollapse = false;
         localStorage.setItem("token", res.token);
-        console.log('11111111111');
         router.push("/home");
       } else if (res.status === 403) {
-        console.log('22222222222');
         ElNotification({
           message: res.message,
-          type: 'warning',
-        })
+          type: "warning",
+        });
       } else {
-        console.log('33333333333');
         ElNotification({
           message: res.message,
-          type: 'warning',
-        })
+          type: "warning",
+        });
       }
       loading.value = false;
     })
@@ -205,7 +233,7 @@ const handlerExecutiveLogging = () => {
       console.log("error", error);
       loading.value = false;
     });
-}
+};
 
 // 图形验证弹窗
 const onLoginConfirm = () => {
@@ -231,33 +259,22 @@ const toggleForm = () => {
 // 注册接口验证
 const handlerExecutiveRegister = () => {
   loading.value = true;
-  //     registerApi(form)
-  //         .then((res: any) => {
-  //             if (res.status === 200) {
-  //                 ElNotification({
-  //                     message: res.message,
-  //                     type: "success"
-  //                 });
-  //                 toggleForm(); // 假设在登录和注册表单之间切换
-  //             } else {
-  //                 ElNotification({
-  //                     message: res.message,
-  //                     type: "warning"
-  //                 });
-  //             }
-  //         })
-  //         .catch((error: Error) => {
-  //             ElNotification({
-  //                 message: "An error occurred during registration.",
-  //                 type: "error"
-  //             });
-  //             console.log("error", error);
-  //         })
-  //         .finally(() => {
-  //             loading.value = false;
-  //         });
-  // };
+  registerApi(form).then((res: any) => {
+    if (res.status === 200) {
+      ElNotification({
+        message: res.message,
+        type: "success",
+      });
+      toggleForm(); // 登录和注册表单之间切换
+    }
+  }).catch((res: any) => {
+    loading.value = false;
+  })
+    .finally(() => {
+      loading.value = false;
+    });
 };
+
 const onRegister = () => {
   loading.value = true;
   ref_form.value?.validate((valid: boolean) => {
@@ -265,7 +282,7 @@ const onRegister = () => {
       handlerExecutiveRegister();
     }
   });
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -281,7 +298,7 @@ $sider_height: 400px;
     position: absolute;
     width: 400px;
     left: calc(50% - calc($sider_width / 3));
-    top: calc(50% + calc($sider_height /3));
+    top: calc(50% + calc($sider_height / 3));
     z-index: 22;
     background: linear-gradient(to bottom right, #ead6eec0, #a0f1eab5);
     padding-bottom: 30px;
