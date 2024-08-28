@@ -2,7 +2,7 @@ import axios from "axios";
 import { ElNotification } from "element-plus";
 
 let request = axios.create({
-  baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会携带/api
+  baseURL: import.meta.env.VITE_MODE, // 基础路径上会携带/api
   timeout: 5000,
 });
 

@@ -18,6 +18,7 @@ const en = {
   "router_note3":"Note3",
   "router_data_conversion":"Data Conversion",
   "router_data_report1":"Data Report1",
+  "router_office_use": "Office Use",
 // 其他字段
   'select_language': 'Select Language',
   'confirm_ok_text': 'Confirm',
@@ -96,7 +97,7 @@ const en = {
   "Go_and_log_in": "Already have an account? Go and log in",
   "passwords_are_different": "Two passwords do not match",
   "successful_which_takes":"Successful, which takes",
-  "seconds": "秒",
+  "seconds": "seconds",
   "Non-human_operation_detected": "Non-human operation detected!",
   "Verification_failed": "Verification failed!",
   "swipe_right": "Swipe right",

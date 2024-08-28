@@ -19,6 +19,7 @@ const zh = {
   "router_note3": "笔记3",
   "router_data_conversion": "数据转换",
   "router_data_report1": "数据报表1",
+  "router_office_use": "办公专用",
   // 公共提示字段
   'select_language': '选择语言',
   'confirm_ok_text': '确认',

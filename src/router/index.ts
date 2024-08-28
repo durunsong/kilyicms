@@ -63,11 +63,11 @@ export const routes: Array<CustomRouteRecordRaw> = [
         ],
       },
       {
-        label: "router_Rich_text_summary",
+        label: "router_office_use",
         path: "rich_text",
         name: "rich_text",
         meta: {
-          title: "router_Rich_text_summary",
+          title: "router_office_use",
           hidden: false,
           icon: "Edit",
         },
