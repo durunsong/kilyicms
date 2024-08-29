@@ -54,7 +54,6 @@ const removePendingRequest = (config: InternalAxiosRequestConfig) => {
 // 请求拦截器
 request.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    console.log('请求拦截器', config);
 
     // 显示 loading 动画
     showLoading();
@@ -118,7 +117,6 @@ request.interceptors.response.use(
     switch (status) {
       case 401:
         errorInfo = "未授权，请登录";
-
         // 自动刷新 token 逻辑
         const refreshToken = localStorage.getItem("refreshToken");
         if (refreshToken && !originalRequest._retry) {
@@ -175,7 +173,6 @@ request.interceptors.response.use(
 );
 
 export default request;
-
 
 /**
  * 1.Loading 动画：在请求发起时显示加载动画，结束时关闭。
