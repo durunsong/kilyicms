@@ -9,7 +9,7 @@ const langListArr: string[] = langList.map(lang => lang.category);
 let navLang: string = navigator.language.substring(0, 2);
 
 // 获取本地存储的语言
-let localLang: string = localStorage.getItem('localLang');
+let localLang: any = localStorage.getItem('localLang');
 
 // 处理其他浏览器语言格式
 if (localLang === 'zh-cn' || localLang === 'en-us') {
