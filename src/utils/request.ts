@@ -7,7 +7,7 @@ let pendingRequests: any = {};
 
 // 创建 axios 实例
 let request = axios.create({
-  baseURL: import.meta.env.VITE_MODE, // 基础路径上会携带/api
+  baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会携带/api
   timeout: 5000,
 });
 
@@ -54,6 +54,8 @@ const removePendingRequest = (config: InternalAxiosRequestConfig) => {
 // 请求拦截器
 request.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
+    console.log('请求拦截器', config);
+
     // 显示 loading 动画
     showLoading();
 
