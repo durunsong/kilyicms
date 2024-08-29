@@ -52,7 +52,6 @@
         <el-button type="primary" @click="addItem">{{ t('add') }}</el-button>
       </div>
     </el-dialog>
-
     <!-- edit dialog -->
     <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
       <el-form :model="editItemData">
@@ -89,17 +88,6 @@ interface ListItem {
   userName: string;
   description: string;
   password: string;
-}
-
-// 测试字段类型 ----不用可删除----
-interface User extends Omit<ListItem, 'id'> {
-  account: string;
-  is_delete: number;
-  password: string;
-  userName: string;
-  nick_name: string;
-  role_ids: number[];
-  avatar: string;
 }
 
 const pickerDatas = ref<[Date, Date] | null>(null);
@@ -159,8 +147,8 @@ watch(searchKeyword, (newValue) => {
 const fetchItems = async () => {
   try {
     const response: any = await getListApi(queryParams);
-      userList.value = response.data;
-      total.value = response.total;
+    userList.value = response.data;
+    total.value = response.total;
   } catch (error) {
     ElMessage.error(t('Data_acquisition_failure'));
   }
@@ -262,7 +250,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 :deep(.el-date-editor) {
   height: 41px;
 }

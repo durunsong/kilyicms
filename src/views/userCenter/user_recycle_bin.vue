@@ -181,7 +181,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 :deep(.el-date-editor) {
   height: 41px;
 }
