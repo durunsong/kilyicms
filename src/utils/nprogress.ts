@@ -9,7 +9,7 @@ progressBarStyle.innerHTML = `
   }
   #nprogress .bar {
     background: #29d; /* 进度条颜色 */
-    height: 2px; /* 进度条高度 */
+    height: 3px; /* 进度条高度 */
     box-shadow: 0 0 3px #29d, 0 0 3px #29d; /* 发光效果 */
   }
   #nprogress .peg {
