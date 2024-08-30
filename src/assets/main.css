@@ -1,6 +1,6 @@
 @import './base.css';
 
-#kilyimall {
+#kilyicms {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -27,7 +27,7 @@ a,
     place-items: center;
   }
 
-  #kilyimall {
+  #kilyicms {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;

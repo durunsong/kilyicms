@@ -1,9 +1,10 @@
+// Loading hooks
 import { ElLoading, LoadingOptions } from "element-plus";
 import type { Options } from "@/types/store"
 
 const defaultOptions: Options = {
   lock: true,
-  text: "正在加载...",
+  text: "Loading....",
   background: "rgba(0, 0, 0, 0.1)",
 };
 
