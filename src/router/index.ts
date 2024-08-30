@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { CustomRouteRecordRaw } from "@/types/routerType";
+import nprogress from "@/utils/nprogress.ts"
 
 export const routes: Array<CustomRouteRecordRaw> = [
   {
@@ -211,15 +212,8 @@ const router = createRouter({
   routes: routes as RouteRecordRaw[],
 });
 
-// router.afterEach((to, from, next) => {
-//   if (typeof to.meta?.title === "string") {
-//     document.title = to.meta?.title;
-//   } else {
-//     return true;
-//   }
-// });
-
 router.beforeEach((to, from) => {
+  nprogress.start()
   if (to.fullPath === "/login") {
     //已经登录了,直接跳到home页面
     if (localStorage.getItem("token")) {
@@ -237,6 +231,15 @@ router.beforeEach((to, from) => {
       path: "/login",
     };
   }
+});
+
+router.afterEach((to, from, next) => {
+  nprogress.done()
+  // if (typeof to.meta?.title === "string") {
+  //   document.title = to.meta?.title;
+  // } else {
+  //   return true;
+  // }
 });
 
 export default router;
