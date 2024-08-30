@@ -2,7 +2,7 @@
 
 kilyicms 项目是一个使用 Vue3 和 vite5 构建的管理后台应用程序，是xxx前台的配置后台。该项目使用了 Element Plus 组件库，支持16种语言切换，以及其他一些常用的 Vue 生态工具和库。
 
-![案例](assets/case_img/Snipaste-test.png)
+![案例](https://github.com/durunsong/kilyicms/blob/main/src/assets/case_img/Snipaste-test.png)
 
 - 非开源，非商用，维权必究
 - 如需版权完整代码，联系WX：DU2603948701
