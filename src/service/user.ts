@@ -21,7 +21,7 @@ interface ItemResponse {
 }
 
 // 查询列表
-export const getListApi = (params: { pageNum: number; pageSize: number; keywords: string | null; startTime?: string | null; endTime?: string | null; }): Promise<AxiosResponse<ListResponse>> =>
+export const getItemApi = (params: { pageNum: number; pageSize: number; keywords: string | null; startTime?: string | null; endTime?: string | null; }): Promise<AxiosResponse<ListResponse>> =>
   request({ url: "/api/users", method: "GET", params: params });
 
 // 添加用户
@@ -37,13 +37,13 @@ export const deleteItemApi = (id: number): Promise<AxiosResponse<ListResponse>> 
   request({ url: `/api/users/${id}`, method: 'DELETE' })
 
 // 获取删除列表
-export const getDeleteUserItem = (params: { pageNum: number; pageSize: number; keywords: string | null; startTime?: string | null; endTime?: string | null; }): Promise<AxiosResponse<ListResponse>> =>
+export const getDeleteUserItemApi = (params: { pageNum: number; pageSize: number; keywords: string | null; startTime?: string | null; endTime?: string | null; }): Promise<AxiosResponse<ListResponse>> =>
   request({ url: "/api/users/deleteList", method: "GET", params: params });
 
 // 彻底删除用户
-export const deleteItemSift = (id: number): Promise<AxiosResponse<ListResponse>> =>
+export const deleteItemSiftApi = (id: number): Promise<AxiosResponse<ListResponse>> =>
   request({ url: `/api/users/deleteList/${id}`, method: 'DELETE' })
 
 // 恢复删除用户
-export const restoreUser = (id: number): Promise<AxiosResponse<ListResponse>> =>
+export const restoreUserApi = (id: number): Promise<AxiosResponse<ListResponse>> =>
   request({ url: `/api/users/restore/${id}`, method: 'PUT' })

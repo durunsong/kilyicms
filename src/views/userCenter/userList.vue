@@ -80,7 +80,7 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from 'vue';
 import { ElMessage } from 'element-plus';
-import { getListApi, addItemApi, updateItemApi, deleteItemApi } from '@/service/user';
+import { getItemApi, addItemApi, updateItemApi, deleteItemApi } from '@/service/user';
 import useMomentFormat from '@/hooks/useMomentFormat';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useI18n } from "vue-i18n";
@@ -157,7 +157,7 @@ watch(searchKeyword, (newValue) => {
 // 获取数据
 const fetchItems = async () => {
   try {
-    const response: any = await getListApi(queryParams);
+    const response: any = await getItemApi(queryParams);
     userList.value = response.data;
     total.value = response.total;
   } catch (error) {

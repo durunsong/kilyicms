@@ -22,7 +22,7 @@ router.get('/deleteList', userController.getDeletedUsers);
 router.delete('/deleteList/:id', userController.permanentDeleteUser);
 
 // 还原删除用户接口
-router.put('/restore/:id', userController.restoreUser);
+router.put('/restore/:id', userController.restoreUserApi);
 
 // 登录接口
 router.post('/login', userController.loginUser);

@@ -55,7 +55,7 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from 'vue';
 import { ElMessage } from 'element-plus';
-import { getDeleteUserItem, deleteItemSift, restoreUser } from '@/service/user';
+import { getDeleteUserItemApi, deleteItemSiftApi, restoreUserApi } from '@/service/user';
 import useMomentFormat from '@/hooks/useMomentFormat';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useI18n } from "vue-i18n";
@@ -84,7 +84,7 @@ const queryParams = reactive({
 // 还原用户
 const handleRestore = async (id: number) => {
   try {
-    const response = await restoreUser(id);
+    const response = await restoreUserApi(id);
     if (response.status === 200) {
       fetchItems();
       ElMessage.success(t('Restore_successfully'));
@@ -134,7 +134,7 @@ watch(searchKeyword, (newValue) => {
 // 获取数据
 const fetchItems = async () => {
   try {
-    const response: any = await getDeleteUserItem(queryParams);
+    const response: any = await getDeleteUserItemApi(queryParams);
     userList.value = response.data;
     total.value = response.total;
   } catch (error) {
@@ -145,7 +145,7 @@ const fetchItems = async () => {
 // 彻底删除
 const deleteItem = async (id: number) => {
   try {
-    const response = await deleteItemSift(id);
+    const response = await deleteItemSiftApi(id);
     if (response.status === 200) {
       fetchItems();
       ElMessage.success(t('successfully_delete'));

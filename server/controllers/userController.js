@@ -234,7 +234,7 @@ const permanentDeleteUser = (req, res) => {
 };
 
 // 还原删除用户接口
-const restoreUser = (req, res) => {
+const restoreUserApi = (req, res) => {
     const { id } = req.params;
     const query = 'UPDATE users SET is_delete = 0 WHERE id = ?';
     connection.query(query, [id], (err, results) => {
@@ -382,7 +382,7 @@ module.exports = {
     deleteUser,
     getDeletedUsers,
     permanentDeleteUser,
-    restoreUser,
+    restoreUserApi,
     loginUser,
     refreshToken,
     registerUser
