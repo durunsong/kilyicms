@@ -2,9 +2,9 @@
   <div>
     <div class="search_container">
       <el-input class="search_input" v-model.trim="searchKeyword" :placeholder="t('please_enter')"
-        @keyup.enter="handleSearchItems" clearable @clear="handleclearIpt" />
+        @keyup.enter="handleSearchItems" clearable @clear="handleClearIpt" />
       <div class="date_time_picker">
-        <el-date-picker v-model="pickerDatas" type="datetimerange" :start-placeholder="t('start_time')"
+        <el-date-picker v-model="pickerData" type="datetimerange" :start-placeholder="t('start_time')"
           :end-placeholder="t('end_time')" format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD"
           @change="formatHandleChange" />
       </div>
@@ -94,7 +94,7 @@ interface ListItem {
   password: string;
 }
 
-const pickerDatas = ref<[Date, Date] | null>(null);
+const pickerData = ref<[Date, Date] | null>(null);
 const userList = ref<ListItem[]>([]);
 const total = ref<number>(0);
 const searchKeyword = ref<string>('');
@@ -138,10 +138,10 @@ const formatHandleChange = (value: [Date, Date] | null) => {
 }
 // 清空
 const handleClearItems = () => {
-  if (pickerDatas.value || searchKeyword.value) {
-    pickerDatas.value = null;
+  if (pickerData.value || searchKeyword.value) {
+    pickerData.value = null;
     formatHandleChange(null);
-    handleclearIpt();
+    handleClearIpt();
     ElMessage.success(t('Clear_successfully'));
   }
 };
@@ -229,7 +229,7 @@ const deleteItem = async (id: number) => {
 // 搜索
 const handleSearchItems = () => {
   // 搜索非空防抖
-  if (pickerDatas.value || searchKeyword.value) {
+  if (pickerData.value || searchKeyword.value) {
     queryParams.pageNum = 1;
     fetchItems();
   }
@@ -238,7 +238,7 @@ const handleSearchItems = () => {
 //   -----搜索防抖2秒一次-----
 const debouncedHandleSearchItems = useDebounce(handleSearchItems, 2000, true);
 
-const handleclearIpt = () => {
+const handleClearIpt = () => {
   searchKeyword.value = '';
   queryParams.keywords = null;
   queryParams.pageNum = 1;

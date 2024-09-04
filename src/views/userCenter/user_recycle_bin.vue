@@ -18,7 +18,11 @@
           {{ scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="userName" :label="t('name')" align="center"></el-table-column>
+      <el-table-column :label="t('name')" align="center">
+        <template #default="scope">
+          <span v-html="highlightKeyword(scope.row.userName)"></span>
+        </template>
+      </el-table-column>
       <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
       <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
       <el-table-column :label="t('operates')" align="center">
@@ -112,6 +116,13 @@ const handleClearItems = () => {
   }
 };
 
+// 高亮关键词
+const highlightKeyword = (text: string) => {
+  if (!searchKeyword.value) return text;
+  const pattern = new RegExp(`(${searchKeyword.value})`, 'gi');
+  return text.replace(pattern, '<span class="highlight">$1</span>');
+}
+
 watch(searchKeyword, (newValue) => {
   if (newValue === '') {
     queryParams.keywords = null;
@@ -180,6 +191,14 @@ onMounted(() => {
   fetchItems();
 });
 </script>
+
+<style>
+/* 高亮显示样式 */
+.highlight {
+  color: #409eff;
+  background-color: #5695d532;
+}
+</style>
 
 <style lang="scss" scoped>
 :deep(.el-date-editor) {
