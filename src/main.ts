@@ -1,32 +1,32 @@
+// core
+import { createApp } from "vue"
+import App from "@/App.vue"
+import store from "@/store"
+import router from "@/router"
+import "@/router/permission"
+// load
+import { loadSvg } from "@/icons"
+import { loadPlugins } from "@/plugins"
+import { loadDirectives } from "@/directives"
 // css
-import '@/assets/base.scss'
-import "element-plus/theme-chalk/dark/css-vars.css";
-import 'element-plus/dist/index.css'
-import 'virtual:svg-icons-register' // svg
+import "uno.css"
+import "normalize.css"
+import "element-plus/dist/index.css"
+import "element-plus/theme-chalk/dark/css-vars.css"
+import "@/styles/index.scss"
 
-
-import { setupStore } from "@/store";
-import ElementPlus from 'element-plus'
-import * as ElementPlusIconsVue from "@element-plus/icons-vue"
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
 import i18n from '@/i18n'
-// 全局引入组件方法
-import globalComponents from '@/components/index';
 
 const app = createApp(App)
 
-setupStore(app)
-
-app.use(router)
+/** 加载插件 */
+loadPlugins(app)
+/** 加载全局 SVG */
+loadSvg(app)
+/** 加载自定义指令 */
+loadDirectives(app)
 app.use(i18n)
-app.use(ElementPlus)
-app.use(globalComponents)
-
-app.mount('#kilyicms')
-
-
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component);
-}
+app.use(store).use(router)
+router.isReady().then(() => {
+  app.mount("#kilyicms")
+})

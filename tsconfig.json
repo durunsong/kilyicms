@@ -1,36 +1,46 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "esnext",
+    /** https://cn.vitejs.dev/guide/features.html#typescript-compiler-options */
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
+    "module": "esnext",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve",
-
-    /* Linting */
+    /** TS 严格模式 */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    /** https://cn.vitejs.dev/guide/features.html#typescript-compiler-options */
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "types": [
+      "node",
+      "vite/client",
+      /** Element Plus 的 Volar 插件支持 */
+      "element-plus/global",
+    ],
+    /** baseUrl 用来告诉编译器到哪里去查找模块，使用非相对模块时必须配置此项 */
     "baseUrl": ".",
+    /** 非相对模块导入的路径映射配置，根据 baseUrl 配置进行路径计算 */
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "types/**/*.d.ts",
+    "vite.config.ts",
   ],
+  /** 编译器默认排除的编译文件 */
+  "exclude": ["node_modules", "dist"]
 }

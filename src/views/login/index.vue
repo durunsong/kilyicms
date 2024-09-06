@@ -97,11 +97,12 @@
 </template>
 
 <script setup lang="ts">
+import { getToken, removeToken, setToken } from "@/utils/cache/cookies"
 import { ref, reactive, onMounted } from "vue";
 import { loginApi, registerApi } from "@/service/index";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
-import { userPomotionStore } from "@/store";
+import { userPomotionStore } from "@/store/modules/promotion";
 import type { FormInstance, FormItemRule } from "element-plus";
 import imgUrl from "@/assets/images/login_banner.gif";
 import SlideVerify from "@/components/SlideVerify/index.vue";
@@ -214,8 +215,9 @@ const handlerExecutiveLogging = () => {
         // pinia存用户信息
         store.userInfo = res.userInfo;
         store.isCollapse = false;
+        setToken(res.token)
         localStorage.setItem("token", res.token);
-        router.push("/home");
+        router.push("/");
       } else if (res.status === 403) {
         ElNotification({
           message: res.message,

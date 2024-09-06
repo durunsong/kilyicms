@@ -1,177 +1,160 @@
-### 简介
+<div align="center">
+  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/layouts/logo.png">
+  <h1>V3 Admin Vite</h1>
+  <span>English | <a href="./README.zh-CN.md">中文</a></span>
+</div>
 
-kilyicms 项目是一个使用 Vue3 和 vite5 构建的管理后台应用程序，是xxx前台的配置后台。该项目使用了 Element Plus 组件库，支持16种语言切换，以及其他一些常用的 Vue 生态工具和库。
+## ⚡ Introduction
 
-![案例](https://github.com/durunsong/kilyicms/blob/main/src/assets/case_img/Snipaste-test.png)
+V3 Admin Vite is a free and open source middle and background management system basic solution, based on mainstream framework such as Vue3, TypeScript, Element Plus, Pinia and Vite
 
-- 非开源，非商用，维权必究
-- 如需版权完整代码，联系WX：DU2603948701
+- Vue Cli 5.x: [v3-admin](https://github.com/un-pany/v3-admin)
+- Electron desktop: [v3-electron-vite](https://github.com/un-pany/v3-electron-vite)
 
-#### 🎈标记为已经完成的功能，其他为待完成的功能
-###### 前端完成：hooks 组件  指令 配置 
-1. 全局 svg组件封装 可用性 (vite配置) 🎈
-2. 项目light和dark主题切换 配合所依赖的ui组件库
-3. 三个环境配置(开发、测试、生产) 🎈
-4. 按钮时效(按钮防抖)🎈
-5. 避免多次无效请求(添加节流校验) 🎈
-6. 全屏切换 🎈
-7. 是否让用户启用调试功能----封装hooks--- 🎈
-8. 后台权限,路由权限，按钮权限
-9. 后台标签页管理优化
-10. 登陆者userName水印设置
-11. 上传execl表格+解析+打印
-12. PDF预览++打印
-13. 富文本动态编辑前台内容+上传图片+上传视频
-14. 骨架屏组件封装
-15. 搜索匹配字段高亮显示🎈
-16. 进度条组件封装 🎈
-17. 请求loading封装(两种种形式:hooks🎈,封装请求方法里面配置页面加载动画全局封装🎈)
-18. 必要组件全局挂载 🎈
-19. 多语言管理，多语言切换组件，批量翻译程序编写 🎈
-20. 公用方法hooks封装 🎈
-21. 前端路由分离
-22. 自定义指令全局封装
-23. 前端代码自动化Jenkins部署或通过nodejs命令行部署
-24. 三种验证码校验(前端组件方式、前端后端数字运算或图形验证码校验、前端后端cf浏览器指纹自动人机校验)
-25. 大文件分片上传(单独上传、富文本上传)
-26. 构建微前端架构，动态添加路由，动态添加子系统，处理好css沙箱
+China repository: [Gitee](https://gitee.com/un-pany/kilyicms)
 
-###### 后端完成方式 ：
+## 📚 Document
 
-1. 模块化开发🎈
-2. 权限控制
-3. 登录jwt验证 🎈
-4. 两种验证码校验(前端后端数字运算或图形验证码校验、前端后端cf浏览器指纹自动人机校验)，一段时间自动推送消息给前端
-5. 敏感信息加密(密码+地址... 参考RSA加密库) 
-6. Redis限流处理
-7. Jenkins自动化部署
-8. docker
-9. 后端多语言根据前端请求进行切换
+- Chinese documentation: [link](https://juejin.cn/post/7089377403717287972)
+- Chinese getting started tutorial: [link](https://juejin.cn/column/7207659644487139387)
 
-#### 项目安装
+## 📺 Online preview
 
-确保你已经安装了 Node.js 和 npm（或者使用 pnpm/yarn）。然后运行以下命令安装项目的依赖项：
+| Location     | account             | Link                                            |
+| ------------ | ------------------- | ----------------------------------------------- |
+| github-pages | `admin` or `editor` | [link](https://un-pany.github.io/kilyicms) |
 
-#### 环境准备
+## ❤️ Generate electricity with love
 
-Node 20+
+- **Completely free**：But hopefully you order a star !!!
+- **Very concise**：No complicated encapsulation, no complicated type gymnastics, out of the box
+- **Detailed annotations**：Each configuration item is written with as detailed comments as possible
+- **Latest dependencies**: Regularly update all third-party dependencies to the latest version
+- **Very specification**: The code style is unified, the naming style is unified, and the comment style is unified
 
-#### 使用[阿里云 NPM 镜像](https://www.npmmirror.com/)
+## Feature
 
-```js
-npm config set registry https://registry.npmmirror.com
-```
+- **Vue3**：The latest Vue3 composition API using Vue3 + script setup
+- **Element Plus**：Vue3 version of Element UI
+- **Pinia**: An alternative to Vuex in Vue3
+- **Vite**：Really fast
+- **Vue Router**：router
+- **TypeScript**：JavaScript With Syntax For Types
+- **PNPM**：Faster, disk space saving package management tool
+- **Scss**：Consistent with Element Plus
+- **CSS variable**：Mainly controls the layout and color of the item
+- **ESlint**：Code verification
+- **Prettier**： Code formatting
+- **Axios**: Promise based HTTP client (encapsulated)
+- **UnoCSS**: Real-time atomized CSS engine with high performance and flexibility
+- **Mobile Compatible**: The layout is compatible with mobile page resolution
 
-#### 获取项目代码
+## Functions
 
-```js
-git clone https://github.com/durunsong/kilyicms.git
-cd kilyicms (前端项目)
-cd server (后端项目)
-```
+- **User management**: Log in and out of the demo
+- **Authority management**: Page-level permissions (dynamic routing), button-level permissions (directive permissions, permission functions), and route navigation guards
+- **Multiple Environments**: Development, test, Production
+- **Multiple themes**: Normal, Dark, Dark Blue, three theme modes
+- **Multiple layouts**：Left, Top, Left Top, three layout modes
+- **Error page**: 403, 404
+- **Dashboard**: Display different Dashboard pages according to different users
+- **Other functions**：SVG, Dynamic Sidebar, Dynamic Breadcrumb Navigation, Tabbed Navigation, Screenfull, Adaptive Shrink Sidebar, Hook (Composables)
 
-#### 安装 pnpm
+## 🚀 Development
 
-```
-npm install -g pnpm
-```
 ```bash
-## 安装依赖
-pnpm install
+# configure
+1. installation of the recommended plugins in the .vscode directory
+2. node version 18.x or 20+
+3. pnpm version 8.x or latest
 
-# 或者
-yarn install
+# clone
+git clone https://github.com/un-pany/kilyicms.git
 
-### 开发模式 eg: 在开发模式下运行项目
-pnpm run dev
+# enter the project directory
+cd kilyicms
 
-# 或者
-yarn dev
+# install dependencies
+pnpm i
 
-### 生产构建 eg: 构建生产版本的项目
-pnpm run build:prod
-
-# 或者
-yarn build:prod
-
-### 预览 eg: 预览生产版本的项目
-pnpm run preview
-
-# 或者
-yarn preview
+# start the service
+pnpm dev
 ```
 
-```js
-cd server (后端项目)
-pnpm install
-pnpm run start
+## ✔️ Preview
+
+```bash
+# stage environment
+pnpm preview:stage
+
+# prod environment
+pnpm preview:prod
 ```
 
-###  部署配置  eg：vercel部署 (project.json)
-##### 命令
-vercel --cwd ./kilyicms/
+## 📦️ Multi-environment packaging
 
-{
-  "projectId": "prj_rQGnnAhMevC2sjiwCCppvCu48nny",
-  "orgId": "team_j4xDsAAIpUmffVZAX8ry8btS",
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
-  ]
-}
+```bash
+# build the stage environment
+pnpm build:stage
 
-
-### 技术栈
-
-- 前端部分：
-  vue3
-  vite5
-  Pinia
-  pinia-plugin-persistedstate
-  typeScript
-  element-Plus
-  axios
-  vue-Router
-  vue-I18n
-  vue-Clipboard3
-  fingerprintjs
-  moment
-  @wangeditor
-  screenfull
-  sass
-  terser
-  uuid
-
-  vue3-slide-verify
-
-- 后端部分：
-  body-parser
-  cors
-  express
-  moment
-  mysql2
-
-  jsonwebtoken
-
-  bcrypt
-
-
-#### 国际化多语言自动化翻译程序
-##### 准备：百度翻译api---------> appid appkey
-##### 代码仓库 (具体看百度翻译api文档)
-
-[点击这里访问我的另一个仓库](https://github.com/durunsong/Baidu-trans.git)
-
-
-#### 该仓库代码提交git规范
-```js
-feat - 新功能 feature
-fix - 修复 bug
-docs - 文档注释
-style - 代码格式(不影响代码运行的变动)
-refactor - 重构、优化(既不增加新功能，也不是修复bug)
-perf - 性能优化
-test - 增加测试
-chore - 构建过程或辅助工具的变动
-revert - 回退
-build - 打包
+# build the prod environment
+pnpm build:prod
 ```
+
+## 🔧 Code inspection
+
+```bash
+# code formatting
+pnpm lint
+
+# unit test
+pnpm test
+```
+
+## Git commit specification reference
+
+- `feat` add new functions
+- `fix` Fix issues/bugs
+- `perf` Optimize performance
+- `style` Change the code style without affecting the running result
+- `refactor` Re-factor code
+- `revert` Undo changes
+- `test` Test related, does not involve changes to business code
+- `docs` Documentation and Annotation
+- `chore` Updating dependencies/modifying scaffolding configuration, etc.
+- `workflow` Work flow Improvements
+- `ci` CICD
+- `types` Type definition
+- `wip` In development
+
+## Project preview
+
+![preview1.png](./src/assets/docs/preview1.png)
+![preview2.png](./src/assets/docs/preview2.png)
+![preview3.png](./src/assets/docs/preview3.png)
+
+## 💕 Contributors
+
+Thanks to all the contributors!
+
+<a href="https://github.com/un-pany/kilyicms/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=un-pany/kilyicms" />
+</a>
+
+## 💕 Thanks star
+
+Small projects are not easy to get a star, if you like this project, welcome to support a star! This is the only motivation for the author to maintain it on an ongoing basis (whisper: it's free after all)
+
+## ☕ Donate
+
+[See how to donate](https://github.com/un-pany/kilyicms/issues/69)
+
+## Group
+
+[See how to join a group chat](https://github.com/un-pany/kilyicms/issues/191)
+
+## 📄 License
+
+[MIT](./LICENSE)
+
+Copyright (c) 2022-present [pany](https://github.com/pany-ang)
