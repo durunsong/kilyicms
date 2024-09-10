@@ -3,12 +3,12 @@ import { ElNotification, ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
 
 let loadingInstance: any = null;
-let pendingRequests: any = {};
+const pendingRequests: any = {};
 
 // 创建 axios 实例
-let request = axios.create({
+const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会携带/api
-  timeout: 5000,
+  timeout: 5000
 });
 
 // 展示 loading
@@ -38,7 +38,7 @@ const showLoading = () => {
                     repeatCount="indefinite"/>
             </path>
         </svg>
-    `,
+    `
   });
 };
 
@@ -76,7 +76,6 @@ const removePendingRequest = (config: InternalAxiosRequestConfig) => {
 // 请求拦截器
 request.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-
     // 显示 loading 动画
     showLoading();
 
@@ -110,7 +109,7 @@ request.interceptors.request.use(
 
     return config;
   },
-  (error) => {
+  (error: any) => {
     hideLoading();
     return Promise.reject(error);
   }
@@ -128,7 +127,7 @@ request.interceptors.response.use(
     // 响应成功，返回数据
     return response.data;
   },
-  async (error) => {
+  async (error: any) => {
     hideLoading();
 
     let errorInfo = "";
@@ -137,13 +136,12 @@ request.interceptors.response.use(
 
     // 处理 HTTP 错误状态码
     switch (status) {
-      case 401:
+      case 401: {
         errorInfo = "未授权，请登录";
-        // 自动刷新 token 逻辑
         const refreshToken = localStorage.getItem("refreshToken");
         if (refreshToken && !originalRequest._retry) {
           originalRequest._retry = true;
-          // 这里可以实现刷新 token 的逻辑
+          // 实现刷新 token 的逻辑
           // const newToken = await refreshAccessToken(refreshToken);
           // localStorage.setItem("token", newToken);
           // originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
@@ -153,40 +151,50 @@ request.interceptors.response.use(
           router.push("/login");
         }
         break;
-      case 403:
+      }
+      case 403: {
         errorInfo = "拒绝访问";
         break;
-      case 404:
+      }
+      case 404: {
         errorInfo = "请求地址出错";
         break;
-      case 408:
+      }
+      case 408: {
         errorInfo = "请求超时";
         break;
-      case 500:
+      }
+      case 500: {
         errorInfo = "服务器内部错误";
         break;
-      case 501:
+      }
+      case 501: {
         errorInfo = "服务未实现";
         break;
-      case 502:
+      }
+      case 502: {
         errorInfo = "网关错误";
         break;
-      case 503:
+      }
+      case 503: {
         errorInfo = "服务不可用";
         break;
-      case 504:
+      }
+      case 504: {
         errorInfo = "网关超时";
         break;
-      default:
+      }
+      default: {
         errorInfo = "网络出现问题!";
         break;
+      }
     }
 
     // 提示错误信息
     ElNotification({
       message: errorInfo,
       type: "error",
-      duration: 1 * 1000,
+      duration: 1 * 1000
     });
 
     // 将错误信息返回给前端页面，方便捕获具体的 message

@@ -1,11 +1,11 @@
 // Loading hooks
 import { ElLoading, LoadingOptions } from "element-plus";
-import type { Options } from "@/types/store"
+import type { Options } from "@/types/store";
 
 const defaultOptions: Options = {
   lock: true,
   text: "Loading....",
-  background: "rgba(0, 0, 0, 0.1)",
+  background: "rgba(0, 0, 0, 0.1)"
 };
 
 /**
@@ -36,9 +36,7 @@ export const useLoading = <T extends (...args: any[]) => any>(
 
   const _options: Options = { ...defaultOptions, ...options };
 
-  const newFn:any = (
-    ...args: Parameters<T>
-  ): ReturnType<T> | Promise<ReturnType<T>> => {
+  const newFn: any = (...args: Parameters<T>): ReturnType<T> | Promise<ReturnType<T>> => {
     try {
       showLoading(_options);
       const result = fn(...args);
@@ -55,7 +53,7 @@ export const useLoading = <T extends (...args: any[]) => any>(
         .catch((err) => {
           hideLoading();
           throw err;
-        }) as Promise<ReturnType<T>>; 
+        }) as Promise<ReturnType<T>>;
     } catch (err) {
       hideLoading();
       throw err;
@@ -74,4 +72,4 @@ export const useLoading = <T extends (...args: any[]) => any>(
    const birds = await useLoading(getBirds)()
    ElMessage.success(birds.map(t => t.name).join())}
  * 
- * */ 
+ * */

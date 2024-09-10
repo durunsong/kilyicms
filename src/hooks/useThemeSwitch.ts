@@ -1,12 +1,12 @@
 // 切换主题hooks
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch } from "vue";
 
 export function useThemeSwitch(initialIsDark: boolean) {
   const isDark = ref<boolean>(initialIsDark);
 
   const toggleTheme = (value: boolean) => {
     const transition = (document as any).startViewTransition(() => {
-      document.documentElement.classList.toggle('dark', value);
+      document.documentElement.classList.toggle("dark", value);
       isDark.value = value;
     });
 
@@ -16,20 +16,15 @@ export function useThemeSwitch(initialIsDark: boolean) {
         Math.max(clientX, window.innerWidth - clientX),
         Math.max(clientY, window.innerHeight - clientY)
       );
-      const clipPath = [
-        `circle(0% at ${clientX}px ${clientY}px)`,
-        `circle(${radius}px at ${clientX}px ${clientY}px)`
-      ];
-      const currentIsDark = document.documentElement.classList.contains('dark');
+      const clipPath = [`circle(0% at ${clientX}px ${clientY}px)`, `circle(${radius}px at ${clientX}px ${clientY}px)`];
+      const currentIsDark = document.documentElement.classList.contains("dark");
       document.documentElement.animate(
         {
           clipPath: currentIsDark ? clipPath.reverse() : clipPath
         },
         {
           duration: 500,
-          pseudoElement: currentIsDark
-            ? '::view-transition-old(root)'
-            : '::view-transition-new(root)'
+          pseudoElement: currentIsDark ? "::view-transition-old(root)" : "::view-transition-new(root)"
         }
       );
     });

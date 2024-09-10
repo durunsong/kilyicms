@@ -1,0 +1,45 @@
+/** 白屏阶段会执行的 CSS 加载动画 */
+
+#kilyicms-loading {
+  position: relative;
+  top: 45vh;
+  margin: 0 auto;
+  color: #409eff;
+  font-size: 12px;
+}
+
+#kilyicms-loading,
+#kilyicms-loading::before,
+#kilyicms-loading::after {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  animation: 2s ease-in-out infinite kilyicms-loading-animation;
+}
+
+#kilyicms-loading::before,
+#kilyicms-loading::after {
+  content: "";
+  position: absolute;
+}
+
+#kilyicms-loading::before {
+  left: -4em;
+  animation-delay: -0.2s;
+}
+
+#kilyicms-loading::after {
+  left: 4em;
+  animation-delay: 0.2s;
+}
+
+@keyframes kilyicms-loading-animation {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2em 0 -2em;
+  }
+  40% {
+    box-shadow: 0 2em 0 0;
+  }
+}

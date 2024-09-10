@@ -1,177 +1,116 @@
-### 简介
+<div align="center">
+  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
+  <h1>kilyicms</h1>
+  <span><a href="./README.zh-CN.md">English</a> | 中文</span>
+</div>
 
-kilyicms 项目是一个使用 Vue3 和 vite5 构建的管理后台应用程序，是xxx前台的配置后台。该项目使用了 Element Plus 组件库，支持16种语言切换，以及其他一些常用的 Vue 生态工具和库。
+## ⚡ Introduction
 
-![案例](https://github.com/durunsong/kilyicms/blob/main/src/assets/case_img/Snipaste-test.png)
+V3 Admin Vite is a free and open-source basic solution for backend management systems, based on Vue3, TypeScript, Element Plus, Pinia, and Vite, among other mainstream technologies.
 
-- 非开源，非商用，维权必究
-- 如需版权完整代码，联系WX：DU2603948701
+## 📺 Online Preview
 
-#### 🎈标记为已经完成的功能，其他为待完成的功能
-###### 前端完成：hooks 组件  指令 配置 
-1. 全局 svg组件封装 可用性 (vite配置) 🎈
-2. 项目light和dark主题切换 配合所依赖的ui组件库
-3. 三个环境配置(开发、测试、生产) 🎈
-4. 按钮时效(按钮防抖)🎈
-5. 避免多次无效请求(添加节流校验) 🎈
-6. 全屏切换 🎈
-7. 是否让用户启用调试功能----封装hooks--- 🎈
-8. 后台权限,路由权限，按钮权限
-9. 后台标签页管理优化
-10. 登陆者userName水印设置
-11. 上传execl表格+解析+打印
-12. PDF预览++打印
-13. 富文本动态编辑前台内容+上传图片+上传视频
-14. 骨架屏组件封装
-15. 搜索匹配字段高亮显示🎈
-16. 进度条组件封装 🎈
-17. 请求loading封装(两种种形式:hooks🎈,封装请求方法里面配置页面加载动画全局封装🎈)
-18. 必要组件全局挂载 🎈
-19. 多语言管理，多语言切换组件，批量翻译程序编写 🎈
-20. 公用方法hooks封装 🎈
-21. 前端路由分离
-22. 自定义指令全局封装
-23. 前端代码自动化Jenkins部署或通过nodejs命令行部署
-24. 三种验证码校验(前端组件方式、前端后端数字运算或图形验证码校验、前端后端cf浏览器指纹自动人机校验)
-25. 大文件分片上传(单独上传、富文本上传)
-26. 构建微前端架构，动态添加路由，动态添加子系统，处理好css沙箱
+| Location     | Account         | Link                                          |
+| ------------ | --------------- | --------------------------------------------- |
+| github-pages | admin or editor | [Link](https://github.com/durunsong/kilyicms) |
 
-###### 后端完成方式 ：
+## ❤️ Powered by Love
 
-1. 模块化开发🎈
-2. 权限控制
-3. 登录jwt验证 🎈
-4. 两种验证码校验(前端后端数字运算或图形验证码校验、前端后端cf浏览器指纹自动人机校验)，一段时间自动推送消息给前端
-5. 敏感信息加密(密码+地址... 参考RSA加密库) 
-6. Redis限流处理
-7. Jenkins自动化部署
-8. docker
-9. 后端多语言根据前端请求进行切换
+- **Completely free**: But we hope you'll give it a star!!!
+- **Very simple**: No complex encapsulations, no complicated type gymnastics, ready to use.
+- **Detailed comments**: Each configuration item has as detailed comments as possible.
+- **Latest dependencies**: Regular updates to all third-party dependencies to the latest version.
+- **Organized code**: Unified code style, naming conventions, and comment style.
 
-#### 项目安装
+## character
 
-确保你已经安装了 Node.js 和 npm（或者使用 pnpm/yarn）。然后运行以下命令安装项目的依赖项：
+- **Vue3**: Uses the latest Vue3 Composition API with script setup.
+- **Element Plus**: The Vue3 version of Element UI.
+- **Pinia**: The so-called Vuex5.
+- **Vite**: It's really fast.
+- **Vue Router**: Routing functionality.
+- **TypeScript**: A superset of JavaScript.
+- **PNPM**: A faster and disk space-saving package manager.
+- **Scss**: Consistent with Element Plus.
+- **CSS Variables**: Mainly controls the layout and color of the project.
+- **ESlint**: Code linting.
+- **Prettier**: Code formatting.
+- **Axios**: Handles network requests (already encapsulated).
+- **UnoCSS**: A high-performance, highly flexible, on-demand atomic CSS engine.
+- **Mobile Compatibility**: Layouts compatible with mobile device resolutions.
 
-#### 环境准备
+## Features
 
-Node 20+
+- **User Management**: Login, logout demo.
+- **Permission Management**: Page-level permissions (dynamic routes), button-level permissions (directive permissions, permission functions), route guards.
+- **Multiple Environments**: Development (development), testing (test), production (production).
+- **Multiple Themes**: Light, dark, deep blue; three theme modes.
+- **Multiple Layouts**: Left sidebar, top bar, mixed layout; three layout modes.
+- **Error Pages**: 403, 404 error pages.
+- **Dashboard**: Displays different dashboards based on different users.
+- **Other Built-in Features**: SVG support, dynamic sidebar, dynamic breadcrumbs, tab navigation, screen full-screen mode, adaptive collapsed sidebar, hooks (Composables).
 
-#### 使用[阿里云 NPM 镜像](https://www.npmmirror.com/)
+## 🚀 Development
 
-```js
-npm config set registry https://registry.npmmirror.com
-```
-
-#### 获取项目代码
-
-```js
-git clone https://github.com/durunsong/kilyicms.git
-cd kilyicms (前端项目)
-cd server (后端项目)
-```
-
-#### 安装 pnpm
-
-```
-npm install -g pnpm
-```
 ```bash
-## 安装依赖
-pnpm install
+# Setup
+1. Install the recommended plugins from the .vscode directory.
+2. Node version 18.x or 20+
+3. PNPM version 8.x or latest version
 
-# 或者
-yarn install
+# Clone the project
+git clone https://github.com/durunsong/kilyicms
 
-### 开发模式 eg: 在开发模式下运行项目
-pnpm run dev
+# Enter the project directory
+cd kilyicms
 
-# 或者
-yarn dev
+# Install dependencies
+pnpm i
 
-### 生产构建 eg: 构建生产版本的项目
-pnpm run build:prod
+# Start the development server
+pnpm dev
 
-# 或者
-yarn build:prod
+✔️ Preview
+bash
+# Preview the staging environment
+pnpm preview:stage
 
-### 预览 eg: 预览生产版本的项目
-pnpm run preview
+# Preview the production environment
+pnpm preview:prod
+📦️ Multi-environment Packaging
+bash
+# Build the staging environment
+pnpm build:stage
 
-# 或者
-yarn preview
-```
+# Build the production environment
+pnpm build:prod
+🔧 Code Check
+bash
+# Code formatting
+pnpm lint
 
-```js
-cd server (后端项目)
-pnpm install
-pnpm run start
-```
-
-###  部署配置  eg：vercel部署 (project.json)
-##### 命令
-vercel --cwd ./kilyicms/
-
-{
-  "projectId": "prj_rQGnnAhMevC2sjiwCCppvCu48nny",
-  "orgId": "team_j4xDsAAIpUmffVZAX8ry8btS",
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
-  ]
-}
-
-
-### 技术栈
-
-- 前端部分：
-  vue3
-  vite5
-  Pinia
-  pinia-plugin-persistedstate
-  typeScript
-  element-Plus
-  axios
-  vue-Router
-  vue-I18n
-  vue-Clipboard3
-  fingerprintjs
-  moment
-  @wangeditor
-  screenfull
-  sass
-  terser
-  uuid
-
-  vue3-slide-verify
-
-- 后端部分：
-  body-parser
-  cors
-  express
-  moment
-  mysql2
-
-  jsonwebtoken
-
-  bcrypt
+# Unit tests
+pnpm test
+Git Commit Guidelines
+feat Add new business functionality
+fix Fix business issues/bugs
+perf Optimize performance
+style Change code style, no impact on functionality
+refactor Refactor code
+revert Revert changes
+test Test-related changes, no business logic changes
+docs Documentation and comment-related changes
+chore Update dependencies/modify scaffold configuration and other trivial tasks
+workflow Workflow improvements
+ci Continuous integration-related changes
+types Type definition file changes
+wip Work in progress
+Project Preview
 
 
-#### 国际化多语言自动化翻译程序
-##### 准备：百度翻译api---------> appid appkey
-##### 代码仓库 (具体看百度翻译api文档)
-
-[点击这里访问我的另一个仓库](https://github.com/durunsong/Baidu-trans.git)
+💕 Thanks for the Star
+It's not easy to get stars for a small project. If you like this project, feel free to support it with a star! This is the only motivation for the author to keep maintaining it (whisper: after all, it's free).
 
 
-#### 该仓库代码提交git规范
-```js
-feat - 新功能 feature
-fix - 修复 bug
-docs - 文档注释
-style - 代码格式(不影响代码运行的变动)
-refactor - 重构、优化(既不增加新功能，也不是修复bug)
-perf - 性能优化
-test - 增加测试
-chore - 构建过程或辅助工具的变动
-revert - 回退
-build - 打包
+Let me know if you need any modifications!
 ```

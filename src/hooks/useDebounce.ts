@@ -1,5 +1,5 @@
 // 事件防抖hooks
-import { ref, onUnmounted } from 'vue';
+import { ref, onUnmounted } from "vue";
 
 type Timer = ReturnType<typeof setTimeout> | null;
 
@@ -36,9 +36,9 @@ export function useDebounce<T extends (...args: any[]) => void>(
 
 /**  ---- 使用方式 ----
  * import { useDebounce } from '@/hooks/useDebounce'; // 引入防抖函数
- * 
+ *
  * debouncedHandleSearchItems是按钮点击事件/@input等事件的函数名
- * 
+ *
  * const debouncedHandleSearchItems = useDebounce(handleSearchItems, 2000, true);
- * 
- * **/ 
+ *
+ * **/
