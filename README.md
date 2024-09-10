@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
   <h1>kilyicms</h1>
-  <span><a href="./README.zh-CN.md">English</a> | 中文</span>
+  <span>English</a> | 中文<a href="./README.zh-CN.md"></span>
 </div>
 
 ## ⚡ Introduction
@@ -52,44 +52,57 @@ V3 Admin Vite is a free and open-source basic solution for backend management sy
 
 ## 🚀 Development
 
-```bash
 # Setup
+
 1. Install the recommended plugins from the .vscode directory.
 2. Node version 18.x or 20+
 3. PNPM version 8.x or latest version
 
 # Clone the project
+
 git clone https://github.com/durunsong/kilyicms
 
 # Enter the project directory
+
 cd kilyicms
 
 # Install dependencies
+
 pnpm i
 
 # Start the development server
+
 pnpm dev
 
 ✔️ Preview
 bash
+
 # Preview the staging environment
+
 pnpm preview:stage
 
 # Preview the production environment
+
 pnpm preview:prod
 📦️ Multi-environment Packaging
 bash
+
 # Build the staging environment
+
 pnpm build:stage
 
 # Build the production environment
+
 pnpm build:prod
 🔧 Code Check
 bash
+
 # Code formatting
+
 pnpm lint
 
 # Unit tests
+
 pnpm test
 Git Commit Guidelines
 feat Add new business functionality
@@ -107,10 +120,7 @@ types Type definition file changes
 wip Work in progress
 Project Preview
 
-
 💕 Thanks for the Star
 It's not easy to get stars for a small project. If you like this project, feel free to support it with a star! This is the only motivation for the author to keep maintaining it (whisper: after all, it's free).
 
-
 Let me know if you need any modifications!
-```
