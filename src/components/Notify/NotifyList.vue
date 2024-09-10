@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { type ListItem } from "./data"
+import { type ListItem } from "./data";
 
 interface Props {
-  list: ListItem[]
+  list: ListItem[];
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 </script>
 
 <template>

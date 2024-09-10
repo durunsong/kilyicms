@@ -1,7 +1,7 @@
-import moment from 'moment';
+import moment from "moment";
 
 const useMomentFormat = (timeString: string) => {
-  const formattedTime = moment(timeString).format('YYYY-MM-DD HH:mm:ss') || '';
+  const formattedTime = moment(timeString).format("YYYY-MM-DD HH:mm:ss") || "";
   return formattedTime;
 };
 

@@ -1,8 +1,8 @@
-import { type RouteRecordRaw, createRouter } from "vue-router"
-import { history, flatMultiLevelRoutes } from "./helper"
-import routeSettings from "@/config/route"
+import { type RouteRecordRaw, createRouter } from "vue-router";
+import { history, flatMultiLevelRoutes } from "./helper";
+import routeSettings from "@/config/route";
 
-const Layouts = () => import("@/layouts/index.vue")
+const Layouts = () => import("@/layouts/index.vue");
 
 /**
  * 常驻路由
@@ -185,7 +185,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       }
     ]
   }
-]
+];
 
 /**
  * 动态路由
@@ -224,27 +224,27 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       }
     ]
   }
-]
+];
 
 const router = createRouter({
   history,
   routes: routeSettings.thirdLevelRouteCache ? flatMultiLevelRoutes(constantRoutes) : constantRoutes
-})
+});
 
 /** 重置路由 */
 export function resetRouter() {
   // 注意：所有动态路由路由必须带有 Name 属性，否则可能会不能完全重置干净
   try {
     router.getRoutes().forEach((route) => {
-      const { name, meta } = route
+      const { name, meta } = route;
       if (name && meta.roles?.length) {
-        router.hasRoute(name) && router.removeRoute(name)
+        router.hasRoute(name) && router.removeRoute(name);
       }
-    })
+    });
   } catch {
     // 强制刷新浏览器也行，只是交互体验不是很好
-    window.location.reload()
+    window.location.reload();
   }
 }
 
-export default router
+export default router;

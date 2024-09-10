@@ -1,5 +1,5 @@
 //  设备判断hooks
-import { computed } from 'vue';
+import { computed } from "vue";
 export function useIsMobile() {
   const isMobile = computed(() => {
     return !!navigator.userAgent.match(

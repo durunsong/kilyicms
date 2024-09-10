@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
-import type { MetaInfo, UserPromotionState, UserPromotionStateKeys } from '@/types/store';
+import { defineStore } from "pinia";
+import type { MetaInfo, UserPromotionState, UserPromotionStateKeys } from "@/types/store";
 
-export const userPomotionStore = defineStore('promotion', {
+export const userPomotionStore = defineStore("promotion", {
   state: (): UserPromotionState => {
     return {
       is_screen_full: false,
@@ -9,37 +9,39 @@ export const userPomotionStore = defineStore('promotion', {
       userInfo: {},
       isCollapse: false,
       metaInfo: {
-        title: '',
-        keywords: '',
-        description: '',
+        title: "",
+        keywords: "",
+        description: ""
       },
-      affcode: '',
-      kilyimallLoginURL: 'https://www.kilyimall.com/login',
-      tuiguangURL: 'https://cfstatic.hagoby.com/tg',
-      kilyimall: 'https://www.kilyimall.com',
-      kilyimallURL: 'https://www.kilyimall.com/register',
-      kilyimallURLforwarding: 'https://www.kilyimall.com/forwarding',
-      imageUrl: 'https://cfstatic.hagoby.com/www/pic',
-      m_kilyimallLoginURL: 'https://www.kilyimall.com/login',
-      m_kilyimallURL: 'https://www.kilyimall.com/register',
-      m_kilyimall: 'https://www.kilyimall.com',
+      affcode: "",
+      kilyimallLoginURL: "https://www.kilyimall.com/login",
+      tuiguangURL: "https://cfstatic.hagoby.com/tg",
+      kilyimall: "https://www.kilyimall.com",
+      kilyimallURL: "https://www.kilyimall.com/register",
+      kilyimallURLforwarding: "https://www.kilyimall.com/forwarding",
+      imageUrl: "https://cfstatic.hagoby.com/www/pic",
+      m_kilyimallLoginURL: "https://www.kilyimall.com/login",
+      m_kilyimallURL: "https://www.kilyimall.com/register",
+      m_kilyimall: "https://www.kilyimall.com"
     };
   },
   getters: {
-    dynamicURLKeys: (state) => (property: UserPromotionStateKeys): string => {
-      if (state.affcode !== '') {
-        return `${state[property]}?${state.affcode}`;
-      } else {
-        return (state[property] as string) || '';
-      }
-    },
+    dynamicURLKeys:
+      (state) =>
+      (property: UserPromotionStateKeys): string => {
+        if (state.affcode !== "") {
+          return `${state[property]}?${state.affcode}`;
+        } else {
+          return (state[property] as string) || "";
+        }
+      },
     dynamicAffcode(state): string {
-      if (state.affcode !== '') {
+      if (state.affcode !== "") {
         return `&${state.affcode}`;
       } else {
-        return '';
+        return "";
       }
-    },
+    }
   },
   actions: {
     setUserInfo(data: any) {
@@ -60,11 +62,11 @@ export const userPomotionStore = defineStore('promotion', {
           (this as any)[key] = payload[key];
         }
       }
-    },
+    }
   },
   persist: {
     // 使用默认配置进行持久化
     storage: localStorage,
-    paths: ['userInfo', 'isCollapse','dark_and_light','is_screen_full']
-  },
+    paths: ["userInfo", "isCollapse", "dark_and_light", "is_screen_full"]
+  }
 });

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
 defineOptions({
   name: "Menu2"
-})
+});
 
-const text = ref("")
+const text = ref("");
 </script>
 
 <template>

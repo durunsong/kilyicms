@@ -1,160 +1,116 @@
 <div align="center">
-  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/layouts/logo.png">
-  <h1>V3 Admin Vite</h1>
-  <span>English | <a href="./README.zh-CN.md">中文</a></span>
+  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
+  <h1>kilyicms</h1>
+  <span><a href="./README.zh-CN.md">English</a> | 中文</span>
 </div>
 
 ## ⚡ Introduction
 
-V3 Admin Vite is a free and open source middle and background management system basic solution, based on mainstream framework such as Vue3, TypeScript, Element Plus, Pinia and Vite
+V3 Admin Vite is a free and open-source basic solution for backend management systems, based on Vue3, TypeScript, Element Plus, Pinia, and Vite, among other mainstream technologies.
 
-- Vue Cli 5.x: [v3-admin](https://github.com/un-pany/v3-admin)
-- Electron desktop: [v3-electron-vite](https://github.com/un-pany/v3-electron-vite)
+## 📺 Online Preview
 
-China repository: [Gitee](https://gitee.com/un-pany/kilyicms)
+| Location     | Account         | Link                                          |
+| ------------ | --------------- | --------------------------------------------- |
+| github-pages | admin or editor | [Link](https://github.com/durunsong/kilyicms) |
 
-## 📚 Document
+## ❤️ Powered by Love
 
-- Chinese documentation: [link](https://juejin.cn/post/7089377403717287972)
-- Chinese getting started tutorial: [link](https://juejin.cn/column/7207659644487139387)
+- **Completely free**: But we hope you'll give it a star!!!
+- **Very simple**: No complex encapsulations, no complicated type gymnastics, ready to use.
+- **Detailed comments**: Each configuration item has as detailed comments as possible.
+- **Latest dependencies**: Regular updates to all third-party dependencies to the latest version.
+- **Organized code**: Unified code style, naming conventions, and comment style.
 
-## 📺 Online preview
+## character
 
-| Location     | account             | Link                                            |
-| ------------ | ------------------- | ----------------------------------------------- |
-| github-pages | `admin` or `editor` | [link](https://un-pany.github.io/kilyicms) |
+- **Vue3**: Uses the latest Vue3 Composition API with script setup.
+- **Element Plus**: The Vue3 version of Element UI.
+- **Pinia**: The so-called Vuex5.
+- **Vite**: It's really fast.
+- **Vue Router**: Routing functionality.
+- **TypeScript**: A superset of JavaScript.
+- **PNPM**: A faster and disk space-saving package manager.
+- **Scss**: Consistent with Element Plus.
+- **CSS Variables**: Mainly controls the layout and color of the project.
+- **ESlint**: Code linting.
+- **Prettier**: Code formatting.
+- **Axios**: Handles network requests (already encapsulated).
+- **UnoCSS**: A high-performance, highly flexible, on-demand atomic CSS engine.
+- **Mobile Compatibility**: Layouts compatible with mobile device resolutions.
 
-## ❤️ Generate electricity with love
+## Features
 
-- **Completely free**：But hopefully you order a star !!!
-- **Very concise**：No complicated encapsulation, no complicated type gymnastics, out of the box
-- **Detailed annotations**：Each configuration item is written with as detailed comments as possible
-- **Latest dependencies**: Regularly update all third-party dependencies to the latest version
-- **Very specification**: The code style is unified, the naming style is unified, and the comment style is unified
-
-## Feature
-
-- **Vue3**：The latest Vue3 composition API using Vue3 + script setup
-- **Element Plus**：Vue3 version of Element UI
-- **Pinia**: An alternative to Vuex in Vue3
-- **Vite**：Really fast
-- **Vue Router**：router
-- **TypeScript**：JavaScript With Syntax For Types
-- **PNPM**：Faster, disk space saving package management tool
-- **Scss**：Consistent with Element Plus
-- **CSS variable**：Mainly controls the layout and color of the item
-- **ESlint**：Code verification
-- **Prettier**： Code formatting
-- **Axios**: Promise based HTTP client (encapsulated)
-- **UnoCSS**: Real-time atomized CSS engine with high performance and flexibility
-- **Mobile Compatible**: The layout is compatible with mobile page resolution
-
-## Functions
-
-- **User management**: Log in and out of the demo
-- **Authority management**: Page-level permissions (dynamic routing), button-level permissions (directive permissions, permission functions), and route navigation guards
-- **Multiple Environments**: Development, test, Production
-- **Multiple themes**: Normal, Dark, Dark Blue, three theme modes
-- **Multiple layouts**：Left, Top, Left Top, three layout modes
-- **Error page**: 403, 404
-- **Dashboard**: Display different Dashboard pages according to different users
-- **Other functions**：SVG, Dynamic Sidebar, Dynamic Breadcrumb Navigation, Tabbed Navigation, Screenfull, Adaptive Shrink Sidebar, Hook (Composables)
+- **User Management**: Login, logout demo.
+- **Permission Management**: Page-level permissions (dynamic routes), button-level permissions (directive permissions, permission functions), route guards.
+- **Multiple Environments**: Development (development), testing (test), production (production).
+- **Multiple Themes**: Light, dark, deep blue; three theme modes.
+- **Multiple Layouts**: Left sidebar, top bar, mixed layout; three layout modes.
+- **Error Pages**: 403, 404 error pages.
+- **Dashboard**: Displays different dashboards based on different users.
+- **Other Built-in Features**: SVG support, dynamic sidebar, dynamic breadcrumbs, tab navigation, screen full-screen mode, adaptive collapsed sidebar, hooks (Composables).
 
 ## 🚀 Development
 
 ```bash
-# configure
-1. installation of the recommended plugins in the .vscode directory
-2. node version 18.x or 20+
-3. pnpm version 8.x or latest
+# Setup
+1. Install the recommended plugins from the .vscode directory.
+2. Node version 18.x or 20+
+3. PNPM version 8.x or latest version
 
-# clone
-git clone https://github.com/un-pany/kilyicms.git
+# Clone the project
+git clone https://github.com/durunsong/kilyicms
 
-# enter the project directory
+# Enter the project directory
 cd kilyicms
 
-# install dependencies
+# Install dependencies
 pnpm i
 
-# start the service
+# Start the development server
 pnpm dev
-```
 
-## ✔️ Preview
-
-```bash
-# stage environment
+✔️ Preview
+bash
+# Preview the staging environment
 pnpm preview:stage
 
-# prod environment
+# Preview the production environment
 pnpm preview:prod
-```
-
-## 📦️ Multi-environment packaging
-
-```bash
-# build the stage environment
+📦️ Multi-environment Packaging
+bash
+# Build the staging environment
 pnpm build:stage
 
-# build the prod environment
+# Build the production environment
 pnpm build:prod
-```
-
-## 🔧 Code inspection
-
-```bash
-# code formatting
+🔧 Code Check
+bash
+# Code formatting
 pnpm lint
 
-# unit test
+# Unit tests
 pnpm test
+Git Commit Guidelines
+feat Add new business functionality
+fix Fix business issues/bugs
+perf Optimize performance
+style Change code style, no impact on functionality
+refactor Refactor code
+revert Revert changes
+test Test-related changes, no business logic changes
+docs Documentation and comment-related changes
+chore Update dependencies/modify scaffold configuration and other trivial tasks
+workflow Workflow improvements
+ci Continuous integration-related changes
+types Type definition file changes
+wip Work in progress
+Project Preview
+
+
+💕 Thanks for the Star
+It's not easy to get stars for a small project. If you like this project, feel free to support it with a star! This is the only motivation for the author to keep maintaining it (whisper: after all, it's free).
+
+
+Let me know if you need any modifications!
 ```
-
-## Git commit specification reference
-
-- `feat` add new functions
-- `fix` Fix issues/bugs
-- `perf` Optimize performance
-- `style` Change the code style without affecting the running result
-- `refactor` Re-factor code
-- `revert` Undo changes
-- `test` Test related, does not involve changes to business code
-- `docs` Documentation and Annotation
-- `chore` Updating dependencies/modifying scaffolding configuration, etc.
-- `workflow` Work flow Improvements
-- `ci` CICD
-- `types` Type definition
-- `wip` In development
-
-## Project preview
-
-![preview1.png](./src/assets/docs/preview1.png)
-![preview2.png](./src/assets/docs/preview2.png)
-![preview3.png](./src/assets/docs/preview3.png)
-
-## 💕 Contributors
-
-Thanks to all the contributors!
-
-<a href="https://github.com/un-pany/kilyicms/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=un-pany/kilyicms" />
-</a>
-
-## 💕 Thanks star
-
-Small projects are not easy to get a star, if you like this project, welcome to support a star! This is the only motivation for the author to maintain it on an ongoing basis (whisper: it's free after all)
-
-## ☕ Donate
-
-[See how to donate](https://github.com/un-pany/kilyicms/issues/69)
-
-## Group
-
-[See how to join a group chat](https://github.com/un-pany/kilyicms/issues/191)
-
-## 📄 License
-
-[MIT](./LICENSE)
-
-Copyright (c) 2022-present [pany](https://github.com/pany-ang)

@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import { ref } from "vue"
-import { Setting } from "@element-plus/icons-vue"
+import { ref } from "vue";
+import { Setting } from "@element-plus/icons-vue";
 
 interface Props {
-  buttonTop?: number
+  buttonTop?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   buttonTop: 350
-})
+});
 
-const buttonTopCss = props.buttonTop + "px"
-const show = ref(false)
+const buttonTopCss = props.buttonTop + "px";
+const show = ref(false);
 </script>
 
 <template>

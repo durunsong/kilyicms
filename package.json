@@ -1,15 +1,15 @@
 {
   "name": "kilyicms",
-  "version": "4.4.0",
-  "description": "一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术",
+  "version": "2.0.1",
+  "description": "一个免费开源的多语言中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术",
   "author": {
-    "name": "pany",
-    "email": "939630029@qq.com",
-    "url": "https://github.com/pany-ang"
+    "name": "Jack-DU",
+    "email": "durunsongs@gmail.com",
+    "url": "https://github.com/durunsong"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/un-pany/kilyicms.git"
+    "url": "https://github.com/durunsong/kilyicms.git"
   },
   "type": "module",
   "scripts": {
@@ -40,10 +40,7 @@
     "vue": "3.5.2",
     "vue-i18n": "^9.14.0",
     "vue-router": "4.4.3",
-    "vue3-slide-verify": "^1.1.5",
-    "vxe-table": "4.6.18",
-    "vxe-table-plugin-element": "4.0.4",
-    "xe-utils": "3.5.30"
+    "vue3-slide-verify": "^1.1.5"
   },
   "devDependencies": {
     "@types/js-cookie": "3.0.6",
@@ -97,7 +94,24 @@
     "element-plus",
     "element-plus-admin",
     "ts",
-    "typescript"
+    "typescript",
+    "admin-template",
+    "admin-template-vue3",
+    "admin-template-vite",
+    "admin-template-element-plus",
+    "admin-template-vue3-element-plus",
+    "admin-template-vite-element-plus",
+    "admin-template-ts",
+    "admin-template-typescript",
+    "admin-template-vue3-ts",
+    "admin-template-vite-ts",
+    "admin-template-element-plus-ts",
+    "admin-template-vue3-element-plus-ts",
+    "admin-template-vite-element-plus-ts",
+    "admin-template-typescript-ts",
+    "admin-template-vue3-typescript-ts",
+    "kilyicms",
+    "kilyimall"
   ],
   "license": "MIT"
 }

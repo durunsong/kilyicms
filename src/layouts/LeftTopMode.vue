@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import { computed } from "vue"
-import { storeToRefs } from "pinia"
-import { useAppStore } from "@/store/modules/app"
-import { useSettingsStore } from "@/store/modules/settings"
-import { AppMain, NavigationBar, Sidebar, TagsView, Logo } from "./components"
+import { computed } from "vue";
+import { storeToRefs } from "pinia";
+import { useAppStore } from "@/store/modules/app";
+import { useSettingsStore } from "@/store/modules/settings";
+import { AppMain, NavigationBar, Sidebar, TagsView, Logo } from "./components";
 
-const appStore = useAppStore()
-const settingsStore = useSettingsStore()
-const { showTagsView, showLogo } = storeToRefs(settingsStore)
+const appStore = useAppStore();
+const settingsStore = useSettingsStore();
+const { showTagsView, showLogo } = storeToRefs(settingsStore);
 
 /** 定义计算属性 layoutClasses，用于控制布局的类名 */
 const layoutClasses = computed(() => {
   return {
     hideSidebar: !appStore.sidebar.opened
-  }
-})
+  };
+});
 </script>
 
 <template>

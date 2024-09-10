@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 interface Props {
-  closeEyes: boolean
+  closeEyes: boolean;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <div align="center">
-  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/layouts/logo.png">
-  <h1>V3 Admin Vite</h1>
+  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
+  <h1>kilyicms</h1>
   <span><a href="./README.md">English</a> | 中文</span>
 </div>
 
@@ -8,21 +8,11 @@
 
 V3 Admin Vite 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术
 
-- Vue Cli 5.x 版: [v3-admin](https://github.com/un-pany/v3-admin)
-- Electron 桌面版: [v3-electron-vite](https://github.com/un-pany/v3-electron-vite)
-
-国内仓库：[Gitee](https://gitee.com/un-pany/kilyicms)
-
-## 📚 文档
-
-- 中文文档：[链接](https://juejin.cn/post/7089377403717287972)
-- 手摸手教程：[链接](https://juejin.cn/column/7207659644487139387)
-
 ## 📺 在线预览
 
-| 位置         | 账号            | 链接                                            |
-| ------------ | --------------- | ----------------------------------------------- |
-| github-pages | admin 或 editor | [链接](https://un-pany.github.io/kilyicms) |
+| 位置         | 账号            | 链接                                          |
+| ------------ | --------------- | --------------------------------------------- |
+| github-pages | admin 或 editor | [链接](https://github.com/durunsong/kilyicms) |
 
 ## ❤️ 用爱发电
 
@@ -69,7 +59,7 @@ V3 Admin Vite 是一个免费开源的中后台管理系统基础解决方案，
 3. pnpm 版本 8.x 或最新版
 
 # 克隆项目
-git clone https://github.com/un-pany/kilyicms.git
+git clone https://github.com/durunsong/kilyicms
 
 # 进入项目目录
 cd kilyicms
@@ -133,28 +123,6 @@ pnpm test
 ![preview2.png](./src/assets/docs/preview2.png)
 ![preview3.png](./src/assets/docs/preview3.png)
 
-## 💕 贡献者
-
-感谢所有的贡献者！
-
-<a href="https://github.com/un-pany/kilyicms/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=un-pany/kilyicms" />
-</a>
-
 ## 💕 感谢 Star
 
 小项目获取 star 不易，如果你喜欢这个项目的话，欢迎支持一个 star！这是作者持续维护的唯一动力（小声：毕竟是免费的）
-
-## ☕ Donate
-
-[查看捐赠方式](https://github.com/un-pany/kilyicms/issues/69)
-
-## 可有可无的群
-
-[查看进群方式](https://github.com/un-pany/kilyicms/issues/191)
-
-## 📄 License
-
-[MIT](./LICENSE)
-
-Copyright (c) 2022-present [pany](https://github.com/pany-ang)

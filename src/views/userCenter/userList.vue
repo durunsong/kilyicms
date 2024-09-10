@@ -1,18 +1,31 @@
 <template>
   <div>
     <div class="search_container">
-      <el-input class="search_input" v-model.trim="searchKeyword" :placeholder="t('please_enter')"
-        @keyup.enter="handleSearchItems" clearable @clear="handleClearIpt" />
+      <el-input
+        class="search_input"
+        v-model.trim="searchKeyword"
+        :placeholder="t('please_enter')"
+        @keyup.enter="handleSearchItems"
+        clearable
+        @clear="handleClearIpt"
+      />
       <div class="date_time_picker">
-        <el-date-picker v-model="pickerData" type="datetimerange" :start-placeholder="t('start_time')"
-          :end-placeholder="t('end_time')" format="YYYY-MM-DD HH:mm:ss" date-format="YYYY-MM-DD"
-          @change="formatHandleChange" />
+        <el-date-picker
+          v-model="pickerData"
+          type="datetimerange"
+          :start-placeholder="t('start_time')"
+          :end-placeholder="t('end_time')"
+          format="YYYY-MM-DD HH:mm:ss"
+          date-format="YYYY-MM-DD"
+          @change="formatHandleChange"
+        />
       </div>
-      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t('clear') }}</el-button>
-      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{ t('search')
-        }}</el-button>
+      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t("clear") }}</el-button>
+      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{
+        t("search")
+      }}</el-button>
     </div>
-    <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{ t('Add_personnel') }}</el-button>
+    <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{ t("Add_personnel") }}</el-button>
     <el-table :data="userList" style="width: 100%">
       <el-table-column :label="t('serial_number')" width="100">
         <template #default="scope">
@@ -21,71 +34,80 @@
       </el-table-column>
       <el-table-column :label="t('name')" align="center">
         <template #default="scope">
-          <span v-html="highlightKeyword(scope.row.userName)"></span>
+          <span v-html="highlightKeyword(scope.row.userName)" />
         </template>
       </el-table-column>
-      <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
-      <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
+      <el-table-column prop="create_time" :label="t('create_time')" align="center" />
+      <el-table-column prop="update_time" :label="t('update_time')" align="center" />
       <el-table-column :label="t('operates')" align="center">
         <template #default="scope">
-          <el-button @click="editItem(scope.row)">{{ t('edit') }}</el-button>
-          <el-button type="danger" @click="deleteItem(scope.row.id)">{{ t('delete') }}</el-button>
+          <el-button @click="editItem(scope.row)">{{ t("edit") }}</el-button>
+          <el-button type="danger" @click="deleteItem(scope.row.id)">{{ t("delete") }}</el-button>
         </template>
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
-        layout="prev, pager, next, jumper" :total="total" :current-page="queryParams.pageNum"
-        :page-size="queryParams.pageSize" />
+      <el-pagination
+        background
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        layout="prev, pager, next, jumper"
+        :total="total"
+        :current-page="queryParams.pageNum"
+        :page-size="queryParams.pageSize"
+      />
     </div>
     <!-- add dialog -->
     <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
       <el-form :model="newItem">
         <el-form-item :label="t('Account_name')">
-          <el-input v-model="newItem.userName"></el-input>
+          <el-input v-model="newItem.userName" />
         </el-form-item>
         <el-form-item :label="t('password')">
-          <el-input v-model="newItem.password" autocomplete="new-password"></el-input>
+          <el-input v-model="newItem.password" autocomplete="new-password" />
         </el-form-item>
         <el-form-item :label="t('description')">
-          <el-input v-model="newItem.description"></el-input>
+          <el-input v-model="newItem.description" />
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="showAddDialog = false">{{ t('confirm_cancel_text') }}</el-button>
-        <el-button type="primary" @click="addItem">{{ t('add') }}</el-button>
-      </div>
+      <template v-slot:footer>
+        <div class="dialog-footer">
+          <el-button @click="showAddDialog = false">{{ t("confirm_cancel_text") }}</el-button>
+          <el-button type="primary" @click="addItem">{{ t("add") }}</el-button>
+        </div>
+      </template>
     </el-dialog>
     <!-- edit dialog -->
     <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
       <el-form :model="editItemData">
         <el-form-item :label="t('name')">
-          <el-input v-model="editItemData.userName"></el-input>
+          <el-input v-model="editItemData.userName" />
         </el-form-item>
         <el-form-item :label="t('password')">
-          <el-input v-model="editItemData.password" autocomplete="new-password"></el-input>
+          <el-input v-model="editItemData.password" autocomplete="new-password" />
         </el-form-item>
         <el-form-item :label="t('description')">
-          <el-input v-model="editItemData.description"></el-input>
+          <el-input v-model="editItemData.description" />
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="showEditDialog = false">{{ t('confirm_cancel_text') }}</el-button>
-        <el-button type="primary" @click="updateItem">{{ t('update') }}</el-button>
-      </div>
+      <template v-slot:footer>
+        <div class="dialog-footer">
+          <el-button @click="showEditDialog = false">{{ t("confirm_cancel_text") }}</el-button>
+          <el-button type="primary" @click="updateItem">{{ t("update") }}</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive, watch } from 'vue';
-import { ElMessage } from 'element-plus';
-import { getItemApi, addItemApi, updateItemApi, deleteItemApi } from '@/service/user';
-import useMomentFormat from '@/hooks/useMomentFormat';
-import { useDebounce } from '@/hooks/useDebounce';
+import { ref, onMounted, reactive, watch } from "vue";
+import { ElMessage } from "element-plus";
+import { getItemApi, addItemApi, updateItemApi, deleteItemApi } from "@/service/user";
+import useMomentFormat from "@/hooks/useMomentFormat";
+import { useDebounce } from "@/hooks/useDebounce";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-
 
 interface ListItem {
   id: number;
@@ -97,19 +119,19 @@ interface ListItem {
 const pickerData = ref<[Date, Date] | null>(null);
 const userList = ref<ListItem[]>([]);
 const total = ref<number>(0);
-const searchKeyword = ref<string>('');
+const searchKeyword = ref<string>("");
 const showAddDialog = ref<boolean>(false);
 const showEditDialog = ref<boolean>(false);
-const newItem = ref<Omit<ListItem, 'id'>>({
-  userName: '',
-  description: '',
-  password: '',
+const newItem = ref<Omit<ListItem, "id">>({
+  userName: "",
+  description: "",
+  password: ""
 });
 
-const editItemData = ref<Omit<ListItem, 'id'>>({
-  userName: '',
-  description: '',
-  password: '',
+const editItemData = ref<Omit<ListItem, "id">>({
+  userName: "",
+  description: "",
+  password: ""
 });
 const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
@@ -117,40 +139,40 @@ const queryParams = reactive({
   pageSize: 7,
   startTime: null as string | null,
   endTime: null as string | null,
-  keywords: null as string | null,
+  keywords: null as string | null
 });
 
 // 高亮关键词
 const highlightKeyword = (text: string) => {
   if (!searchKeyword.value) return text;
-  const pattern = new RegExp(`(${searchKeyword.value})`, 'gi');
+  const pattern = new RegExp(`(${searchKeyword.value})`, "gi");
   return text.replace(pattern, '<span class="highlight">$1</span>');
-}
+};
 
 const formatHandleChange = (value: [Date, Date] | null) => {
   if (value) {
-    queryParams.startTime = useMomentFormat(value[0]?.toISOString() || '');
-    queryParams.endTime = useMomentFormat(value[1]?.toISOString() || '');
+    queryParams.startTime = useMomentFormat(value[0]?.toISOString() || "");
+    queryParams.endTime = useMomentFormat(value[1]?.toISOString() || "");
   } else {
     queryParams.startTime = null;
     queryParams.endTime = null;
   }
-}
+};
 // 清空
 const handleClearItems = () => {
   if (pickerData.value || searchKeyword.value) {
     pickerData.value = null;
     formatHandleChange(null);
     handleClearIpt();
-    ElMessage.success(t('Clear_successfully'));
+    ElMessage.success(t("Clear_successfully"));
   }
 };
 
 watch(searchKeyword, (newValue) => {
-  if (newValue === '') {
+  if (newValue === "") {
     queryParams.keywords = null;
   } else {
-    queryParams.keywords = newValue
+    queryParams.keywords = newValue;
   }
 });
 
@@ -160,8 +182,8 @@ const fetchItems = async () => {
     const response: any = await getItemApi(queryParams);
     userList.value = response.data;
     total.value = response.total;
-  } catch (error) {
-    ElMessage.error(t('Data_acquisition_failure'));
+  } catch {
+    ElMessage.error(t("Data_acquisition_failure"));
   }
 };
 
@@ -172,16 +194,16 @@ const addItem = async () => {
     const response: any = await addItemApi(addData);
     if (response.status == 200) {
       showAddDialog.value = false;
-      newItem.value.userName = '';
-      newItem.value.password = '';
-      newItem.value.description = '';
-      ElMessage.success(t('Add_successful'));
+      newItem.value.userName = "";
+      newItem.value.password = "";
+      newItem.value.description = "";
+      ElMessage.success(t("Add_successful"));
       fetchItems();
     } else {
       ElMessage.error(response.message);
     }
-  } catch (error) {
-    ElMessage.error(t('fail_to_add'));
+  } catch {
+    ElMessage.error(t("fail_to_add"));
   }
 };
 
@@ -201,13 +223,13 @@ const updateItem = async () => {
       if (response.status === 200) {
         fetchItems();
         showEditDialog.value = false;
-        ElMessage.success(t('update_successfully'));
+        ElMessage.success(t("update_successfully"));
       } else {
-        ElMessage.error(response.message || t('Update_failure'));
+        ElMessage.error(response.message || t("Update_failure"));
       }
     }
-  } catch (error) {
-    ElMessage.error(t('Update_failure'));
+  } catch {
+    ElMessage.error(t("Update_failure"));
   }
 };
 
@@ -217,12 +239,12 @@ const deleteItem = async (id: number) => {
     const response = await deleteItemApi(id);
     if (response.status === 200) {
       fetchItems();
-      ElMessage.success(t('successfully_delete'));
+      ElMessage.success(t("successfully_delete"));
     } else {
-      ElMessage.error(t('fail_to_delete'));
+      ElMessage.error(t("fail_to_delete"));
     }
-  } catch (error) {
-    ElMessage.error(t('fail_to_delete'));
+  } catch {
+    ElMessage.error(t("fail_to_delete"));
   }
 };
 
@@ -239,7 +261,7 @@ const handleSearchItems = () => {
 const debouncedHandleSearchItems = useDebounce(handleSearchItems, 2000, true);
 
 const handleClearIpt = () => {
-  searchKeyword.value = '';
+  searchKeyword.value = "";
   queryParams.keywords = null;
   queryParams.pageNum = 1;
   fetchItems();

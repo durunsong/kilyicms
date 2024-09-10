@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { watchEffect } from "vue"
-import { storeToRefs } from "pinia"
-import { useSettingsStore } from "@/store/modules/settings"
-import { useLayoutMode } from "@/hooks/useLayoutMode"
-import { resetConfigLayout } from "@/utils"
-import SelectLayoutMode from "./SelectLayoutMode.vue"
-import { Refresh } from "@element-plus/icons-vue"
+import { watchEffect } from "vue";
+import { storeToRefs } from "pinia";
+import { useSettingsStore } from "@/store/modules/settings";
+import { useLayoutMode } from "@/hooks/useLayoutMode";
+import { resetConfigLayout } from "@/utils";
+import SelectLayoutMode from "./SelectLayoutMode.vue";
+import { Refresh } from "@element-plus/icons-vue";
 
-const { isLeft } = useLayoutMode()
-const settingsStore = useSettingsStore()
+const { isLeft } = useLayoutMode();
+const settingsStore = useSettingsStore();
 
 /** 使用 storeToRefs 将提取的属性保持其响应性 */
 const {
@@ -24,7 +24,7 @@ const {
   showWatermark,
   showGreyMode,
   showColorWeakness
-} = storeToRefs(settingsStore)
+} = storeToRefs(settingsStore);
 
 /** 定义 switch 设置项 */
 const switchSettings = {
@@ -40,12 +40,12 @@ const switchSettings = {
   开启系统水印: showWatermark,
   显示灰色模式: showGreyMode,
   显示色弱模式: showColorWeakness
-}
+};
 
 /** 非左侧模式时，Header 都是 fixed 布局 */
 watchEffect(() => {
-  !isLeft.value && (fixedHeader.value = true)
-})
+  !isLeft.value && (fixedHeader.value = true);
+});
 </script>
 
 <template>

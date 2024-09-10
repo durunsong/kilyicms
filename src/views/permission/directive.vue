@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { checkPermission } from "@/utils/permission"
-import SwitchRoles from "./components/SwitchRoles.vue"
+import { checkPermission } from "@/utils/permission";
+import SwitchRoles from "./components/SwitchRoles.vue";
 </script>
 
 <template>

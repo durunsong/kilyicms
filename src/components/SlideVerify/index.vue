@@ -2,8 +2,17 @@
   <div class="slide_box1">
     <el-button :icon="Close" size="small" class="slider_close_btn" circle @click="handleClose" />
     <div class="slide_inner_box">
-      <SlideVerify class="slide_box" ref="block" :slider-text="t('swipe_right')" :accuracy="1" @again="onAgain" @success="onSuccess"
-        @fail="onFail" @refresh="onRefresh" :imgs="img"></SlideVerify>
+      <SlideVerify
+        class="slide_box"
+        ref="block"
+        :slider-text="t('swipe_right')"
+        :accuracy="1"
+        @again="onAgain"
+        @success="onSuccess"
+        @fail="onFail"
+        @refresh="onRefresh"
+        :imgs="img"
+      />
       <div class="msg_box" :style="'color:' + fontColor">{{ msg }}</div>
     </div>
   </div>
@@ -22,44 +31,39 @@ const msg = ref<string>("");
 //自定义图片
 const img = ref([slideImg]);
 const block = ref<SlideVerifyInstance>();
-const emit = defineEmits(['again', 'success', 'fail', 'refresh', 'close']);
+const emit = defineEmits(["again", "success", "fail", "refresh", "close"]);
 
 const fontColor = ref("");
 
 const onAgain = () => {
-  msg.value = t('Non-human_operation_detected');
-  fontColor.value = "red"
+  msg.value = t("Non-human_operation_detected");
+  fontColor.value = "red";
   // 刷新
   block.value?.refresh();
 };
 //成功的回调
 const onSuccess = (times: number) => {
-  msg.value = t('successful_which_takes') + (times / 1000).toFixed(1) + t('seconds');
-  fontColor.value = "green"
-  emit("success")
-
+  msg.value = t("successful_which_takes") + (times / 1000).toFixed(1) + t("seconds");
+  fontColor.value = "green";
+  emit("success");
 };
 const handleClose = () => {
   msg.value = "";
-  emit("close")
-}
+  emit("close");
+};
 //失败的回调
 const onFail = () => {
-  msg.value = t('Verification_failed');
-  fontColor.value = "red"
+  msg.value = t("Verification_failed");
+  fontColor.value = "red";
 
   setTimeout(() => {
-    msg.value = ''
-  }, 1000)
-
-
+    msg.value = "";
+  }, 1000);
 };
 //点击刷新回调
 const onRefresh = () => {
   msg.value = "";
 };
-
-
 </script>
 <style scoped>
 .slide_box1 {

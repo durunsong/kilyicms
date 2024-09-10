@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import SwitchRoles from "./components/SwitchRoles.vue"
+import SwitchRoles from "./components/SwitchRoles.vue";
 </script>
 
 <template>

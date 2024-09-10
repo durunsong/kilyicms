@@ -1,15 +1,15 @@
-import { type ConfigEnv, type UserConfigExport, loadEnv } from "vite"
-import path, { resolve } from "path"
-import vue from "@vitejs/plugin-vue"
-import vueJsx from "@vitejs/plugin-vue-jsx"
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
-import svgLoader from "vite-svg-loader"
-import UnoCSS from "unocss/vite"
+import { type ConfigEnv, type UserConfigExport, loadEnv } from "vite";
+import path, { resolve } from "path";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import svgLoader from "vite-svg-loader";
+import UnoCSS from "unocss/vite";
 
 /** 配置项文档：https://cn.vitejs.dev/config */
 export default ({ mode }: ConfigEnv): UserConfigExport => {
-  const viteEnv = loadEnv(mode, process.cwd()) as ImportMetaEnv
-  const { VITE_PUBLIC_PATH } = viteEnv
+  const viteEnv = loadEnv(mode, process.cwd()) as ImportMetaEnv;
+  const { VITE_PUBLIC_PATH } = viteEnv;
   return {
     /** 打包时根据实际情况修改 base */
     base: VITE_PUBLIC_PATH,
@@ -23,7 +23,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       /** 设置 host: true 才可以使用 Network 的形式，以 IP 访问项目 */
       host: true, // host: "0.0.0.0"
       /** 端口号 */
-      port: 3333,
+      port: 7000,
       /** 是否自动打开浏览器 */
       open: false,
       /** 跨域设置允许 */
@@ -60,7 +60,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
            */
           manualChunks: {
             vue: ["vue", "vue-router", "pinia"],
-            element: ["element-plus", "@element-plus/icons-vue"],
+            element: ["element-plus", "@element-plus/icons-vue"]
           }
         }
       }
@@ -90,6 +90,6 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       }),
       /** UnoCSS */
       UnoCSS()
-    ],
-  }
-}
+    ]
+  };
+};

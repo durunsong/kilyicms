@@ -1,10 +1,10 @@
 export interface ListItem {
-  avatar?: string
-  title: string
-  datetime?: string
-  description?: string
-  status?: "primary" | "success" | "info" | "warning" | "danger"
-  extra?: string
+  avatar?: string;
+  title: string;
+  datetime?: string;
+  description?: string;
+  status?: "primary" | "success" | "info" | "warning" | "danger";
+  extra?: string;
 }
 
 export const notifyData: ListItem[] = [
@@ -21,7 +21,7 @@ export const notifyData: ListItem[] = [
     datetime: "两年前",
     description: "一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus 和 Pinia"
   }
-]
+];
 
 export const messageData: ListItem[] = [
   {
@@ -42,7 +42,7 @@ export const messageData: ListItem[] = [
     description: "心存善意，定能途遇天使",
     datetime: "1988-04-16"
   }
-]
+];
 
 export const todoData: ListItem[] = [
   {
@@ -63,4 +63,4 @@ export const todoData: ListItem[] = [
     extra: "已超时",
     status: "danger"
   }
-]
+];

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { useDevice } from "@/hooks/useDevice"
+import { useDevice } from "@/hooks/useDevice";
 
 interface Props {
-  total: number
+  total: number;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const { isMobile } = useDevice()
+const { isMobile } = useDevice();
 </script>
 
 <template>

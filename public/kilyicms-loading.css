@@ -1,6 +1,6 @@
 /** 白屏阶段会执行的 CSS 加载动画 */
 
-#app-loading {
+#kilyicms-loading {
   position: relative;
   top: 45vh;
   margin: 0 auto;
@@ -8,32 +8,32 @@
   font-size: 12px;
 }
 
-#app-loading,
-#app-loading::before,
-#app-loading::after {
+#kilyicms-loading,
+#kilyicms-loading::before,
+#kilyicms-loading::after {
   width: 2em;
   height: 2em;
   border-radius: 50%;
-  animation: 2s ease-in-out infinite app-loading-animation;
+  animation: 2s ease-in-out infinite kilyicms-loading-animation;
 }
 
-#app-loading::before,
-#app-loading::after {
+#kilyicms-loading::before,
+#kilyicms-loading::after {
   content: "";
   position: absolute;
 }
 
-#app-loading::before {
+#kilyicms-loading::before {
   left: -4em;
   animation-delay: -0.2s;
 }
 
-#app-loading::after {
+#kilyicms-loading::after {
   left: 4em;
   animation-delay: 0.2s;
 }
 
-@keyframes app-loading-animation {
+@keyframes kilyicms-loading-animation {
   0%,
   80%,
   100% {

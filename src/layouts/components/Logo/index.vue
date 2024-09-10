@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import { useLayoutMode } from "@/hooks/useLayoutMode"
-import logo from "@/assets/layouts/logo.png?url"
-import logoText1 from "@/assets/layouts/logo-text-1.png?url"
-import logoText2 from "@/assets/layouts/logo-text-2.png?url"
+import { useLayoutMode } from "@/hooks/useLayoutMode";
+import logo from "@/assets/layouts/logo.png?url";
+import logoText1 from "@/assets/layouts/logo-text-1.png?url";
+import logoText2 from "@/assets/layouts/logo-text-2.png?url";
 
 interface Props {
-  collapse?: boolean
+  collapse?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   collapse: true
-})
+});
 
-const { isLeft, isTop } = useLayoutMode()
+const { isLeft, isTop } = useLayoutMode();
 </script>
 
 <template>

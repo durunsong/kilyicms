@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import { computed } from "vue"
-import { storeToRefs } from "pinia"
-import { useAppStore } from "@/store/modules/app"
-import { useSettingsStore } from "@/store/modules/settings"
-import { AppMain, NavigationBar, Sidebar, TagsView } from "./components"
-import { useDevice } from "@/hooks/useDevice"
+import { computed } from "vue";
+import { storeToRefs } from "pinia";
+import { useAppStore } from "@/store/modules/app";
+import { useSettingsStore } from "@/store/modules/settings";
+import { AppMain, NavigationBar, Sidebar, TagsView } from "./components";
+import { useDevice } from "@/hooks/useDevice";
 
-const { isMobile } = useDevice()
-const appStore = useAppStore()
-const settingsStore = useSettingsStore()
-const { showTagsView, fixedHeader } = storeToRefs(settingsStore)
+const { isMobile } = useDevice();
+const appStore = useAppStore();
+const settingsStore = useSettingsStore();
+const { showTagsView, fixedHeader } = storeToRefs(settingsStore);
 
 /** 定义计算属性 layoutClasses，用于控制布局的类名 */
 const layoutClasses = computed(() => {
@@ -18,13 +18,13 @@ const layoutClasses = computed(() => {
     openSidebar: appStore.sidebar.opened,
     withoutAnimation: appStore.sidebar.withoutAnimation,
     mobile: isMobile.value
-  }
-})
+  };
+});
 
 /** 用于处理点击 mobile 端侧边栏遮罩层的事件 */
 const handleClickOutside = () => {
-  appStore.closeSidebar(false)
-}
+  appStore.closeSidebar(false);
+};
 </script>
 
 <template>
