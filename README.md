@@ -1,7 +1,7 @@
 <div align="center">
   <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
   <h1>kilyicms</h1>
-  <span>English</a> | 中文<a href="./README.zh-CN.md"></span>
+  <span>English | 中文<a href="./README.zh-CN.md"></a></span>
 </div>
 
 ## ⚡ Introduction
