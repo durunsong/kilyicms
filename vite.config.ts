@@ -85,7 +85,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       svgLoader({ defaultImport: "url" }),
       /** SVG */
       createSvgIconsPlugin({
-        iconDirs: [path.resolve(process.cwd(), "src/icons/svg")],
+        iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
         symbolId: "icon-[dir]-[name]"
       }),
       /** UnoCSS */

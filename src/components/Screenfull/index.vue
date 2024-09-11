@@ -1,3 +1,23 @@
+<template>
+  <div>
+    <!-- 全屏 -->
+    <el-tooltip v-if="!content" effect="dark" :content="fullscreenTips" placement="bottom">
+      <SvgIcon :name="fullscreenSvgName" @click="handleFullscreenClick" />
+    </el-tooltip>
+    <!-- 内容区 -->
+    <el-dropdown v-else :disabled="isFullscreen">
+      <SvgIcon :name="contentLargeSvgName" />
+      <template #dropdown>
+        <el-dropdown-menu>
+          <!-- 内容区放大 -->
+          <el-dropdown-item @click="handleContentLargeClick">{{ contentLargeTips }}</el-dropdown-item>
+          <!-- 内容区全屏 -->
+          <el-dropdown-item @click="handleContentFullClick">内容区全屏</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
+  </div>
+</template>
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from "vue";
 import { ElMessage } from "element-plus";
@@ -71,31 +91,10 @@ const handleContentFullClick = () => {
 };
 //#endregion
 </script>
-
-<template>
-  <div>
-    <!-- 全屏 -->
-    <el-tooltip v-if="!content" effect="dark" :content="fullscreenTips" placement="bottom">
-      <SvgIcon :name="fullscreenSvgName" @click="handleFullscreenClick" />
-    </el-tooltip>
-    <!-- 内容区 -->
-    <el-dropdown v-else :disabled="isFullscreen">
-      <SvgIcon :name="contentLargeSvgName" />
-      <template #dropdown>
-        <el-dropdown-menu>
-          <!-- 内容区放大 -->
-          <el-dropdown-item @click="handleContentLargeClick">{{ contentLargeTips }}</el-dropdown-item>
-          <!-- 内容区全屏 -->
-          <el-dropdown-item @click="handleContentFullClick">内容区全屏</el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
-  </div>
-</template>
-
 <style lang="scss" scoped>
 .svg-icon {
   font-size: 20px;
+
   &:focus {
     outline: none;
   }

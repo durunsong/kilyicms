@@ -81,6 +81,9 @@ importers:
       '@types/path-browserify':
         specifier: 1.0.3
         version: 1.0.3
+      '@types/vue':
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.5.4)
       '@typescript-eslint/eslint-plugin':
         specifier: 8.5.0
         version: 8.5.0(@typescript-eslint/parser@8.5.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)
@@ -825,6 +828,10 @@ packages:
 
   '@types/svgo@2.6.4':
     resolution: {integrity: sha512-l4cmyPEckf8moNYHdJ+4wkHvFxjyW6ulm9l4YGaOxeyBWPhBOT0gvni1InpFPdzx1dKf/2s62qGITwxNWnPQng==}
+
+  '@types/vue@2.0.0':
+    resolution: {integrity: sha512-WDElkBv/o4lVwu6wYHB06AXs4Xo2fwDjJUpvPRc1QQdzkUSiGFjrYuSCy8raxLE5FObgKq8ND7R5gSZTFLK60w==}
+    deprecated: This is a stub types definition for vuejs (https://github.com/vuejs/vue). vuejs provides its own type definitions, so you don't need @types/vue installed!
 
   '@types/web-bluetooth@0.0.16':
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
@@ -3919,6 +3926,12 @@ snapshots:
   '@types/svgo@2.6.4':
     dependencies:
       '@types/node': 22.5.4
+
+  '@types/vue@2.0.0(typescript@5.5.4)':
+    dependencies:
+      vue: 3.5.4(typescript@5.5.4)
+    transitivePeerDependencies:
+      - typescript
 
   '@types/web-bluetooth@0.0.16': {}
 
