@@ -1,12 +1,3 @@
-<script lang="ts" setup>
-import { useTagsViewStore } from "@/store/modules/tags-view";
-import { useSettingsStore } from "@/store/modules/settings";
-import Footer from "./Footer/index.vue";
-
-const tagsViewStore = useTagsViewStore();
-const settingsStore = useSettingsStore();
-</script>
-
 <template>
   <section class="app-main">
     <div class="app-scrollbar">
@@ -31,6 +22,15 @@ const settingsStore = useSettingsStore();
     <el-backtop target=".app-scrollbar" />
   </section>
 </template>
+
+<script lang="ts" setup>
+import { useTagsViewStore } from "@/store/modules/tags-view";
+import { useSettingsStore } from "@/store/modules/settings";
+import Footer from "./Footer/index.vue";
+
+const tagsViewStore = useTagsViewStore();
+const settingsStore = useSettingsStore();
+</script>
 
 <style lang="scss" scoped>
 @import "@/styles/mixins.scss";

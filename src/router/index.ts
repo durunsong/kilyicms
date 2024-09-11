@@ -196,6 +196,40 @@ export const constantRoutes: RouteRecordRaw[] = [
  */
 export const dynamicRoutes: RouteRecordRaw[] = [
   {
+    path: "/mine",
+    name: "mine",
+    redirect: "/mine/setting",
+    meta: {
+      title: "router_user",
+      svgIcon: "lock",
+      roles: ["admin"],
+      alwaysShow: true,
+    },
+    component: Layouts,
+    children: [
+      {
+        path: "setting",
+        name: "setting",
+        meta: {
+          title: "router_user_management",
+          svgIcon: "lock",
+          roles: ["admin"],
+        },
+        component: () => import("@/views/userCenter/userList.vue"),
+      },
+      {
+        path: "user_recycle_bin",
+        name: "user_recycle_bin",
+        meta: {
+          title: "router_user_recycle_bin",
+          hidden: false,
+          svgIcon: "lock",
+        },
+        component: () => import("@/views/userCenter/user_recycle_bin.vue"),
+      },
+    ],
+  },
+  {
     path: "/permission",
     component: Layouts,
     redirect: "/permission/page",
