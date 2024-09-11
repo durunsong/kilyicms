@@ -1,3 +1,41 @@
+<template>
+  <div class="tags-view-container">
+    <ScrollPane class="tags-view-wrapper" :tag-refs="tagRefs">
+      <router-link
+        ref="tagRefs"
+        v-for="tag in tagsViewStore.visitedViews"
+        :key="tag.path"
+        :class="{ active: isActive(tag) }"
+        class="tags-view-item"
+        :to="{ path: tag.path, query: tag.query }"
+        @click.middle="!isAffix(tag) && closeSelectedTag(tag)"
+        @contextmenu.prevent="openMenu(tag, $event)"
+      >
+        {{ tag.meta?.title }}
+        <el-icon
+          v-if="!isAffix(tag)"
+          :size="12"
+          @click.prevent.stop="closeSelectedTag(tag)"
+        >
+          <Close />
+        </el-icon>
+      </router-link>
+    </ScrollPane>
+    <ul
+      v-show="visible"
+      class="contextmenu"
+      :style="{ left: left + 'px', top: top + 'px' }"
+    >
+      <li @click="refreshSelectedTag(selectedTag)">刷新</li>
+      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
+        关闭
+      </li>
+      <li @click="closeOthersTags">关闭其它</li>
+      <li @click="closeAllTags(selectedTag)">关闭所有</li>
+    </ul>
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { getCurrentInstance, onMounted, ref, watch } from "vue";
 import {
@@ -170,50 +208,13 @@ onMounted(() => {
 });
 </script>
 
-<template>
-  <div class="tags-view-container">
-    <ScrollPane class="tags-view-wrapper" :tag-refs="tagRefs">
-      <router-link
-        ref="tagRefs"
-        v-for="tag in tagsViewStore.visitedViews"
-        :key="tag.path"
-        :class="{ active: isActive(tag) }"
-        class="tags-view-item"
-        :to="{ path: tag.path, query: tag.query }"
-        @click.middle="!isAffix(tag) && closeSelectedTag(tag)"
-        @contextmenu.prevent="openMenu(tag, $event)"
-      >
-        {{ tag.meta?.title }}
-        <el-icon
-          v-if="!isAffix(tag)"
-          :size="12"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        >
-          <Close />
-        </el-icon>
-      </router-link>
-    </ScrollPane>
-    <ul
-      v-show="visible"
-      class="contextmenu"
-      :style="{ left: left + 'px', top: top + 'px' }"
-    >
-      <li @click="refreshSelectedTag(selectedTag)">刷新</li>
-      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
-        关闭
-      </li>
-      <li @click="closeOthersTags">关闭其它</li>
-      <li @click="closeAllTags(selectedTag)">关闭所有</li>
-    </ul>
-  </div>
-</template>
-
 <style lang="scss" scoped>
 .tags-view-container {
   height: var(--kilyicms-tagsview-height);
   width: 100%;
   color: var(--kilyicms-tagsview-text-color);
   overflow: hidden;
+
   .tags-view-wrapper {
     .tags-view-item {
       display: inline-block;
@@ -228,21 +229,26 @@ onMounted(() => {
       font-size: 12px;
       margin-left: 5px;
       margin-top: 4px;
+
       &:first-of-type {
         margin-left: 5px;
       }
+
       &:last-of-type {
         margin-right: 5px;
       }
+
       &.active {
         background-color: var(--kilyicms-tagsview-tag-active-bg-color);
         color: var(--kilyicms-tagsview-tag-active-text-color);
         border-color: var(--kilyicms-tagsview-tag-active-border-color);
       }
+
       .el-icon {
         margin: 0 2px;
         vertical-align: middle;
         border-radius: 50%;
+
         &:hover {
           background-color: var(--kilyicms-tagsview-tag-icon-hover-bg-color);
           color: var(--kilyicms-tagsview-tag-icon-hover-color);
@@ -250,6 +256,7 @@ onMounted(() => {
       }
     }
   }
+
   .contextmenu {
     margin: 0;
     z-index: 3000;
@@ -261,10 +268,12 @@ onMounted(() => {
     color: var(--kilyicms-tagsview-contextmenu-text-color);
     background-color: var(--kilyicms-tagsview-contextmenu-bg-color);
     box-shadow: var(--kilyicms-tagsview-contextmenu-box-shadow);
+
     li {
       margin: 0;
       padding: 7px 16px;
       cursor: pointer;
+
       &:hover {
         color: var(--kilyicms-tagsview-contextmenu-hover-text-color);
         background-color: var(--kilyicms-tagsview-contextmenu-hover-bg-color);

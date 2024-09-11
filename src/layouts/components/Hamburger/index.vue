@@ -1,3 +1,12 @@
+<template>
+  <div @click="toggleClick">
+    <el-icon :size="20" class="icon">
+      <Fold v-if="props.isActive" />
+      <Expand v-else />
+    </el-icon>
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { Expand, Fold } from "@element-plus/icons-vue";
 
@@ -18,15 +27,6 @@ const toggleClick = () => {
   emit("toggleClick");
 };
 </script>
-
-<template>
-  <div @click="toggleClick">
-    <el-icon :size="20" class="icon">
-      <Fold v-if="props.isActive" />
-      <Expand v-else />
-    </el-icon>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .icon {

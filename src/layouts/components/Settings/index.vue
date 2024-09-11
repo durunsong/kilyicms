@@ -1,3 +1,26 @@
+<template>
+  <div class="setting-container">
+    <h4>布局配置</h4>
+    <SelectLayoutMode />
+    <el-divider />
+    <h4>功能配置</h4>
+    <div
+      class="setting-item"
+      v-for="(settingValue, settingName, index) in switchSettings"
+      :key="index"
+    >
+      <span class="setting-name">{{ settingName }}</span>
+      <el-switch
+        v-model="settingValue.value"
+        :disabled="!isLeft && settingName === '固定 Header'"
+      />
+    </div>
+    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout"
+      >重 置</el-button
+    >
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { watchEffect } from "vue";
 import { storeToRefs } from "pinia";
@@ -48,34 +71,12 @@ watchEffect(() => {
 });
 </script>
 
-<template>
-  <div class="setting-container">
-    <h4>布局配置</h4>
-    <SelectLayoutMode />
-    <el-divider />
-    <h4>功能配置</h4>
-    <div
-      class="setting-item"
-      v-for="(settingValue, settingName, index) in switchSettings"
-      :key="index"
-    >
-      <span class="setting-name">{{ settingName }}</span>
-      <el-switch
-        v-model="settingValue.value"
-        :disabled="!isLeft && settingName === '固定 Header'"
-      />
-    </div>
-    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout"
-      >重 置</el-button
-    >
-  </div>
-</template>
-
 <style lang="scss" scoped>
 @import "@/styles/mixins.scss";
 
 .setting-container {
   padding: 20px;
+
   .setting-item {
     font-size: 14px;
     color: var(--el-text-color-regular);
@@ -83,10 +84,12 @@ watchEffect(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .setting-name {
       @extend %ellipsis;
     }
   }
+
   .el-button {
     margin-top: 40px;
     width: 100%;

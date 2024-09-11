@@ -1,3 +1,21 @@
+<template>
+  <el-breadcrumb>
+    <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
+      <span
+        v-if="
+          item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
+        "
+        class="no-redirect"
+      >
+        {{ item.meta.title }}
+      </span>
+      <a v-else @click.prevent="handleLink(item)">
+        {{ item.meta.title }}
+      </a>
+    </el-breadcrumb-item>
+  </el-breadcrumb>
+</template>
+
 <script lang="ts" setup>
 import { ref } from "vue";
 import { type RouteLocationMatched, useRoute, useRouter } from "vue-router";
@@ -41,30 +59,14 @@ listenerRouteChange((route) => {
 }, true);
 </script>
 
-<template>
-  <el-breadcrumb>
-    <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
-      <span
-        v-if="
-          item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
-        "
-        class="no-redirect"
-      >
-        {{ item.meta.title }}
-      </span>
-      <a v-else @click.prevent="handleLink(item)">
-        {{ item.meta.title }}
-      </a>
-    </el-breadcrumb-item>
-  </el-breadcrumb>
-</template>
-
 <style lang="scss" scoped>
 .el-breadcrumb {
   line-height: var(--kilyicms-navigationbar-height);
+
   .no-redirect {
     color: var(--el-text-color-placeholder);
   }
+
   a {
     font-weight: normal;
   }

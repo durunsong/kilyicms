@@ -1,13 +1,3 @@
-<script lang="ts" setup>
-import { isExternal } from "@/utils/validate";
-
-interface Props {
-  to: string;
-}
-
-const props = defineProps<Props>();
-</script>
-
 <template>
   <a
     v-if="isExternal(props.to)"
@@ -21,3 +11,13 @@ const props = defineProps<Props>();
     <slot />
   </router-link>
 </template>
+
+<script lang="ts" setup>
+import { isExternal } from "@/utils/validate";
+
+interface Props {
+  to: string;
+}
+
+const props = defineProps<Props>();
+</script>

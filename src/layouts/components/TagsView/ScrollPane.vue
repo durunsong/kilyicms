@@ -1,3 +1,28 @@
+<template>
+  <div class="scroll-container">
+    <el-icon class="arrow left" @click="scrollTo('left')">
+      <ArrowLeft />
+    </el-icon>
+    <el-scrollbar
+      ref="scrollbarRef"
+      @wheel.passive="wheelScroll"
+      @scroll="scroll"
+    >
+      <div ref="scrollbarContentRef" class="scrollbar-content">
+        <slot />
+      </div>
+    </el-scrollbar>
+    <el-icon class="arrow right" @click="scrollTo('right')">
+      <ArrowRight />
+    </el-icon>
+    <Screenfull
+      v-if="settingsStore.showScreenfull"
+      :content="true"
+      class="screenfull"
+    />
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { ref, nextTick } from "vue";
 import { RouterLink, useRoute } from "vue-router";
@@ -108,31 +133,6 @@ listenerRouteChange(() => {
   nextTick(moveTo);
 });
 </script>
-
-<template>
-  <div class="scroll-container">
-    <el-icon class="arrow left" @click="scrollTo('left')">
-      <ArrowLeft />
-    </el-icon>
-    <el-scrollbar
-      ref="scrollbarRef"
-      @wheel.passive="wheelScroll"
-      @scroll="scroll"
-    >
-      <div ref="scrollbarContentRef" class="scrollbar-content">
-        <slot />
-      </div>
-    </el-scrollbar>
-    <el-icon class="arrow right" @click="scrollTo('right')">
-      <ArrowRight />
-    </el-icon>
-    <Screenfull
-      v-if="settingsStore.showScreenfull"
-      :content="true"
-      class="screenfull"
-    />
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .scroll-container {

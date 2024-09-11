@@ -1,3 +1,29 @@
+<template>
+  <el-dropdown trigger="click">
+    <div class="mr-5px">
+      <el-tooltip effect="dark" content="主题模式" placement="bottom">
+        <SvgIcon name="switch-theme" width="24" height="24" />
+      </el-tooltip>
+    </div>
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item
+          v-for="(theme, index) in themeList"
+          :key="index"
+          :disabled="activeThemeName === theme.name"
+          @click="
+            (e: MouseEvent) => {
+              handleChangeTheme(e, theme.name);
+            }
+          "
+        >
+          <span>{{ theme.title }}</span>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+</template>
+
 <script lang="ts" setup>
 import { type ThemeName, useTheme } from "@/hooks/useTheme";
 
@@ -24,27 +50,3 @@ const handleChangeTheme = (
     : handler();
 };
 </script>
-
-<template>
-  <el-dropdown trigger="click">
-    <el-tooltip effect="dark" content="主题模式" placement="bottom">
-      <SvgIcon name="switch-theme" />
-    </el-tooltip>
-    <template #dropdown>
-      <el-dropdown-menu>
-        <el-dropdown-item
-          v-for="(theme, index) in themeList"
-          :key="index"
-          :disabled="activeThemeName === theme.name"
-          @click="
-            (e: MouseEvent) => {
-              handleChangeTheme(e, theme.name);
-            }
-          "
-        >
-          <span>{{ theme.title }}</span>
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </template>
-  </el-dropdown>
-</template>

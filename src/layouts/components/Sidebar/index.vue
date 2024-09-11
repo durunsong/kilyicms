@@ -1,3 +1,28 @@
+<template>
+  <div :class="{ 'has-logo': isLogo }">
+    <Logo v-if="isLogo" :collapse="isCollapse" />
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <el-menu
+        :default-active="activeMenu"
+        :collapse="isCollapse && !isTop"
+        :background-color="backgroundColor"
+        :text-color="textColor"
+        :active-text-color="activeTextColor"
+        :unique-opened="true"
+        :collapse-transition="false"
+        :mode="isTop && !isMobile ? 'horizontal' : 'vertical'"
+      >
+        <SidebarItem
+          v-for="route in noHiddenRoutes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
+      </el-menu>
+    </el-scrollbar>
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
@@ -67,31 +92,6 @@ const hiddenScrollbarVerticalBar = computed(() => {
 });
 </script>
 
-<template>
-  <div :class="{ 'has-logo': isLogo }">
-    <Logo v-if="isLogo" :collapse="isCollapse" />
-    <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu
-        :default-active="activeMenu"
-        :collapse="isCollapse && !isTop"
-        :background-color="backgroundColor"
-        :text-color="textColor"
-        :active-text-color="activeTextColor"
-        :unique-opened="true"
-        :collapse-transition="false"
-        :mode="isTop && !isMobile ? 'horizontal' : 'vertical'"
-      >
-        <SidebarItem
-          v-for="route in noHiddenRoutes"
-          :key="route.path"
-          :item="route"
-          :base-path="route.path"
-        />
-      </el-menu>
-    </el-scrollbar>
-  </div>
-</template>
-
 <style lang="scss" scoped>
 %tip-line {
   &::before {
@@ -117,19 +117,23 @@ const hiddenScrollbarVerticalBar = computed(() => {
 .el-scrollbar {
   // 多 1% 是为了在顶部模式时防止垂直滚动
   height: 101%;
+
   :deep(.scrollbar-wrapper) {
     // 限制水平宽度
     overflow-x: hidden !important;
+
     .el-scrollbar__view {
       height: 100%;
     }
   }
+
   // 滚动条
   :deep(.el-scrollbar__bar) {
     &.is-horizontal {
       // 隐藏水平滚动条
       display: none;
     }
+
     &.is-vertical {
       // 当为顶部模式时隐藏垂直滚动条
       display: v-bind(hiddenScrollbarVerticalBar);
@@ -153,6 +157,7 @@ const hiddenScrollbarVerticalBar = computed(() => {
 :deep(.el-menu--horizontal .el-menu-item) {
   height: v-bind(sidebarMenuItemHeight);
   line-height: v-bind(sidebarMenuItemHeight);
+
   &.is-active,
   &:hover {
     background-color: v-bind(sidebarMenuHoverBgColor);

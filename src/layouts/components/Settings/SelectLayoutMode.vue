@@ -1,10 +1,3 @@
-<script lang="ts" setup>
-import { useLayoutMode } from "@/hooks/useLayoutMode";
-import { LayoutModeEnum } from "@/constants/app-key";
-
-const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
-</script>
-
 <template>
   <div class="select-layout-mode">
     <el-tooltip content="左侧模式">
@@ -46,6 +39,13 @@ const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
   </div>
 </template>
 
+<script lang="ts" setup>
+import { useLayoutMode } from "@/hooks/useLayoutMode";
+import { LayoutModeEnum } from "@/constants/app-key";
+
+const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
+</script>
+
 <style lang="scss" scoped>
 .select-layout-mode {
   display: flex;
@@ -59,6 +59,7 @@ const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
   cursor: pointer;
   border-radius: 6px;
   border: 2px solid transparent;
+
   &:hover {
     border: 2px solid var(--el-color-primary);
   }
@@ -80,9 +81,11 @@ const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
   .el-header {
     background-color: var(--el-fill-color-darker);
   }
+
   .el-aside {
     background-color: var(--el-color-primary);
   }
+
   .el-main {
     background-color: var(--el-fill-color-lighter);
   }
@@ -92,6 +95,7 @@ const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
   .el-header {
     background-color: var(--el-color-primary);
   }
+
   .el-main {
     background-color: var(--el-fill-color-lighter);
   }
@@ -101,9 +105,11 @@ const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
   .el-header {
     background-color: var(--el-fill-color-darker);
   }
+
   .el-aside {
     background-color: var(--el-color-primary);
   }
+
   .el-main {
     background-color: var(--el-fill-color-lighter);
   }

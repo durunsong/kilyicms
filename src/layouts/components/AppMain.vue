@@ -46,6 +46,7 @@ const settingsStore = useSettingsStore();
   @extend %scrollbar;
   display: flex;
   flex-direction: column;
+
   .app-container-grow {
     flex-grow: 1;
   }
