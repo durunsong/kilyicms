@@ -1,8 +1,0 @@
-# Eslint 忽略文件
-
-.DS_Store
-node_modules
-dist
-dist-ssr
-*.local
-.npmrc

@@ -192,9 +192,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .tags-view-container {
-  height: var(--v3-tagsview-height);
+  height: var(--kilyicms-tagsview-height);
   width: 100%;
-  color: var(--v3-tagsview-text-color);
+  color: var(--kilyicms-tagsview-text-color);
   overflow: hidden;
   .tags-view-wrapper {
     .tags-view-item {
@@ -203,9 +203,9 @@ onMounted(() => {
       cursor: pointer;
       height: 26px;
       line-height: 26px;
-      border: 1px solid var(--v3-tagsview-tag-border-color);
-      border-radius: var(--v3-tagsview-tag-border-radius);
-      background-color: var(--v3-tagsview-tag-bg-color);
+      border: 1px solid var(--kilyicms-tagsview-tag-border-color);
+      border-radius: var(--kilyicms-tagsview-tag-border-radius);
+      background-color: var(--kilyicms-tagsview-tag-bg-color);
       padding: 0 8px;
       font-size: 12px;
       margin-left: 5px;
@@ -217,17 +217,17 @@ onMounted(() => {
         margin-right: 5px;
       }
       &.active {
-        background-color: var(--v3-tagsview-tag-active-bg-color);
-        color: var(--v3-tagsview-tag-active-text-color);
-        border-color: var(--v3-tagsview-tag-active-border-color);
+        background-color: var(--kilyicms-tagsview-tag-active-bg-color);
+        color: var(--kilyicms-tagsview-tag-active-text-color);
+        border-color: var(--kilyicms-tagsview-tag-active-border-color);
       }
       .el-icon {
         margin: 0 2px;
         vertical-align: middle;
         border-radius: 50%;
         &:hover {
-          background-color: var(--v3-tagsview-tag-icon-hover-bg-color);
-          color: var(--v3-tagsview-tag-icon-hover-color);
+          background-color: var(--kilyicms-tagsview-tag-icon-hover-bg-color);
+          color: var(--kilyicms-tagsview-tag-icon-hover-color);
         }
       }
     }
@@ -240,16 +240,16 @@ onMounted(() => {
     padding: 5px 0;
     border-radius: 4px;
     font-size: 12px;
-    color: var(--v3-tagsview-contextmenu-text-color);
-    background-color: var(--v3-tagsview-contextmenu-bg-color);
-    box-shadow: var(--v3-tagsview-contextmenu-box-shadow);
+    color: var(--kilyicms-tagsview-contextmenu-text-color);
+    background-color: var(--kilyicms-tagsview-contextmenu-bg-color);
+    box-shadow: var(--kilyicms-tagsview-contextmenu-box-shadow);
     li {
       margin: 0;
       padding: 7px 16px;
       cursor: pointer;
       &:hover {
-        color: var(--v3-tagsview-contextmenu-hover-text-color);
-        background-color: var(--v3-tagsview-contextmenu-hover-bg-color);
+        color: var(--kilyicms-tagsview-contextmenu-hover-text-color);
+        background-color: var(--kilyicms-tagsview-contextmenu-hover-bg-color);
       }
     }
   }

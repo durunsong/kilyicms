@@ -1,12 +1,12 @@
 <div align="center">
-  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
-  <h1>kilyicms</h1>
+  <img alt="Kilyicms Logo" width="120" height="120" src="./src/assets/images/cms.png">
+  <h1>Kilyicms</h1>
   <span>English | <a href="./README.zh-CN.md">中文</a></span>
 </div>
 
 ## ⚡ Introduction
 
-V3 Admin Vite is a free and open-source basic solution for backend management systems, based on Vue3, TypeScript, Element Plus, Pinia, and Vite, among other mainstream technologies.
+Kilyicms is a free and open-source basic solution for backend management systems, based on Vue3, TypeScript, Element Plus, Pinia, and Vite, among other mainstream technologies.
 
 ## 📺 Online Preview
 

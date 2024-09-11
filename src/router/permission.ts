@@ -7,14 +7,11 @@ import { useTitle } from "@/hooks/useTitle";
 // import { getToken } from "@/utils/cache/cookies";
 import routeSettings from "@/config/route";
 // import isWhiteList from "@/config/white-list";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
-
+import nprogress from "@/utils/nprogress";
 const { setTitle } = useTitle();
-NProgress.configure({ showSpinner: false });
 
 router.beforeEach(async (to, _from, next) => {
-  NProgress.start();
+  nprogress.start();
   const userStore = useUserStoreHook();
   const permissionStore = usePermissionStoreHook();
   // const token = getToken();
@@ -58,5 +55,5 @@ router.beforeEach(async (to, _from, next) => {
 router.afterEach((to) => {
   setRouteChange(to);
   setTitle(to.meta.title);
-  NProgress.done();
+  nprogress.done();
 });

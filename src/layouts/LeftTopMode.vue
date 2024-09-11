@@ -53,7 +53,7 @@ $transition-time: 0.35s;
   width: 100%;
   display: flex;
   .logo {
-    width: var(--v3-sidebar-width);
+    width: var(--kilyicms-sidebar-width);
   }
   .content {
     flex: 1;
@@ -62,9 +62,9 @@ $transition-time: 0.35s;
 }
 
 .layout-header {
-  background-color: var(--v3-header-bg-color);
-  box-shadow: var(--v3-header-box-shadow);
-  border-bottom: var(--v3-header-border-bottom);
+  background-color: var(--kilyicms-header-bg-color);
+  box-shadow: var(--kilyicms-header-box-shadow);
+  border-bottom: var(--kilyicms-header-border-bottom);
 }
 
 .main-container {
@@ -73,39 +73,39 @@ $transition-time: 0.35s;
 
 .sidebar-container {
   transition: width $transition-time;
-  width: var(--v3-sidebar-width) !important;
+  width: var(--kilyicms-sidebar-width) !important;
   height: 100%;
   position: fixed;
   left: 0;
   z-index: 1001;
   overflow: hidden;
-  border-right: var(--v3-sidebar-border-right);
-  padding-top: var(--v3-navigationbar-height);
+  border-right: var(--kilyicms-sidebar-border-right);
+  padding-top: var(--kilyicms-navigationbar-height);
 }
 
 .app-main {
   transition: padding-left $transition-time;
-  padding-top: var(--v3-navigationbar-height);
-  padding-left: var(--v3-sidebar-width);
+  padding-top: var(--kilyicms-navigationbar-height);
+  padding-left: var(--kilyicms-sidebar-width);
   height: 100vh;
   overflow: auto;
 }
 
 .hideSidebar {
   .sidebar-container {
-    width: var(--v3-sidebar-hide-width) !important;
+    width: var(--kilyicms-sidebar-hide-width) !important;
   }
   .app-main {
-    padding-left: var(--v3-sidebar-hide-width);
+    padding-left: var(--kilyicms-sidebar-hide-width);
   }
 }
 
 .hasTagsView {
   .sidebar-container {
-    padding-top: var(--v3-header-height);
+    padding-top: var(--kilyicms-header-height);
   }
   .app-main {
-    padding-top: var(--v3-header-height);
+    padding-top: var(--kilyicms-header-height);
   }
 }
 </style>

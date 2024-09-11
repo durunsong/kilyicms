@@ -29,11 +29,11 @@ const classes = computed(() => {
 });
 
 //#region 隐藏标签栏时删除其高度，是为了让 Logo 组件高度和 Header 区域高度始终一致
-const cssVariableName = "--v3-tagsview-height";
-const v3TagsviewHeight = getCssVariableValue(cssVariableName);
+const cssVariableName = "--kilyicms-tagsview-height";
+const kyTagsviewHeight = getCssVariableValue(cssVariableName);
 watchEffect(() => {
   showTagsView.value
-    ? setCssVariableValue(cssVariableName, v3TagsviewHeight)
+    ? setCssVariableValue(cssVariableName, kyTagsviewHeight)
     : setCssVariableValue(cssVariableName, "0px");
 });
 //#endregion

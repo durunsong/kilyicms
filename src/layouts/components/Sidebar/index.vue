@@ -10,9 +10,9 @@ import { useDevice } from "@/hooks/useDevice";
 import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { getCssVariableValue } from "@/utils";
 
-const v3SidebarMenuBgColor = getCssVariableValue("--v3-sidebar-menu-bg-color");
-const v3SidebarMenuTextColor = getCssVariableValue("--v3-sidebar-menu-text-color");
-const v3SidebarMenuActiveTextColor = getCssVariableValue("--v3-sidebar-menu-active-text-color");
+const kySidebarMenuBgColor = getCssVariableValue("--kilyicms-sidebar-menu-bg-color");
+const kySidebarMenuTextColor = getCssVariableValue("--kilyicms-sidebar-menu-text-color");
+const kySidebarMenuActiveTextColor = getCssVariableValue("--kilyicms-sidebar-menu-active-text-color");
 
 const { isMobile } = useDevice();
 const { isLeft, isTop } = useLayoutMode();
@@ -31,17 +31,17 @@ const activeMenu = computed(() => {
 const noHiddenRoutes = computed(() => permissionStore.routes.filter((item) => !item.meta?.hidden));
 const isCollapse = computed(() => !appStore.sidebar.opened);
 const isLogo = computed(() => isLeft.value && settingsStore.showLogo);
-const backgroundColor = computed(() => (isLeft.value ? v3SidebarMenuBgColor : undefined));
-const textColor = computed(() => (isLeft.value ? v3SidebarMenuTextColor : undefined));
-const activeTextColor = computed(() => (isLeft.value ? v3SidebarMenuActiveTextColor : undefined));
+const backgroundColor = computed(() => (isLeft.value ? kySidebarMenuBgColor : undefined));
+const textColor = computed(() => (isLeft.value ? kySidebarMenuTextColor : undefined));
+const activeTextColor = computed(() => (isLeft.value ? kySidebarMenuActiveTextColor : undefined));
 const sidebarMenuItemHeight = computed(() => {
-  return !isTop.value ? "var(--v3-sidebar-menu-item-height)" : "var(--v3-navigationbar-height)";
+  return !isTop.value ? "var(--kilyicms-sidebar-menu-item-height)" : "var(--kilyicms-navigationbar-height)";
 });
 const sidebarMenuHoverBgColor = computed(() => {
-  return !isTop.value ? "var(--v3-sidebar-menu-hover-bg-color)" : "transparent";
+  return !isTop.value ? "var(--kilyicms-sidebar-menu-hover-bg-color)" : "transparent";
 });
 const tipLineWidth = computed(() => {
-  return !isTop.value ? "2px" : "0px";
+  return !isTop.value ? "7px" : "0px";
 });
 // 当为顶部模式时隐藏垂直滚动条
 const hiddenScrollbarVerticalBar = computed(() => {
@@ -78,14 +78,16 @@ const hiddenScrollbarVerticalBar = computed(() => {
     left: 0;
     width: v-bind(tipLineWidth);
     height: 100%;
-    background-color: var(--v3-sidebar-menu-tip-line-bg-color);
+    background-color: var(--kilyicms-sidebar-menu-tip-line-bg-color);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 }
 
 .has-logo {
   .el-scrollbar {
     // 多 1% 是为了在左侧模式时侧边栏最底部不显示 1px 左右的白色线条
-    height: calc(101% - var(--v3-header-height));
+    height: calc(101% - var(--kilyicms-header-height));
   }
 }
 

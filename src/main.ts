@@ -28,5 +28,5 @@ loadDirectives(app);
 app.use(i18n);
 app.use(store).use(router);
 router.isReady().then(() => {
-  app.mount("#kilyicms");
+  app.mount("#__kilyicms");
 });

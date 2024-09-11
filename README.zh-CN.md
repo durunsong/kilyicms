@@ -1,12 +1,12 @@
 <div align="center">
-  <img alt="V3 Admin Vite Logo" width="120" height="120" src="./src/assets/images/cms.png">
-  <h1>kilyicms</h1>
+  <img alt="Kilyicms Logo" width="120" height="120" src="./src/assets/images/cms.png">
+  <h1>Kilyicms</h1>
   <span><a href="./README.md">English</a> | 中文</span>
 </div>
 
 ## ⚡ 简介
 
-V3 Admin Vite 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术
+Kilyicms 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术
 
 ## 📺 在线预览
 
