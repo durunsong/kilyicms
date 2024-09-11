@@ -1,10 +1,10 @@
 // 入口文件
-const express = require('express');
-const bodyParserMiddleware = require('./middleware/bodyParserMiddleware');
-const corsMiddleware = require('./middleware/corsMiddleware');
-const userRoutes = require('./routes/userRoutes');
-const { connectDb } = require('./config/db');
-const { hashExistingPasswords } = require('./controllers/userController');
+const express = require("express");
+const bodyParserMiddleware = require("./middleware/bodyParserMiddleware");
+const corsMiddleware = require("./middleware/corsMiddleware");
+const userRoutes = require("./routes/userRoutes");
+const { connectDb } = require("./config/db");
+// const { hashExistingPasswords } = require("./controllers/userController");
 
 // 创建服务器对象
 const app = express();
@@ -23,9 +23,9 @@ app.use(corsMiddleware); // 使用 cors()
 connectDb();
 
 // 注册路由
-app.use('/api/users', userRoutes);
+app.use("/api/users", userRoutes);
 
 // 启动服务器
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });

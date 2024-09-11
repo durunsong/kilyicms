@@ -1,6 +1,3 @@
-// eslint.config.js
-
-// 使用 import 导入插件
 import vueParser from "vue-eslint-parser"; // 导入 vue-eslint-parser 作为对象
 import typescriptParser from "@typescript-eslint/parser"; // 导入 TypeScript 解析器
 import vue from "eslint-plugin-vue";
@@ -8,11 +5,12 @@ import typescript from "@typescript-eslint/eslint-plugin";
 import prettier from "eslint-plugin-prettier";
 
 export default [
+  // 忽略文件
   {
     ignores: [".DS_Store", "node_modules", "dist", "dist-ssr", "*.local", ".npmrc"] // 原 .eslintignore 文件的内容
   },
   {
-    files: ["**/*.ts", "**/*.js", "**/*.vue"], // 作用范围
+    files: ["**/*.ts", "**/*.js", "**/*.jsx", "**/*.tsx", "**/*.vue"], // 作用范围
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "module",
