@@ -49,6 +49,8 @@ const settingsStore = useSettingsStore();
 
   .app-container-grow {
     flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
   }
 }
 </style>
