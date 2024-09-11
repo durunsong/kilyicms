@@ -7,7 +7,12 @@
         <img src="@/assets/layouts/logo-text-2.png" />
       </div>
       <div class="content">
-        <el-form ref="loginFormRef" :model="loginFormData" :rules="loginFormRules" @keyup.enter="handleLogin">
+        <el-form
+          ref="loginFormRef"
+          :model="loginFormData"
+          :rules="loginFormRules"
+          @keyup.enter="handleLogin"
+        >
           <el-form-item prop="username">
             <el-input
               v-model.trim="loginFormData.username"
@@ -57,7 +62,13 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-button :loading="loading" type="primary" size="large" @click.prevent="handleLogin">登 录</el-button>
+          <el-button
+            :loading="loading"
+            type="primary"
+            size="large"
+            @click.prevent="handleLogin"
+            >登 录</el-button
+          >
         </el-form>
       </div>
     </div>
@@ -90,16 +101,16 @@ const codeUrl = ref("");
 const loginFormData: LoginRequestData = reactive({
   username: "admin",
   password: "12345678",
-  code: ""
+  code: "",
 });
 /** 登录表单校验规则 */
 const loginFormRules: FormRules = {
   username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
   password: [
     { required: true, message: "请输入密码", trigger: "blur" },
-    { min: 8, max: 16, message: "长度在 8 到 16 个字符", trigger: "blur" }
+    { min: 8, max: 16, message: "长度在 8 到 16 个字符", trigger: "blur" },
   ],
-  code: [{ required: true, message: "请输入验证码", trigger: "blur" }]
+  code: [{ required: true, message: "请输入验证码", trigger: "blur" }],
 };
 /** 登录逻辑 */
 const handleLogin = () => {

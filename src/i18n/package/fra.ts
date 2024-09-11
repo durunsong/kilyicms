@@ -58,7 +58,7 @@ const fra = {
   Exit_full_screen: "Quitter le plein écran",
   Enter_full_screen: "Aller en plein écran",
   light: "Lumière",
-  dark: "Sombre"
+  dark: "Sombre",
 };
 
 export default fra;

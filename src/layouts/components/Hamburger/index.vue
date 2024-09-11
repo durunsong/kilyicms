@@ -6,7 +6,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  isActive: false
+  isActive: false,
 });
 
 /** Vue 3.3+ defineEmits 语法 */

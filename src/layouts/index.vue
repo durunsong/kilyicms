@@ -19,12 +19,18 @@ const { setWatermark, clearWatermark } = useWatermark();
 const { isMobile } = useDevice();
 const { isLeft, isTop, isLeftTop } = useLayoutMode();
 const settingsStore = useSettingsStore();
-const { showSettings, showTagsView, showWatermark, showGreyMode, showColorWeakness } = storeToRefs(settingsStore);
+const {
+  showSettings,
+  showTagsView,
+  showWatermark,
+  showGreyMode,
+  showColorWeakness,
+} = storeToRefs(settingsStore);
 
 const classes = computed(() => {
   return {
     showGreyMode: showGreyMode.value,
-    showColorWeakness: showColorWeakness.value
+    showColorWeakness: showColorWeakness.value,
   };
 });
 
@@ -40,7 +46,9 @@ watchEffect(() => {
 
 /** 开启或关闭系统水印 */
 watchEffect(() => {
-  showWatermark.value ? setWatermark(import.meta.env.VITE_APP_TITLE) : clearWatermark();
+  showWatermark.value
+    ? setWatermark(import.meta.env.VITE_APP_TITLE)
+    : clearWatermark();
 });
 </script>
 

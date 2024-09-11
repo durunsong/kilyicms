@@ -8,7 +8,7 @@ export const asyncRoutes: Array<CustomRouteRecordRaw> = [
     meta: {
       title: "router_user",
       hidden: false,
-      icon: "User"
+      icon: "User",
     },
     redirect: "/mine/setting",
     component: () => import("@/views/userCenter/userView.vue"),
@@ -20,9 +20,9 @@ export const asyncRoutes: Array<CustomRouteRecordRaw> = [
         meta: {
           title: "router_user_management",
           hidden: false,
-          icon: "UserFilled"
+          icon: "UserFilled",
         },
-        component: () => import("@/views/userCenter/userList.vue")
+        component: () => import("@/views/userCenter/userList.vue"),
       },
       {
         path: "user_recycle_bin",
@@ -31,10 +31,10 @@ export const asyncRoutes: Array<CustomRouteRecordRaw> = [
         meta: {
           title: "router_user_recycle_bin",
           hidden: false,
-          icon: "DeleteFilled"
+          icon: "DeleteFilled",
         },
-        component: () => import("@/views/userCenter/user_recycle_bin.vue")
-      }
-    ]
-  }
+        component: () => import("@/views/userCenter/user_recycle_bin.vue"),
+      },
+    ],
+  },
 ];

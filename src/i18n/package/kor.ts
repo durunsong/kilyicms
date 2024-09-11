@@ -58,7 +58,7 @@ const kor = {
   Exit_full_screen: "전체 화면 종료",
   Enter_full_screen: "전체 화면",
   light: "불을 켜다",
-  dark: "불을 끄다"
+  dark: "불을 끄다",
 };
 
 export default kor;

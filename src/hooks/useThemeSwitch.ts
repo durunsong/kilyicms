@@ -11,21 +11,29 @@ export function useThemeSwitch(initialIsDark: boolean) {
     });
 
     transition.ready.then(() => {
-      const { clientX, clientY } = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 }; // Center point
+      const { clientX, clientY } = {
+        clientX: window.innerWidth / 2,
+        clientY: window.innerHeight / 2,
+      }; // Center point
       const radius = Math.hypot(
         Math.max(clientX, window.innerWidth - clientX),
-        Math.max(clientY, window.innerHeight - clientY)
+        Math.max(clientY, window.innerHeight - clientY),
       );
-      const clipPath = [`circle(0% at ${clientX}px ${clientY}px)`, `circle(${radius}px at ${clientX}px ${clientY}px)`];
+      const clipPath = [
+        `circle(0% at ${clientX}px ${clientY}px)`,
+        `circle(${radius}px at ${clientX}px ${clientY}px)`,
+      ];
       const currentIsDark = document.documentElement.classList.contains("dark");
       document.documentElement.animate(
         {
-          clipPath: currentIsDark ? clipPath.reverse() : clipPath
+          clipPath: currentIsDark ? clipPath.reverse() : clipPath,
         },
         {
           duration: 500,
-          pseudoElement: currentIsDark ? "::view-transition-old(root)" : "::view-transition-new(root)"
-        }
+          pseudoElement: currentIsDark
+            ? "::view-transition-old(root)"
+            : "::view-transition-new(root)",
+        },
       );
     });
   };
@@ -42,6 +50,6 @@ export function useThemeSwitch(initialIsDark: boolean) {
     isDark,
     setTheme: (value: boolean) => {
       isDark.value = value;
-    }
+    },
   };
 }

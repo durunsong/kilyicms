@@ -1,5 +1,9 @@
 import { defineStore } from "pinia";
-import type { MetaInfo, UserPromotionState, UserPromotionStateKeys } from "@/types/store";
+import type {
+  MetaInfo,
+  UserPromotionState,
+  UserPromotionStateKeys,
+} from "@/types/store";
 
 export const userPomotionStore = defineStore("promotion", {
   state: (): UserPromotionState => {
@@ -11,7 +15,7 @@ export const userPomotionStore = defineStore("promotion", {
       metaInfo: {
         title: "",
         keywords: "",
-        description: ""
+        description: "",
       },
       affcode: "",
       kilyimallLoginURL: "https://www.kilyimall.com/login",
@@ -22,7 +26,7 @@ export const userPomotionStore = defineStore("promotion", {
       imageUrl: "https://cfstatic.hagoby.com/www/pic",
       m_kilyimallLoginURL: "https://www.kilyimall.com/login",
       m_kilyimallURL: "https://www.kilyimall.com/register",
-      m_kilyimall: "https://www.kilyimall.com"
+      m_kilyimall: "https://www.kilyimall.com",
     };
   },
   getters: {
@@ -41,7 +45,7 @@ export const userPomotionStore = defineStore("promotion", {
       } else {
         return "";
       }
-    }
+    },
   },
   actions: {
     setUserInfo(data: any) {
@@ -62,11 +66,11 @@ export const userPomotionStore = defineStore("promotion", {
           (this as any)[key] = payload[key];
         }
       }
-    }
+    },
   },
   persist: {
     // 使用默认配置进行持久化
     storage: localStorage,
-    paths: ["userInfo", "isCollapse", "dark_and_light", "is_screen_full"]
-  }
+    paths: ["userInfo", "isCollapse", "dark_and_light", "is_screen_full"],
+  },
 });

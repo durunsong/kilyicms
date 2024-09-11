@@ -13,8 +13,16 @@
           ref="ref_form"
           @keyup.enter="onLoginConfirm"
         >
-          <el-form-item prop="userName" :label="t('user_name')" label-width="80px">
-            <el-input v-model.trim="form.userName" :placeholder="t('Please_enter_your_username')" size="large">
+          <el-form-item
+            prop="userName"
+            :label="t('user_name')"
+            label-width="80px"
+          >
+            <el-input
+              v-model.trim="form.userName"
+              :placeholder="t('Please_enter_your_username')"
+              size="large"
+            >
               <template #prepend>
                 <el-icon :size="20">
                   <Avatar />
@@ -22,7 +30,11 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="password" :label="t('password')" label-width="80px">
+          <el-form-item
+            prop="password"
+            :label="t('password')"
+            label-width="80px"
+          >
             <el-input
               size="large"
               v-model.trim="form.password"
@@ -37,18 +49,28 @@
             </el-input>
           </el-form-item>
           <div class="slide_verify_right" v-if="sliderVisible">
-            <SlideVerify @success="handleSlideSuccess" @close="sliderVisible = false" />
+            <SlideVerify
+              @success="handleSlideSuccess"
+              @close="sliderVisible = false"
+            />
           </div>
           <el-form-item>
             <div class="button_side">
-              <el-button class="submit_but" type="primary" @click="onLoginConfirm" :loading="loading">
+              <el-button
+                class="submit_but"
+                type="primary"
+                @click="onLoginConfirm"
+                :loading="loading"
+              >
                 {{ t("login") }}
               </el-button>
             </div>
           </el-form-item>
           <el-form-item>
             <div class="toggle-form button_login_side">
-              <el-button class="side_btn" link @click="toggleForm">{{ t("Go_to_Register") }}</el-button>
+              <el-button class="side_btn" link @click="toggleForm">{{
+                t("Go_to_Register")
+              }}</el-button>
             </div>
           </el-form-item>
         </el-form>
@@ -61,8 +83,16 @@
           ref="ref_form"
           @keyup.enter="onRegister"
         >
-          <el-form-item prop="userName" :label="t('user_name')" label-width="80px">
-            <el-input v-model.trim="form.userName" :placeholder="t('Please_enter_your_username')" size="large">
+          <el-form-item
+            prop="userName"
+            :label="t('user_name')"
+            label-width="80px"
+          >
+            <el-input
+              v-model.trim="form.userName"
+              :placeholder="t('Please_enter_your_username')"
+              size="large"
+            >
               <template #prepend>
                 <el-icon :size="20">
                   <Avatar />
@@ -70,7 +100,11 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="password" :label="t('password')" label-width="80px">
+          <el-form-item
+            prop="password"
+            :label="t('password')"
+            label-width="80px"
+          >
             <el-input
               size="large"
               v-model.trim="form.password"
@@ -84,7 +118,11 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="confirmPassword" :label="t('confirm_password')" label-width="80px">
+          <el-form-item
+            prop="confirmPassword"
+            :label="t('confirm_password')"
+            label-width="80px"
+          >
             <el-input
               size="large"
               v-model.trim="form.confirmPassword"
@@ -100,7 +138,12 @@
           </el-form-item>
           <el-form-item>
             <div class="button_side">
-              <el-button class="submit_but" type="primary" @click="onRegister" :loading="loading">
+              <el-button
+                class="submit_but"
+                type="primary"
+                @click="onRegister"
+                :loading="loading"
+              >
                 {{ t("router_register") }}
               </el-button>
             </div>
@@ -147,7 +190,7 @@ const store = userPomotionStore();
 const form = reactive<LoginForm>({
   userName: "",
   password: "",
-  confirmPassword: undefined
+  confirmPassword: undefined,
 });
 
 const ref_form = ref<FormInstance | null>(null);
@@ -162,16 +205,16 @@ const rules = {
     {
       required: true,
       message: t("Please_enter_your_username"),
-      trigger: "blur"
-    }
+      trigger: "blur",
+    },
   ],
   password: [
     {
       required: true,
       message: t("Please_enter_your_password"),
-      trigger: "blur"
-    }
-  ]
+      trigger: "blur",
+    },
+  ],
 };
 
 const registerRules = {
@@ -179,33 +222,37 @@ const registerRules = {
     {
       required: true,
       message: t("Please_enter_your_username"),
-      trigger: "blur"
-    }
+      trigger: "blur",
+    },
   ],
   password: [
     {
       required: true,
       message: t("Please_enter_your_password"),
-      trigger: "blur"
-    }
+      trigger: "blur",
+    },
   ],
   confirmPassword: [
     {
       required: true,
       message: t("Please_confirm_the_password"),
-      trigger: "blur"
+      trigger: "blur",
     },
     {
-      validator: (rule: FormItemRule, value: string, callback: (error?: Error) => void) => {
+      validator: (
+        rule: FormItemRule,
+        value: string,
+        callback: (error?: Error) => void,
+      ) => {
         if (value !== form.password) {
           callback(new Error(t("passwords_are_different")));
         } else {
           callback();
         }
       },
-      trigger: "blur"
-    }
-  ]
+      trigger: "blur",
+    },
+  ],
 };
 
 // 图片验证码通过
@@ -239,12 +286,12 @@ const handlerExecutiveLogging = () => {
       } else if (res.status === 403) {
         ElNotification({
           message: res.message,
-          type: "warning"
+          type: "warning",
         });
       } else {
         ElNotification({
           message: res.message,
-          type: "warning"
+          type: "warning",
         });
       }
       loading.value = false;
@@ -284,7 +331,7 @@ const handlerExecutiveRegister = () => {
       if (res.status === 200) {
         ElNotification({
           message: res.message,
-          type: "success"
+          type: "success",
         });
         toggleForm(); // 登录和注册表单之间切换
       }

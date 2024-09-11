@@ -7,7 +7,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  buttonTop: 350
+  buttonTop: 350,
 });
 
 const buttonTopCss = props.buttonTop + "px";

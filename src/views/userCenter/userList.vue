@@ -20,12 +20,24 @@
           @change="formatHandleChange"
         />
       </div>
-      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t("clear") }}</el-button>
-      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{
-        t("search")
-      }}</el-button>
+      <el-button
+        class="search_btn"
+        type="default"
+        @click="handleClearItems"
+        icon="Delete"
+        >{{ t("clear") }}</el-button
+      >
+      <el-button
+        class="search_btn"
+        type="primary"
+        @click="debouncedHandleSearchItems"
+        icon="Search"
+        >{{ t("search") }}</el-button
+      >
     </div>
-    <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{ t("Add_personnel") }}</el-button>
+    <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{
+      t("Add_personnel")
+    }}</el-button>
     <el-table :data="userList" style="width: 100%">
       <el-table-column :label="t('serial_number')" width="100">
         <template #default="scope">
@@ -37,12 +49,22 @@
           <span v-html="highlightKeyword(scope.row.userName)" />
         </template>
       </el-table-column>
-      <el-table-column prop="create_time" :label="t('create_time')" align="center" />
-      <el-table-column prop="update_time" :label="t('update_time')" align="center" />
+      <el-table-column
+        prop="create_time"
+        :label="t('create_time')"
+        align="center"
+      />
+      <el-table-column
+        prop="update_time"
+        :label="t('update_time')"
+        align="center"
+      />
       <el-table-column :label="t('operates')" align="center">
         <template #default="scope">
           <el-button @click="editItem(scope.row)">{{ t("edit") }}</el-button>
-          <el-button type="danger" @click="deleteItem(scope.row.id)">{{ t("delete") }}</el-button>
+          <el-button type="danger" @click="deleteItem(scope.row.id)">{{
+            t("delete")
+          }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -72,7 +94,9 @@
       </el-form>
       <template v-slot:footer>
         <div class="dialog-footer">
-          <el-button @click="showAddDialog = false">{{ t("confirm_cancel_text") }}</el-button>
+          <el-button @click="showAddDialog = false">{{
+            t("confirm_cancel_text")
+          }}</el-button>
           <el-button type="primary" @click="addItem">{{ t("add") }}</el-button>
         </div>
       </template>
@@ -84,7 +108,10 @@
           <el-input v-model="editItemData.userName" />
         </el-form-item>
         <el-form-item :label="t('password')">
-          <el-input v-model="editItemData.password" autocomplete="new-password" />
+          <el-input
+            v-model="editItemData.password"
+            autocomplete="new-password"
+          />
         </el-form-item>
         <el-form-item :label="t('description')">
           <el-input v-model="editItemData.description" />
@@ -92,8 +119,12 @@
       </el-form>
       <template v-slot:footer>
         <div class="dialog-footer">
-          <el-button @click="showEditDialog = false">{{ t("confirm_cancel_text") }}</el-button>
-          <el-button type="primary" @click="updateItem">{{ t("update") }}</el-button>
+          <el-button @click="showEditDialog = false">{{
+            t("confirm_cancel_text")
+          }}</el-button>
+          <el-button type="primary" @click="updateItem">{{
+            t("update")
+          }}</el-button>
         </div>
       </template>
     </el-dialog>
@@ -103,7 +134,12 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from "vue";
 import { ElMessage } from "element-plus";
-import { getItemApi, addItemApi, updateItemApi, deleteItemApi } from "@/service/user";
+import {
+  getItemApi,
+  addItemApi,
+  updateItemApi,
+  deleteItemApi,
+} from "@/service/user";
 import useMomentFormat from "@/hooks/useMomentFormat";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useI18n } from "vue-i18n";
@@ -125,13 +161,13 @@ const showEditDialog = ref<boolean>(false);
 const newItem = ref<Omit<ListItem, "id">>({
   userName: "",
   description: "",
-  password: ""
+  password: "",
 });
 
 const editItemData = ref<Omit<ListItem, "id">>({
   userName: "",
   description: "",
-  password: ""
+  password: "",
 });
 const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
@@ -139,7 +175,7 @@ const queryParams = reactive({
   pageSize: 7,
   startTime: null as string | null,
   endTime: null as string | null,
-  keywords: null as string | null
+  keywords: null as string | null,
 });
 
 // 高亮关键词
@@ -219,7 +255,10 @@ const editItem = (item: ListItem) => {
 const updateItem = async () => {
   try {
     if (editingItemId.value !== null) {
-      const response: any = await updateItemApi(editingItemId.value, editItemData.value);
+      const response: any = await updateItemApi(
+        editingItemId.value,
+        editItemData.value,
+      );
       if (response.status === 200) {
         fetchItems();
         showEditDialog.value = false;

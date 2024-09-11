@@ -21,7 +21,8 @@ const router = useRouter();
 const appStore = useAppStore();
 const userStore = useUserStore();
 const settingsStore = useSettingsStore();
-const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore);
+const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } =
+  storeToRefs(settingsStore);
 
 /** 切换侧边栏 */
 const toggleSidebar = () => {

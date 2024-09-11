@@ -6,12 +6,14 @@
   --kilyicms-body-bg-color: var(--el-bg-color-page);
   /** Header 区域 = NavigationBar 组件 + TagsView 组件 */
   --kilyicms-header-height: calc(
-    var(--kilyicms-navigationbar-height) + var(--kilyicms-tagsview-height) + var(--kilyicms-header-border-bottom-width)
+    var(--kilyicms-navigationbar-height) + var(--kilyicms-tagsview-height) +
+      var(--kilyicms-header-border-bottom-width)
   );
   --kilyicms-header-bg-color: var(--el-bg-color);
   --kilyicms-header-box-shadow: var(--el-box-shadow-lighter);
   --kilyicms-header-border-bottom-width: 1px;
-  --kilyicms-header-border-bottom: var(--kilyicms-header-border-bottom-width) solid var(--el-fill-color);
+  --kilyicms-header-border-bottom: var(--kilyicms-header-border-bottom-width)
+    solid var(--el-fill-color);
   /** NavigationBar 组件 */
   --kilyicms-navigationbar-height: 50px;
   --kilyicms-navigationbar-text-color: var(--el-text-color-regular);
@@ -37,7 +39,9 @@
   --kilyicms-tagsview-tag-icon-hover-bg-color: #00000030;
   --kilyicms-tagsview-tag-icon-hover-color: #ffffff;
   --kilyicms-tagsview-contextmenu-text-color: var(--el-text-color-regular);
-  --kilyicms-tagsview-contextmenu-hover-text-color: var(--el-text-color-primary);
+  --kilyicms-tagsview-contextmenu-hover-text-color: var(
+    --el-text-color-primary
+  );
   --kilyicms-tagsview-contextmenu-bg-color: var(--el-bg-color-overlay);
   --kilyicms-tagsview-contextmenu-hover-bg-color: var(--el-fill-color);
   --kilyicms-tagsview-contextmenu-box-shadow: var(--el-box-shadow);

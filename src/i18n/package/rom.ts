@@ -58,7 +58,7 @@ const rom = {
   Exit_full_screen: "Ieșiți din ecran complet",
   Enter_full_screen: "Introduceți ecranul complet",
   light: "lumină",
-  dark: "întunecat"
+  dark: "întunecat",
 };
 
 export default rom;

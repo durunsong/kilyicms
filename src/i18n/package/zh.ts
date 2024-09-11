@@ -100,7 +100,7 @@ const zh = {
   seconds: "秒",
   "Non-human_operation_detected": "检测到非人类操作！",
   Verification_failed: "验证失败！",
-  swipe_right: "向右滑动"
+  swipe_right: "向右滑动",
 };
 
 export default zh;

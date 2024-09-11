@@ -58,7 +58,7 @@ const jp = {
   Exit_full_screen: "全画面表示を終了",
   Enter_full_screen: "フルスクリーン",
   light: "電気をつける",
-  dark: "明かりを消す"
+  dark: "明かりを消す",
 };
 
 export default jp;

@@ -1,4 +1,8 @@
-import axios, { InternalAxiosRequestConfig, AxiosResponse, AxiosHeaders } from "axios";
+import axios, {
+  InternalAxiosRequestConfig,
+  AxiosResponse,
+  AxiosHeaders,
+} from "axios";
 import { ElNotification, ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
 
@@ -8,7 +12,7 @@ const pendingRequests: any = {};
 // 创建 axios 实例
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会携带/api
-  timeout: 5000
+  timeout: 5000,
 });
 
 // 展示 loading
@@ -38,7 +42,7 @@ const showLoading = () => {
                     repeatCount="indefinite"/>
             </path>
         </svg>
-    `
+    `,
   });
 };
 
@@ -112,7 +116,7 @@ request.interceptors.request.use(
   (error: any) => {
     hideLoading();
     return Promise.reject(error);
-  }
+  },
 );
 
 // 响应拦截器
@@ -194,12 +198,12 @@ request.interceptors.response.use(
     ElNotification({
       message: errorInfo,
       type: "error",
-      duration: 1 * 1000
+      duration: 1 * 1000,
     });
 
     // 将错误信息返回给前端页面，方便捕获具体的 message
     return Promise.reject(error.response ? error.response.data : error);
-  }
+  },
 );
 
 export default request;

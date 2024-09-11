@@ -58,7 +58,7 @@ const el = {
   Exit_full_screen: "Έξοδος πλήρους οθόνης",
   Enter_full_screen: "Εισαγωγή πλήρους οθόνης",
   light: "φως",
-  dark: "σκούρο"
+  dark: "σκούρο",
 };
 
 export default el;

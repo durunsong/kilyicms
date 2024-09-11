@@ -29,20 +29,20 @@ const data = ref<DataItem[]>([
   {
     name: "通知",
     type: "primary",
-    list: notifyData
+    list: notifyData,
   },
   // 消息数据
   {
     name: "消息",
     type: "danger",
-    list: messageData
+    list: messageData,
   },
   // 待办数据
   {
     name: "待办",
     type: "warning",
-    list: todoData
-  }
+    list: todoData,
+  },
 ]);
 
 const handleHistory = () => {
@@ -54,7 +54,11 @@ const handleHistory = () => {
   <div class="notify">
     <el-popover placement="bottom" :width="popoverWidth" trigger="click">
       <template #reference>
-        <el-badge :value="badgeValue" :max="badgeMax" :hidden="badgeValue === 0">
+        <el-badge
+          :value="badgeValue"
+          :max="badgeMax"
+          :hidden="badgeValue === 0"
+        >
           <el-tooltip effect="dark" content="消息通知" placement="bottom">
             <el-icon :size="20">
               <Bell />
@@ -64,10 +68,18 @@ const handleHistory = () => {
       </template>
       <template #default>
         <el-tabs v-model="activeName" class="demo-tabs" stretch>
-          <el-tab-pane v-for="(item, index) in data" :name="item.name" :key="index">
+          <el-tab-pane
+            v-for="(item, index) in data"
+            :name="item.name"
+            :key="index"
+          >
             <template #label>
               {{ item.name }}
-              <el-badge :value="item.list.length" :max="badgeMax" :type="item.type" />
+              <el-badge
+                :value="item.list.length"
+                :max="badgeMax"
+                :type="item.type"
+              />
             </template>
             <el-scrollbar height="400px">
               <NotifyList :list="item.list" />
@@ -75,7 +87,9 @@ const handleHistory = () => {
           </el-tab-pane>
         </el-tabs>
         <div class="notify-history">
-          <el-button link @click="handleHistory">查看{{ activeName }}历史</el-button>
+          <el-button link @click="handleHistory"
+            >查看{{ activeName }}历史</el-button
+          >
         </div>
       </template>
     </el-popover>

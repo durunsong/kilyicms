@@ -99,7 +99,7 @@ const en = {
   seconds: "seconds",
   "Non-human_operation_detected": "Non-human operation detected!",
   Verification_failed: "Verification failed!",
-  swipe_right: "Swipe right"
+  swipe_right: "Swipe right",
 };
 
 export default en;

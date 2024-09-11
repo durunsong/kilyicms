@@ -58,7 +58,7 @@ const nl = {
   Exit_full_screen: "Volledig scherm afsluiten",
   Enter_full_screen: "Volledig scherm openen",
   light: "licht",
-  dark: "donker"
+  dark: "donker",
 };
 
 export default nl;

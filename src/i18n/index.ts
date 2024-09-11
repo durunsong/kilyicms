@@ -34,7 +34,7 @@ const i18n = createI18n({
   legacy: false, // 解决报错的(vue3写法)
   globalInjection: true, // 全局注册$t方法
   allowComposition: true, // 允许组合式api
-  messages
+  messages,
 });
 
 export default i18n;

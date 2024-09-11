@@ -58,7 +58,7 @@ const spa = {
   Exit_full_screen: "Salir de la pantalla completa",
   Enter_full_screen: "Entrar en pantalla completa",
   light: "Luz",
-  dark: "Oscuro"
+  dark: "Oscuro",
 };
 
 export default spa;

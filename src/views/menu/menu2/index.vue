@@ -2,7 +2,7 @@
 import { ref } from "vue";
 
 defineOptions({
-  name: "Menu2"
+  name: "Menu2",
 });
 
 const text = ref("");

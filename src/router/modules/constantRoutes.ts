@@ -13,7 +13,7 @@ export const constantRoutes: Array<CustomRouteRecordRaw> = [
     meta: {
       title: "router_home",
       hidden: false,
-      icon: "House"
+      icon: "House",
     },
     component: Layout,
     children: [
@@ -21,15 +21,15 @@ export const constantRoutes: Array<CustomRouteRecordRaw> = [
         path: "home",
         name: "homePage",
         meta: { title: "首页", icon: "HomeFilled", hidden: false },
-        component: () => import("@/views/home/index.vue")
-      }
-    ]
+        component: () => import("@/views/home/index.vue"),
+      },
+    ],
   },
   {
     path: "/login",
     meta: {
-      title: "router_login"
+      title: "router_login",
     },
-    component: () => import("@/views/login/index.vue")
-  }
+    component: () => import("@/views/login/index.vue"),
+  },
 ];

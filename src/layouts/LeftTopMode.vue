@@ -12,7 +12,7 @@ const { showTagsView, showLogo } = storeToRefs(settingsStore);
 /** 定义计算属性 layoutClasses，用于控制布局的类名 */
 const layoutClasses = computed(() => {
   return {
-    hideSidebar: !appStore.sidebar.opened
+    hideSidebar: !appStore.sidebar.opened,
   };
 });
 </script>

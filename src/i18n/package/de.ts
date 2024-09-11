@@ -58,7 +58,7 @@ const de = {
   Exit_full_screen: "Vollbildmodus beenden",
   Enter_full_screen: "Vollbildmodus aufrufen",
   light: "Licht",
-  dark: "dunkel"
+  dark: "dunkel",
 };
 
 export default de;

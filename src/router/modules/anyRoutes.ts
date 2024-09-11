@@ -4,8 +4,8 @@ export const anyRoutes: Array<CustomRouteRecordRaw> = [
   {
     path: "/:pathMatch(.*)*",
     meta: {
-      title: "wow!404"
+      title: "wow!404",
     },
-    component: () => import("@/views/notFound/index.vue")
-  }
+    component: () => import("@/views/notFound/index.vue"),
+  },
 ];

@@ -14,8 +14,8 @@ describe("NotifyList", () => {
   it("List 长度为 0", () => {
     const wrapper = shallowMount(NotifyList, {
       props: {
-        list: []
-      }
+        list: [],
+      },
     });
     expect(wrapper.find("el-empty").exists()).toBe(true);
   });
@@ -24,10 +24,10 @@ describe("NotifyList", () => {
       props: {
         list: [
           {
-            title: ""
-          }
-        ]
-      }
+            title: "",
+          },
+        ],
+      },
     });
     expect(wrapper.find("el-empty").exists()).toBe(false);
   });

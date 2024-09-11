@@ -58,7 +58,7 @@ const ru = {
   Exit_full_screen: "Выйти из полного экрана",
   Enter_full_screen: "Полный экран.",
   light: "Свет",
-  dark: "Тёмный"
+  dark: "Тёмный",
 };
 
 export default ru;

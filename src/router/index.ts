@@ -13,36 +13,36 @@ export const constantRoutes: RouteRecordRaw[] = [
     path: "/redirect",
     component: Layouts,
     meta: {
-      hidden: true
+      hidden: true,
     },
     children: [
       {
         path: ":path(.*)",
-        component: () => import("@/views/redirect/index.vue")
-      }
-    ]
+        component: () => import("@/views/redirect/index.vue"),
+      },
+    ],
   },
   {
     path: "/403",
     component: () => import("@/views/error-page/403.vue"),
     meta: {
-      hidden: true
-    }
+      hidden: true,
+    },
   },
   {
     path: "/404",
     component: () => import("@/views/error-page/404.vue"),
     meta: {
-      hidden: true
+      hidden: true,
     },
-    alias: "/:pathMatch(.*)*"
+    alias: "/:pathMatch(.*)*",
   },
   {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
     meta: {
-      hidden: true
-    }
+      hidden: true,
+    },
   },
   {
     path: "/",
@@ -56,10 +56,10 @@ export const constantRoutes: RouteRecordRaw[] = [
         meta: {
           title: "首页",
           svgIcon: "dashboard",
-          affix: true
-        }
-      }
-    ]
+          affix: true,
+        },
+      },
+    ],
   },
   {
     path: "/unocss",
@@ -72,10 +72,10 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: "UnoCSS",
         meta: {
           title: "UnoCSS",
-          svgIcon: "unocss"
-        }
-      }
-    ]
+          svgIcon: "unocss",
+        },
+      },
+    ],
   },
   {
     path: "/menu",
@@ -84,7 +84,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     name: "Menu",
     meta: {
       title: "多级路由",
-      svgIcon: "menu"
+      svgIcon: "menu",
     },
     children: [
       {
@@ -93,7 +93,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         redirect: "/menu/menu1/menu1-1",
         name: "Menu1",
         meta: {
-          title: "menu1"
+          title: "menu1",
         },
         children: [
           {
@@ -102,8 +102,8 @@ export const constantRoutes: RouteRecordRaw[] = [
             name: "Menu1-1",
             meta: {
               title: "menu1-1",
-              keepAlive: true
-            }
+              keepAlive: true,
+            },
           },
           {
             path: "menu1-2",
@@ -111,28 +111,30 @@ export const constantRoutes: RouteRecordRaw[] = [
             redirect: "/menu/menu1/menu1-2/menu1-2-1",
             name: "Menu1-2",
             meta: {
-              title: "menu1-2"
+              title: "menu1-2",
             },
             children: [
               {
                 path: "menu1-2-1",
-                component: () => import("@/views/menu/menu1/menu1-2/menu1-2-1/index.vue"),
+                component: () =>
+                  import("@/views/menu/menu1/menu1-2/menu1-2-1/index.vue"),
                 name: "Menu1-2-1",
                 meta: {
                   title: "menu1-2-1",
-                  keepAlive: true
-                }
+                  keepAlive: true,
+                },
               },
               {
                 path: "menu1-2-2",
-                component: () => import("@/views/menu/menu1/menu1-2/menu1-2-2/index.vue"),
+                component: () =>
+                  import("@/views/menu/menu1/menu1-2/menu1-2-2/index.vue"),
                 name: "Menu1-2-2",
                 meta: {
                   title: "menu1-2-2",
-                  keepAlive: true
-                }
-              }
-            ]
+                  keepAlive: true,
+                },
+              },
+            ],
           },
           {
             path: "menu1-3",
@@ -140,10 +142,10 @@ export const constantRoutes: RouteRecordRaw[] = [
             name: "Menu1-3",
             meta: {
               title: "menu1-3",
-              keepAlive: true
-            }
-          }
-        ]
+              keepAlive: true,
+            },
+          },
+        ],
       },
       {
         path: "menu2",
@@ -151,10 +153,10 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: "Menu2",
         meta: {
           title: "menu2",
-          keepAlive: true
-        }
-      }
-    ]
+          keepAlive: true,
+        },
+      },
+    ],
   },
   {
     path: "/hook-demo",
@@ -164,7 +166,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       title: "Hook",
       elIcon: "Menu",
-      alwaysShow: true
+      alwaysShow: true,
     },
     children: [
       {
@@ -172,19 +174,19 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
         name: "UseFullscreenLoading",
         meta: {
-          title: "useFullscreenLoading"
-        }
+          title: "useFullscreenLoading",
+        },
       },
       {
         path: "use-watermark",
         component: () => import("@/views/hook-demo/use-watermark.vue"),
         name: "UseWatermark",
         meta: {
-          title: "useWatermark"
-        }
-      }
-    ]
-  }
+          title: "useWatermark",
+        },
+      },
+    ],
+  },
 ];
 
 /**
@@ -202,7 +204,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       title: "权限",
       svgIcon: "lock",
       roles: ["admin", "editor"], // 可以在根路由中设置角色
-      alwaysShow: true // 将始终显示根菜单
+      alwaysShow: true, // 将始终显示根菜单
     },
     children: [
       {
@@ -211,24 +213,26 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         name: "PagePermission",
         meta: {
           title: "页面级",
-          roles: ["admin"] // 或者在子导航中设置角色
-        }
+          roles: ["admin"], // 或者在子导航中设置角色
+        },
       },
       {
         path: "directive",
         component: () => import("@/views/permission/directive.vue"),
         name: "DirectivePermission",
         meta: {
-          title: "按钮级" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
-        }
-      }
-    ]
-  }
+          title: "按钮级", // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+        },
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
   history,
-  routes: routeSettings.thirdLevelRouteCache ? flatMultiLevelRoutes(constantRoutes) : constantRoutes
+  routes: routeSettings.thirdLevelRouteCache
+    ? flatMultiLevelRoutes(constantRoutes)
+    : constantRoutes,
 });
 
 /** 重置路由 */

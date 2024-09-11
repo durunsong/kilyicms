@@ -58,7 +58,7 @@ const pl = {
   Exit_full_screen: "Wyjdź z pełnego ekranu",
   Enter_full_screen: "Wejdź na pełny ekran",
   light: "światło",
-  dark: "ciemność"
+  dark: "ciemność",
 };
 
 export default pl;

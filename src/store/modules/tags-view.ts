@@ -2,7 +2,12 @@ import { ref, watchEffect } from "vue";
 import { defineStore } from "pinia";
 import { useSettingsStore } from "./settings";
 import { type RouteLocationNormalized } from "vue-router";
-import { getVisitedViews, setVisitedViews, getCachedViews, setCachedViews } from "@/utils/cache/local-storage";
+import {
+  getVisitedViews,
+  setVisitedViews,
+  getCachedViews,
+  setCachedViews,
+} from "@/utils/cache/local-storage";
 
 export type TagView = Partial<RouteLocationNormalized>;
 
@@ -23,7 +28,8 @@ export const useTagsViewStore = defineStore("tags-view", () => {
     const index = visitedViews.value.findIndex((v) => v.path === view.path);
     if (index !== -1) {
       // 防止 query 参数丢失
-      visitedViews.value[index].fullPath !== view.fullPath && (visitedViews.value[index] = { ...view });
+      visitedViews.value[index].fullPath !== view.fullPath &&
+        (visitedViews.value[index] = { ...view });
     } else {
       // 添加新的 visitedView
       visitedViews.value.push({ ...view });
@@ -90,6 +96,6 @@ export const useTagsViewStore = defineStore("tags-view", () => {
     delOthersVisitedViews,
     delOthersCachedViews,
     delAllVisitedViews,
-    delAllCachedViews
+    delAllCachedViews,
   };
 });

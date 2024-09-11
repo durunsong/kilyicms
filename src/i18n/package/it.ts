@@ -58,7 +58,7 @@ const it = {
   Exit_full_screen: "Esci a schermo intero",
   Enter_full_screen: "Inserisci schermo intero",
   light: "luce",
-  dark: "scuro"
+  dark: "scuro",
 };
 
 export default it;

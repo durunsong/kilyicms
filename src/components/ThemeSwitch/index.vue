@@ -4,10 +4,13 @@ import { MagicStick } from "@element-plus/icons-vue";
 
 const { themeList, activeThemeName, setTheme } = useTheme();
 
-const handleChangeTheme = ({ clientX, clientY }: MouseEvent, themeName: ThemeName) => {
+const handleChangeTheme = (
+  { clientX, clientY }: MouseEvent,
+  themeName: ThemeName,
+) => {
   const maxRadius = Math.hypot(
     Math.max(clientX, window.innerWidth - clientX),
-    Math.max(clientY, window.innerHeight - clientY)
+    Math.max(clientY, window.innerHeight - clientY),
   );
   const style = document.documentElement.style;
   style.setProperty("--kilyicms-theme-x", clientX + "px");
@@ -17,7 +20,9 @@ const handleChangeTheme = ({ clientX, clientY }: MouseEvent, themeName: ThemeNam
     setTheme(themeName);
   };
   // @ts-expect-error
-  document.startViewTransition ? document.startViewTransition(handler) : handler();
+  document.startViewTransition
+    ? document.startViewTransition(handler)
+    : handler();
 };
 </script>
 

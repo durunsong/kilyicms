@@ -58,7 +58,7 @@ const swe = {
   Exit_full_screen: "Avsluta helskärm",
   Enter_full_screen: "Ange helskärm",
   light: "ljus",
-  dark: "mörk"
+  dark: "mörk",
 };
 
 export default swe;

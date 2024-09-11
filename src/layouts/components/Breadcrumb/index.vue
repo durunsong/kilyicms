@@ -13,7 +13,9 @@ const breadcrumbs = ref<RouteLocationMatched[]>([]);
 
 /** 获取面包屑导航信息 */
 const getBreadcrumb = () => {
-  breadcrumbs.value = route.matched.filter((item) => item.meta?.title && item.meta?.breadcrumb !== false);
+  breadcrumbs.value = route.matched.filter(
+    (item) => item.meta?.title && item.meta?.breadcrumb !== false,
+  );
 };
 
 /** 编译路由路径 */
@@ -42,7 +44,12 @@ listenerRouteChange((route) => {
 <template>
   <el-breadcrumb>
     <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
-      <span v-if="item.redirect === 'noRedirect' || index === breadcrumbs.length - 1" class="no-redirect">
+      <span
+        v-if="
+          item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
+        "
+        class="no-redirect"
+      >
         {{ item.meta.title }}
       </span>
       <a v-else @click.prevent="handleLink(item)">

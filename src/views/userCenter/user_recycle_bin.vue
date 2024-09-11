@@ -20,10 +20,20 @@
           @change="formatHandleChange"
         />
       </div>
-      <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t("clear") }}</el-button>
-      <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{
-        t("search")
-      }}</el-button>
+      <el-button
+        class="search_btn"
+        type="default"
+        @click="handleClearItems"
+        icon="Delete"
+        >{{ t("clear") }}</el-button
+      >
+      <el-button
+        class="search_btn"
+        type="primary"
+        @click="debouncedHandleSearchItems"
+        icon="Search"
+        >{{ t("search") }}</el-button
+      >
     </div>
     <el-table :data="userList" style="width: 100%">
       <el-table-column :label="t('serial_number')" width="100">
@@ -36,8 +46,16 @@
           <span v-html="highlightKeyword(scope.row.userName)" />
         </template>
       </el-table-column>
-      <el-table-column prop="create_time" :label="t('create_time')" align="center" />
-      <el-table-column prop="update_time" :label="t('update_time')" align="center" />
+      <el-table-column
+        prop="create_time"
+        :label="t('create_time')"
+        align="center"
+      />
+      <el-table-column
+        prop="update_time"
+        :label="t('update_time')"
+        align="center"
+      />
       <el-table-column :label="t('operates')" align="center">
         <template #default="scope">
           <el-popconfirm
@@ -88,7 +106,11 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from "vue";
 import { ElMessage } from "element-plus";
-import { getDeleteUserItemApi, deleteItemSiftApi, restoreUserApi } from "@/service/user";
+import {
+  getDeleteUserItemApi,
+  deleteItemSiftApi,
+  restoreUserApi,
+} from "@/service/user";
 import useMomentFormat from "@/hooks/useMomentFormat";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useI18n } from "vue-i18n";
@@ -111,7 +133,7 @@ const queryParams = reactive({
   pageSize: 7,
   startTime: null as string | null,
   endTime: null as string | null,
-  keywords: null as string | null
+  keywords: null as string | null,
 });
 
 // 还原用户

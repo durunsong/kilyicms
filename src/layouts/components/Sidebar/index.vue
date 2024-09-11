@@ -10,9 +10,15 @@ import { useDevice } from "@/hooks/useDevice";
 import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { getCssVariableValue } from "@/utils";
 
-const kySidebarMenuBgColor = getCssVariableValue("--kilyicms-sidebar-menu-bg-color");
-const kySidebarMenuTextColor = getCssVariableValue("--kilyicms-sidebar-menu-text-color");
-const kySidebarMenuActiveTextColor = getCssVariableValue("--kilyicms-sidebar-menu-active-text-color");
+const kySidebarMenuBgColor = getCssVariableValue(
+  "--kilyicms-sidebar-menu-bg-color",
+);
+const kySidebarMenuTextColor = getCssVariableValue(
+  "--kilyicms-sidebar-menu-text-color",
+);
+const kySidebarMenuActiveTextColor = getCssVariableValue(
+  "--kilyicms-sidebar-menu-active-text-color",
+);
 
 const { isMobile } = useDevice();
 const { isLeft, isTop } = useLayoutMode();
@@ -24,21 +30,33 @@ const settingsStore = useSettingsStore();
 const activeMenu = computed(() => {
   const {
     meta: { activeMenu },
-    path
+    path,
   } = route;
   return activeMenu ? activeMenu : path;
 });
-const noHiddenRoutes = computed(() => permissionStore.routes.filter((item) => !item.meta?.hidden));
+const noHiddenRoutes = computed(() =>
+  permissionStore.routes.filter((item) => !item.meta?.hidden),
+);
 const isCollapse = computed(() => !appStore.sidebar.opened);
 const isLogo = computed(() => isLeft.value && settingsStore.showLogo);
-const backgroundColor = computed(() => (isLeft.value ? kySidebarMenuBgColor : undefined));
-const textColor = computed(() => (isLeft.value ? kySidebarMenuTextColor : undefined));
-const activeTextColor = computed(() => (isLeft.value ? kySidebarMenuActiveTextColor : undefined));
+const backgroundColor = computed(() =>
+  isLeft.value ? kySidebarMenuBgColor : undefined,
+);
+const textColor = computed(() =>
+  isLeft.value ? kySidebarMenuTextColor : undefined,
+);
+const activeTextColor = computed(() =>
+  isLeft.value ? kySidebarMenuActiveTextColor : undefined,
+);
 const sidebarMenuItemHeight = computed(() => {
-  return !isTop.value ? "var(--kilyicms-sidebar-menu-item-height)" : "var(--kilyicms-navigationbar-height)";
+  return !isTop.value
+    ? "var(--kilyicms-sidebar-menu-item-height)"
+    : "var(--kilyicms-navigationbar-height)";
 });
 const sidebarMenuHoverBgColor = computed(() => {
-  return !isTop.value ? "var(--kilyicms-sidebar-menu-hover-bg-color)" : "transparent";
+  return !isTop.value
+    ? "var(--kilyicms-sidebar-menu-hover-bg-color)"
+    : "transparent";
 });
 const tipLineWidth = computed(() => {
   return !isTop.value ? "7px" : "0px";
@@ -63,7 +81,12 @@ const hiddenScrollbarVerticalBar = computed(() => {
         :collapse-transition="false"
         :mode="isTop && !isMobile ? 'horizontal' : 'vertical'"
       >
-        <SidebarItem v-for="route in noHiddenRoutes" :key="route.path" :item="route" :base-path="route.path" />
+        <SidebarItem
+          v-for="route in noHiddenRoutes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
       </el-menu>
     </el-scrollbar>
   </div>

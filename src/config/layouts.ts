@@ -48,8 +48,11 @@ const defaultSettings: LayoutSettings = {
   cacheTagsView: false,
   showWatermark: true,
   showGreyMode: false,
-  showColorWeakness: false
+  showColorWeakness: false,
 };
 
 /** 项目配置 */
-export const layoutSettings: LayoutSettings = { ...defaultSettings, ...getConfigLayout() };
+export const layoutSettings: LayoutSettings = {
+  ...defaultSettings,
+  ...getConfigLayout(),
+};

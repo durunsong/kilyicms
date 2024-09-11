@@ -1,6 +1,12 @@
 <script lang="ts" setup>
 import { getCurrentInstance, onMounted, ref, watch } from "vue";
-import { type RouteLocationNormalizedLoaded, type RouteRecordRaw, RouterLink, useRoute, useRouter } from "vue-router";
+import {
+  type RouteLocationNormalizedLoaded,
+  type RouteRecordRaw,
+  RouterLink,
+  useRoute,
+  useRouter,
+} from "vue-router";
 import { type TagView, useTagsViewStore } from "@/store/modules/tags-view";
 import { usePermissionStore } from "@/store/modules/permission";
 import { useRouteListener } from "@/hooks/useRouteListener";
@@ -49,7 +55,7 @@ const filterAffixTags = (routes: RouteRecordRaw[], basePath = "/") => {
         fullPath: tagPath,
         path: tagPath,
         name: route.name,
-        meta: { ...route.meta }
+        meta: { ...route.meta },
       });
     }
     if (route.children) {
@@ -150,7 +156,9 @@ const closeMenu = () => {
 };
 
 watch(visible, (value) => {
-  value ? document.body.addEventListener("click", closeMenu) : document.body.removeEventListener("click", closeMenu);
+  value
+    ? document.body.addEventListener("click", closeMenu)
+    : document.body.removeEventListener("click", closeMenu);
 });
 
 onMounted(() => {
@@ -176,14 +184,24 @@ onMounted(() => {
         @contextmenu.prevent="openMenu(tag, $event)"
       >
         {{ tag.meta?.title }}
-        <el-icon v-if="!isAffix(tag)" :size="12" @click.prevent.stop="closeSelectedTag(tag)">
+        <el-icon
+          v-if="!isAffix(tag)"
+          :size="12"
+          @click.prevent.stop="closeSelectedTag(tag)"
+        >
           <Close />
         </el-icon>
       </router-link>
     </ScrollPane>
-    <ul v-show="visible" class="contextmenu" :style="{ left: left + 'px', top: top + 'px' }">
+    <ul
+      v-show="visible"
+      class="contextmenu"
+      :style="{ left: left + 'px', top: top + 'px' }"
+    >
       <li @click="refreshSelectedTag(selectedTag)">刷新</li>
-      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">关闭</li>
+      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
+        关闭
+      </li>
       <li @click="closeOthersTags">关闭其它</li>
       <li @click="closeAllTags(selectedTag)">关闭所有</li>
     </ul>

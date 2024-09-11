@@ -58,7 +58,7 @@ const pt = {
   Exit_full_screen: "Sair do ecrã inteiro",
   Enter_full_screen: "Entrar no ecrã completo",
   light: "luz",
-  dark: "escuro"
+  dark: "escuro",
 };
 
 export default pt;

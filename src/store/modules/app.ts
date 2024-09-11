@@ -1,7 +1,14 @@
 import { reactive, ref, watch } from "vue";
 import { defineStore } from "pinia";
-import { getSidebarStatus, setSidebarStatus } from "@/utils/cache/local-storage";
-import { DeviceEnum, SIDEBAR_OPENED, SIDEBAR_CLOSED } from "@/constants/app-key";
+import {
+  getSidebarStatus,
+  setSidebarStatus,
+} from "@/utils/cache/local-storage";
+import {
+  DeviceEnum,
+  SIDEBAR_OPENED,
+  SIDEBAR_CLOSED,
+} from "@/constants/app-key";
 
 interface Sidebar {
   opened: boolean;
@@ -17,7 +24,7 @@ export const useAppStore = defineStore("app", () => {
   /** 侧边栏状态 */
   const sidebar: Sidebar = reactive({
     opened: getSidebarStatus() !== SIDEBAR_CLOSED,
-    withoutAnimation: false
+    withoutAnimation: false,
   });
   /** 设备类型 */
   const device = ref<DeviceEnum>(DeviceEnum.Desktop);
@@ -25,7 +32,7 @@ export const useAppStore = defineStore("app", () => {
   /** 监听侧边栏 opened 状态 */
   watch(
     () => sidebar.opened,
-    (opened) => handleSidebarStatus(opened)
+    (opened) => handleSidebarStatus(opened),
   );
 
   /** 切换侧边栏 */

@@ -23,7 +23,7 @@ const {
   cacheTagsView,
   showWatermark,
   showGreyMode,
-  showColorWeakness
+  showColorWeakness,
 } = storeToRefs(settingsStore);
 
 /** 定义 switch 设置项 */
@@ -39,7 +39,7 @@ const switchSettings = {
   是否缓存标签栏: cacheTagsView,
   开启系统水印: showWatermark,
   显示灰色模式: showGreyMode,
-  显示色弱模式: showColorWeakness
+  显示色弱模式: showColorWeakness,
 };
 
 /** 非左侧模式时，Header 都是 fixed 布局 */
@@ -54,11 +54,20 @@ watchEffect(() => {
     <SelectLayoutMode />
     <el-divider />
     <h4>功能配置</h4>
-    <div class="setting-item" v-for="(settingValue, settingName, index) in switchSettings" :key="index">
+    <div
+      class="setting-item"
+      v-for="(settingValue, settingName, index) in switchSettings"
+      :key="index"
+    >
       <span class="setting-name">{{ settingName }}</span>
-      <el-switch v-model="settingValue.value" :disabled="!isLeft && settingName === '固定 Header'" />
+      <el-switch
+        v-model="settingValue.value"
+        :disabled="!isLeft && settingName === '固定 Header'"
+      />
     </div>
-    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout">重 置</el-button>
+    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout"
+      >重 置</el-button
+    >
   </div>
 </template>
 

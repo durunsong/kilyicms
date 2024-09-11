@@ -58,7 +58,7 @@ const ara = {
   Exit_full_screen: "خروج كامل الشاشة",
   Enter_full_screen: "أدخل كامل الشاشة",
   light: "ضوء .",
-  dark: "مظلم"
+  dark: "مظلم",
 };
 
 export default ara;

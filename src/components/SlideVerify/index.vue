@@ -1,6 +1,12 @@
 <template>
   <div class="slide_box1">
-    <el-button :icon="Close" size="small" class="slider_close_btn" circle @click="handleClose" />
+    <el-button
+      :icon="Close"
+      size="small"
+      class="slider_close_btn"
+      circle
+      @click="handleClose"
+    />
     <div class="slide_inner_box">
       <SlideVerify
         class="slide_box"
@@ -43,7 +49,8 @@ const onAgain = () => {
 };
 //成功的回调
 const onSuccess = (times: number) => {
-  msg.value = t("successful_which_takes") + (times / 1000).toFixed(1) + t("seconds");
+  msg.value =
+    t("successful_which_takes") + (times / 1000).toFixed(1) + t("seconds");
   fontColor.value = "green";
   emit("success");
 };
