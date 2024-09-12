@@ -140,26 +140,32 @@ listenerRouteChange(() => {
   user-select: none;
   display: flex;
   justify-content: space-between;
+
   .arrow {
     width: 40px;
     height: 100%;
     font-size: 18px;
     cursor: pointer;
+
     &.left {
       box-shadow: 5px 0 5px -6px var(--el-border-color-darker);
     }
+
     &.right {
       box-shadow: -5px 0 5px -6px var(--el-border-color-darker);
     }
   }
+
   .el-scrollbar {
     flex: 1;
     // 防止换行（超出宽度时，显示滚动条）
     white-space: nowrap;
+
     .scrollbar-content {
       display: inline-block;
     }
   }
+
   .screenfull {
     width: 40px;
     display: flex;
