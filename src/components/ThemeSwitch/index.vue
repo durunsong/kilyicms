@@ -1,9 +1,7 @@
 <template>
   <el-dropdown trigger="click">
     <div class="mr-5px">
-      <el-tooltip effect="dark" content="主题模式" placement="bottom">
-        <SvgIcon name="switch-theme" width="24" height="24" />
-      </el-tooltip>
+      <SvgIcon name="switch-theme" width="24" height="24" />
     </div>
     <template #dropdown>
       <el-dropdown-menu>

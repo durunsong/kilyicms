@@ -17,7 +17,7 @@ const props = withDefaults(
   }>(),
   {
     prefix: "icon",
-    color: "#111",
+    color: "currentcolor",
     width: 24,
     height: 24,
   },

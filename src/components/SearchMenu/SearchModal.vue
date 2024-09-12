@@ -62,6 +62,8 @@ import { ElMessage, ElScrollbar } from "element-plus";
 import { cloneDeep, debounce } from "lodash-es";
 import { useDevice } from "@/hooks/useDevice";
 import { isExternal } from "@/utils/validate";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 /** 控制 modal 显隐 */
 const modelValue = defineModel<boolean>({ required: true });
@@ -87,13 +89,15 @@ const menusData = computed(() => cloneDeep(usePermissionStore().routes));
 /** 搜索（防抖） */
 const handleSearch = debounce(() => {
   const flatMenusData = flatTree(menusData.value);
-  resultList.value = flatMenusData.filter((menu) =>
-    keyword.value
-      ? menu.meta?.title
-          ?.toLocaleLowerCase()
+  resultList.value = flatMenusData.filter((menu) => {
+    const translatedTitle = menu.meta?.title ? t(menu.meta.title) : ""; // 使用 t 函数翻译 title
+    console.log(translatedTitle);
+    return keyword.value
+      ? translatedTitle
+          .toLocaleLowerCase()
           .includes(keyword.value.toLocaleLowerCase().trim())
-      : false,
-  );
+      : false;
+  });
   // 默认选中搜索结果的第一项
   const length = resultList.value?.length;
   activeRouteName.value = length > 0 ? resultList.value[0].name : undefined;

@@ -12,7 +12,9 @@
       <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
       <Screenfull v-if="showScreenfull" class="right-menu-item" />
       <div class="mr-10px">
-        <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
+        <el-tooltip effect="dark" content="主题模式" placement="bottom">
+          <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
+        </el-tooltip>
       </div>
       <LanguageSwitcher />
       <Notify v-if="showNotify" class="right-menu-item" />

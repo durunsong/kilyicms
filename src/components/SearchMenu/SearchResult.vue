@@ -16,7 +16,7 @@
         class="el-icon"
       />
       <span class="result-item-title">
-        {{ item.meta?.title }}
+        {{ t(item.meta?.title) }}
       </span>
       <SvgIcon
         v-if="modelValue && modelValue === item.name"
@@ -35,6 +35,8 @@ import {
   ref,
 } from "vue";
 import { type RouteRecordName, type RouteRecordRaw } from "vue-router";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 interface Props {
   list: RouteRecordRaw[];
