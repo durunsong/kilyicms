@@ -91,7 +91,6 @@ const handleSearch = debounce(() => {
   const flatMenusData = flatTree(menusData.value);
   resultList.value = flatMenusData.filter((menu) => {
     const translatedTitle = menu.meta?.title ? t(menu.meta.title) : ""; // 使用 t 函数翻译 title
-    console.log(translatedTitle);
     return keyword.value
       ? translatedTitle
           .toLocaleLowerCase()
