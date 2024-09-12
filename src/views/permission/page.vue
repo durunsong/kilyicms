@@ -1,7 +1,3 @@
-<script lang="ts" setup>
-import SwitchRoles from "./components/SwitchRoles.vue";
-</script>
-
 <template>
   <div class="app-container">
     <SwitchRoles />
@@ -10,6 +6,10 @@ import SwitchRoles from "./components/SwitchRoles.vue";
     >
   </div>
 </template>
+
+<script lang="ts" setup>
+import SwitchRoles from "./components/SwitchRoles.vue";
+</script>
 
 <style lang="scss" scoped>
 .el-tag {

@@ -1,8 +1,3 @@
-<script lang="ts" setup>
-import { checkPermission } from "@/utils/permission";
-import SwitchRoles from "./components/SwitchRoles.vue";
-</script>
-
 <template>
   <div class="app-container">
     <SwitchRoles />
@@ -69,6 +64,11 @@ import SwitchRoles from "./components/SwitchRoles.vue";
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { checkPermission } from "@/utils/permission";
+import SwitchRoles from "./components/SwitchRoles.vue";
+</script>
 
 <style lang="scss" scoped>
 .margin-top-15 {

@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   &-svg {
     width: 400px;
     margin-bottom: 50px;

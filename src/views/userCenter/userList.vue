@@ -35,9 +35,9 @@
         >{{ t("search") }}</el-button
       >
     </div>
-    <el-button class="add_btn" type="primary" @click="showAddDialog = true">{{
-      t("Add_personnel")
-    }}</el-button>
+    <el-button class="add_btn" type="primary" @click="showAddDialog = true">
+      {{ t("Add_personnel") }}
+    </el-button>
     <el-table :data="userList" style="width: 100%">
       <el-table-column :label="t('serial_number')" width="100">
         <template #default="scope">

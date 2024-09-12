@@ -1,14 +1,3 @@
-<script lang="ts" setup>
-import { ref, watch } from "vue";
-import { useUserStore } from "@/store/modules/user";
-
-const userStore = useUserStore();
-const switchRoles = ref(userStore.roles[0]);
-watch(switchRoles, (value) => {
-  userStore.changeRoles(value);
-});
-</script>
-
 <template>
   <div>
     <div>你的角色：{{ userStore.roles }}</div>
@@ -21,6 +10,17 @@ watch(switchRoles, (value) => {
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { ref, watch } from "vue";
+import { useUserStore } from "@/store/modules/user";
+
+const userStore = useUserStore();
+const switchRoles = ref(userStore.roles[0]);
+watch(switchRoles, (value) => {
+  userStore.changeRoles(value);
+});
+</script>
 
 <style lang="scss" scoped>
 .switch-roles {
