@@ -1,6 +1,6 @@
 <template>
   <footer class="layout-footer">
-    MIT © 2021-PRESENT {{ VITE_APP_TITLE }}
+    MIT © 2024-PRESENT {{ VITE_APP_TITLE }}
   </footer>
 </template>
 

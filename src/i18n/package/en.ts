@@ -1,6 +1,18 @@
 //en.ts
 const en = {
   // 路由
+  // 不变字段
+  router_menu1: "menu1",
+  router_menu2: "menu2",
+  router_menu1_1: "menu1-1",
+  router_menu1_2: "menu1-2",
+  router_menu1_2_1: "menu1-2-1",
+  router_menu1_2_2: "menu1-2-2",
+  router_menu1_3: "menu1-3",
+  router_Hooks: "Hooks",
+  router_useFullscreenLoading: "useFullscreenLoading",
+  router_useWatermark: "useWatermark",
+  // 变动的字段
   router_home: "Home",
   router_login: "Login",
   router_register: "Register",
@@ -21,16 +33,6 @@ const en = {
   router_office_use: "Office Use",
   router_UnoCSS: "UnoCSS",
   router_Multilevel_routing: "Multilevel routing",
-  router_menu1: "menu1",
-  router_menu2: "menu2",
-  router_menu1_1: "menu1-1",
-  router_menu1_2: "menu1-2",
-  router_menu1_2_1: "menu1-2-1",
-  router_menu1_2_2: "menu1-2-2",
-  router_menu1_3: "menu1-3",
-  router_Hooks: "Hooks",
-  router_useFullscreenLoading: "useFullscreenLoading",
-  router_useWatermark: "useWatermark",
   router_Authority_case: "Authority case",
   router_Page_level_authority: "Page level authority",
   router_Button_level_authority: "Button level authority",
