@@ -7,10 +7,10 @@
         "
         class="no-redirect"
       >
-        {{ item.meta.title }}
+        {{ t(item.meta.title) }}
       </span>
       <a v-else @click.prevent="handleLink(item)">
-        {{ item.meta.title }}
+        {{ t(item.meta.title) }}
       </a>
     </el-breadcrumb-item>
   </el-breadcrumb>
@@ -21,7 +21,8 @@ import { ref } from "vue";
 import { type RouteLocationMatched, useRoute, useRouter } from "vue-router";
 import { useRouteListener } from "@/hooks/useRouteListener";
 import { compile } from "path-to-regexp";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
 const { listenerRouteChange } = useRouteListener();

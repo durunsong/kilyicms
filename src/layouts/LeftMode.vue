@@ -1,3 +1,26 @@
+<template>
+  <div :class="layoutClasses" class="app-wrapper">
+    <!-- mobile 端侧边栏遮罩层 -->
+    <div
+      v-if="layoutClasses.mobile && layoutClasses.openSidebar"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
+    <!-- 左侧边栏 -->
+    <Sidebar class="sidebar-container" />
+    <!-- 主容器 -->
+    <div :class="{ hasTagsView: showTagsView }" class="main-container">
+      <!-- 头部导航栏和标签栏 -->
+      <div :class="{ 'fixed-header': fixedHeader }" class="layout-header">
+        <NavigationBar />
+        <TagsView v-show="showTagsView" />
+      </div>
+      <!-- 页面主体内容 -->
+      <AppMain class="app-main" />
+    </div>
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { computed } from "vue";
 import { storeToRefs } from "pinia";
@@ -26,29 +49,6 @@ const handleClickOutside = () => {
   appStore.closeSidebar(false);
 };
 </script>
-
-<template>
-  <div :class="layoutClasses" class="app-wrapper">
-    <!-- mobile 端侧边栏遮罩层 -->
-    <div
-      v-if="layoutClasses.mobile && layoutClasses.openSidebar"
-      class="drawer-bg"
-      @click="handleClickOutside"
-    />
-    <!-- 左侧边栏 -->
-    <Sidebar class="sidebar-container" />
-    <!-- 主容器 -->
-    <div :class="{ hasTagsView: showTagsView }" class="main-container">
-      <!-- 头部导航栏和标签栏 -->
-      <div :class="{ 'fixed-header': fixedHeader }" class="layout-header">
-        <NavigationBar />
-        <TagsView v-show="showTagsView" />
-      </div>
-      <!-- 页面主体内容 -->
-      <AppMain class="app-main" />
-    </div>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 @import "@/styles/mixins.scss";
@@ -123,6 +123,7 @@ $transition-time: 0.35s;
   .app-main {
     min-height: calc(100vh - var(--kilyicms-header-height));
   }
+
   .fixed-header + .app-main {
     padding-top: var(--kilyicms-header-height);
   }
@@ -132,9 +133,11 @@ $transition-time: 0.35s;
   .sidebar-container {
     width: var(--kilyicms-sidebar-hide-width) !important;
   }
+
   .main-container {
     margin-left: var(--kilyicms-sidebar-hide-width);
   }
+
   .fixed-header {
     width: calc(100% - var(--kilyicms-sidebar-hide-width));
   }
@@ -146,16 +149,20 @@ $transition-time: 0.35s;
     transition: transform $transition-time;
     width: var(--kilyicms-sidebar-width) !important;
   }
+
   .main-container {
     margin-left: 0px;
   }
+
   .fixed-header {
     width: 100%;
   }
+
   &.openSidebar {
     position: fixed;
     top: 0;
   }
+
   &.hideSidebar {
     .sidebar-container {
       pointer-events: none;

@@ -1,22 +1,3 @@
-<script lang="ts" setup>
-import { computed } from "vue";
-import { storeToRefs } from "pinia";
-import { useAppStore } from "@/store/modules/app";
-import { useSettingsStore } from "@/store/modules/settings";
-import { AppMain, NavigationBar, Sidebar, TagsView, Logo } from "./components";
-
-const appStore = useAppStore();
-const settingsStore = useSettingsStore();
-const { showTagsView, showLogo } = storeToRefs(settingsStore);
-
-/** 定义计算属性 layoutClasses，用于控制布局的类名 */
-const layoutClasses = computed(() => {
-  return {
-    hideSidebar: !appStore.sidebar.opened,
-  };
-});
-</script>
-
 <template>
   <div :class="layoutClasses" class="app-wrapper">
     <!-- 头部导航栏和标签栏 -->
@@ -37,6 +18,25 @@ const layoutClasses = computed(() => {
   </div>
 </template>
 
+<script lang="ts" setup>
+import { computed } from "vue";
+import { storeToRefs } from "pinia";
+import { useAppStore } from "@/store/modules/app";
+import { useSettingsStore } from "@/store/modules/settings";
+import { AppMain, NavigationBar, Sidebar, TagsView, Logo } from "./components";
+
+const appStore = useAppStore();
+const settingsStore = useSettingsStore();
+const { showTagsView, showLogo } = storeToRefs(settingsStore);
+
+/** 定义计算属性 layoutClasses，用于控制布局的类名 */
+const layoutClasses = computed(() => {
+  return {
+    hideSidebar: !appStore.sidebar.opened,
+  };
+});
+</script>
+
 <style lang="scss" scoped>
 @import "@/styles/mixins.scss";
 $transition-time: 0.35s;
@@ -52,9 +52,11 @@ $transition-time: 0.35s;
   z-index: 1002;
   width: 100%;
   display: flex;
+
   .logo {
     width: var(--kilyicms-sidebar-width);
   }
+
   .content {
     flex: 1;
     position: relative;
@@ -95,6 +97,7 @@ $transition-time: 0.35s;
   .sidebar-container {
     width: var(--kilyicms-sidebar-hide-width) !important;
   }
+
   .app-main {
     padding-left: var(--kilyicms-sidebar-hide-width);
   }
@@ -104,6 +107,7 @@ $transition-time: 0.35s;
   .sidebar-container {
     padding-top: var(--kilyicms-header-height);
   }
+
   .app-main {
     padding-top: var(--kilyicms-header-height);
   }

@@ -1,12 +1,3 @@
-<script lang="ts" setup>
-import { storeToRefs } from "pinia";
-import { useSettingsStore } from "@/store/modules/settings";
-import { AppMain, NavigationBar, TagsView, Logo } from "./components";
-
-const settingsStore = useSettingsStore();
-const { showTagsView, showLogo } = storeToRefs(settingsStore);
-</script>
-
 <template>
   <div class="app-wrapper">
     <!-- 头部导航栏和标签栏 -->
@@ -25,6 +16,15 @@ const { showTagsView, showLogo } = storeToRefs(settingsStore);
   </div>
 </template>
 
+<script lang="ts" setup>
+import { storeToRefs } from "pinia";
+import { useSettingsStore } from "@/store/modules/settings";
+import { AppMain, NavigationBar, TagsView, Logo } from "./components";
+
+const settingsStore = useSettingsStore();
+const { showTagsView, showLogo } = storeToRefs(settingsStore);
+</script>
+
 <style lang="scss" scoped>
 @import "@/styles/mixins.scss";
 $transition-time: 0.35s;
@@ -39,11 +39,14 @@ $transition-time: 0.35s;
   top: 0;
   z-index: 1002;
   width: 100%;
+
   .logo {
     width: var(--kilyicms-sidebar-width);
   }
+
   .content {
     display: flex;
+
     .navigation-bar {
       flex: 1;
     }

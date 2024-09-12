@@ -17,7 +17,7 @@
           class="el-icon"
         />
         <template v-if="theOnlyOneChild.meta.title" #title>
-          {{ theOnlyOneChild.meta.title }}
+          {{ t(theOnlyOneChild.meta.title) }}
         </template>
       </el-menu-item>
     </SidebarItemLink>
@@ -33,7 +33,7 @@
         :is="props.item.meta.elIcon"
         class="el-icon"
       />
-      <span v-if="props.item.meta?.title">{{ props.item.meta.title }}</span>
+      <span v-if="props.item.meta?.title">{{ t(props.item.meta.title) }}</span>
     </template>
     <template v-if="props.item.children">
       <SidebarItem
@@ -52,6 +52,8 @@ import { type RouteRecordRaw } from "vue-router";
 import SidebarItemLink from "./SidebarItemLink.vue";
 import { isExternal } from "@/utils/validate";
 import path from "path-browserify";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 
 interface Props {
   item: RouteRecordRaw;

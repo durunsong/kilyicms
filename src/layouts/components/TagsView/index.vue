@@ -11,7 +11,7 @@
         @click.middle="!isAffix(tag) && closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
       >
-        {{ tag.meta?.title }}
+        {{ t(tag.meta?.title) }}
         <el-icon
           v-if="!isAffix(tag)"
           :size="12"
@@ -51,7 +51,8 @@ import { useRouteListener } from "@/hooks/useRouteListener";
 import path from "path-browserify";
 import ScrollPane from "./ScrollPane.vue";
 import { Close } from "@element-plus/icons-vue";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const instance = getCurrentInstance();
 const router = useRouter();
 const route = useRoute();
