@@ -31,6 +31,8 @@
         关闭
       </li>
       <li @click="closeOthersTags">关闭其它</li>
+      <li @click="closeLeftTags(selectedTag)">关闭左侧</li>
+      <li @click="closeRightTags(selectedTag)">关闭右侧</li>
       <li @click="closeAllTags(selectedTag)">关闭所有</li>
     </ul>
   </div>
@@ -151,6 +153,72 @@ const closeAllTags = (view: TagView) => {
   tagsViewStore.delAllCachedViews();
   if (affixTags.some((tag) => tag.path === route.path)) return;
   toLastView(tagsViewStore.visitedViews, view);
+};
+
+/** 关闭左侧标签页 */
+const closeLeftTags = (view: TagView) => {
+  const index = tagsViewStore.visitedViews.findIndex(
+    (v) => v.path === view.path,
+  );
+  if (index > 0) {
+    const leftTags = tagsViewStore.visitedViews.slice(0, index);
+    leftTags.forEach((tag) => {
+      if (!isAffix(tag)) {
+        tagsViewStore.delVisitedView(tag);
+        tagsViewStore.delCachedView(tag);
+      }
+    });
+  }
+  // 如果当前路由在被关闭的标签中，则跳转到最后一个标签
+  if (isActive(route)) {
+    toLastView(tagsViewStore.visitedViews, view);
+  }
+};
+
+/** 关闭右侧标签页 */
+const closeRightTags = (view: TagView) => {
+  const index = tagsViewStore.visitedViews.findIndex(
+    (v) => v.path === view.path,
+  );
+  if (index >= 0) {
+    // 获取要删除的右侧标签页
+    const rightTags = tagsViewStore.visitedViews.slice(index + 1);
+    // 删除右侧标签页
+    rightTags.forEach((tag) => {
+      if (!isAffix(tag)) {
+        tagsViewStore.delVisitedView(tag);
+        tagsViewStore.delCachedView(tag);
+      }
+    });
+    // 检查当前页面是否仍在已打开的标签页列表中
+    const currentTagExists = tagsViewStore.visitedViews.some(
+      (v) => v.path === route.path,
+    );
+    if (!currentTagExists) {
+      // 如果当前路由已经不存在，跳转到左侧的最后一个标签页
+      const leftTags = tagsViewStore.visitedViews.slice(0, index + 1);
+      const previousTag = leftTags.slice(-1)[0]; // 取最后一个左侧标签页
+      if (previousTag) {
+        router.push(previousTag.fullPath);
+      } else {
+        // 如果没有其他标签页，则跳转到主页
+        router.push("/");
+      }
+    } else {
+      // 当前标签页在列表中，确保路由跳转到当前标签页的位置
+      // 如果关闭的右侧标签页在当前标签的右边
+      if (
+        index <
+        tagsViewStore.visitedViews.findIndex((v) => v.path === route.path)
+      ) {
+        const newIndex = Math.max(index, 0); // 确保不超出范围
+        const newTag = tagsViewStore.visitedViews[newIndex];
+        if (newTag) {
+          router.push(newTag.fullPath);
+        }
+      }
+    }
+  }
 };
 
 /** 跳转到最后一个标签页 */
