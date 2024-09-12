@@ -46,23 +46,28 @@ const props = defineProps<Props>();
 <style lang="scss" scoped>
 .card-container {
   margin-bottom: 10px;
+
   .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .card-title {
       font-weight: bold;
       margin-right: 10px;
     }
+
     .card-time {
       font-size: 12px;
       color: var(--el-text-color-secondary);
     }
+
     .card-avatar {
       display: flex;
       align-items: center;
     }
   }
+
   .card-body {
     font-size: 12px;
   }

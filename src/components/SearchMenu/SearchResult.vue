@@ -1,3 +1,31 @@
+<template>
+  <!-- 外层 div 不能删除，是用来接收父组件 click 事件的 -->
+  <div>
+    <div
+      v-for="(item, index) in list"
+      :key="index"
+      :ref="`resultItemRef${index}`"
+      class="result-item"
+      :style="itemStyle(item)"
+      @mouseenter="handleMouseenter(item)"
+    >
+      <SvgIcon v-if="item.meta?.svgIcon" :name="item.meta.svgIcon" />
+      <component
+        v-else-if="item.meta?.elIcon"
+        :is="item.meta.elIcon"
+        class="el-icon"
+      />
+      <span class="result-item-title">
+        {{ item.meta?.title }}
+      </span>
+      <SvgIcon
+        v-if="modelValue && modelValue === item.name"
+        name="keyboard-enter"
+      />
+    </div>
+  </div>
+</template>
+
 <script lang="ts" setup>
 import {
   getCurrentInstance,
@@ -73,34 +101,6 @@ onBeforeUnmount(() => {
 defineExpose({ getScrollTop });
 </script>
 
-<template>
-  <!-- 外层 div 不能删除，是用来接收父组件 click 事件的 -->
-  <div>
-    <div
-      v-for="(item, index) in list"
-      :key="index"
-      :ref="`resultItemRef${index}`"
-      class="result-item"
-      :style="itemStyle(item)"
-      @mouseenter="handleMouseenter(item)"
-    >
-      <SvgIcon v-if="item.meta?.svgIcon" :name="item.meta.svgIcon" />
-      <component
-        v-else-if="item.meta?.elIcon"
-        :is="item.meta.elIcon"
-        class="el-icon"
-      />
-      <span class="result-item-title">
-        {{ item.meta?.title }}
-      </span>
-      <SvgIcon
-        v-if="modelValue && modelValue === item.name"
-        name="keyboard-enter"
-      />
-    </div>
-  </div>
-</template>
-
 <style lang="scss" scoped>
 .result-item {
   display: flex;
@@ -111,14 +111,17 @@ defineExpose({ getScrollTop });
   border: 1px solid var(--el-border-color);
   border-radius: 4px;
   cursor: pointer;
+
   .svg-icon {
     min-width: 1em;
     font-size: 18px;
   }
+
   .el-icon {
     width: 1em;
     font-size: 18px;
   }
+
   &-title {
     flex: 1;
     margin-left: 12px;

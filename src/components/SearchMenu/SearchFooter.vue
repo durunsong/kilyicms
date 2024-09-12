@@ -36,10 +36,12 @@ const { isMobile } = useDevice();
   display: flex;
   color: var(--el-text-color-secondary);
   font-size: 14px;
+
   &-item {
     display: flex;
     align-items: center;
     margin-right: 12px;
+
     .svg-icon {
       margin-right: 5px;
       padding: 2px;
@@ -47,6 +49,7 @@ const { isMobile } = useDevice();
       background-color: var(--el-fill-color);
     }
   }
+
   &-total {
     margin: 0 0 0 auto;
   }
