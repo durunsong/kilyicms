@@ -1,4 +1,16 @@
 {
+  "name": "kilyicms_server",
+  "version": "2.0.1",
+  "description": "一个免费开源的多语言中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、Pinia 和 Vite 等主流技术",
+  "author": {
+    "name": "Jack-DU",
+    "email": "durunsongs@gmail.com",
+    "url": "https://github.com/durunsong"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/durunsong/kilyicms.git"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
