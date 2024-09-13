@@ -152,6 +152,20 @@ const en = {
   other_dynamically_rendered_Dom:
     "Examples include Element-Plus el-tab-pane or el-table-column and other dynamically rendered Dom,The scenario is not suitable for using v-permission, in which case you can use v-if",
   to_achieve: "to achieve",
+  search_menu: "Search menu",
+  switch: "Switch",
+  close: "Close",
+  total_items: "Total: {count} items",
+  No_search_results_available: "No search results are available",
+  search_results: "Search results",
+  warning_message_unique_name:
+    "Cannot navigate to the menu through search. Please set a unique {keyword} for the corresponding route.",
+  mandatory_dynamic_parameters:
+    "This menu has mandatory dynamic parameters and cannot be accessed by search",
+  Content_area_full_screen: "Content area full screen",
+  browser_is_not_working: "Your browser is not working",
+  Content_area_recovery: "Content area recovery",
+  Content_area_enlargement: "Content area enlargement",
 };
 
 export default en;

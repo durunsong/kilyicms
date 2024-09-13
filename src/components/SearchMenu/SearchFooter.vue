@@ -1,6 +1,30 @@
+<template>
+  <div class="search-footer">
+    <template v-if="!isMobile">
+      <span class="search-footer-item">
+        <SvgIcon name="keyboard-enter" />
+        <span>{{ t("confirm_ok_text") }}</span>
+      </span>
+      <span class="search-footer-item">
+        <SvgIcon name="keyboard-up" />
+        <SvgIcon name="keyboard-down" />
+        <span>{{ t("switch") }}</span>
+      </span>
+      <span class="search-footer-item">
+        <SvgIcon name="keyboard-esc" />
+        <span>{{ t("close") }}</span>
+      </span>
+    </template>
+    <span class="search-footer-total">{{
+      t("total_items", { count: props.total })
+    }}</span>
+  </div>
+</template>
+
 <script lang="ts" setup>
 import { useDevice } from "@/hooks/useDevice";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 interface Props {
   total: number;
 }
@@ -9,27 +33,6 @@ const props = defineProps<Props>();
 
 const { isMobile } = useDevice();
 </script>
-
-<template>
-  <div class="search-footer">
-    <template v-if="!isMobile">
-      <span class="search-footer-item">
-        <SvgIcon name="keyboard-enter" />
-        <span>确认</span>
-      </span>
-      <span class="search-footer-item">
-        <SvgIcon name="keyboard-up" />
-        <SvgIcon name="keyboard-down" />
-        <span>切换</span>
-      </span>
-      <span class="search-footer-item">
-        <SvgIcon name="keyboard-esc" />
-        <span>关闭</span>
-      </span>
-    </template>
-    <span class="search-footer-total">共 {{ props.total }} 项</span>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .search-footer {

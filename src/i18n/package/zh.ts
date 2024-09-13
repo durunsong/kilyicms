@@ -147,6 +147,19 @@ const zh = {
   other_dynamically_rendered_Dom:
     "例如 Element Plus 的 el-tab-pane 或 el-table-column 以及其它动态渲染 Dom的场景不适合使用 v-permission，这种情况下你可以通过 v-if",
   to_achieve: "来实现",
+  search_menu: "搜索菜单",
+  switch: "切换",
+  close: "关闭",
+  total_items: "共 {count} 项",
+  No_search_results_available: "暂无搜索结果",
+  search_results: "搜索结果",
+  warning_message_unique_name:
+    "无法通过搜索进入该菜单，请为对应的路由设置唯一的 {keyword}。",
+  mandatory_dynamic_parameters: "该菜单有必填的动态参数，无法通过搜索进入",
+  Content_area_full_screen: "内容区域全屏",
+  browser_is_not_working: "你的浏览器不支持",
+  Content_area_recovery: "内容区复原",
+  Content_area_enlargement: "内容区放大",
 };
 
 export default zh;

@@ -17,7 +17,7 @@
       ref="inputRef"
       v-model="keyword"
       @input="handleSearch"
-      placeholder="搜索菜单"
+      :placeholder="t('search_menu')"
       size="large"
       clearable
     >
@@ -27,11 +27,11 @@
     </el-input>
     <el-empty
       v-if="resultList.length === 0"
-      description="暂无搜索结果"
+      :description="t('No_search_results_available')"
       :image-size="100"
     />
     <template v-else>
-      <p>搜索结果</p>
+      <p>{{ t("search_results") }}</p>
       <el-scrollbar ref="scrollbarRef" max-height="40vh" always>
         <SearchResult
           ref="searchResultRef"
@@ -194,13 +194,13 @@ const handleEnter = () => {
     return;
   }
   if (!name) {
-    ElMessage.warning("无法通过搜索进入该菜单，请为对应的路由设置唯一的 Name");
+    ElMessage.warning(t("warning_message_unique_name", { keyword: "Name" }));
     return;
   }
   try {
     router.push({ name });
   } catch {
-    ElMessage.error("该菜单有必填的动态参数，无法通过搜索进入");
+    ElMessage.error(t("mandatory_dynamic_parameters"));
     return;
   }
   handleClose();
