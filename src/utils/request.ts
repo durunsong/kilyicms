@@ -5,7 +5,9 @@ import axios, {
 } from "axios";
 import { ElNotification, ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
+import i18n from "@/i18n";
 
+const { t } = i18n.global;
 let loadingInstance: any = null;
 const pendingRequests: any = {};
 
@@ -64,7 +66,7 @@ const addPendingRequest = (config: InternalAxiosRequestConfig) => {
   const requestKey = generateRequestKey(config);
   if (pendingRequests[requestKey]) {
     config.cancelToken = new axios.CancelToken((cancel) => {
-      cancel("取消重复请求");
+      cancel(t("Cancel_duplicate_request"));
     });
   } else {
     pendingRequests[requestKey] = true;
@@ -141,7 +143,7 @@ request.interceptors.response.use(
     // 处理 HTTP 错误状态码
     switch (status) {
       case 401: {
-        errorInfo = "未授权，请登录";
+        errorInfo = t("case_401");
         const refreshToken = localStorage.getItem("refreshToken");
         if (refreshToken && !originalRequest._retry) {
           originalRequest._retry = true;
@@ -157,39 +159,39 @@ request.interceptors.response.use(
         break;
       }
       case 403: {
-        errorInfo = "拒绝访问";
+        errorInfo = t("case_403");
         break;
       }
       case 404: {
-        errorInfo = "请求地址出错";
+        errorInfo = t("case_404");
         break;
       }
       case 408: {
-        errorInfo = "请求超时";
+        errorInfo = t("case_408");
         break;
       }
       case 500: {
-        errorInfo = "服务器内部错误";
+        errorInfo = t("case_500");
         break;
       }
       case 501: {
-        errorInfo = "服务未实现";
+        errorInfo = t("case_501");
         break;
       }
       case 502: {
-        errorInfo = "网关错误";
+        errorInfo = t("case_502");
         break;
       }
       case 503: {
-        errorInfo = "服务不可用";
+        errorInfo = t("case_503");
         break;
       }
       case 504: {
-        errorInfo = "网关超时";
+        errorInfo = t("case_504");
         break;
       }
       default: {
-        errorInfo = "网络出现问题!";
+        errorInfo = t("other_case");
         break;
       }
     }

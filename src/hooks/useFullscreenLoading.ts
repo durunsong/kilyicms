@@ -1,8 +1,10 @@
 import { type LoadingOptions, ElLoading } from "element-plus";
+import i18n from "@/i18n";
+const { t } = i18n.global;
 
 const defaultOptions = {
   lock: true,
-  text: "加载中...",
+  text: t("message_loading"),
 };
 
 interface LoadingInstance {

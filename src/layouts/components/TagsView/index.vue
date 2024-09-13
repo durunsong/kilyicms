@@ -26,14 +26,14 @@
       class="contextmenu"
       :style="{ left: left + 'px', top: top + 'px' }"
     >
-      <li @click="refreshSelectedTag(selectedTag)">刷新</li>
+      <li @click="refreshSelectedTag(selectedTag)">{{ t("refresh") }}</li>
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
-        关闭
+        {{ t("close") }}
       </li>
-      <li @click="closeOthersTags">关闭其它</li>
-      <li @click="closeLeftTags(selectedTag)">关闭左侧</li>
-      <li @click="closeRightTags(selectedTag)">关闭右侧</li>
-      <li @click="closeAllTags(selectedTag)">关闭所有</li>
+      <li @click="closeOthersTags">{{ t("close_others") }}</li>
+      <li @click="closeLeftTags(selectedTag)">{{ t("close_left") }}</li>
+      <li @click="closeRightTags(selectedTag)">{{ t("close_right") }}</li>
+      <li @click="closeAllTags(selectedTag)">{{ t("close_all") }}</li>
     </ul>
   </div>
 </template>

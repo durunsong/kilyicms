@@ -1,56 +1,62 @@
 <template>
   <div class="app-container">
     <h4>
-      该示例是演示：通过调用 hook，开启或关闭水印，
-      支持局部、全局、自定义样式（颜色、透明度、字体大小、字体、倾斜角度等），并自带防御（防删、防隐藏）和自适应功能
+      {{ t("demo_description", { hook: "hook" }) }}
     </h4>
     <div ref="localRef" class="local" />
     <el-button-group>
       <el-button
         type="primary"
-        @click="setWatermark('局部水印', { color: '#409eff' })"
-        >创建局部水印</el-button
+        @click="setWatermark(t('create_local_watermark'), { color: '#409eff' })"
+        >{{ t("create_local_watermark") }}</el-button
       >
       <el-button
         type="warning"
         @click="
-          setWatermark('没有防御功能的局部水印', {
+          setWatermark(t('disable_defense_local_watermark'), {
             color: '#e6a23c',
             defense: false,
           })
         "
       >
-        关闭防御功能
+        {{ t("disable_defense_local_watermark") }}
       </el-button>
-      <el-button type="danger" @click="clearWatermark">清除局部水印</el-button>
+      <el-button type="danger" @click="clearWatermark">{{
+        t("clear_local_watermark")
+      }}</el-button>
     </el-button-group>
     <el-button-group>
       <el-button
         type="primary"
-        @click="setGlobalWatermark('全局水印', { color: '#409eff' })"
-        >创建全局水印</el-button
+        @click="
+          setGlobalWatermark(t('create_global_watermark'), { color: '#409eff' })
+        "
+        >{{ t("create_global_watermark") }}</el-button
       >
       <el-button
         type="warning"
         @click="
-          setGlobalWatermark('没有防御功能的全局水印', {
+          setGlobalWatermark(t('disable_defense_global_watermark'), {
             color: '#e6a23c',
             defense: false,
           })
         "
       >
-        关闭防御功能
+        {{ t("disable_defense_global_watermark") }}
       </el-button>
-      <el-button type="danger" @click="clearGlobalWatermark"
-        >清除全局水印</el-button
-      >
+      <el-button type="danger" @click="clearGlobalWatermark">{{
+        t("clear_global_watermark")
+      }}</el-button>
     </el-button-group>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useWatermark } from "@/hooks/useWatermark";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const localRef = ref<HTMLElement | null>(null);
 const { setWatermark, clearWatermark } = useWatermark(localRef);
 const {

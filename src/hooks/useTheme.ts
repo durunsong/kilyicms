@@ -3,7 +3,9 @@ import {
   getActiveThemeName,
   setActiveThemeName,
 } from "@/utils/cache/local-storage";
+import i18n from "@/i18n";
 
+const { t } = i18n.global;
 const DEFAULT_THEME_NAME = "normal";
 type DefaultThemeName = typeof DEFAULT_THEME_NAME;
 
@@ -18,15 +20,15 @@ interface ThemeList {
 /** 主题列表 */
 const themeList: ThemeList[] = [
   {
-    title: "默认",
+    title: t("default"),
     name: DEFAULT_THEME_NAME,
   },
   {
-    title: "黑暗",
+    title: t("dark"),
     name: "dark",
   },
   {
-    title: "深蓝",
+    title: t("dark_blue"),
     name: "dark-blue",
   },
 ];

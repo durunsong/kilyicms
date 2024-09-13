@@ -1,9 +1,9 @@
 <template>
   <div class="setting-container">
-    <h4>布局配置</h4>
+    <h4>{{ t("Layout_configuration") }}</h4>
     <SelectLayoutMode />
     <el-divider />
-    <h4>功能配置</h4>
+    <h4>{{ t("functional_configuration") }}</h4>
     <div
       class="setting-item"
       v-for="(settingValue, settingName, index) in switchSettings"
@@ -12,12 +12,12 @@
       <span class="setting-name">{{ settingName }}</span>
       <el-switch
         v-model="settingValue.value"
-        :disabled="!isLeft && settingName === '固定 Header'"
+        :disabled="!isLeft && settingName === t('fixed_header')"
       />
     </div>
-    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout"
-      >重 置</el-button
-    >
+    <el-button type="danger" :icon="Refresh" @click="resetConfigLayout">
+      {{ t("Reset_layout") }}
+    </el-button>
   </div>
 </template>
 
@@ -29,7 +29,9 @@ import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { resetConfigLayout } from "@/utils";
 import SelectLayoutMode from "./SelectLayoutMode.vue";
 import { Refresh } from "@element-plus/icons-vue";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const { isLeft } = useLayoutMode();
 const settingsStore = useSettingsStore();
 
@@ -51,18 +53,18 @@ const {
 
 /** 定义 switch 设置项 */
 const switchSettings = {
-  显示标签栏: showTagsView,
-  "显示 Logo": showLogo,
-  "固定 Header": fixedHeader,
-  "显示页脚 Footer": showFooter,
-  显示消息通知: showNotify,
-  显示切换主题按钮: showThemeSwitch,
-  显示全屏按钮: showScreenfull,
-  显示搜索按钮: showSearchMenu,
-  是否缓存标签栏: cacheTagsView,
-  开启系统水印: showWatermark,
-  显示灰色模式: showGreyMode,
-  显示色弱模式: showColorWeakness,
+  [t("show_tab_bar")]: showTagsView,
+  [t("show_logo")]: showLogo,
+  [t("fixed_header")]: fixedHeader,
+  [t("show_footer")]: showFooter,
+  [t("show_notifications")]: showNotify,
+  [t("show_theme_switch_button")]: showThemeSwitch,
+  [t("show_fullscreen_button")]: showScreenfull,
+  [t("show_search_button")]: showSearchMenu,
+  [t("cache_tab_bar")]: cacheTagsView,
+  [t("enable_watermark")]: showWatermark,
+  [t("show_gray_mode")]: showGreyMode,
+  [t("show_weak_mode")]: showColorWeakness,
 };
 
 /** 非左侧模式时，Header 都是 fixed 布局 */

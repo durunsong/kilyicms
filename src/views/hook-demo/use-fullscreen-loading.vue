@@ -1,8 +1,7 @@
 <template>
   <div class="app-container">
     <h4>
-      该示例是演示：通过将要执行的函数传递给 hook，让 hook 自动开启全屏
-      loading，函数执行结束后自动关闭 loading
+      {{ t("loading_demo_description", { hook: "hook", loading: "loading" }) }}
     </h4>
     <el-button type="primary" @click="querySuccess">{{
       t("query_success")

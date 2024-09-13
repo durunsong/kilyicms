@@ -1,4 +1,4 @@
-//  当前时间自定义hooks
+//  当前时间自定义hooks(仅仅中文)
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const getCurrentTime = () => {

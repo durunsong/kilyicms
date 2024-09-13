@@ -1,10 +1,12 @@
 // Loading hooks
 import { ElLoading, LoadingOptions } from "element-plus";
 import type { Options } from "@/types/store";
+import i18n from "@/i18n";
+const { t } = i18n.global;
 
 const defaultOptions: Options = {
   lock: true,
-  text: "Loading....",
+  text: t("message_loading"),
   background: "rgba(0, 0, 0, 0.1)",
 };
 

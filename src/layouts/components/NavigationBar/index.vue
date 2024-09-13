@@ -12,7 +12,7 @@
       <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
       <Screenfull v-if="showScreenfull" class="right-menu-item" />
       <div class="mr-10px">
-        <el-tooltip effect="dark" content="主题模式" placement="bottom">
+        <el-tooltip effect="dark" :content="t('Theme_Mode')" placement="bottom">
           <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
         </el-tooltip>
       </div>
@@ -32,7 +32,7 @@
               <el-dropdown-item>Gitee</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
-              <span style="display: block">退出登录</span>
+              <span style="display: block">{{ t("log_out") }}</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -58,7 +58,9 @@ import Screenfull from "@/components/Screenfull/index.vue";
 import SearchMenu from "@/components/SearchMenu/index.vue";
 import { useDevice } from "@/hooks/useDevice";
 import { useLayoutMode } from "@/hooks/useLayoutMode";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const { isMobile } = useDevice();
 const { isTop } = useLayoutMode();
 const router = useRouter();
