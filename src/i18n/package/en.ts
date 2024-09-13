@@ -223,6 +223,9 @@ const en = {
   role_visibility_message:
     "This page is only visible to the {role} role. You will not be able to access this page after switching roles",
   Close_current: "Close Current",
+  Left_side_mode: "Left side mode",
+  Top_mode: "Top mode",
+  mixed_mode: "Mixed mode",
 };
 
 export default en;

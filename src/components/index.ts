@@ -1,11 +1,13 @@
 import { type App, type Component } from "vue";
 // 引入项目中全部的全局组件
 import SvgIcon from "./SvgIcon/index.vue";
+import PlaneSwitch from "./PlaneSwitch/index.vue";
 // import Pagination from "./Pagination/index.vue";
 
 // 全局对象
 const allGlobalComponents: Record<string, Component> = {
   SvgIcon,
+  PlaneSwitch,
   // Pagination,
 };
 

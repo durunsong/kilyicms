@@ -1,6 +1,6 @@
 <template>
   <div class="select-layout-mode">
-    <el-tooltip content="左侧模式">
+    <el-tooltip :content="t('Left_side_mode')">
       <el-container
         class="layout-mode left"
         :class="{ active: isLeft }"
@@ -13,7 +13,7 @@
         </el-container>
       </el-container>
     </el-tooltip>
-    <el-tooltip content="顶部模式">
+    <el-tooltip :content="t('Top_mode')">
       <el-container
         class="layout-mode top"
         :class="{ active: isTop }"
@@ -23,7 +23,7 @@
         <el-main />
       </el-container>
     </el-tooltip>
-    <el-tooltip content="混合模式">
+    <el-tooltip :content="t('mixed_mode')">
       <el-container
         class="layout-mode left-top"
         :class="{ active: isLeftTop }"
@@ -42,7 +42,8 @@
 <script lang="ts" setup>
 import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { LayoutModeEnum } from "@/constants/app-key";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const { isLeft, isTop, isLeftTop, setLayoutMode } = useLayoutMode();
 </script>
 

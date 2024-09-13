@@ -215,6 +215,9 @@ const zh = {
   role_visibility_message:
     "当前页面只有 {role} 角色可见，切换角色后将不能进入该页面",
   Close_current: "关闭当前",
+  Left_side_mode: "左侧模式",
+  Top_mode: "顶部模式",
+  mixed_mode: "混合模式",
 };
 
 export default zh;
