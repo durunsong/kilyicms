@@ -220,6 +220,9 @@ const en = {
   create_global_watermark: "Create Global Watermark",
   disable_defense_global_watermark: "Disable Defense",
   clear_global_watermark: "Clear Global Watermark",
+  role_visibility_message:
+    "This page is only visible to the {role} role. You will not be able to access this page after switching roles",
+  Close_current: "Close Current",
 };
 
 export default en;

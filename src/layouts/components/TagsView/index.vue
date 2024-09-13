@@ -28,7 +28,7 @@
     >
       <li @click="refreshSelectedTag(selectedTag)">{{ t("refresh") }}</li>
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
-        {{ t("close") }}
+        {{ t("Close_current") }}
       </li>
       <li @click="closeOthersTags">{{ t("close_others") }}</li>
       <li @click="closeLeftTags(selectedTag)">{{ t("close_left") }}</li>

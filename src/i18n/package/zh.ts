@@ -134,8 +134,6 @@ const zh = {
   four_level_routing_cache: "四级路由缓存",
   your_role: "你的角色",
   switching_users: "切换用户（模拟重新登录）",
-  admin_role_is_visible:
-    "当前页面只有 admin 角色可见，切换角色后将不能进入该页面",
   UnoCSS_use_case: "该页面是一个 UnoCSS 的使用案例，其他页面依旧采用 Scss",
   Reimagining_atomized_CSS: "推荐阅读：重新构想原子化 CSS",
   here_adopted: "这里采用了",
@@ -214,6 +212,9 @@ const zh = {
   create_global_watermark: "创建全局水印",
   disable_defense_global_watermark: "关闭防御功能",
   clear_global_watermark: "清除全局水印",
+  role_visibility_message:
+    "当前页面只有 {role} 角色可见，切换角色后将不能进入该页面",
+  Close_current: "关闭当前",
 };
 
 export default zh;
