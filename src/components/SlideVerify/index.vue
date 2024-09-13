@@ -42,7 +42,7 @@ const emit = defineEmits(["again", "success", "fail", "refresh", "close"]);
 const fontColor = ref("");
 
 const onAgain = () => {
-  msg.value = t("Non-human_operation_detected");
+  msg.value = t("non_human_operation_detected");
   fontColor.value = "red";
   // 刷新
   block.value?.refresh();

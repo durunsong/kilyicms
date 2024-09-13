@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>你的角色：{{ userStore.roles }}</div>
+    <div>{{ t("your_role") }}:{{ userStore.roles }}</div>
     <div class="switch-roles">
-      <span>切换用户（模拟重新登录）：</span>
+      <span>{{ t("switching_users") }} ：</span>
       <el-radio-group v-model="switchRoles">
         <el-radio-button label="editor" value="editor" />
         <el-radio-button label="admin" value="admin" />
@@ -14,7 +14,9 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
 import { useUserStore } from "@/store/modules/user";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const userStore = useUserStore();
 const switchRoles = ref(userStore.roles[0]);
 watch(switchRoles, (value) => {

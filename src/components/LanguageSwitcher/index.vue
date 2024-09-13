@@ -153,6 +153,7 @@ const confirmLang = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 16px;
   cursor: pointer;
 
   &:hover {

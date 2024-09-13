@@ -16,7 +16,7 @@
           <el-form-item prop="username">
             <el-input
               v-model.trim="loginFormData.username"
-              placeholder="用户名"
+              :placeholder="t('user_name')"
               type="text"
               tabindex="1"
               :prefix-icon="User"
@@ -26,7 +26,7 @@
           <el-form-item prop="password">
             <el-input
               v-model.trim="loginFormData.password"
-              placeholder="密码"
+              :placeholder="t('password')"
               type="password"
               tabindex="2"
               :prefix-icon="Lock"
@@ -39,7 +39,7 @@
           <el-form-item prop="code">
             <el-input
               v-model.trim="loginFormData.code"
-              placeholder="验证码"
+              :placeholder="t('verification_code')"
               type="text"
               tabindex="3"
               :prefix-icon="Key"
@@ -67,7 +67,7 @@
             type="primary"
             size="large"
             @click.prevent="handleLogin"
-            >登 录</el-button
+            >{{ t("login") }}</el-button
           >
         </el-form>
       </div>
@@ -86,7 +86,9 @@ import { type LoginRequestData } from "@/api/login/types/login";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 import Owl from "./components/Owl.vue";
 import { useFocus } from "./hooks/useFocus";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const router = useRouter();
 const { isFocus, handleBlur, handleFocus } = useFocus();
 
@@ -105,12 +107,28 @@ const loginFormData: LoginRequestData = reactive({
 });
 /** 登录表单校验规则 */
 const loginFormRules: FormRules = {
-  username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-  password: [
-    { required: true, message: "请输入密码", trigger: "blur" },
-    { min: 8, max: 16, message: "长度在 8 到 16 个字符", trigger: "blur" },
+  username: [
+    {
+      required: true,
+      message: t("Please_enter_your_username"),
+      trigger: "blur",
+    },
   ],
-  code: [{ required: true, message: "请输入验证码", trigger: "blur" }],
+  password: [
+    {
+      required: true,
+      message: t("Please_enter_your_password"),
+      trigger: "blur",
+    },
+    { min: 8, max: 16, message: t("length_characters"), trigger: "blur" },
+  ],
+  code: [
+    {
+      required: true,
+      message: t("Please_enter_your_verification_code"),
+      trigger: "blur",
+    },
+  ],
 };
 /** 登录逻辑 */
 const handleLogin = () => {
@@ -130,7 +148,7 @@ const handleLogin = () => {
           loading.value = false;
         });
     } else {
-      console.error("表单校验不通过", fields);
+      console.error(t("form_verification_fails"), fields);
     }
   });
 };

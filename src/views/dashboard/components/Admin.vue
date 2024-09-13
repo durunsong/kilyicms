@@ -1,8 +1,13 @@
 <template>
   <div class="app-container center">
-    <el-empty description="欢迎来到 admin 角色专属首页" />
+    <el-empty :description="t('hello_admin_page')" />
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+</script>
 
 <style lang="scss" scoped>
 .center {

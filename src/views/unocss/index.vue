@@ -12,7 +12,7 @@
           UnoCSS
         </div>
         <div op30 dark:op60 text-lg fw300 m1>
-          该页面是一个 UnoCSS 的使用案例，其他页面依旧采用 Scss
+          {{ t("UnoCSS_use_case") }}
         </div>
         <div
           m2
@@ -27,10 +27,15 @@
           <a
             href="https://antfu.me/posts/reimagine-atomic-css-zh"
             target="_blank"
-            >推荐阅读：重新构想原子化 CSS</a
+            >{{ t("Reimagining_atomized_CSS") }}</a
           >
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+</script>

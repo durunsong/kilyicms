@@ -115,9 +115,43 @@ const en = {
   passwords_are_different: "Two passwords do not match",
   successful_which_takes: "Successful, which takes",
   seconds: "seconds",
-  "Non-human_operation_detected": "Non-human operation detected!",
+  non_human_operation_detected: "Non-human operation detected!",
   Verification_failed: "Verification failed!",
   swipe_right: "Swipe right",
+  hello_admin_page: "Welcome to the home page of the admin role",
+  hello_editor_page: "Welcome to the home page of the editor role",
+  back_home: "Go Home",
+  query_success: "Query success",
+  query_failed: "Query failed",
+  error_about_occur: "An error is about to occur...",
+  pass_argument_as: "Pass argument as",
+  form_verification_fails: "The form verification fails",
+  length_characters: "The length is 8 to 16 characters",
+  route_caching_is_disabled:
+    "Level 3 and higher route caching is disabled by default. To enable it, go to this configuration file:",
+  second_level_routing: "Second-level routing",
+  second_level_routing_cache: "Second-level routing cache",
+  third_level_routing: "Third-level routing",
+  three_level_routing_cache: "Three-level routing cache",
+  four_level_routing_cache: "Four-level routing cache",
+  your_role: "Your role is",
+  switching_users: "Switching users (simulating re-login)",
+  admin_role_is_visible:
+    "Only the admin role is visible on the current page. After the role is changed, the page cannot be displayed",
+  UnoCSS_use_case:
+    "This page is a UnoCSS use case, and the rest of the pages still use Scss",
+  Reimagining_atomized_CSS: "Recommended reading: Reimagining atomized CSS",
+  so_only_admin_can_see:
+    "v-permission='['admin']' is used here so only admin can see this",
+  here_adopted: "Here adopted",
+  so_only: "So only",
+  so: "So",
+  and: "and",
+  can_see_this_sentence: "you can see this sentence",
+  can_see_the_words: "can see the words",
+  other_dynamically_rendered_Dom:
+    "Examples include Element-Plus el-tab-pane or el-table-column and other dynamically rendered Dom,The scenario is not suitable for using v-permission, in which case you can use v-if",
+  to_achieve: "to achieve",
 };
 
 export default en;
