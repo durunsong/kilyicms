@@ -36,6 +36,7 @@ const en = {
   router_Authority_case: "Authority case",
   router_Page_level_authority: "Page level authority",
   router_Button_level_authority: "Button level authority",
+  router_Site_Configuration: "Site Configuration",
 
   // 其他字段
   select_language: "Select Language",

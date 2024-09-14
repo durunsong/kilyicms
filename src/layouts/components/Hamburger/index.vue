@@ -1,6 +1,6 @@
 <template>
   <div @click="toggleClick">
-    <el-icon :size="20" class="icon">
+    <el-icon :size="26" class="icon">
       <Fold v-if="props.isActive" />
       <Expand v-else />
     </el-icon>
@@ -18,7 +18,6 @@ const props = withDefaults(defineProps<Props>(), {
   isActive: false,
 });
 
-/** Vue 3.3+ defineEmits 语法 */
 const emit = defineEmits<{
   toggleClick: [];
 }>();

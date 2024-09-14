@@ -1,134 +1,129 @@
 <template>
-  <div>
-    <div class="search_container">
-      <el-input
-        class="search_input"
-        v-model.trim="searchKeyword"
-        :placeholder="t('please_enter')"
-        @keyup.enter="handleSearchItems"
-        clearable
-        @clear="handleClearIpt"
-      />
-      <div class="date_time_picker">
-        <el-date-picker
-          v-model="pickerData"
-          type="datetimerange"
-          :start-placeholder="t('start_time')"
-          :end-placeholder="t('end_time')"
-          format="YYYY-MM-DD HH:mm:ss"
-          date-format="YYYY-MM-DD"
-          @change="formatHandleChange"
-        />
-      </div>
-      <el-button
-        class="search_btn"
-        type="default"
-        @click="handleClearItems"
-        icon="Delete"
-        >{{ t("clear") }}</el-button
-      >
-      <el-button
-        class="search_btn"
-        type="primary"
-        @click="debouncedHandleSearchItems"
-        icon="Search"
-        >{{ t("search") }}</el-button
-      >
-    </div>
-    <el-button class="add_btn" type="primary" @click="showAddDialog = true">
-      {{ t("Add_personnel") }}
-    </el-button>
-    <el-table :data="userList" style="width: 100%">
-      <el-table-column :label="t('serial_number')" width="100">
-        <template #default="scope">
-          {{ scope.$index + 1 }}
-        </template>
-      </el-table-column>
-      <el-table-column :label="t('name')" align="center">
-        <template #default="scope">
-          <span v-html="highlightKeyword(scope.row.userName)" />
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="create_time"
-        :label="t('create_time')"
-        align="center"
-      />
-      <el-table-column
-        prop="update_time"
-        :label="t('update_time')"
-        align="center"
-      />
-      <el-table-column :label="t('operates')" align="center">
-        <template #default="scope">
-          <el-button @click="editItem(scope.row)">{{ t("edit") }}</el-button>
-          <el-button type="danger" @click="deleteItem(scope.row.id)">{{
-            t("delete")
-          }}</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-    <div class="pagination">
-      <el-pagination
-        background
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        layout="prev, pager, next, jumper"
-        :total="total"
-        :current-page="queryParams.pageNum"
-        :page-size="queryParams.pageSize"
+  <div class="search_container">
+    <el-input
+      class="search_input"
+      v-model.trim="searchKeyword"
+      :placeholder="t('please_enter')"
+      @keyup.enter="handleSearchItems"
+      clearable
+      @clear="handleClearIpt"
+    />
+    <div class="date_time_picker">
+      <el-date-picker
+        v-model="pickerData"
+        type="datetimerange"
+        :start-placeholder="t('start_time')"
+        :end-placeholder="t('end_time')"
+        format="YYYY-MM-DD HH:mm:ss"
+        date-format="YYYY-MM-DD"
+        @change="formatHandleChange"
       />
     </div>
-    <!-- add dialog -->
-    <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
-      <el-form :model="newItem">
-        <el-form-item :label="t('Account_name')">
-          <el-input v-model="newItem.userName" />
-        </el-form-item>
-        <el-form-item :label="t('password')">
-          <el-input v-model="newItem.password" autocomplete="new-password" />
-        </el-form-item>
-        <el-form-item :label="t('description')">
-          <el-input v-model="newItem.description" />
-        </el-form-item>
-      </el-form>
-      <template v-slot:footer>
-        <div class="dialog-footer">
-          <el-button @click="showAddDialog = false">{{
-            t("confirm_cancel_text")
-          }}</el-button>
-          <el-button type="primary" @click="addItem">{{ t("add") }}</el-button>
-        </div>
-      </template>
-    </el-dialog>
-    <!-- edit dialog -->
-    <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
-      <el-form :model="editItemData">
-        <el-form-item :label="t('name')">
-          <el-input v-model="editItemData.userName" />
-        </el-form-item>
-        <el-form-item :label="t('password')">
-          <el-input
-            v-model="editItemData.password"
-            autocomplete="new-password"
-          />
-        </el-form-item>
-        <el-form-item :label="t('description')">
-          <el-input v-model="editItemData.description" />
-        </el-form-item>
-      </el-form>
-      <template v-slot:footer>
-        <div class="dialog-footer">
-          <el-button @click="showEditDialog = false">{{
-            t("confirm_cancel_text")
-          }}</el-button>
-          <el-button type="primary" @click="updateItem">{{
-            t("update")
-          }}</el-button>
-        </div>
-      </template>
-    </el-dialog>
+    <el-button
+      class="search_btn"
+      type="default"
+      @click="handleClearItems"
+      icon="Delete"
+      >{{ t("clear") }}</el-button
+    >
+    <el-button
+      class="search_btn"
+      type="primary"
+      @click="debouncedHandleSearchItems"
+      icon="Search"
+      >{{ t("search") }}</el-button
+    >
   </div>
+  <el-button class="add_btn" type="primary" @click="showAddDialog = true">
+    {{ t("Add_personnel") }}
+  </el-button>
+  <el-table :data="userList" style="width: 100%">
+    <el-table-column :label="t('serial_number')" width="100">
+      <template #default="scope">
+        {{ scope.$index + 1 }}
+      </template>
+    </el-table-column>
+    <el-table-column :label="t('name')" align="center">
+      <template #default="scope">
+        <span v-html="highlightKeyword(scope.row.userName)" />
+      </template>
+    </el-table-column>
+    <el-table-column
+      prop="create_time"
+      :label="t('create_time')"
+      align="center"
+    />
+    <el-table-column
+      prop="update_time"
+      :label="t('update_time')"
+      align="center"
+    />
+    <el-table-column :label="t('operates')" align="center">
+      <template #default="scope">
+        <el-button @click="editItem(scope.row)">{{ t("edit") }}</el-button>
+        <el-button type="danger" @click="deleteItem(scope.row.id)">{{
+          t("delete")
+        }}</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
+  <div class="pagination">
+    <el-pagination
+      background
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      layout="prev, pager, next, jumper"
+      :total="total"
+      :current-page="queryParams.pageNum"
+      :page-size="queryParams.pageSize"
+    />
+  </div>
+  <!-- add dialog -->
+  <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
+    <el-form :model="newItem">
+      <el-form-item :label="t('Account_name')">
+        <el-input v-model="newItem.userName" />
+      </el-form-item>
+      <el-form-item :label="t('password')">
+        <el-input v-model="newItem.password" autocomplete="new-password" />
+      </el-form-item>
+      <el-form-item :label="t('description')">
+        <el-input v-model="newItem.description" />
+      </el-form-item>
+    </el-form>
+    <template v-slot:footer>
+      <div class="dialog-footer">
+        <el-button @click="showAddDialog = false">{{
+          t("confirm_cancel_text")
+        }}</el-button>
+        <el-button type="primary" @click="addItem">{{ t("add") }}</el-button>
+      </div>
+    </template>
+  </el-dialog>
+  <!-- edit dialog -->
+  <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
+    <el-form :model="editItemData">
+      <el-form-item :label="t('name')">
+        <el-input v-model="editItemData.userName" />
+      </el-form-item>
+      <el-form-item :label="t('password')">
+        <el-input v-model="editItemData.password" autocomplete="new-password" />
+      </el-form-item>
+      <el-form-item :label="t('description')">
+        <el-input v-model="editItemData.description" />
+      </el-form-item>
+    </el-form>
+    <template v-slot:footer>
+      <div class="dialog-footer">
+        <el-button @click="showEditDialog = false">{{
+          t("confirm_cancel_text")
+        }}</el-button>
+        <el-button type="primary" @click="updateItem">{{
+          t("update")
+        }}</el-button>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">

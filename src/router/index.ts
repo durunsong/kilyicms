@@ -78,6 +78,43 @@ export const constantRoutes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: "/hook-demo",
+    component: Layouts,
+    redirect: "/hook-demo/use-fetch-select",
+    name: "HookDemo",
+    meta: {
+      title: "router_Hooks",
+      elIcon: "Menu",
+      alwaysShow: true,
+    },
+    children: [
+      {
+        path: "use-fullscreen-loading",
+        component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
+        name: "UseFullscreenLoading",
+        meta: {
+          title: "router_useFullscreenLoading",
+        },
+      },
+      {
+        path: "use-watermark",
+        component: () => import("@/views/hook-demo/use-watermark.vue"),
+        name: "UseWatermark",
+        meta: {
+          title: "router_useWatermark",
+        },
+      },
+    ],
+  },
+];
+
+/**
+ * 动态路由
+ * 用来放置有权限 (Roles 属性) 的路由
+ * 必须带有 Name 属性
+ */
+export const dynamicRoutes: RouteRecordRaw[] = [
+  {
     path: "/menu",
     component: Layouts,
     redirect: "/menu/menu1",
@@ -159,107 +196,84 @@ export const constantRoutes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: "/hook-demo",
+    path: "/website",
     component: Layouts,
-    redirect: "/hook-demo/use-fetch-select",
-    name: "HookDemo",
+    redirect: "/website/mine",
+    name: "website",
     meta: {
-      title: "router_Hooks",
-      elIcon: "Menu",
-      alwaysShow: true,
-    },
-    children: [
-      {
-        path: "use-fullscreen-loading",
-        component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
-        name: "UseFullscreenLoading",
-        meta: {
-          title: "router_useFullscreenLoading",
-        },
-      },
-      {
-        path: "use-watermark",
-        component: () => import("@/views/hook-demo/use-watermark.vue"),
-        name: "UseWatermark",
-        meta: {
-          title: "router_useWatermark",
-        },
-      },
-    ],
-  },
-];
-
-/**
- * 动态路由
- * 用来放置有权限 (Roles 属性) 的路由
- * 必须带有 Name 属性
- */
-export const dynamicRoutes: RouteRecordRaw[] = [
-  {
-    path: "/mine",
-    name: "mine",
-    redirect: "/mine/setting",
-    meta: {
-      title: "router_user",
-      svgIcon: "lock",
+      title: "router_Site_Configuration",
+      svgIcon: "website",
       roles: ["admin"],
-      alwaysShow: true,
     },
-    component: Layouts,
     children: [
       {
-        path: "setting",
-        name: "setting",
+        path: "mine",
+        name: "mine",
+        redirect: "/website/mine/setting",
         meta: {
-          title: "router_user_management",
-          svgIcon: "lock",
+          title: "router_user",
+          elIcon: "User",
           roles: ["admin"],
+          alwaysShow: true,
         },
-        component: () => import("@/views/userCenter/userList.vue"),
-      },
-      {
-        path: "user_recycle_bin",
-        name: "user_recycle_bin",
-        meta: {
-          title: "router_user_recycle_bin",
-          hidden: false,
-          svgIcon: "lock",
-        },
-        component: () => import("@/views/userCenter/user_recycle_bin.vue"),
-      },
-    ],
-  },
-  {
-    path: "/permission",
-    component: Layouts,
-    redirect: "/permission/page",
-    name: "Permission",
-    meta: {
-      title: "router_Authority_case",
-      svgIcon: "lock",
-      roles: ["admin", "editor"], // 可以在根路由中设置角色
-      alwaysShow: true, // 将始终显示根菜单
-    },
-    children: [
-      {
-        path: "page",
-        component: () => import("@/views/permission/page.vue"),
-        name: "PagePermission",
-        meta: {
-          title: "router_Page_level_authority",
-          roles: ["admin"], // 或者在子导航中设置角色
-        },
-      },
-      {
-        path: "directive",
-        component: () => import("@/views/permission/directive.vue"),
-        name: "DirectivePermission",
-        meta: {
-          title: "router_Button_level_authority", // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
-        },
+        component: () => import("@/views/userCenter/index.vue"),
+        children: [
+          {
+            path: "setting",
+            name: "setting",
+            meta: {
+              title: "router_user_management",
+              elIcon: "UserFilled",
+              roles: ["admin"],
+            },
+            component: () => import("@/views/userCenter/user/userList.vue"),
+          },
+          {
+            path: "user_recycle_bin",
+            name: "user_recycle_bin",
+            meta: {
+              title: "router_user_recycle_bin",
+              hidden: false,
+              elIcon: "DeleteFilled",
+            },
+            component: () =>
+              import("@/views/userCenter/user/user_recycle_bin.vue"),
+          },
+        ],
       },
     ],
   },
+  // {
+  //   path: "/permission",
+  //   component: Layouts,
+  //   redirect: "/permission/page",
+  //   name: "Permission",
+  //   meta: {
+  //     title: "router_Authority_case",
+  //     svgIcon: "lock",
+  //     roles: ["admin", "editor"], // 可以在根路由中设置角色
+  //     alwaysShow: true, // 将始终显示根菜单
+  //   },
+  //   children: [
+  //     {
+  //       path: "page",
+  //       component: () => import("@/views/permission/page.vue"),
+  //       name: "PagePermission",
+  //       meta: {
+  //         title: "router_Page_level_authority",
+  //         roles: ["admin"], // 或者在子导航中设置角色
+  //       },
+  //     },
+  //     {
+  //       path: "directive",
+  //       component: () => import("@/views/permission/directive.vue"),
+  //       name: "DirectivePermission",
+  //       meta: {
+  //         title: "router_Button_level_authority", // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+  //       },
+  //     },
+  //   ],
+  // },
 ];
 
 const router = createRouter({

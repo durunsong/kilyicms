@@ -22,7 +22,7 @@ export const asyncRoutes: Array<CustomRouteRecordRaw> = [
           hidden: false,
           icon: "UserFilled",
         },
-        component: () => import("@/views/userCenter/userList.vue"),
+        component: () => import("@/views/userCenter/user/userList.vue"),
       },
       {
         path: "user_recycle_bin",
@@ -33,7 +33,7 @@ export const asyncRoutes: Array<CustomRouteRecordRaw> = [
           hidden: false,
           icon: "DeleteFilled",
         },
-        component: () => import("@/views/userCenter/user_recycle_bin.vue"),
+        component: () => import("@/views/userCenter/user/user_recycle_bin.vue"),
       },
     ],
   },

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineEmits } from "vue";
+import { ref } from "vue";
 
 const emit = defineEmits<{
   (e: "update:checked", checked: boolean): void;

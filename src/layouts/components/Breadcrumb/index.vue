@@ -1,17 +1,30 @@
 <template>
   <el-breadcrumb>
     <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
-      <span
-        v-if="
-          item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
-        "
-        class="no-redirect"
-      >
-        {{ t(item.meta.title) }}
-      </span>
-      <a v-else @click.prevent="handleLink(item)">
-        {{ t(item.meta.title) }}
-      </a>
+      <div class="flex items-center">
+        <SvgIcon
+          v-if="item.meta?.svgIcon"
+          :name="item.meta.svgIcon"
+          width="16"
+          height="16"
+        />
+        <component
+          v-else-if="item.meta?.elIcon"
+          :is="item.meta.elIcon"
+          class="el-icon"
+        />
+        <span
+          v-if="
+            item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
+          "
+          class="no-redirect"
+        >
+          {{ t(item.meta.title) }}
+        </span>
+        <a v-else @click.prevent="handleLink(item)">
+          {{ t(item.meta.title) }}
+        </a>
+      </div>
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>

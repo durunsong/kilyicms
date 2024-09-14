@@ -35,6 +35,7 @@ const zh = {
   router_Authority_case: "权限案例",
   router_Page_level_authority: "页面级权限",
   router_Button_level_authority: "按钮级权限",
+  router_Site_Configuration: "前台网站配置",
   // 公共提示字段
   select_language: "选择语言",
   confirm_ok_text: "确认",

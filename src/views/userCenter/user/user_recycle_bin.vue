@@ -1,105 +1,103 @@
 <template>
-  <div>
-    <div class="search_container">
-      <el-input
-        class="search_input"
-        v-model.trim="searchKeyword"
-        :placeholder="t('please_enter')"
-        @keyup.enter="handleSearchItems"
-        clearable
-        @clear="handleClearIpt"
-      />
-      <div class="date_time_picker">
-        <el-date-picker
-          v-model="pickerData"
-          type="datetimerange"
-          :start-placeholder="t('start_time')"
-          :end-placeholder="t('end_time')"
-          format="YYYY-MM-DD HH:mm:ss"
-          date-format="YYYY-MM-DD"
-          @change="formatHandleChange"
-        />
-      </div>
-      <el-button
-        class="search_btn"
-        type="default"
-        @click="handleClearItems"
-        icon="Delete"
-        >{{ t("clear") }}</el-button
-      >
-      <el-button
-        class="search_btn"
-        type="primary"
-        @click="debouncedHandleSearchItems"
-        icon="Search"
-        >{{ t("search") }}</el-button
-      >
-    </div>
-    <el-table :data="userList" style="width: 100%">
-      <el-table-column :label="t('serial_number')" width="100">
-        <template #default="scope">
-          {{ scope.$index + 1 }}
-        </template>
-      </el-table-column>
-      <el-table-column :label="t('name')" align="center">
-        <template #default="scope">
-          <span v-html="highlightKeyword(scope.row.userName)" />
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="create_time"
-        :label="t('create_time')"
-        align="center"
-      />
-      <el-table-column
-        prop="update_time"
-        :label="t('update_time')"
-        align="center"
-      />
-      <el-table-column :label="t('operates')" align="center">
-        <template #default="scope">
-          <el-popconfirm
-            width="230"
-            cancel-button-type="default"
-            :confirm-button-text="t('confirm_ok_text')"
-            :cancel-button-text="t('confirm_cancel_text')"
-            icon="Warning"
-            icon-color="#409eff"
-            :title="t('sure_Restore')"
-            @confirm="handleRestore(scope.row.id)"
-          >
-            <template #reference>
-              <el-button>{{ t("restore") }}</el-button>
-            </template>
-          </el-popconfirm>
-          <el-popconfirm
-            width="230"
-            cancel-button-type="default"
-            :confirm-button-text="t('confirm_ok_text')"
-            :cancel-button-text="t('confirm_cancel_text')"
-            icon="Warning"
-            icon-color="rgb(238, 44, 44)"
-            :title="t('shift_delete')"
-            @confirm="deleteItem(scope.row.id)"
-          >
-            <template #reference>
-              <el-button type="danger">{{ t("delete") }}</el-button>
-            </template>
-          </el-popconfirm>
-        </template>
-      </el-table-column>
-    </el-table>
-    <div class="pagination">
-      <el-pagination
-        background
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        layout="prev, pager, next, jumper"
-        :total="total"
-        :current-page="queryParams.pageNum"
-        :page-size="queryParams.pageSize"
+  <div class="search_container">
+    <el-input
+      class="search_input"
+      v-model.trim="searchKeyword"
+      :placeholder="t('please_enter')"
+      @keyup.enter="handleSearchItems"
+      clearable
+      @clear="handleClearIpt"
+    />
+    <div class="date_time_picker">
+      <el-date-picker
+        v-model="pickerData"
+        type="datetimerange"
+        :start-placeholder="t('start_time')"
+        :end-placeholder="t('end_time')"
+        format="YYYY-MM-DD HH:mm:ss"
+        date-format="YYYY-MM-DD"
+        @change="formatHandleChange"
       />
     </div>
+    <el-button
+      class="search_btn"
+      type="default"
+      @click="handleClearItems"
+      icon="Delete"
+      >{{ t("clear") }}</el-button
+    >
+    <el-button
+      class="search_btn"
+      type="primary"
+      @click="debouncedHandleSearchItems"
+      icon="Search"
+      >{{ t("search") }}</el-button
+    >
+  </div>
+  <el-table :data="userList" style="width: 100%">
+    <el-table-column :label="t('serial_number')" width="100">
+      <template #default="scope">
+        {{ scope.$index + 1 }}
+      </template>
+    </el-table-column>
+    <el-table-column :label="t('name')" align="center">
+      <template #default="scope">
+        <span v-html="highlightKeyword(scope.row.userName)" />
+      </template>
+    </el-table-column>
+    <el-table-column
+      prop="create_time"
+      :label="t('create_time')"
+      align="center"
+    />
+    <el-table-column
+      prop="update_time"
+      :label="t('update_time')"
+      align="center"
+    />
+    <el-table-column :label="t('operates')" align="center">
+      <template #default="scope">
+        <el-popconfirm
+          width="230"
+          cancel-button-type="default"
+          :confirm-button-text="t('confirm_ok_text')"
+          :cancel-button-text="t('confirm_cancel_text')"
+          icon="Warning"
+          icon-color="#409eff"
+          :title="t('sure_Restore')"
+          @confirm="handleRestore(scope.row.id)"
+        >
+          <template #reference>
+            <el-button>{{ t("restore") }}</el-button>
+          </template>
+        </el-popconfirm>
+        <el-popconfirm
+          width="230"
+          cancel-button-type="default"
+          :confirm-button-text="t('confirm_ok_text')"
+          :cancel-button-text="t('confirm_cancel_text')"
+          icon="Warning"
+          icon-color="rgb(238, 44, 44)"
+          :title="t('shift_delete')"
+          @confirm="deleteItem(scope.row.id)"
+        >
+          <template #reference>
+            <el-button type="danger">{{ t("delete") }}</el-button>
+          </template>
+        </el-popconfirm>
+      </template>
+    </el-table-column>
+  </el-table>
+  <div class="pagination">
+    <el-pagination
+      background
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      layout="prev, pager, next, jumper"
+      :total="total"
+      :current-page="queryParams.pageNum"
+      :page-size="queryParams.pageSize"
+    />
   </div>
 </template>
 
