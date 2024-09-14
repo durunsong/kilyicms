@@ -6,7 +6,7 @@
 
 ## ⚡ Introduction
 
-Kilyicms is a free and open-source basic solution for backend management systems, based on Vue3, TypeScript, Element Plus, Pinia, and Vite, among other mainstream technologies.
+Kilyicms is a front-end and back-end separation/open source management system base solution , based on Vue3.5+, TypeScript, Element Plus, Pinia and Vite5.4+ and other mainstream technologies , support for 16 language switching . Functional modules in the continuous improvement ...
 
 ## 📺 Online Preview
 
@@ -50,7 +50,61 @@ Kilyicms is a free and open-source basic solution for backend management systems
 - **Dashboard**: Displays different dashboards based on different users.
 - **Other Built-in Features**: SVG support, dynamic sidebar, dynamic breadcrumbs, tab navigation, screen full-screen mode, adaptive collapsed sidebar, hooks (Composables).
 
+#### 🎈Marked as Completed, Others as Pending
+
+###### Frontend Completed: Hooks, Components, Directives, Configuration
+
+1. Global SVG component encapsulation - usability (vite configuration) 🎈
+2. Project theme switching (light/dark/dark-blue) with UI component library support 🎈
+3. Three environment configurations (development, testing, production) 🎈
+4. Button debounce (prevent rapid clicks) 🎈
+5. Prevent multiple invalid requests (add throttle validation) 🎈
+6. Fullscreen toggle 🎈
+7. Enable debugging in production environment - encapsulated hooks - 🎈
+8. Backend permissions, route permissions, button permissions 🎈
+9. Backend tab management optimization 🎈
+10. Watermark with username of the logged-in user 🎈
+11. Upload Excel sheet + parsing + printing
+12. PDF preview + printing
+13. Rich text dynamic content editing + image upload + video upload
+14. Skeleton screen component encapsulation
+15. Highlight matched search fields 🎈
+16. Progress bar component encapsulation 🎈
+17. Request loading encapsulation (two types: hooks 🎈, encapsulation in request method for global loading animation 🎈)
+18. Necessary component global registration 🎈
+19. Multi-language management, language switch component, batch translation script 🎈
+20. Common method hooks encapsulation 🎈
+21. Frontend route separation
+22. Custom directive global encapsulation (currently permission directive) 🎈
+23. Frontend code automated Jenkins deployment or deployment via Node.js CLI
+24. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
+25. Large file chunk upload (standalone upload, upload in rich text editor)
+26. Micro-frontend architecture construction, dynamic route addition, dynamic subsystem addition, properly handle CSS sandboxing
+
+###### Backend Completed:
+
+1. Modular development 🎈
+2. Permission control
+3. Login JWT validation 🎈
+4. Two types of captcha validation (frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint CAPTCHA), automatically push messages to frontend after a certain time
+5. Sensitive information encryption (password + address... using RSA encryption library as a reference)
+6. Redis rate limiting
+7. Jenkins automated deployment
+8. Docker
+9. Backend multi-language switching based on frontend requests
+
 ## 🚀 Development
+
+#### Project Installation
+
+Ensure that you have installed Node.js and npm (or use pnpm/yarn). Then run the following commands to install the project dependencies:
+
+#### Fetch the Project Code
+
+````js
+git clone https://github.com/durunsong/kilyicms.git
+cd kilyicms (Frontend project)
+cd server (Backend project)
 
 ```pnpm
 # Setup
@@ -76,7 +130,7 @@ pnpm i
 pnpm dev
 
 
-```
+````
 
 ## ✔️ Preview
 
