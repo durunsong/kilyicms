@@ -175,9 +175,9 @@ pnpm test
 
 ## 项目预览图
 
-![preview1.png](./src/assets/docs/preview1.png)
-![preview2.png](./src/assets/docs/preview2.png)
-![preview3.png](./src/assets/docs/preview3.png)
+![Snipaste_1.png](./src/assets/case_img/Snipaste_1.png)
+![Snipaste_2.png](./src/assets/case_img/Snipaste_2.png)
+![Snipaste_3.png](./src/assets/case_img/Snipaste_3.png)
 
 ## 💕 感谢 Star
 

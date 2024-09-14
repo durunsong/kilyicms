@@ -80,7 +80,7 @@ const zh = {
   Exit_full_screen: "退出全屏",
   Enter_full_screen: "全屏",
   light: "开灯",
-  dark: "关灯",
+  dark: "暗黑",
 
   shift_delete: "你确定要彻底删除这一项吗?",
   restore: "还原",
