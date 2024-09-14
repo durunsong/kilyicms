@@ -1,35 +1,77 @@
 /***
  * @常量路由
  */
-import { CustomRouteRecordRaw } from "@/types/routerType";
-export const Layout = () => import("@/views/Layout/index.vue");
+import { type RouteRecordRaw } from "vue-router";
+const Layouts = () => import("@/layouts/index.vue");
 
-export const constantRoutes: Array<CustomRouteRecordRaw> = [
+export const constant_Routes: RouteRecordRaw[] = [
+  {
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+    meta: {
+      hidden: true,
+    },
+  },
   {
     path: "/",
-    redirect: "/home",
-    name: "home",
-    label: "router_home",
-    meta: {
-      title: "router_home",
-      hidden: false,
-      icon: "House",
-    },
-    component: Layout,
+    component: Layouts,
+    redirect: "/dashboard",
     children: [
       {
-        path: "home",
-        name: "homePage",
-        meta: { title: "首页", icon: "HomeFilled", hidden: false },
-        component: () => import("@/views/home/index.vue"),
+        path: "dashboard",
+        component: () => import("@/views/dashboard/index.vue"),
+        name: "Dashboard",
+        meta: {
+          title: "router_home",
+          svgIcon: "dashboard",
+          affix: true,
+        },
       },
     ],
   },
   {
-    path: "/login",
+    path: "/unocss",
+    component: Layouts,
+    redirect: "/unocss/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/unocss/index.vue"),
+        name: "UnoCSS",
+        meta: {
+          title: "router_UnoCSS",
+          svgIcon: "unocss",
+        },
+      },
+    ],
+  },
+  {
+    path: "/hook-demo",
+    component: Layouts,
+    redirect: "/hook-demo/use-fetch-select",
+    name: "HookDemo",
     meta: {
-      title: "router_login",
+      title: "router_Hooks",
+      elIcon: "Menu",
+      alwaysShow: true,
     },
-    component: () => import("@/views/login/index.vue"),
+    children: [
+      {
+        path: "use-fullscreen-loading",
+        component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
+        name: "UseFullscreenLoading",
+        meta: {
+          title: "router_useFullscreenLoading",
+        },
+      },
+      {
+        path: "use-watermark",
+        component: () => import("@/views/hook-demo/use-watermark.vue"),
+        name: "UseWatermark",
+        meta: {
+          title: "router_useWatermark",
+        },
+      },
+    ],
   },
 ];
