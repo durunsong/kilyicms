@@ -16,8 +16,8 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
     resolve: {
       alias: {
         /** @ 符号指向 src 目录 */
-        "@": resolve(__dirname, "./src")
-      }
+        "@": resolve(__dirname, "./src"),
+      },
     },
     server: {
       /** 设置 host: true 才可以使用 Network 的形式，以 IP 访问项目 */
@@ -30,19 +30,20 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       cors: true,
       /** 端口被占用时，是否直接退出 */
       strictPort: false,
+      hmr: true,
       /** 接口代理 */
       proxy: {
         "/api/v1": {
           target: "localhost",
           ws: true,
           /** 是否允许跨域 */
-          changeOrigin: true
-        }
+          changeOrigin: true,
+        },
       },
       /** 预热常用文件，提高初始页面加载速度 */
       warmup: {
-        clientFiles: ["./src/layouts/**/*.vue"]
-      }
+        clientFiles: ["./src/layouts/**/*.vue"],
+      },
     },
     build: {
       /** 单个 chunk 文件的大小超过 2048KB 时发出警告 */
@@ -60,10 +61,10 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
            */
           manualChunks: {
             vue: ["vue", "vue-router", "pinia"],
-            element: ["element-plus", "@element-plus/icons-vue"]
-          }
-        }
-      }
+            element: ["element-plus", "@element-plus/icons-vue"],
+          },
+        },
+      },
     },
     /** 混淆器 */
     esbuild:
@@ -75,7 +76,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
             /** 打包时移除 debugger */
             drop: ["debugger"],
             /** 打包时移除所有注释 */
-            legalComments: "none"
+            legalComments: "none",
           },
     /** Vite 插件 */
     plugins: [
@@ -86,10 +87,10 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       /** SVG */
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
-        symbolId: "icon-[dir]-[name]"
+        symbolId: "icon-[dir]-[name]",
       }),
       /** UnoCSS */
-      UnoCSS()
-    ]
+      UnoCSS(),
+    ],
   };
 };
