@@ -74,7 +74,7 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 18. Necessary component global registration 🎈
 19. Multi-language management, language switch component, batch translation script 🎈
 20. Common method hooks encapsulation 🎈
-21. Frontend route separation
+21. Frontend route separation 🎈
 22. Custom directive global encapsulation (currently permission directive) 🎈
 23. Frontend code automated Jenkins deployment or deployment via Node.js CLI
 24. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
