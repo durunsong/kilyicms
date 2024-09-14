@@ -5,6 +5,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import svgLoader from "vite-svg-loader";
 import UnoCSS from "unocss/vite";
+import { presetIcons } from "unocss";
 
 /** 配置项文档：https://cn.vitejs.dev/config */
 export default ({ mode }: ConfigEnv): UserConfigExport => {
@@ -30,6 +31,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       cors: true,
       /** 端口被占用时，是否直接退出 */
       strictPort: false,
+      // 热模块替换
       hmr: true,
       /** 接口代理 */
       proxy: {
@@ -90,7 +92,14 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
         symbolId: "icon-[dir]-[name]",
       }),
       /** UnoCSS */
-      UnoCSS(),
+      UnoCSS({
+        presets: [
+          presetIcons({
+            scale: 1.2, // 可以根据需要调整图标大小
+            warn: true, // 开发时显示警告
+          }),
+        ],
+      }),
     ],
   };
 };

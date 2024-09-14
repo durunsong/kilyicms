@@ -1,6 +1,7 @@
 <template>
   <div h-full uno-padding-20>
     <div h-full text-center flex select-none all:transition-400>
+      <span class="i-whh-mymusic" role="img" aria-hidden="true" />
       <div ma>
         <div
           text-5xl
