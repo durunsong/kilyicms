@@ -35,6 +35,7 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 - **CSS Variables**: Mainly controls the layout and color of the project.
 - **ESlint**: Code linting.
 - **Prettier**: Code formatting.
+- **Vue-i18n**：Simple, powerful international plugin.
 - **Axios**: Handles network requests (already encapsulated).
 - **UnoCSS**: A high-performance, highly flexible, on-demand atomic CSS engine.
 - **Mobile Compatibility**: Layouts compatible with mobile device resolutions.
@@ -75,11 +76,12 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 19. Multi-language management, language switch component, batch translation script 🎈
 20. Common method hooks encapsulation 🎈
 21. Frontend route separation 🎈
-22. Custom directive global encapsulation (currently permission directive) 🎈
-23. Frontend code automated Jenkins deployment or deployment via Node.js CLI
-24. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
-25. Large file chunk upload (standalone upload, upload in rich text editor)
-26. Micro-frontend architecture construction, dynamic route addition, dynamic subsystem addition, properly handle CSS sandboxing
+22. Integrated label Icons preset works unmatched with unocss 🎈
+23. Custom directive global encapsulation (currently permission directive) 🎈
+24. Frontend code automated Jenkins deployment or deployment via Node.js CLI
+25. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
+26. Large file chunk upload (standalone upload, upload in rich text editor)
+27. Micro-frontend architecture construction, dynamic route addition, dynamic subsystem addition, properly handle CSS sandboxing
 
 ###### Backend Completed:
 
@@ -106,7 +108,7 @@ git clone https://github.com/durunsong/kilyicms.git
 cd kilyicms (Frontend project)
 cd server (Backend project)
 
-```pnpm
+​```pnpm
 # Setup
 
 1. Install the recommended plugins from the .vscode directory.
