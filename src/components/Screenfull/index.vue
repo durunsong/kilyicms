@@ -15,7 +15,7 @@
     </el-tooltip>
     <!-- 内容区 -->
     <el-dropdown v-else :disabled="isFullscreen">
-      <SvgIcon :name="contentLargeSvgName" />
+      <SvgIcon :name="contentLargeSvgName" :aria-hidden="false" />
       <template #dropdown>
         <el-dropdown-menu>
           <!-- 内容区放大 -->
