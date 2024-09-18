@@ -244,8 +244,8 @@ const registerRules: FormRules = {
         rule: InternalRuleItem,
         value: string,
         callback: (error?: string | Error) => void,
-        _source: Values, // 将 source 改为 _source
-        _options: ValidateOption, // 将 options 改为 _options
+        _source: Values,
+        _options: ValidateOption,
       ) => {
         if (value !== form.password) {
           callback(new Error(t("passwords_are_different")));
