@@ -137,13 +137,9 @@ const en = {
   four_level_routing_cache: "Four-level routing cache",
   your_role: "Your role is",
   switching_users: "Switching users (simulating re-login)",
-  admin_role_is_visible:
-    "Only the admin role is visible on the current page. After the role is changed, the page cannot be displayed",
   UnoCSS_use_case:
     "This page is a UnoCSS use case, and the rest of the pages still use Scss",
   Reimagining_atomized_CSS: "Recommended reading: Reimagining atomized CSS",
-  so_only_admin_can_see:
-    "v-permission='['admin']' is used here so only admin can see this",
   here_adopted: "Here adopted",
   so_only: "So only",
   so: "So",
@@ -227,6 +223,7 @@ const en = {
   Left_side_mode: "Left side mode",
   Top_mode: "Top mode",
   mixed_mode: "Mixed mode",
+  Cancel_duplicate_request: "Cancel duplicate request",
 };
 
 export default en;
