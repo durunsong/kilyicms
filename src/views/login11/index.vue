@@ -168,9 +168,10 @@ import { loginApi, registerApi } from "@/service/index";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
 import { userPomotionStore } from "@/store/modules/promotion";
-import type { FormInstance, FormItemRule } from "element-plus";
+import type { FormInstance, FormRules } from "element-plus";
 import imgUrl from "@/assets/images/login_banner.gif";
 import SlideVerify from "@/components/SlideVerify/index.vue";
+import { InternalRuleItem, Values, ValidateOption } from "async-validator";
 import { useGreeting } from "@/hooks/useGreeting";
 const sliderVisible = ref<boolean>(false); //滑动验证ui
 const isSlider = ref<boolean>(false); // 是否开启验证
@@ -217,7 +218,7 @@ const rules = {
   ],
 };
 
-const registerRules = {
+const registerRules: FormRules = {
   userName: [
     {
       required: true,
@@ -240,9 +241,11 @@ const registerRules = {
     },
     {
       validator: (
-        rule: FormItemRule,
+        rule: InternalRuleItem,
         value: string,
-        callback: (error?: Error) => void,
+        callback: (error?: string | Error) => void,
+        _source: Values, // 将 source 改为 _source
+        _options: ValidateOption, // 将 options 改为 _options
       ) => {
         if (value !== form.password) {
           callback(new Error(t("passwords_are_different")));
