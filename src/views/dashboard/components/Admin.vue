@@ -5,7 +5,7 @@
       @update:checked="handleSwitchChange"
     />
     <p>Switch is {{ switchState ? "ON" : "OFF" }}</p>
-    <el-empty :description="t('hello_admin_page')" />
+    <el-empty :description="t('hello_admin_page', { admin: 'admin' })" />
   </div>
 </template>
 

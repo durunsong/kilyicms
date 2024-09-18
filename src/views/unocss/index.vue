@@ -13,7 +13,7 @@
           UnoCSS
         </div>
         <div op30 dark:op60 text-lg fw300 m1>
-          {{ t("UnoCSS_use_case") }}
+          {{ t("UnoCSS_use_case", { UnoCSS: "UnoCSS", Scss: "Scss" }) }}
         </div>
         <div
           m2
@@ -28,7 +28,7 @@
           <a
             href="https://antfu.me/posts/reimagine-atomic-css-zh"
             target="_blank"
-            >{{ t("Reimagining_atomized_CSS") }}</a
+            >{{ t("Reimagining_atomized_CSS", { CSS: "CSS" }) }}</a
           >
         </div>
       </div>
