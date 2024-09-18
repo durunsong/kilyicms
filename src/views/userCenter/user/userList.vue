@@ -147,7 +147,7 @@ interface ListItem {
   password: string;
 }
 
-const pickerData = ref<[Date, Date] | null>(null);
+const pickerData = ref<[Date, Date] | undefined>(undefined);
 const userList = ref<ListItem[]>([]);
 const total = ref<number>(0);
 const searchKeyword = ref<string>("");
@@ -192,7 +192,7 @@ const formatHandleChange = (value: [Date, Date] | null) => {
 // 清空
 const handleClearItems = () => {
   if (pickerData.value || searchKeyword.value) {
-    pickerData.value = null;
+    pickerData.value = undefined;
     formatHandleChange(null);
     handleClearIpt();
     ElMessage.success(t("Clear_successfully"));
