@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tooltip effect="dark" :content="t('search_menu')" placement="bottom">
-      <SvgIcon name="search" @click="handleOpen" />
+      <SvgIcon name="search" @click="handleOpen" :aria-hidden="false" />
     </el-tooltip>
     <SearchModal v-model="modalVisible" />
   </div>

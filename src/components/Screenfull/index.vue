@@ -7,7 +7,11 @@
       :content="fullscreenTips"
       placement="bottom"
     >
-      <SvgIcon :name="fullscreenSvgName" @click="handleFullscreenClick" />
+      <SvgIcon
+        :name="fullscreenSvgName"
+        @click="handleFullscreenClick"
+        :aria-hidden="false"
+      />
     </el-tooltip>
     <!-- 内容区 -->
     <el-dropdown v-else :disabled="isFullscreen">
