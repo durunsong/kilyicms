@@ -12,7 +12,7 @@ export default defineConfig({
     presetAttributify(),
     /** 默认预设 */
     presetUno(),
-    // 图标预设
+    /** 图标预设 */
     presetIcons({
       scale: 1.2, // 可以根据需要调整图标大小
       warn: true, // 开发时显示警告
