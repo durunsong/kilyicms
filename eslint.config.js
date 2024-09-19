@@ -71,7 +71,7 @@ export default [
         "error",
         {
           html: {
-            void: "always",
+            void: "never",
             normal: "never",
             component: "always",
           },
