@@ -10,5 +10,5 @@
     "strict": true,
     "noEmit": false
   },
-  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/shims-vue.d.ts", "types/shims-vue.d.ts", "types/vite-env.d.ts"]
 }

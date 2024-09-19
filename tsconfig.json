@@ -19,12 +19,7 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "types": [
-      "node",
-      "vite/client",
-      /** Element Plus 的 Volar 插件支持 */
-      "element-plus/global"
-    ],
+    "types": ["node"],
     "typeRoots": ["./node_modules/@types", "./types"],
     /** baseUrl 用来告诉编译器到哪里去查找模块，使用非相对模块时必须配置此项 */
     "baseUrl": "./",
@@ -33,14 +28,7 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "types/**/*.d.ts",
-    "vite.config.ts"
-  ],
+  "include": ["src/**/*.d.ts", "src/**/*.tsx", "types/**/*.d.ts"],
   /** 编译器默认排除的编译文件 */
   "exclude": ["node_modules", "dist"],
   "references": [
