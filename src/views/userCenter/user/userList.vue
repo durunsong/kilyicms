@@ -7,7 +7,7 @@
       @keyup.enter="handleSearchItems"
       clearable
       @clear="handleClearIpt"
-    />
+    ></el-input>
     <div class="date_time_picker">
       <el-date-picker
         v-model="pickerData"
@@ -17,7 +17,7 @@
         format="YYYY-MM-DD HH:mm:ss"
         date-format="YYYY-MM-DD"
         @change="formatHandleChange"
-      />
+      ></el-date-picker>
     </div>
     <el-button
       class="search_btn"
@@ -45,19 +45,19 @@
     </el-table-column>
     <el-table-column :label="t('name')" align="center">
       <template #default="scope">
-        <span v-html="highlightKeyword(scope.row.userName)" />
+        <span v-html="highlightKeyword(scope.row.userName)"></span>
       </template>
     </el-table-column>
     <el-table-column
       prop="create_time"
       :label="t('create_time')"
       align="center"
-    />
+    ></el-table-column>
     <el-table-column
       prop="update_time"
       :label="t('update_time')"
       align="center"
-    />
+    ></el-table-column>
     <el-table-column :label="t('operates')" align="center">
       <template #default="scope">
         <el-button @click="editItem(scope.row)">{{ t("edit") }}</el-button>
@@ -76,19 +76,22 @@
       :total="total"
       :current-page="queryParams.pageNum"
       :page-size="queryParams.pageSize"
-    />
+    ></el-pagination>
   </div>
   <!-- add dialog -->
   <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
     <el-form :model="newItem">
       <el-form-item :label="t('Account_name')">
-        <el-input v-model="newItem.userName" />
+        <el-input v-model="newItem.userName"></el-input>
       </el-form-item>
       <el-form-item :label="t('password')">
-        <el-input v-model="newItem.password" autocomplete="new-password" />
+        <el-input
+          v-model="newItem.password"
+          autocomplete="new-password"
+        ></el-input>
       </el-form-item>
       <el-form-item :label="t('description')">
-        <el-input v-model="newItem.description" />
+        <el-input v-model="newItem.description"></el-input>
       </el-form-item>
     </el-form>
     <template v-slot:footer>
@@ -104,13 +107,16 @@
   <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
     <el-form :model="editItemData">
       <el-form-item :label="t('name')">
-        <el-input v-model="editItemData.userName" />
+        <el-input v-model="editItemData.userName"></el-input>
       </el-form-item>
       <el-form-item :label="t('password')">
-        <el-input v-model="editItemData.password" autocomplete="new-password" />
+        <el-input
+          v-model="editItemData.password"
+          autocomplete="new-password"
+        ></el-input>
       </el-form-item>
       <el-form-item :label="t('description')">
-        <el-input v-model="editItemData.description" />
+        <el-input v-model="editItemData.description"></el-input>
       </el-form-item>
     </el-form>
     <template v-slot:footer>

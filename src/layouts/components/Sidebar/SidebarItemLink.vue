@@ -5,10 +5,10 @@
     target="_blank"
     rel="noopener"
   >
-    <slot />
+    <slot></slot>
   </a>
   <router-link v-else :to="props.to">
-    <slot />
+    <slot></slot>
   </router-link>
 </template>
 

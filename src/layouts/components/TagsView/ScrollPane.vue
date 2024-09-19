@@ -1,7 +1,7 @@
 <template>
   <div class="scroll-container">
     <el-icon class="arrow left" @click="scrollTo('left')">
-      <ArrowLeft />
+      <ArrowLeft></ArrowLeft>
     </el-icon>
     <el-scrollbar
       ref="scrollbarRef"
@@ -9,17 +9,17 @@
       @scroll="scroll"
     >
       <div ref="scrollbarContentRef" class="scrollbar-content">
-        <slot />
+        <slot></slot>
       </div>
     </el-scrollbar>
     <el-icon class="arrow right" @click="scrollTo('right')">
-      <ArrowRight />
+      <ArrowRight></ArrowRight>
     </el-icon>
     <Screenfull
       v-if="settingsStore.showScreenfull"
       :content="true"
       class="screenfull"
-    />
+    ></Screenfull>
   </div>
 </template>
 

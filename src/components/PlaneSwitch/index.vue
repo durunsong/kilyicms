@@ -3,11 +3,11 @@
     <input type="checkbox" v-model="checked" @change="handleChange" />
     <div>
       <div>
-        <SvgIcon name="slipway" color="currentColor" />
+        <SvgIcon name="slipway" color="currentColor"></SvgIcon>
       </div>
-      <span class="street_middle" />
-      <span class="cloud" />
-      <span class="cloud two" />
+      <span class="street_middle"></span>
+      <span class="cloud"></span>
+      <span class="cloud two"></span>
     </div>
   </label>
 </template>

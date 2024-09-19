@@ -1,10 +1,10 @@
 <template>
   <div class="owl" :class="{ 'owl-password': props.closeEyes }">
-    <div class="hand-down-left" />
-    <div class="hand-down-right" />
-    <div class="hand-up-left" />
-    <div class="hand-up-right" />
-    <div class="close-eyes" />
+    <div class="hand-down-left"></div>
+    <div class="hand-down-right"></div>
+    <div class="hand-up-left"></div>
+    <div class="hand-up-right"></div>
+    <div class="close-eyes"></div>
   </div>
 </template>
 

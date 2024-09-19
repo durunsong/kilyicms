@@ -3,7 +3,7 @@
     <h4>
       {{ t("demo_description", { hook: "hook" }) }}
     </h4>
-    <div ref="localRef" class="local" />
+    <div ref="localRef" class="local"></div>
     <el-button-group>
       <el-button
         type="primary"
