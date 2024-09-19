@@ -7,7 +7,14 @@ import prettier from "eslint-plugin-prettier";
 export default [
   // 忽略文件
   {
-    ignores: [".DS_Store", "node_modules", "dist", "dist-ssr", "*.local", ".npmrc"] // 原 .eslintignore 文件的内容
+    ignores: [
+      ".DS_Store",
+      "node_modules",
+      "dist",
+      "dist-ssr",
+      "*.local",
+      ".npmrc",
+    ], // 原 .eslintignore 文件的内容
   },
   {
     files: ["**/*.ts", "**/*.js", "**/*.jsx", "**/*.tsx", "**/*.vue"], // 作用范围
@@ -22,14 +29,14 @@ export default [
         jsxPragma: "React",
         ecmaFeatures: {
           jsx: true,
-          tsx: true
-        }
-      }
+          tsx: true,
+        },
+      },
     },
     plugins: {
       vue, // 使用 vue 插件
       "@typescript-eslint": typescript, // 使用 TypeScript 插件
-      prettier // 使用 Prettier 插件
+      prettier, // 使用 Prettier 插件
     },
     rules: {
       // TypeScript 规则
@@ -45,15 +52,15 @@ export default [
         "error",
         {
           argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_"
-        }
+          varsIgnorePattern: "^_",
+        },
       ],
       "no-unused-vars": [
         "error",
         {
           argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_"
-        }
+          varsIgnorePattern: "^_",
+        },
       ],
       // Vue 规则
       "vue/no-v-html": "off",
@@ -65,20 +72,20 @@ export default [
         {
           html: {
             void: "always",
-            normal: "always",
-            component: "always"
+            normal: "never",
+            component: "always",
           },
           svg: "always",
-          math: "always"
-        }
+          math: "always",
+        },
       ],
       // Prettier 规则
       "prettier/prettier": [
         "error",
         {
-          endOfLine: "auto"
-        }
-      ]
-    }
-  }
+          endOfLine: "auto",
+        },
+      ],
+    },
+  },
 ];
