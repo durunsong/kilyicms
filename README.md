@@ -165,10 +165,6 @@ pnpm build:prod
 
 pnpm lint
 
-# Unit tests
-
-pnpm test
-```
 
 ## Git Commit Guidelines
 
@@ -196,3 +192,4 @@ pnpm test
 It's not easy to get stars for a small project. If you like this project, feel free to support it with a star! This is the only motivation for the author to keep maintaining it (whisper: after all, it's free).
 
 Let me know if you need any modifications!
+```

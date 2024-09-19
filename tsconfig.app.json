@@ -25,7 +25,6 @@
     "moduleResolution": "node"
   },
   "include": ["env.d.ts", "src/**/*", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["src/**/__tests__/*"],
   "paths": {
     "@/*": ["./src/*"]
   }
