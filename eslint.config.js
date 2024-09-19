@@ -73,7 +73,7 @@ export default [
           html: {
             void: "never",
             normal: "never",
-            component: "always",
+            component: "never",
           },
           svg: "always",
           math: "always",
