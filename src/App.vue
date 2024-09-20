@@ -1,19 +1,19 @@
 <template>
   <el-config-provider :locale="elementLocale">
-    <router-view />
+    <router-view></router-view>
   </el-config-provider>
 </template>
 
 <script lang="ts" setup>
 import { useTheme } from "@/hooks/useTheme";
 import { useElementPlusLocale } from "@/hooks/useElementPlusLocale";
-import { useDetectDevTools } from "@/hooks/useDetectDevTools";
+// import { useDetectDevTools } from "@/hooks/useDetectDevTools";
 
 /** 生产环境禁止用户在浏览器中调试 */
 const VITE_MODE = import.meta.env.VITE_MODE;
 
 if (VITE_MODE === "production") {
-  useDetectDevTools();
+  // useDetectDevTools();
 }
 
 const { initTheme } = useTheme();
