@@ -34,3 +34,4 @@ lerna-debug.log*
 # Use the PNPM
 package-lock.json
 yarn.lock
+.vercel
