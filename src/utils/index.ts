@@ -1,9 +1,9 @@
-import dayjs from "dayjs";
+import moment from "moment";
 import { removeConfigLayout } from "@/utils/cache/local-storage";
 
 /** 格式化时间 */
 export const formatDateTime = (time: string | number | Date) => {
-  return time ? dayjs(new Date(time)).format("YYYY-MM-DD HH:mm:ss") : "N/A";
+  return time ? moment(new Date(time)).format("YYYY-MM-DD HH:mm:ss") : "N/A";
 };
 
 /** 用 JS 获取全局 css 变量 */
