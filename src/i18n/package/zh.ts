@@ -15,7 +15,7 @@ const zh = {
   router_home: "首页",
   router_login: "登录",
   router_register: "注册",
-  router_user: "个人中心",
+  router_user: "用户设置",
   router_user_management: "用户管理",
   router_user_recycle_bin: "已删除用户",
   router_Rich_text_summary: "富文本管理",

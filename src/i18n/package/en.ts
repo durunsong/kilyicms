@@ -16,7 +16,7 @@ const en = {
   router_home: "Home",
   router_login: "Login",
   router_register: "Register",
-  router_user: "User",
+  router_user: "user settings",
   router_user_management: "User Management",
   router_user_recycle_bin: "User Recycle Bin",
   router_Rich_text_summary: "Rich Text Summary",
