@@ -5,22 +5,25 @@
       :is-active="appStore.sidebar.opened"
       class="hamburger"
       @toggle-click="toggleSidebar"
-    />
-    <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" />
-    <Sidebar v-if="isTop && !isMobile" class="sidebar" />
+    ></Hamburger>
+    <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb"></Breadcrumb>
+    <Sidebar v-if="isTop && !isMobile" class="sidebar"></Sidebar>
     <div class="right-menu">
-      <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
-      <Screenfull v-if="showScreenfull" class="right-menu-item" />
+      <SearchMenu v-if="showSearchMenu" class="right-menu-item"></SearchMenu>
+      <Screenfull v-if="showScreenfull" class="right-menu-item"></Screenfull>
       <div class="mr-10px">
         <el-tooltip effect="dark" :content="t('Theme_Mode')" placement="bottom">
-          <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
+          <ThemeSwitch
+            v-if="showThemeSwitch"
+            class="right-menu-item"
+          ></ThemeSwitch>
         </el-tooltip>
       </div>
-      <LanguageSwitcher />
-      <Notify v-if="showNotify" class="right-menu-item" />
+      <LanguageSwitcher></LanguageSwitcher>
+      <Notify v-if="showNotify" class="right-menu-item"></Notify>
       <el-dropdown class="right-menu-item">
         <div class="right-menu-avatar">
-          <el-avatar :icon="UserFilled" :size="30" />
+          <el-avatar :icon="UserFilled" :size="30"></el-avatar>
           <span>{{ userStore.username }}</span>
         </div>
         <template #dropdown>
@@ -28,7 +31,7 @@
             <a target="_blank" href="https://github.com/durunsong/kilyicms">
               <el-dropdown-item>GitHub</el-dropdown-item>
             </a>
-            <a target="_blank" href="https://gitee.com/durunsong/kilyicms">
+            <a target="_blank" href="https://gitee.com/du-runsong/kilyicms">
               <el-dropdown-item>Gitee</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
