@@ -182,8 +182,8 @@ const router = useRouter();
 // const store = userPomotionStore();
 
 const form = reactive<LoginForm>({
-  userName: "",
-  password: "",
+  userName: "admin123",
+  password: "123456",
   confirmPassword: undefined,
 });
 
