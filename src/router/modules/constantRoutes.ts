@@ -10,6 +10,7 @@ export const constant_Routes: RouteRecordRaw[] = [
     component: () => import("@/views/login/index.vue"),
     meta: {
       hidden: true,
+      title: "router_login",
     },
   },
   {

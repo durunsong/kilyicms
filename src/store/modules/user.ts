@@ -5,10 +5,10 @@ import { useTagsViewStore } from "./tags-view";
 import { useSettingsStore } from "./settings";
 import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
-import { loginApi } from "@/api/login";
+// import { loginApi } from "@/api/login";
 // import {  getUserInfoApi } from "@/api/login";
-import { type LoginRequestData } from "@/api/login/types/login";
-// import routeSettings from "@/config/route";
+// import { type LoginRequestData } from "@/api/login/types/login";
+import routeSettings from "@/config/route";
 
 export const useUserStore = defineStore("user", () => {
   const token = ref<string>(getToken() || "");
@@ -18,23 +18,61 @@ export const useUserStore = defineStore("user", () => {
   const tagsViewStore = useTagsViewStore();
   const settingsStore = useSettingsStore();
 
+  // 先存储本地模拟权限
+  const adminRoles = localStorage.getItem("token__role");
+
   /** 登录 */
-  const login = async ({ username, password, code }: LoginRequestData) => {
-    const { data } = await loginApi({ username, password, code });
-    setToken(data.token);
-    token.value = data.token;
+  const login = async () => {
+    // const login = async ({ username, password, code }: LoginRequestData) => {
+    // const { data } = await loginApi({ username, password, code });
+    let __data;
+    if (!adminRoles) {
+      __data = {
+        token: "token-admin",
+      };
+    } else if (adminRoles && adminRoles == "token-admin") {
+      __data = {
+        token: "token-admin",
+      };
+    } else {
+      __data = {
+        token: "token-editor",
+      };
+    }
+    setToken(__data.token);
+    token.value = __data.token;
   };
   /** 获取用户详情 */
   const getInfo = async () => {
     // const { data } = await getUserInfoApi()
-    // username.value = data.username
-    username.value = "admin";
+    let __data;
+    if (!adminRoles) {
+      __data = {
+        username: "admin",
+        roles: ["admin"],
+      };
+    } else if (adminRoles && adminRoles == "token-admin") {
+      __data = {
+        username: "admin",
+        roles: ["admin"],
+      };
+    } else {
+      __data = {
+        username: "editor",
+        roles: ["editor"],
+      };
+    }
+    username.value = __data.username;
     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
-    // roles.value = data.roles?.length > 0 ? data.roles : routeSettings.defaultRoles
-    roles.value = ["admin"];
+    roles.value =
+      __data.roles?.length > 0 ? __data.roles : routeSettings.defaultRoles;
   };
   /** 模拟角色变化 */
   const changeRoles = async (role: string) => {
+    // 先存储本地模拟权限切换
+    const roleAdmin = "token-" + role;
+    localStorage.setItem("token__role", roleAdmin);
+
     const newToken = "token-" + role;
     token.value = newToken;
     setToken(newToken);
