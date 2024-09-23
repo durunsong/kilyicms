@@ -5,9 +5,17 @@ import { useTagsViewStore } from "./tags-view";
 import { useSettingsStore } from "./settings";
 import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
-// import { loginApi } from "@/api/login";
-// import {  getUserInfoApi } from "@/api/login";
-// import { type LoginRequestData } from "@/api/login/types/login";
+// import { loginApi } from "@/service/login";
+// import {  getUserInfoApi } from "@/service/login";
+// import { type LoginRequestData } from "@/service/login/types/login";
+// export interface LoginRequestData {
+//   /** admin 或 editor */
+//   username: "admin" | "editor";
+//   /** 密码 */
+//   password: string;
+//   /** 验证码 */
+//   code: string;
+// }
 import routeSettings from "@/config/route";
 
 export const useUserStore = defineStore("user", () => {

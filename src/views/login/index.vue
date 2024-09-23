@@ -165,7 +165,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
 import { useGreeting } from "@/hooks/useGreeting";
 // 登录
 // import { useUserStore } from "@/store/modules/user";
-// import { type LoginRequestData } from "@/api/login/types/login";
+// import { type LoginRequestData } from "@/service/login/types/login";
 const sliderVisible = ref<boolean>(false); //滑动验证ui
 const isSlider = ref<boolean>(false); // 是否开启验证
 import { useI18n } from "vue-i18n";

@@ -17,7 +17,7 @@ import { useFullscreenLoading } from "@/hooks/useFullscreenLoading";
 import {
   getSuccessApi,
   getErrorApi,
-} from "@/api/hook-demo/use-fullscreen-loading";
+} from "@/service/hook-demo/use-fullscreen-loading";
 import { ElMessage } from "element-plus";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
