@@ -23,8 +23,8 @@
       <Notify v-if="showNotify" class="right-menu-item"></Notify>
       <el-dropdown class="right-menu-item">
         <div class="right-menu-avatar">
-          <el-avatar :icon="UserFilled" :size="30"></el-avatar>
-          <span>{{ userStore.username }}</span>
+          <el-avatar :src="userInfo.avatar" :size="30"></el-avatar>
+          <span>{{ userInfo.userName || userStore.username }}</span>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
@@ -50,7 +50,6 @@ import { storeToRefs } from "pinia";
 import { useAppStore } from "@/store/modules/app";
 import { useSettingsStore } from "@/store/modules/settings";
 import { useUserStore } from "@/store/modules/user";
-import { UserFilled } from "@element-plus/icons-vue";
 import Hamburger from "../Hamburger/index.vue";
 import Breadcrumb from "../Breadcrumb/index.vue";
 import Sidebar from "../Sidebar/index.vue";
@@ -72,6 +71,10 @@ const userStore = useUserStore();
 const settingsStore = useSettingsStore();
 const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } =
   storeToRefs(settingsStore);
+
+// 暂时这样用
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+console.log("userInfo", userInfo);
 
 /** 切换侧边栏 */
 const toggleSidebar = () => {

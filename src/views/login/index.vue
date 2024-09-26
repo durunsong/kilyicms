@@ -152,11 +152,11 @@
 import { setToken } from "@/utils/cache/cookies";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 import { ref, reactive } from "vue";
-// import { loginApi, registerApi } from "@/service/index";
-import { registerApi } from "@/service/index";
+import { loginApi, registerApi } from "@/service/index";
+// import { registerApi } from "@/service/index";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
-// import { userPomotionStore } from "@/store/modules/promotion";
+import { userPomotionStore } from "@/store/modules/promotion";
 import type { FormInstance, FormRules } from "element-plus";
 import SlideVerify from "@/components/SlideVerify/index.vue";
 import { InternalRuleItem, Values, ValidateOption } from "async-validator";
@@ -179,7 +179,7 @@ interface LoginForm {
 
 const loading = ref(false);
 const router = useRouter();
-// const store = userPomotionStore();
+const store = userPomotionStore();
 
 const form = reactive<LoginForm>({
   userName: "admin123",
@@ -261,47 +261,38 @@ const handleSlideSuccess = () => {
 const handlerExecutiveLogging = () => {
   // 执行登录操作
   // loading.value = true;
-  // const params = form;
+  const params = form;
   // 登录问候语
   const { showGreetingNotification } = useGreeting(t);
-
-  showGreetingNotification("登录成功", "admin");
-  localStorage.setItem(
-    "token",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQxLCJ1c2VyTmFtZSI6ImFkbWluMTIzIiwiaWF0IjoxNzI3MDcyNDk0LCJleHAiOjE3MjcwNzYwOTR9.YRSpRX5yQN0rE5ZK_ZNirzQVls33gX-hshOYMJQA8is",
-  );
-  setToken(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQxLCJ1c2VyTmFtZSI6ImFkbWluMTIzIiwiaWF0IjoxNzI3MDcyNDk0LCJleHAiOjE3MjcwNzYwOTR9.YRSpRX5yQN0rE5ZK_ZNirzQVls33gX-hshOYMJQA8is",
-  );
-  router.push("/");
-  // loginApi(params)
-  //   .then((res: any) => {
-  //     if (res.status === 200) {
-  //       // 显示问候语
-  //       showGreetingNotification(res.message, res.userInfo.userName);
-  //       // pinia存用户信息
-  //       store.userInfo = res.userInfo;
-  //       store.isCollapse = false;
-  //       setToken(res.token);
-  //       localStorage.setItem("token", res.token);
-  //       router.push("/");
-  //     } else if (res.status === 403) {
-  //       ElNotification({
-  //         message: res.message,
-  //         type: "warning",
-  //       });
-  //     } else {
-  //       ElNotification({
-  //         message: res.message,
-  //         type: "warning",
-  //       });
-  //     }
-  //     loading.value = false;
-  //   })
-  //   .catch((error: Error) => {
-  //     console.log("error", error);
-  //     loading.value = false;
-  //   });
+  loginApi(params)
+    .then((res: any) => {
+      if (res.status === 200) {
+        // 显示问候语
+        showGreetingNotification(res.message, res.userInfo.userName);
+        // pinia存用户信息
+        store.userInfo = res.userInfo;
+        store.isCollapse = false;
+        setToken(res.token);
+        localStorage.setItem("userInfo", JSON.stringify(res.userInfo));
+        localStorage.setItem("token", res.token);
+        router.push("/");
+      } else if (res.status === 403) {
+        ElNotification({
+          message: res.message,
+          type: "warning",
+        });
+      } else {
+        ElNotification({
+          message: res.message,
+          type: "warning",
+        });
+      }
+      loading.value = false;
+    })
+    .catch((error: Error) => {
+      console.log("error", error);
+      loading.value = false;
+    });
 };
 
 // 图形验证弹窗
