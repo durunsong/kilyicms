@@ -118,7 +118,7 @@ const zh = {
   Verification_failed: "验证失败！",
   swipe_right: "向右滑动",
   hello_admin_page: "欢迎来到 {admin} 角色专属首页",
-  hello_editor_page: "欢迎来到 {editor} 角色专属首页",
+  hello_editor_page: "欢迎来到 {user} 角色专属首页",
   back_home: "回到首页",
   query_success: "查询成功",
   query_failed: "查询失败",

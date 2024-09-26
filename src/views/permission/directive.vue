@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <SwitchRoles />
+    <SwitchRoles></SwitchRoles>
     <!-- v-permission 示例 -->
     <div class="margin-top-30">
       <div>
@@ -16,24 +16,24 @@
       </div>
       <div>
         <el-tag
-          v-permission="['editor']"
+          v-permission="['user']"
           type="success"
           size="large"
           effect="plain"
         >
-          {{ t("here_adopted") }} v-permission="['editor']"
-          {{ t("so_only") }} editor {{ t("can_see_this_sentence") }}
+          {{ t("here_adopted") }} v-permission="['user']"
+          {{ t("so_only") }} user {{ t("can_see_this_sentence") }}
         </el-tag>
       </div>
       <div class="margin-top-15">
         <el-tag
-          v-permission="['admin', 'editor']"
+          v-permission="['admin', 'user']"
           type="success"
           size="large"
           effect="plain"
         >
-          {{ t("here_adopted") }} v-permission="['admin', 'editor']"
-          {{ t("so") }} admin {{ t("and") }} editor
+          {{ t("here_adopted") }} v-permission="['admin', 'user']"
+          {{ t("so") }} admin {{ t("and") }} user
           {{ t("can_see_the_words") }}
         </el-tag>
       </div>
@@ -50,19 +50,19 @@
           <el-tag>v-if="checkPermission(['admin'])"</el-tag>
           {{ t("so_only") }} admin {{ t("can_see_this_sentence") }}
         </el-tab-pane>
-        <el-tab-pane v-if="checkPermission(['editor'])" label="editor">
+        <el-tab-pane v-if="checkPermission(['user'])" label="user">
           {{ t("here_adopted") }}
-          <el-tag>v-if="checkPermission(['editor'])"</el-tag>
-          {{ t("so_only") }} editor
+          <el-tag>v-if="checkPermission(['user'])"</el-tag>
+          {{ t("so_only") }} user
           {{ t("can_see_this_sentence") }}
         </el-tab-pane>
         <el-tab-pane
-          v-if="checkPermission(['admin', 'editor'])"
-          :label="'admin' + t('and') + 'editor'"
+          v-if="checkPermission(['admin', 'user'])"
+          :label="'admin' + t('and') + 'user'"
         >
           {{ t("here_adopted") }}
-          <el-tag>v-if="checkPermission(['admin', 'editor'])"</el-tag>
-          {{ t("so") }} admin {{ t("and") }} editor {{ t("can_see_the_words") }}
+          <el-tag>v-if="checkPermission(['admin', 'user'])"</el-tag>
+          {{ t("so") }} admin {{ t("and") }} user {{ t("can_see_the_words") }}
         </el-tab-pane>
       </el-tabs>
     </div>

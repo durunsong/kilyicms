@@ -115,8 +115,7 @@ const spa = {
   Verification_failed: "¡La verificación falló!",
   swipe_right: "Deslizarse a la derecha",
   hello_admin_page: "Bienvenidos a la página principal del personaje de admin",
-  hello_editor_page:
-    "Bienvenidos a la página principal del personaje de editor",
+  hello_editor_page: "Bienvenidos a la página principal del personaje de user",
   back_home: "Vete a casa.",
   query_success: "La consulta fue exitosa",
   query_failed: "La consulta falló",

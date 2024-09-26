@@ -9,8 +9,8 @@ import { resetRouter } from "@/router";
 // import {  getUserInfoApi } from "@/service/login";
 // import { type LoginRequestData } from "@/service/login/types/login";
 // export interface LoginRequestData {
-//   /** admin 或 editor */
-//   username: "admin" | "editor";
+//   /** admin 或 user */
+//   username: "admin" | "user";
 //   /** 密码 */
 //   password: string;
 //   /** 验证码 */
@@ -44,7 +44,7 @@ export const useUserStore = defineStore("user", () => {
       };
     } else {
       __data = {
-        token: "token-editor",
+        token: "token-user",
       };
     }
     setToken(__data.token);
@@ -66,8 +66,8 @@ export const useUserStore = defineStore("user", () => {
       };
     } else {
       __data = {
-        username: "editor",
-        roles: ["editor"],
+        username: "user",
+        roles: ["user"],
       };
     }
     username.value = __data.username;

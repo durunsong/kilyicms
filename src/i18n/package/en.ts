@@ -120,7 +120,7 @@ const en = {
   Verification_failed: "Verification failed!",
   swipe_right: "Swipe right",
   hello_admin_page: "Welcome to the home page of the {admin} role",
-  hello_editor_page: "Welcome to the home page of the {editor} role",
+  hello_editor_page: "Welcome to the home page of the {user} role",
   back_home: "Go Home",
   query_success: "Query success",
   query_failed: "Query failed",

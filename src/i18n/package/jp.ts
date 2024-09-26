@@ -113,7 +113,7 @@ const jp = {
   Verification_failed: "検証に失敗しました！",
   swipe_right: "右にスライド",
   hello_admin_page: "ようこそ{admin}キャラクター専属トップページへ",
-  hello_editor_page: "ようこそ{editor}キャラクター専属トップページへ",
+  hello_editor_page: "ようこそ{user}キャラクター専属トップページへ",
   back_home: "トップページに戻る",
   query_success: "クエリに成功しました",
   query_failed: "クエリに失敗しました",

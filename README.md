@@ -10,9 +10,9 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 
 ## 📺 Online Preview
 
-| Location     | Account         | Link                                 |
-| ------------ | --------------- | ------------------------------------ |
-| github-pages | admin or editor | [Link](https://kilyicms.vercel.app/) |
+| Location     | Account       | Link                                 |
+| ------------ | ------------- | ------------------------------------ |
+| github-pages | admin or user | [Link](https://kilyicms.vercel.app/) |
 
 ## ❤️ Powered by Love
 
@@ -80,7 +80,7 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 23. Custom directive global encapsulation (currently permission directive) 🎈
 24. Frontend code automated Jenkins deployment or deployment via Node.js CLI
 25. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
-26. Large file chunk upload (standalone upload, upload in rich text editor)
+26. Large file chunk upload (standalone upload, upload in rich text user)
 27. Micro-frontend architecture construction, dynamic route addition, dynamic subsystem addition, properly handle CSS sandboxing
 
 ###### Backend Completed:

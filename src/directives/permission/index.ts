@@ -13,7 +13,7 @@ export const permission: Directive = {
       // hasPermission || (el.style.display = "none") // 隐藏
       hasPermission || el.parentNode?.removeChild(el); // 销毁
     } else {
-      throw new Error(`need roles! Like v-permission="['admin','editor']"`);
+      throw new Error(`need roles! Like v-permission="['admin','user']"`);
     }
   },
 };

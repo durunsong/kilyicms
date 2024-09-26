@@ -113,8 +113,7 @@ const it = {
   Verification_failed: "Verifica fallita!",
   swipe_right: "Scorri verso destra",
   hello_admin_page: "Benvenuto nella home page del ruolo {admin} di",
-  hello_editor_page:
-    "Benvenuti nella home page del ruolo {editor} di {editor}.",
+  hello_editor_page: "Benvenuti nella home page del ruolo {user} di {user}.",
   back_home: "Vai a casa",
   query_success: "Domanda riuscita",
   query_failed: "Query fallita",

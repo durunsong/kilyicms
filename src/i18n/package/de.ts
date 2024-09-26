@@ -115,7 +115,7 @@ const de = {
   Verification_failed: "Überprüfung fehlgeschlagen!",
   swipe_right: "Nach rechts wischen",
   hello_admin_page: "Willkommen auf der Startseite der {admin} Rolle",
-  hello_editor_page: "Willkommen auf der Homepage der {editor} Rolle",
+  hello_editor_page: "Willkommen auf der Homepage der {user} Rolle",
   back_home: "Nach Hause gehen",
   query_success: "Abfrageerfolg",
   query_failed: "Abfrage fehlgeschlagen",

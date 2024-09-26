@@ -4,8 +4,8 @@
     <div class="switch-roles">
       <span>{{ t("switching_users") }} ：</span>
       <el-radio-group v-model="switchRoles">
-        <el-radio-button label="editor" value="editor" />
-        <el-radio-button label="admin" value="admin" />
+        <el-radio-button label="user" value="user"></el-radio-button>
+        <el-radio-button label="admin" value="admin"></el-radio-button>
       </el-radio-group>
     </div>
   </div>

@@ -114,8 +114,7 @@ const pl = {
   Verification_failed: "Weryfikacja nie powiodła się!",
   swipe_right: "Przesuń w prawo",
   hello_admin_page: "Witamy na stronie głównej roli {admin}.",
-  hello_editor_page:
-    "Witamy na stronie głównej roli {editor} na stronie głównej",
+  hello_editor_page: "Witamy na stronie głównej roli {user} na stronie głównej",
   back_home: "Idź do domu",
   query_success: "Powodzenie zapytania",
   query_failed: "Zapytanie nie powiodło się",

@@ -114,7 +114,7 @@ const pt = {
   Verification_failed: "A verificação falhou!",
   swipe_right: "Deslizar para a direita",
   hello_admin_page: "Bem-vindo à página inicial da função {admin}",
-  hello_editor_page: "Bem-vindo à página inicial da função {editor}",
+  hello_editor_page: "Bem-vindo à página inicial da função {user}",
   back_home: "Ir para casa",
   query_success: "Sucesso da consulta",
   query_failed: "A consulta falhou",

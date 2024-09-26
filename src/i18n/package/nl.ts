@@ -113,7 +113,7 @@ const nl = {
   Verification_failed: "Verificatie mislukt!",
   swipe_right: "Veeg naar rechts",
   hello_admin_page: "Welkom op de startpagina van de {admin} rol",
-  hello_editor_page: "Welkom op de homepage van de {editor} rol",
+  hello_editor_page: "Welkom op de homepage van de {user} rol",
   back_home: "Ga naar huis",
   query_success: "Zoeksucces",
   query_failed: "Query mislukt",

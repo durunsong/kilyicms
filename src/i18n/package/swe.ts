@@ -113,7 +113,7 @@ const swe = {
   Verification_failed: "Verifiering misslyckades!",
   swipe_right: "Svep åt höger",
   hello_admin_page: "Välkommen till startsidan för {admin}-rollen",
-  hello_editor_page: "Välkommen till startsidan för {editor}-rollen",
+  hello_editor_page: "Välkommen till startsidan för {user}-rollen",
   back_home: "Gå hem",
   query_success: "Fråga lyckad",
   query_failed: "Fråga misslyckades",

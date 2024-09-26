@@ -145,7 +145,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     meta: {
       title: "router_Authority_case",
       svgIcon: "lock",
-      roles: ["admin", "editor"], // 可以在根路由中设置角色
+      roles: ["admin", "user"], // 可以在根路由中设置角色
       alwaysShow: true, // 将始终显示根菜单
     },
     children: [

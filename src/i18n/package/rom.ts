@@ -114,7 +114,7 @@ const rom = {
   Verification_failed: "Verificarea a eşuat!",
   swipe_right: "Trage cu degetul spre dreapta",
   hello_admin_page: "Bine ați venit pe pagina principală a rolului {admin}.",
-  hello_editor_page: "Bine ați venit pe pagina principală a rolului {editor}.",
+  hello_editor_page: "Bine ați venit pe pagina principală a rolului {user}.",
   back_home: "Du-te acasă",
   query_success: "Succes interogare",
   query_failed: "Interogare eșuată",

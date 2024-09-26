@@ -113,7 +113,7 @@ const kor = {
   Verification_failed: "인증 실패!",
   swipe_right: "오른쪽으로 미끄러지다",
   hello_admin_page: "{admin} 캐릭터 전용 첫 페이지에 오신 것을 환영합니다",
-  hello_editor_page: "{editor} 캐릭터 전용 첫 페이지에 오신 것을 환영합니다",
+  hello_editor_page: "{user} 캐릭터 전용 첫 페이지에 오신 것을 환영합니다",
   back_home: "첫 페이지로 돌아가기",
   query_success: "질의 성공",
   query_failed: "질의 실패",

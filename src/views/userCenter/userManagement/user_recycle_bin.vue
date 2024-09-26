@@ -254,7 +254,7 @@ onMounted(() => {
 </style>
 
 <style lang="scss" scoped>
-:deep(.el-date-editor) {
+:deep(.el-date-user) {
   height: 41px;
 }
 
