@@ -31,6 +31,27 @@ export const constant_Routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: "/function-card",
+    component: Layouts,
+    redirect: "/function-card/functions-and-Components",
+    name: "functionCard",
+    meta: {
+      title: "function_card",
+      elIcon: "Grid",
+      alwaysShow: true,
+    },
+    children: [
+      {
+        path: "functions-and-Components",
+        component: () => import("@/views/function-card/index.vue"),
+        name: "FunctionsAndComponents",
+        meta: {
+          title: "router_Functions_and_Components",
+        },
+      },
+    ],
+  },
+  {
     path: "/unocss",
     component: Layouts,
     redirect: "/unocss/index",
@@ -49,7 +70,7 @@ export const constant_Routes: RouteRecordRaw[] = [
   {
     path: "/hook-demo",
     component: Layouts,
-    redirect: "/hook-demo/use-fetch-select",
+    redirect: "/hook-demo/use-fullscreen-loading",
     name: "HookDemo",
     meta: {
       title: "router_Hooks",

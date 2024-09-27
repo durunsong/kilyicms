@@ -37,6 +37,7 @@ const en = {
   router_Page_level_authority: "Page level authority",
   router_Button_level_authority: "Button level authority",
   router_Site_Configuration: "Site Configuration",
+  router_Functions_and_Components: "Functions and Components",
 
   // 其他字段
   select_language: "Select Language",
@@ -224,6 +225,7 @@ const en = {
   Top_mode: "Top mode",
   mixed_mode: "Mixed mode",
   Cancel_duplicate_request: "Cancel duplicate request",
+  function_card: "Function Card",
 };
 
 export default en;

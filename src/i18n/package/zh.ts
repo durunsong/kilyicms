@@ -36,6 +36,7 @@ const zh = {
   router_Page_level_authority: "页面级权限",
   router_Button_level_authority: "按钮级权限",
   router_Site_Configuration: "前台网站配置",
+  router_Functions_and_Components: "功能与组件",
   // 公共提示字段
   select_language: "选择语言",
   confirm_ok_text: "确认",
@@ -219,6 +220,7 @@ const zh = {
   Left_side_mode: "左侧模式",
   Top_mode: "顶部模式",
   mixed_mode: "混合模式",
+  function_card: "功能卡片",
 };
 
 export default zh;
