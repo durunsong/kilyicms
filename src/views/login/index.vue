@@ -269,7 +269,6 @@ const handlerExecutiveLogging = () => {
         showGreetingNotification(res.message, res.userInfo.userName);
         setToken(res.token);
         setLocalData(CACHE_KEY.USER_INFO, res.userInfo);
-        setLocalData(CACHE_KEY.TOKEN, res.token);
         router.push("/");
       } else if (res.status === 403) {
         ElNotification({
