@@ -5,6 +5,8 @@ import { useTagsViewStore } from "./tags-view";
 import { useSettingsStore } from "./settings";
 import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
+import CACHE_KEY from "@/constants/cache-key";
+import { getLocalData, setLocalData } from "@/utils/cache/local-storage";
 // import { loginApi } from "@/service/login";
 // import {  getUserInfoApi } from "@/service/login";
 // import { type LoginRequestData } from "@/service/login/types/login";
@@ -27,7 +29,7 @@ export const useUserStore = defineStore("user", () => {
   const settingsStore = useSettingsStore();
 
   // 先存储本地模拟权限
-  const adminRoles = localStorage.getItem("token__role");
+  const adminRoles = getLocalData(CACHE_KEY.TOKEN_ROLE);
 
   /** 登录 */
   const login = async () => {
@@ -79,7 +81,7 @@ export const useUserStore = defineStore("user", () => {
   const changeRoles = async (role: string) => {
     // 先存储本地模拟权限切换
     const roleAdmin = "token-" + role;
-    localStorage.setItem("token__role", roleAdmin);
+    setLocalData(CACHE_KEY.TOKEN_ROLE, roleAdmin);
 
     const newToken = "token-" + role;
     token.value = newToken;

@@ -11,7 +11,7 @@
     >
       <template #reference>
         <div class="reference_btn">
-          <SvgIcon name="select_lang" />
+          <SvgIcon name="select_lang"></SvgIcon>
           {{ current_language }}
         </div>
       </template>
@@ -48,13 +48,15 @@ import { langList } from "@/utils/langList";
 import { ref, computed, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import CACHE_KEY from "@/constants/cache-key";
+import { getLocalData, setLocalData } from "@/utils/cache/local-storage";
 
 const { t, locale } = useI18n();
 const router = useRouter();
 const popoverVisible = ref(false);
 const checkList_status = ref<string[]>([]);
 const langue = computed(() => {
-  return localStorage.getItem("localLang") || "en";
+  return getLocalData(CACHE_KEY.LOCAL_LANG) || "en";
 });
 
 // 去掉checkbox双击默认取消勾选事件
@@ -91,7 +93,7 @@ const ChangeLanguage = () => {
 const confirmLang = () => {
   const status_lang = checkList_status.value[0];
   locale.value = status_lang;
-  localStorage.setItem("localLang", status_lang);
+  setLocalData(CACHE_KEY.LOCAL_LANG, status_lang);
   router.go(0);
 };
 </script>

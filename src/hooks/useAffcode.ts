@@ -1,5 +1,5 @@
 // 读取url键值对hooks
-import { userPomotionStore } from "@/store";
+import { userPomotionStore } from "@/store/modules/promotion";
 
 export const useAffcode = () => {
   const url = window.location.href;

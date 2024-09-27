@@ -61,6 +61,8 @@ import SearchMenu from "@/components/SearchMenu/index.vue";
 import { useDevice } from "@/hooks/useDevice";
 import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { useI18n } from "vue-i18n";
+import CACHE_KEY from "@/constants/cache-key";
+import { getLocalData } from "@/utils/cache/local-storage";
 
 const { t } = useI18n();
 const { isMobile } = useDevice();
@@ -73,8 +75,7 @@ const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } =
   storeToRefs(settingsStore);
 
 // 暂时这样用
-const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-console.log("userInfo", userInfo);
+const userInfo: any = getLocalData(CACHE_KEY.USER_INFO);
 
 /** 切换侧边栏 */
 const toggleSidebar = () => {

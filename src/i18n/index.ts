@@ -1,6 +1,12 @@
 import { createI18n } from "vue-i18n";
 import messages from "@/i18n/package";
 import { langList } from "@/utils/langList";
+import CACHE_KEY from "@/constants/cache-key";
+import {
+  getLocalData,
+  setLocalData,
+  removeLocalData,
+} from "@/utils/cache/local-storage";
 
 // 支持的语言
 const langListArr: string[] = langList.map((lang) => lang.category);
@@ -9,11 +15,11 @@ const langListArr: string[] = langList.map((lang) => lang.category);
 const navLang: string = navigator.language.substring(0, 2);
 
 // 获取本地存储的语言
-let localLang: any = localStorage.getItem("localLang");
+let localLang: any = getLocalData(CACHE_KEY.LOCAL_LANG);
 
 // 处理其他浏览器语言格式
 if (localLang === "zh-cn" || localLang === "en-us") {
-  localStorage.removeItem("localLang");
+  removeLocalData(CACHE_KEY.LOCAL_LANG);
   localLang = "en";
 }
 
@@ -24,7 +30,7 @@ if (!langListArr.includes(localLang)) {
   } else {
     localLang = "en";
   }
-  localStorage.setItem("localLang", localLang);
+  setLocalData(CACHE_KEY.LOCAL_LANG, localLang);
 }
 
 // 创建 i18n 实例

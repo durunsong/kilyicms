@@ -1,6 +1,8 @@
 // 将 Element Plus 的语言包引入到项目中 切换组件语言hooks
 import { ref, watchEffect } from "vue";
 import { langList } from "@/utils/langList";
+import CACHE_KEY from "@/constants/cache-key";
+import { getLocalData } from "@/utils/cache/local-storage";
 import zhCn from "element-plus/es/locale/lang/zh-cn";
 import en from "element-plus/es/locale/lang/en";
 import pl from "element-plus/es/locale/lang/pl";
@@ -42,7 +44,7 @@ export const useElementPlusLocale = () => {
   const elementLocale = ref(zhCn); // 默认语言
 
   const setElementLocale = () => {
-    const localLang = localStorage.getItem("localLang") || "en"; // 默认设置英文
+    const localLang = getLocalData(CACHE_KEY.LOCAL_LANG) || "en"; // 默认设置英文
     const langObj = langList.find((lang) => lang.category === localLang);
 
     if (langObj && elLocaleMap[langObj.el_lang]) {

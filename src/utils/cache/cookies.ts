@@ -1,14 +1,13 @@
 /** 统一处理 Cookie */
-
-import CacheKey from "@/constants/cache-key";
+import CACHE_KEY from "@/constants/cache-key";
 import Cookies from "js-cookie";
 
 export const getToken = () => {
-  return Cookies.get(CacheKey.TOKEN);
+  return Cookies.get(CACHE_KEY.TOKEN);
 };
 export const setToken = (token: string) => {
-  Cookies.set(CacheKey.TOKEN, token);
+  Cookies.set(CACHE_KEY.TOKEN, token);
 };
 export const removeToken = () => {
-  Cookies.remove(CacheKey.TOKEN);
+  Cookies.remove(CACHE_KEY.TOKEN);
 };

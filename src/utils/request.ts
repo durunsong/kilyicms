@@ -6,6 +6,8 @@ import axios, {
 import { ElNotification, ElLoading } from "element-plus";
 import { useRouter } from "vue-router";
 import i18n from "@/i18n";
+import CACHE_KEY from "@/constants/cache-key";
+import { getLocalData } from "@/utils/cache/local-storage";
 
 const { t } = i18n.global;
 let loadingInstance: any = null;
@@ -99,7 +101,7 @@ request.interceptors.request.use(
     config.headers.set("Expires", "0");
 
     // 从 localStorage 中获取 token
-    const token = localStorage.getItem("token");
+    const token = getLocalData(CACHE_KEY.TOKEN);
 
     // 如果 token 存在，将其添加到请求头中
     if (token) {
@@ -144,12 +146,12 @@ request.interceptors.response.use(
     switch (status) {
       case 401: {
         errorInfo = t("case_401");
-        const refreshToken = localStorage.getItem("refreshToken");
+        const refreshToken = getLocalData(CACHE_KEY.REFRESH_TOKEN);
         if (refreshToken && !originalRequest._retry) {
           originalRequest._retry = true;
           // 实现刷新 token 的逻辑
           // const newToken = await refreshAccessToken(refreshToken);
-          // localStorage.setItem("token", newToken);
+          // setLocalData(CACHE_KEY.TOKEN,newToken);
           // originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
           // return request(originalRequest); // 重新发起请求
         } else {

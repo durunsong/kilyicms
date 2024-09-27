@@ -1,13 +1,17 @@
 const SYSTEM_NAME = "kilyicms";
 
 /** 缓存数据时用到的 Key */
-class CacheKey {
-  static readonly TOKEN = `${SYSTEM_NAME}-token-key`;
-  static readonly CONFIG_LAYOUT = `${SYSTEM_NAME}-config-layout-key`;
-  static readonly SIDEBAR_STATUS = `${SYSTEM_NAME}-sidebar-status-key`;
-  static readonly ACTIVE_THEME_NAME = `${SYSTEM_NAME}-active-theme-name-key`;
-  static readonly VISITED_VIEWS = `${SYSTEM_NAME}-visited-views-key`;
-  static readonly CACHED_VIEWS = `${SYSTEM_NAME}-cached-views-key`;
+class CACHE_KEY {
+  static readonly TOKEN = `${SYSTEM_NAME}_token`;
+  static readonly CONFIG_LAYOUT = `${SYSTEM_NAME}_config_layout`;
+  static readonly SIDEBAR_STATUS = `${SYSTEM_NAME}_sidebar_status`;
+  static readonly ACTIVE_THEME_NAME = `${SYSTEM_NAME}_active_theme_name`;
+  static readonly VISITED_VIEWS = `${SYSTEM_NAME}_visited_views`;
+  static readonly CACHED_VIEWS = `${SYSTEM_NAME}_cached_views`;
+  static readonly LOCAL_LANG = `${SYSTEM_NAME}_localLang`;
+  static readonly USER_INFO = `${SYSTEM_NAME}_userInfo`;
+  static readonly REFRESH_TOKEN = `${SYSTEM_NAME}_refreshToken`;
+  static readonly TOKEN_ROLE = `${SYSTEM_NAME}_token_role`;
 }
 
-export default CacheKey;
+export default CACHE_KEY;

@@ -153,16 +153,16 @@ import { setToken } from "@/utils/cache/cookies";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 import { ref, reactive } from "vue";
 import { loginApi, registerApi } from "@/service/index";
-// import { registerApi } from "@/service/index";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
-import { userPomotionStore } from "@/store/modules/promotion";
 import type { FormInstance, FormRules } from "element-plus";
 import SlideVerify from "@/components/SlideVerify/index.vue";
 import { InternalRuleItem, Values, ValidateOption } from "async-validator";
 import { User, Lock } from "@element-plus/icons-vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
 import { useGreeting } from "@/hooks/useGreeting";
+import CACHE_KEY from "@/constants/cache-key";
+import { setLocalData } from "@/utils/cache/local-storage";
 // 登录
 // import { useUserStore } from "@/store/modules/user";
 // import { type LoginRequestData } from "@/service/login/types/login";
@@ -179,8 +179,6 @@ interface LoginForm {
 
 const loading = ref(false);
 const router = useRouter();
-const store = userPomotionStore();
-
 const form = reactive<LoginForm>({
   userName: "admin",
   password: "123456",
@@ -269,12 +267,9 @@ const handlerExecutiveLogging = () => {
       if (res.status === 200) {
         // 显示问候语
         showGreetingNotification(res.message, res.userInfo.userName);
-        // pinia存用户信息
-        store.userInfo = res.userInfo;
-        store.isCollapse = false;
         setToken(res.token);
-        localStorage.setItem("userInfo", JSON.stringify(res.userInfo));
-        localStorage.setItem("token", res.token);
+        setLocalData(CACHE_KEY.USER_INFO, res.userInfo);
+        setLocalData(CACHE_KEY.TOKEN, res.token);
         router.push("/");
       } else if (res.status === 403) {
         ElNotification({
