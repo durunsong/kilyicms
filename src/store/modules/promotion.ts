@@ -1,11 +1,14 @@
 import { defineStore } from "pinia";
-import type { MetaInfo, UserPromotionStateKeys } from "@/types/store";
+import type {
+  MetaInfo,
+  UserPromotionStateKeys,
+  UserPromotionStateGetters,
+} from "@/types/store";
 import { ref, computed } from "vue";
 
 export const userPomotionStore = defineStore("promotion", () => {
   // State
   const is_screen_full = ref(false);
-  const dark_and_light = ref(true);
   const userInfo = ref({});
   const metaInfo = ref<MetaInfo>({
     title: "",
@@ -26,7 +29,8 @@ export const userPomotionStore = defineStore("promotion", () => {
   // Getters
   const dynamicURLKeys = (property: UserPromotionStateKeys) => {
     return computed(() => {
-      const state = {
+      const state: UserPromotionStateGetters = {
+        is_screen_full,
         kilyimallLoginURL,
         tuiguangURL,
         kilyimall,
@@ -44,7 +48,6 @@ export const userPomotionStore = defineStore("promotion", () => {
       }
     });
   };
-
   const dynamicAffcode = computed(() => {
     return affcode.value !== "" ? `&${affcode.value}` : "";
   });
@@ -69,12 +72,11 @@ export const userPomotionStore = defineStore("promotion", () => {
   // Persistence
   const persist = {
     storage: localStorage,
-    paths: ["userInfo", "dark_and_light", "is_screen_full"],
+    paths: ["userInfo"],
   };
 
   return {
     is_screen_full,
-    dark_and_light,
     userInfo,
     metaInfo,
     affcode,

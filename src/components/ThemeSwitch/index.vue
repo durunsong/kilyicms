@@ -1,7 +1,7 @@
 <template>
   <el-dropdown trigger="click">
     <div class="mr-5px">
-      <SvgIcon name="switch-theme" width="24" height="24" />
+      <SvgIcon name="switch-theme" width="24" height="24"></SvgIcon>
     </div>
     <template #dropdown>
       <el-dropdown-menu>
@@ -42,7 +42,7 @@ const handleChangeTheme = (
   const handler = () => {
     setTheme(themeName);
   };
-  // @ts-expect-error
+
   document.startViewTransition
     ? document.startViewTransition(handler)
     : handler();
