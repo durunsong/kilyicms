@@ -355,7 +355,7 @@ const loginUser = (req, res) => {
     const passWordMatch = await bcrypt.compare(password, hashFromDb);
 
     if (!passWordMatch) {
-      return res.status(401).json({ message: "密码错误" });
+      return res.status(401).json({ message: "用户名或密码错误" });
     }
 
     // 生成 JWT
@@ -377,7 +377,6 @@ const loginUser = (req, res) => {
       create_time: user.create_time,
       update_time: user.update_time,
       is_delete: user.is_delete,
-      token: token, // 如果需要保存更新后的 token
       nick_name: user.nick_name,
       role_ids: user.role_ids,
       login_time: login_time,
