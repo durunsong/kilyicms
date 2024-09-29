@@ -1,12 +1,12 @@
 <template>
   <div flex flex-col h-full uno-padding-5 flex-wrap>
     <el-card class="w-[400px]" shadow="hover">
-      <p>自定义开关组件</p>
+      <div m-b-2>自定义开关组件</div>
       <PlaneSwitch
         v-model:checked="switchState"
         @update:checked="handleSwitchChange"
       ></PlaneSwitch>
-      <p>Switch is {{ switchState ? "ON" : "OFF" }}</p>
+      <div m-t-2>Switch is {{ switchState ? "ON" : "OFF" }}</div>
     </el-card>
     <el-card class="w-[400px]" shadow="hover">
       <p>

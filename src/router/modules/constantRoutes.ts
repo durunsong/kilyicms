@@ -31,6 +31,22 @@ export const constant_Routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: "/unocss",
+    component: Layouts,
+    redirect: "/unocss/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/unocss/index.vue"),
+        name: "UnoCSS",
+        meta: {
+          title: "router_UnoCSS",
+          svgIcon: "unocss",
+        },
+      },
+    ],
+  },
+  {
     path: "/function-card",
     component: Layouts,
     redirect: "/function-card/functions-and-Components",
@@ -47,22 +63,6 @@ export const constant_Routes: RouteRecordRaw[] = [
         name: "FunctionsAndComponents",
         meta: {
           title: "router_Functions_and_Components",
-        },
-      },
-    ],
-  },
-  {
-    path: "/unocss",
-    component: Layouts,
-    redirect: "/unocss/index",
-    children: [
-      {
-        path: "index",
-        component: () => import("@/views/unocss/index.vue"),
-        name: "UnoCSS",
-        meta: {
-          title: "router_UnoCSS",
-          svgIcon: "unocss",
         },
       },
     ],

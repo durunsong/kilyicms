@@ -1,14 +1,14 @@
 <template>
   <div :class="classes">
     <!-- 左侧模式 -->
-    <LeftMode v-if="isLeft || isMobile" />
+    <LeftMode v-if="isLeft || isMobile"></LeftMode>
     <!-- 顶部模式 -->
-    <TopMode v-else-if="isTop" />
+    <TopMode v-else-if="isTop"></TopMode>
     <!-- 混合模式 -->
-    <LeftTopMode v-else-if="isLeftTop" />
+    <LeftTopMode v-else-if="isLeftTop"></LeftTopMode>
     <!-- 右侧设置面板 -->
     <RightPanel v-if="showSettings">
-      <Settings />
+      <Settings></Settings>
     </RightPanel>
   </div>
 </template>
@@ -26,9 +26,14 @@ import TopMode from "./TopMode.vue";
 import LeftTopMode from "./LeftTopMode.vue";
 import { Settings, RightPanel } from "./components";
 import { getCssVariableValue, setCssVariableValue } from "@/utils";
+import CACHE_KEY from "@/constants/cache-key";
+import { getLocalData } from "@/utils/cache/local-storage";
 
 /** Layout 布局响应式 */
 useResize();
+
+// 暂时这样用
+const userInfo: any = getLocalData(CACHE_KEY.USER_INFO);
 
 const { setWatermark, clearWatermark } = useWatermark();
 const { isMobile } = useDevice();
@@ -62,7 +67,7 @@ watchEffect(() => {
 /** 开启或关闭系统水印 */
 watchEffect(() => {
   showWatermark.value
-    ? setWatermark(import.meta.env.VITE_APP_TITLE)
+    ? setWatermark(userInfo.userName ?? import.meta.env.VITE_APP_TITLE)
     : clearWatermark();
 });
 </script>

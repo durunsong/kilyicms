@@ -35,7 +35,7 @@
               <el-dropdown-item>Gitee</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
-              <span style="display: block">{{ t("log_out") }}</span>
+              <span block>{{ t("log_out") }}</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>

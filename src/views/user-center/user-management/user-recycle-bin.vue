@@ -34,7 +34,7 @@
       >{{ t("search") }}</el-button
     >
   </div>
-  <el-table :data="userList" style="width: 100%">
+  <el-table :data="userList">
     <el-table-column :label="t('serial_number')" width="100">
       <template #default="scope">
         {{ scope.$index + 1 }}
