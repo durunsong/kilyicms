@@ -10,14 +10,14 @@
         <SvgIcon
           v-if="theOnlyOneChild.meta.svgIcon"
           :name="theOnlyOneChild.meta.svgIcon"
-        />
+        ></SvgIcon>
         <component
           v-else-if="theOnlyOneChild.meta.elIcon"
           :is="theOnlyOneChild.meta.elIcon"
           class="el-icon"
-        />
+        ></component>
         <template v-if="theOnlyOneChild.meta.title" #title>
-          {{ t(theOnlyOneChild.meta.title) }}
+          {{ t(theOnlyOneChild.meta.title as string) }}
         </template>
       </el-menu-item>
     </SidebarItemLink>
@@ -27,13 +27,15 @@
       <SvgIcon
         v-if="props.item.meta?.svgIcon"
         :name="props.item.meta.svgIcon"
-      />
+      ></SvgIcon>
       <component
         v-else-if="props.item.meta?.elIcon"
         :is="props.item.meta.elIcon"
         class="el-icon"
-      />
-      <span v-if="props.item.meta?.title">{{ t(props.item.meta.title) }}</span>
+      ></component>
+      <span v-if="props.item.meta?.title">{{
+        t(props.item.meta.title as string)
+      }}</span>
     </template>
     <template v-if="props.item.children">
       <SidebarItem
@@ -41,7 +43,7 @@
         :key="child.path"
         :item="child"
         :base-path="resolvePath(child.path)"
-      />
+      ></SidebarItem>
     </template>
   </el-sub-menu>
 </template>

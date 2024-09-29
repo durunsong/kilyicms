@@ -7,22 +7,22 @@
           :name="item.meta.svgIcon"
           width="16"
           height="16"
-        />
+        ></SvgIcon>
         <component
           v-else-if="item.meta?.elIcon"
           :is="item.meta.elIcon"
           class="el-icon"
-        />
+        ></component>
         <span
           v-if="
             item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
           "
           class="no-redirect"
         >
-          {{ t(item.meta.title) }}
+          {{ t(item.meta.title as string) }}
         </span>
         <a v-else @click.prevent="handleLink(item)">
-          {{ t(item.meta.title) }}
+          {{ t(item.meta.title as string) }}
         </a>
       </div>
     </el-breadcrumb-item>

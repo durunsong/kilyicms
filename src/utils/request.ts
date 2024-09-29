@@ -4,10 +4,16 @@ import axios, {
   AxiosHeaders,
 } from "axios";
 import { ElNotification, ElLoading } from "element-plus";
-import { useRouter } from "vue-router";
 import i18n from "@/i18n";
 import CACHE_KEY from "@/constants/cache-key";
 import { getToken, setToken } from "@/utils/cache/cookies";
+import { useUserStoreHook } from "@/store/modules/user";
+
+/** 退出登录并强制刷新页面（会重定向到登录页） */
+const logout = () => {
+  useUserStoreHook().logout();
+  location.reload();
+};
 
 const { t } = i18n.global;
 let loadingInstance: any = null;
@@ -100,7 +106,7 @@ request.interceptors.request.use(
     config.headers.set("Pragma", "no-cache");
     config.headers.set("Expires", "0");
 
-    // 从 localStorage 中获取 token
+    // 从 Cookie 中获取 token
     const token = getToken();
 
     // 如果 token 存在，将其添加到请求头中
@@ -144,6 +150,7 @@ request.interceptors.response.use(
 
     // 处理 HTTP 错误状态码
     switch (status) {
+      //  Token 过期时，尝试刷新 Token
       case 401: {
         errorInfo = t("case_401");
         const refreshToken = setToken(CACHE_KEY.REFRESH_TOKEN);
@@ -155,8 +162,8 @@ request.interceptors.response.use(
           // originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
           // return request(originalRequest); // 重新发起请求
         } else {
-          const router = useRouter();
-          router.push("/login");
+          // 退出登录
+          logout();
         }
         break;
       }

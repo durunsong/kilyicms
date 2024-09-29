@@ -1,9 +1,5 @@
 import { defineStore } from "pinia";
-import type {
-  MetaInfo,
-  UserPromotionStateKeys,
-  UserPromotionStateGetters,
-} from "@/types/store";
+import type { MetaInfo, UserPromotionStateGetters } from "@/types/store";
 import { ref, computed } from "vue";
 
 export const userPomotionStore = defineStore("promotion", () => {
@@ -27,7 +23,7 @@ export const userPomotionStore = defineStore("promotion", () => {
   const m_kilyimall = ref("https://www.kilyimall.com");
 
   // Getters
-  const dynamicURLKeys = (property: UserPromotionStateKeys) => {
+  const dynamicURLKeys = (property: keyof UserPromotionStateGetters) => {
     return computed(() => {
       const state: UserPromotionStateGetters = {
         is_screen_full,
@@ -41,6 +37,7 @@ export const userPomotionStore = defineStore("promotion", () => {
         m_kilyimallURL,
         m_kilyimall,
       };
+
       if (affcode.value !== "") {
         return `${state[property].value}?${affcode.value}`;
       } else {
@@ -48,6 +45,7 @@ export const userPomotionStore = defineStore("promotion", () => {
       }
     });
   };
+
   const dynamicAffcode = computed(() => {
     return affcode.value !== "" ? `&${affcode.value}` : "";
   });

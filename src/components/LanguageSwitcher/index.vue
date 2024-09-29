@@ -2,7 +2,7 @@
   <div class="language drop_down">
     <el-popover
       width="260"
-      transition
+      transition="el-zoom-in-top"
       trigger="click"
       @show="showPopover"
       popper-class="ifFlagPopover"
@@ -12,7 +12,7 @@
       <template #reference>
         <div class="reference_btn">
           <SvgIcon name="select_lang"></SvgIcon>
-          {{ current_language }}
+          <span v-show="isMobileWidth">{{ current_language }}</span>
         </div>
       </template>
       <div class="category_btn_cate">
@@ -23,7 +23,7 @@
         >
           <el-checkbox
             size="small"
-            border
+            :border="true"
             class="language_btn_in"
             v-for="item in langList"
             :key="item.category"
@@ -51,11 +51,12 @@ import { useI18n } from "vue-i18n";
 import CACHE_KEY from "@/constants/cache-key";
 import { getLocalData, setLocalData } from "@/utils/cache/local-storage";
 
+const isMobileWidth = ref(window.innerWidth <= 880 ? false : true);
 const { t, locale } = useI18n();
 const router = useRouter();
 const popoverVisible = ref(false);
 const checkList_status = ref<string[]>([]);
-const langue = computed(() => {
+const langue = computed<string>(() => {
   return getLocalData(CACHE_KEY.LOCAL_LANG) || "en";
 });
 

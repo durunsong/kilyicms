@@ -6,7 +6,6 @@ export interface MetaInfo {
 }
 export interface UserPromotionState {
   is_screen_full: boolean;
-  dark_and_light: boolean;
   userInfo: Record<string, any>;
   isCollapse: boolean;
   affcode: string;
@@ -22,7 +21,6 @@ export interface UserPromotionState {
   m_kilyimall: string;
 }
 
-export type UserPromotionStateKeys = keyof UserPromotionState;
 export interface Options {
   lock?: boolean;
   text?: string;

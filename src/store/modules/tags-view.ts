@@ -1,4 +1,4 @@
-import { ref, watchEffect } from "vue";
+import { Ref, ref, watchEffect } from "vue";
 import { defineStore } from "pinia";
 import { useSettingsStore } from "./settings";
 import { type RouteLocationNormalized } from "vue-router";
@@ -87,8 +87,8 @@ export const useTagsViewStore = defineStore("tags-view", () => {
   //#endregion
 
   return {
-    visitedViews,
-    cachedViews,
+    visitedViews: visitedViews as Ref<TagView[]>,
+    cachedViews: cachedViews as Ref<string[]>,
     addVisitedView,
     addCachedView,
     delVisitedView,

@@ -22,14 +22,14 @@
       clearable
     >
       <template #prefix>
-        <SvgIcon name="search" />
+        <SvgIcon name="search"></SvgIcon>
       </template>
     </el-input>
     <el-empty
       v-if="resultList.length === 0"
       :description="t('No_search_results_available')"
       :image-size="100"
-    />
+    ></el-empty>
     <template v-else>
       <p>{{ t("search_results") }}</p>
       <el-scrollbar ref="scrollbarRef" max-height="40vh" always>
@@ -39,11 +39,11 @@
           :list="resultList"
           :isPressUpOrDown="isPressUpOrDown"
           @click="handleEnter"
-        />
+        ></SearchResult>
       </el-scrollbar>
     </template>
     <template #footer>
-      <SearchFooter :total="resultList.length" />
+      <SearchFooter :total="resultList.length"></SearchFooter>
     </template>
   </el-dialog>
 </template>
@@ -90,7 +90,9 @@ const menusData = computed(() => cloneDeep(usePermissionStore().routes));
 const handleSearch = debounce(() => {
   const flatMenusData = flatTree(menusData.value);
   resultList.value = flatMenusData.filter((menu) => {
-    const translatedTitle = menu.meta?.title ? t(menu.meta.title) : ""; // 使用 t 函数翻译 title
+    const translatedTitle = menu.meta?.title
+      ? t(menu.meta.title as string)
+      : ""; // 使用 t 函数翻译 title
     return keyword.value
       ? translatedTitle
           .toLocaleLowerCase()

@@ -11,13 +11,13 @@
         @click.middle="!isAffix(tag) && closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
       >
-        {{ t(tag.meta?.title) }}
+        {{ t(tag.meta?.title as string) }}
         <el-icon
           v-if="!isAffix(tag)"
           :size="12"
           @click.prevent.stop="closeSelectedTag(tag)"
         >
-          <Close />
+          <Close></Close>
         </el-icon>
       </router-link>
     </ScrollPane>
@@ -198,7 +198,7 @@ const closeRightTags = (view: TagView) => {
       // 如果当前路由已经不存在，跳转到左侧的最后一个标签页
       const leftTags = tagsViewStore.visitedViews.slice(0, index + 1);
       const previousTag = leftTags.slice(-1)[0]; // 取最后一个左侧标签页
-      if (previousTag) {
+      if (previousTag && previousTag.fullPath) {
         router.push(previousTag.fullPath);
       } else {
         // 如果没有其他标签页，则跳转到主页
@@ -213,7 +213,7 @@ const closeRightTags = (view: TagView) => {
       ) {
         const newIndex = Math.max(index, 0); // 确保不超出范围
         const newTag = tagsViewStore.visitedViews[newIndex];
-        if (newTag) {
+        if (newTag && newTag.fullPath) {
           router.push(newTag.fullPath);
         }
       }

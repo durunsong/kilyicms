@@ -45,11 +45,14 @@ const createUser = (req, res) => {
   const is_delete = 0;
   const nick_name = "管理员";
   const role_ids = [101, 102, 301];
-  const avatar = "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
+  const avatar =
+    "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
   // 先对密码进行加密
   bcrypt.hash(password, 10, (err, hashedPassword) => {
     if (err) {
-      res.status(500).json({ status: 500, message: "密码加密失败", error: err });
+      res
+        .status(500)
+        .json({ status: 500, message: "密码加密失败", error: err });
       return;
     }
     const query = `INSERT INTO users 
@@ -65,7 +68,7 @@ const createUser = (req, res) => {
       userName,
       nick_name,
       JSON.stringify(role_ids),
-      avatar
+      avatar,
     ];
     connection.query(query, values, (err, results) => {
       if (err) {
@@ -79,51 +82,81 @@ const createUser = (req, res) => {
 
 // 获取用户列表接口
 const getUsers = (req, res) => {
-  const { pageNum, pageSize, keywords, startTime, endTime } = req.query;
-  const offset = (pageNum - 1) * pageSize;
-  let query = "SELECT * FROM users WHERE is_delete = 0";
-  let countQuery = "SELECT COUNT(*) AS total FROM users WHERE is_delete = 0";
-  const queryParams = [];
-  if (keywords) {
-    query += " AND (userName LIKE ? OR description LIKE ?)";
-    countQuery += " AND (userName LIKE ? OR description LIKE ?)";
-    const keywordPattern = `%${keywords}%`;
-    queryParams.push(keywordPattern, keywordPattern);
+  // 1. 检查是否存在 token
+  const authHeader = req.headers["authorization"];
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ status: 401, message: "请重新登录" });
   }
-  if (startTime && endTime) {
-    query += " AND create_time BETWEEN ? AND ?";
-    countQuery += " AND create_time BETWEEN ? AND ?";
-    queryParams.push(startTime, endTime);
-  }
-  query += " LIMIT ?, ?";
-  queryParams.push(parseInt(offset), parseInt(pageSize));
-  connection.query(query, queryParams, (err, results) => {
+  // 2. 提取 token
+  const token = authHeader.split(" ")[1]; // 只获取 Bearer 后面的 token 部分
+  // 3. 验证 token 是否有效
+  jwt.verify(token, "jwt_secret", (err) => {
     if (err) {
-      console.error(err);
-      res.status(500).json({ status: 500, message: "查询用户失败" });
-      return;
+      return res.status(401).json({ status: 401, message: "请重新登录" });
     }
-    // 时间格式转化
-    const formattedResults = results.map((user) => {
-      user.update_time = user.update_time.toISOString().slice(0, 19).replace("T", " ");
-      user.create_time = user.create_time.toISOString().slice(0, 19).replace("T", " ");
-      return user;
-    });
-    connection.query(countQuery, queryParams.slice(0, queryParams.length - 2), (countErr, countResults) => {
-      if (countErr) {
-        console.error(countErr);
-        res.status(500).json({ status: 500, message: "查询用户总数失败" });
-        return;
+    // 如果 token 验证通过，继续执行查询用户列表逻辑
+    const { pageNum, pageSize, keywords, startTime, endTime } = req.query;
+    const offset = (pageNum - 1) * pageSize;
+    let query = "SELECT * FROM users WHERE is_delete = 0";
+    let countQuery = "SELECT COUNT(*) AS total FROM users WHERE is_delete = 0";
+    const queryParams = [];
+
+    if (keywords) {
+      query += " AND (userName LIKE ? OR description LIKE ?)";
+      countQuery += " AND (userName LIKE ? OR description LIKE ?)";
+      const keywordPattern = `%${keywords}%`;
+      queryParams.push(keywordPattern, keywordPattern);
+    }
+    if (startTime && endTime) {
+      query += " AND create_time BETWEEN ? AND ?";
+      countQuery += " AND create_time BETWEEN ? AND ?";
+      queryParams.push(startTime, endTime);
+    }
+
+    query += " LIMIT ?, ?";
+    queryParams.push(parseInt(offset), parseInt(pageSize));
+
+    connection.query(query, queryParams, (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ status: 500, message: "查询用户失败" });
       }
-      const total = countResults[0].total;
-      res.status(200).json({
-        status: 200,
-        message: "查询成功",
-        page: parseInt(pageNum),
-        pageSize: parseInt(pageSize),
-        total,
-        data: formattedResults
+
+      // 时间格式转化
+      const formattedResults = results.map((user) => {
+        user.update_time = user.update_time
+          .toISOString()
+          .slice(0, 19)
+          .replace("T", " ");
+        user.create_time = user.create_time
+          .toISOString()
+          .slice(0, 19)
+          .replace("T", " ");
+        return user;
       });
+
+      connection.query(
+        countQuery,
+        queryParams.slice(0, queryParams.length - 2),
+        (countErr, countResults) => {
+          if (countErr) {
+            console.error(countErr);
+            return res
+              .status(500)
+              .json({ status: 500, message: "查询用户总数失败" });
+          }
+
+          const total = countResults[0].total;
+          res.status(200).json({
+            status: 200,
+            message: "查询成功",
+            page: parseInt(pageNum),
+            pageSize: parseInt(pageSize),
+            total,
+            data: formattedResults,
+          });
+        },
+      );
     });
   });
 };
@@ -138,11 +171,14 @@ const updateUser = (req, res) => {
   const is_delete = 0;
   const nick_name = "管理员";
   const role_ids = [101, 102, 301];
-  const avatar = "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
+  const avatar =
+    "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
   // 对密码进行加密
   bcrypt.hash(password, 10, (err, hashedPassword) => {
     if (err) {
-      res.status(500).json({ status: 500, message: "密码加密失败", error: err });
+      res
+        .status(500)
+        .json({ status: 500, message: "密码加密失败", error: err });
       return;
     }
     const query = `UPDATE users SET 
@@ -159,7 +195,7 @@ const updateUser = (req, res) => {
       nick_name,
       JSON.stringify(role_ids),
       avatar,
-      id
+      id,
     ];
     connection.query(query, values, (err, results) => {
       if (err) {
@@ -221,26 +257,36 @@ const getDeletedUsers = (req, res) => {
     }
     // 时间格式转化
     const formattedResults = results.map((user) => {
-      user.update_time = user.update_time.toISOString().slice(0, 19).replace("T", " ");
-      user.create_time = user.create_time.toISOString().slice(0, 19).replace("T", " ");
+      user.update_time = user.update_time
+        .toISOString()
+        .slice(0, 19)
+        .replace("T", " ");
+      user.create_time = user.create_time
+        .toISOString()
+        .slice(0, 19)
+        .replace("T", " ");
       return user;
     });
-    connection.query(countQuery, queryParams.slice(0, queryParams.length - 2), (countErr, countResults) => {
-      if (countErr) {
-        console.error(countErr);
-        res.status(500).json({ status: 500, message: "查询用户总数失败" });
-        return;
-      }
-      const total = countResults[0].total;
-      res.status(200).json({
-        status: 200,
-        message: "查询成功",
-        page: parseInt(pageNum),
-        pageSize: parseInt(pageSize),
-        total,
-        data: formattedResults
-      });
-    });
+    connection.query(
+      countQuery,
+      queryParams.slice(0, queryParams.length - 2),
+      (countErr, countResults) => {
+        if (countErr) {
+          console.error(countErr);
+          res.status(500).json({ status: 500, message: "查询用户总数失败" });
+          return;
+        }
+        const total = countResults[0].total;
+        res.status(200).json({
+          status: 200,
+          message: "查询成功",
+          page: parseInt(pageNum),
+          pageSize: parseInt(pageSize),
+          total,
+          data: formattedResults,
+        });
+      },
+    );
   });
 };
 
@@ -273,7 +319,9 @@ const restoreUserApi = (req, res) => {
       return;
     }
     if (results.affectedRows === 0) {
-      res.status(404).json({ status: 404, message: "用户不存在或已被永久删除" });
+      res
+        .status(404)
+        .json({ status: 404, message: "用户不存在或已被永久删除" });
     } else {
       res.status(200).json({ status: 200, message: "用户还原成功" });
     }
@@ -288,7 +336,8 @@ const loginUser = (req, res) => {
     return res.status(400).json({ message: "账号和密码都是必需的" });
   }
 
-  const findUserQuery = "SELECT * FROM users WHERE userName = ? AND is_delete = 0";
+  const findUserQuery =
+    "SELECT * FROM users WHERE userName = ? AND is_delete = 0";
   connection.query(findUserQuery, [userName], async (err, results) => {
     if (err) {
       console.error(err);
@@ -310,7 +359,11 @@ const loginUser = (req, res) => {
     }
 
     // 生成 JWT
-    const token = jwt.sign({ userId: user.id, userName: user.userName }, "jwt_secret", { expiresIn: "1h" });
+    const token = jwt.sign(
+      { userId: user.id, userName: user.userName },
+      "jwt_secret",
+      { expiresIn: "1h" },
+    );
 
     // 登录时间
     const login_time = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -327,7 +380,7 @@ const loginUser = (req, res) => {
       token: token, // 如果需要保存更新后的 token
       nick_name: user.nick_name,
       role_ids: user.role_ids,
-      login_time: login_time
+      login_time: login_time,
     };
 
     res.status(200).json({ message: "登录成功", status: 200, token, userInfo });
@@ -345,7 +398,11 @@ const refreshToken = (req, res) => {
       return res.status(403).json({ message: "无效的刷新令牌" });
     }
     // 生成新的 JWT
-    const newToken = jwt.sign({ userId: user.userId, userName: user.userName }, "jwt_secret", { expiresIn: "1h" });
+    const newToken = jwt.sign(
+      { userId: user.userId, userName: user.userName },
+      "jwt_secret",
+      { expiresIn: "1h" },
+    );
     res.status(200).json({ token: newToken });
   });
 };
@@ -355,21 +412,29 @@ const registerUser = (req, res) => {
   const { userName, password, confirmPassword, description } = req.body;
   // 检查必填字段
   if (!userName || !password || !confirmPassword) {
-    return res.status(400).json({ status: 400, message: "用户名、密码和确认密码为必填项" });
+    return res
+      .status(400)
+      .json({ status: 400, message: "用户名、密码和确认密码为必填项" });
   }
   // 检查密码是否一致
   if (password !== confirmPassword) {
-    return res.status(400).json({ status: 400, message: "密码和确认密码不一致" });
+    return res
+      .status(400)
+      .json({ status: 400, message: "密码和确认密码不一致" });
   }
   // 检查用户是否已存在
   const checkUserQuery = "SELECT * FROM users WHERE userName = ?";
   connection.query(checkUserQuery, [userName], (err, results) => {
     if (err) {
-      return res.status(500).json({ status: 500, message: "数据库查询失败", error: err });
+      return res
+        .status(500)
+        .json({ status: 500, message: "数据库查询失败", error: err });
     }
     if (results.length > 0) {
       // 用户名已存在
-      return res.status(409).json({ status: 409, message: "该用户名已被注册，请选择其他用户名" });
+      return res
+        .status(409)
+        .json({ status: 409, message: "该用户名已被注册，请选择其他用户名" });
     }
     // 增加8小时以适应中国时区
     const create_time = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -378,11 +443,14 @@ const registerUser = (req, res) => {
     const is_delete = 0;
     const nick_name = "新用户"; // 默认昵称
     const role_ids = [201]; // 普通用户角色ID
-    const avatar = "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
+    const avatar =
+      "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
     // 密码加密
     bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
-        return res.status(500).json({ status: 500, message: "密码加密失败", error: err });
+        return res
+          .status(500)
+          .json({ status: 500, message: "密码加密失败", error: err });
       }
       // 插入用户数据
       const insertUserQuery = `INSERT INTO users 
@@ -398,13 +466,17 @@ const registerUser = (req, res) => {
         userName,
         nick_name,
         JSON.stringify(role_ids),
-        avatar
+        avatar,
       ];
       connection.query(insertUserQuery, values, (err, results) => {
         if (err) {
-          return res.status(500).json({ status: 500, message: "注册失败", error: err });
+          return res
+            .status(500)
+            .json({ status: 500, message: "注册失败", error: err });
         }
-        res.status(200).json({ status: 200, message: "注册成功", data: results });
+        res
+          .status(200)
+          .json({ status: 200, message: "注册成功", data: results });
       });
     });
   });
@@ -421,5 +493,5 @@ module.exports = {
   restoreUserApi,
   loginUser,
   refreshToken,
-  registerUser
+  registerUser,
 };

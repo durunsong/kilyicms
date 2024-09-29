@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'has-logo': isLogo }">
-    <Logo v-if="isLogo" :collapse="isCollapse" />
+    <Logo v-if="isLogo" :collapse="isCollapse"></Logo>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
@@ -17,7 +17,7 @@
           :key="route.path"
           :item="route"
           :base-path="route.path"
-        />
+        ></SidebarItem>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -57,10 +57,10 @@ const activeMenu = computed(() => {
     meta: { activeMenu },
     path,
   } = route;
-  return activeMenu ? activeMenu : path;
+  return (activeMenu as string) || path;
 });
 const noHiddenRoutes = computed(() =>
-  permissionStore.routes.filter((item) => !item.meta?.hidden),
+  permissionStore.routes.filter((item: any) => !item.meta?.hidden),
 );
 const isCollapse = computed(() => !appStore.sidebar.opened);
 const isLogo = computed(() => isLeft.value && settingsStore.showLogo);

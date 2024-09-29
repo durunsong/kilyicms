@@ -9,19 +9,19 @@
       :style="itemStyle(item)"
       @mouseenter="handleMouseenter(item)"
     >
-      <SvgIcon v-if="item.meta?.svgIcon" :name="item.meta.svgIcon" />
+      <SvgIcon v-if="item.meta?.svgIcon" :name="item.meta.svgIcon"></SvgIcon>
       <component
         v-else-if="item.meta?.elIcon"
         :is="item.meta.elIcon"
         class="el-icon"
-      />
+      ></component>
       <span class="result-item-title">
-        {{ t(item.meta?.title) }}
+        {{ t(item.meta?.title as string) }}
       </span>
       <SvgIcon
         v-if="modelValue && modelValue === item.name"
         name="keyboard-enter"
-      />
+      ></SvgIcon>
     </div>
   </div>
 </template>
