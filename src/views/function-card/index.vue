@@ -33,7 +33,7 @@
     <el-card class="w-[400px]" shadow="hover">
       <div flex>
         <div class="i-vs-language text-blue-400"></div>
-        国际化组件:16种语言切换,element-plus组件内置和vue-i18n语言切换同步
+        国际化组件:16种语言切换,element-plus组件内置语言和vue-i18n语言切换同步
       </div>
       <LanguageSwitcher></LanguageSwitcher>
     </el-card>
@@ -42,7 +42,7 @@
       <ThemeSwitch cursor-pointer></ThemeSwitch>
     </el-card>
     <el-card class="w-[400px]" shadow="hover">
-      <p>两种全屏模式(菜单区和内容区)♐</p>
+      <p>两种全屏模式切换(菜单区和内容区)♐</p>
       <p>屏幕右上角和内容区右上角♐</p>
     </el-card>
   </div>

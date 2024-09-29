@@ -10,9 +10,9 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 
 ## 📺 Online Preview
 
-| Location     | Account       | Link                                 |
-| ------------ | ------------- | ------------------------------------ |
-| github-pages | admin or user | [Link](https://kilyicms.vercel.app/) |
+| Location            | Account       | Link                                 |
+| ------------------- | ------------- | ------------------------------------ |
+| vercel/github-pages | admin or user | [Link](https://kilyicms.vercel.app/) |
 
 ## ❤️ Powered by Love
 
@@ -22,7 +22,7 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 - **Latest dependencies**: Regular updates to all third-party dependencies to the latest version.
 - **Organized code**: Unified code style, naming conventions, and comment style.
 
-## character
+## 🧭character
 
 - **Vue3**: Uses the latest Vue3 Composition API with script setup.
 - **Element Plus**: The Vue3 version of Element UI.
@@ -40,13 +40,14 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 - **UnoCSS**: A high-performance, highly flexible, on-demand atomic CSS engine.
 - **Mobile Compatibility**: Layouts compatible with mobile device resolutions.
 
-## Features
+## ✨Features
 
 - **User Management**: Login, logout demo.
 - **Permission Management**: Page-level permissions (dynamic routes), button-level permissions (directive permissions, permission functions), route guards.
 - **Multiple Environments**: Development (development), testing (test), production (production).
 - **Multiple Themes**: Light, dark, deep blue; three theme modes.
 - **Multiple Layouts**: Left sidebar, top bar, mixed layout; three layout modes.
+- **Multi-language**: 16 language switches, synchronization between built-in languages of element-plus components and vue-i18n language switches.
 - **Error Pages**: 403, 404 error pages.
 - **Dashboard**: Displays different dashboards based on different users.
 - **Other Built-in Features**: SVG support, dynamic sidebar, dynamic breadcrumbs, tab navigation, screen full-screen mode, adaptive collapsed sidebar, hooks (Composables).
@@ -59,29 +60,27 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 2. Project theme switching (light/dark/dark-blue) with UI component library support 🎈
 3. Three environment configurations (development, testing, production) 🎈
 4. Button debounce (prevent rapid clicks) 🎈
-5. Prevent multiple invalid requests (add throttle validation) 🎈
-6. Fullscreen toggle 🎈
+5. Encapsulate requests to avoid multiple invalid requests (add throttling checksums) 🎈
+6. Two full-screen mode switching (menu area and content area)🎈
 7. Enable debugging in production environment - encapsulated hooks - 🎈
-8. Backend permissions, route permissions, button permissions 🎈
-9. Backend tab management optimization 🎈
-10. Watermark with username of the logged-in user 🎈
+8. Backend Permissions, Routing Permissions, Page Permissions, Button Permissions 🎈
+9. Optimization of right mouse button management in background tabs🎈
+10. Login userName watermark settings, local and global watermark case demo🎈
 11. Upload Excel sheet + parsing + printing
 12. PDF preview + printing
 13. Rich text dynamic content editing + image upload + video upload
-14. Skeleton screen component encapsulation
-15. Highlight matched search fields 🎈
-16. Progress bar component encapsulation 🎈
-17. Request loading encapsulation (two types: hooks 🎈, encapsulation in request method for global loading animation 🎈)
-18. Necessary component global registration 🎈
-19. Multi-language management, language switch component, batch translation script 🎈
-20. Common method hooks encapsulation 🎈
-21. Frontend route separation 🎈
-22. Integrated label Icons preset works unmatched with unocss 🎈
-23. Custom directive global encapsulation (currently permission directive) 🎈
-24. Frontend code automated Jenkins deployment or deployment via Node.js CLI
-25. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
-26. Large file chunk upload (standalone upload, upload in rich text user)
-27. Micro-frontend architecture construction, dynamic route addition, dynamic subsystem addition, properly handle CSS sandboxing
+14. Global custom skeleton screen animation loading component wrapper
+15. Page Load Progress Bar Component Wrapper 🎈
+16. Request loading encapsulation (two types: hooks 🎈, encapsulation in request method for global loading animation 🎈)
+17. Necessary component global registration 🎈
+18. Multi-language management, multi-language switching components, element-plus built-in language synchronization switching, batch translation program writing 🎈
+19. Front-end routing separation, arbitrary routing, constant routing, asynchronous routing 🎈
+20. Integrated label iconify with unocss 🎈
+21. Custom directive global encapsulation (currently permission directive) 🎈
+22. Frontend code automated Jenkins deployment or deployment via Node.js CLI
+23. Three types of captcha validation (frontend component, frontend-backend numeric or graphical captcha validation, frontend-backend Cloudflare browser fingerprint automatic CAPTCHA)
+24. Large file chunk upload (standalone upload, upload in rich text user)
+25. Micro-frontend architecture construction, dynamic route addition, dynamic subsystem addition, properly handle CSS sandboxing
 
 ###### Backend Completed:
 
@@ -101,14 +100,15 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 
 Ensure that you have installed Node.js and npm (or use pnpm/yarn). Then run the following commands to install the project dependencies:
 
-#### Fetch the Project Code
+#### 🎇Fetch the Project Code
 
-````js
+```js
 git clone https://github.com/durunsong/kilyicms.git
 cd kilyicms (Frontend project)
 cd server (Backend project)
+```
 
-​```pnpm
+```
 # Setup
 
 1. Install the recommended plugins from the .vscode directory.
@@ -129,17 +129,15 @@ pnpm i
 
 # Start the development server
 
-pnpm dev
-
-
-````
+pnpm run dev
+```
 
 ## ✔️ Preview
 
 ```pnpm
-# Preview the staging environment
+# Preview the test environment
 
-pnpm preview:stage
+pnpm preview:test
 
 # Preview the production environment
 
@@ -149,9 +147,9 @@ pnpm preview:prod
 ## 📦️ Multi-environment Packaging
 
 ```pnpm
-# Build the staging environment
+# Build the test environment
 
-pnpm build:stage
+pnpm build:test
 
 # Build the production environment
 
@@ -164,9 +162,9 @@ pnpm build:prod
 # Code formatting
 
 pnpm lint
+```
 
-
-## Git Commit Guidelines
+## 🎉Git Commit Guidelines
 
 - `feat` Add new business functionality
 - `fix` Fix business issues/bugs
@@ -181,15 +179,16 @@ pnpm lint
 - `ci` Continuous integration-related changes
 - `types` Type definition file changes
 - `wip` Work in progress
+- `delete` deletes an obligation code
 
-## Project Preview
+## 🌄Project Preview
 
 ![Snipaste_1.png](./src/assets/case_img/Snipaste_1.png)
 ![Snipaste_2.png](./src/assets/case_img/Snipaste_2.png)
 ![Snipaste_3.png](./src/assets/case_img/Snipaste_3.png)
 
-💕 Thanks for the Star
+## 💕 Thanks for the Star
+
 It's not easy to get stars for a small project. If you like this project, feel free to support it with a star! This is the only motivation for the author to keep maintaining it (whisper: after all, it's free).
 
 Let me know if you need any modifications!
-```
