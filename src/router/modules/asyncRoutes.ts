@@ -109,7 +109,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
           roles: ["admin"],
           alwaysShow: true,
         },
-        component: () => import("@/views/userCenter/index.vue"),
+        component: () => import("@/views/user-center/index.vue"),
         children: [
           {
             path: "setting",
@@ -120,7 +120,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
               roles: ["admin"],
             },
             component: () =>
-              import("@/views/userCenter/userManagement/userList.vue"),
+              import("@/views/user-center/user-management/user-list.vue"),
           },
           {
             path: "user_recycle_bin",
@@ -131,7 +131,9 @@ export const asyncRoutes: RouteRecordRaw[] = [
               elIcon: "DeleteFilled",
             },
             component: () =>
-              import("@/views/userCenter/userManagement/user_recycle_bin.vue"),
+              import(
+                "@/views/user-center/user-management/user-recycle-bin.vue"
+              ),
           },
         ],
       },
