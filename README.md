@@ -183,9 +183,9 @@ pnpm lint
 
 ## 🌄Project Preview
 
-![Snipaste_1.png](./src/assets/case_img/Snipaste_1.png)
-![Snipaste_2.png](./src/assets/case_img/Snipaste_2.png)
-![Snipaste_3.png](./src/assets/case_img/Snipaste_3.png)
+![Snipaste_1.png](./src/assets/case-img/Snipaste_1.png)
+![Snipaste_2.png](./src/assets/case-img/Snipaste_2.png)
+![Snipaste_3.png](./src/assets/case-img/Snipaste_3.png)
 
 ## 💕 Thanks for the Star
 
