@@ -234,6 +234,11 @@ const en = {
   themeSwitch: "Three theme switch (excluding gray and weak color mode)",
   fullscreenSwitch: "Two fullscreen modes switch (menu and content area)",
   fullscreenDescription: "Top right of screen and top right of content area",
+  codeStandards: "Code Standards",
+  codeConventions:
+    "Component: PascalCase, Method: camelCase, Class: kebab-case/underscore, Filename: kebab-case/camelCase, Attribute: camelCase/underscore",
+  permissionExample: "Permission Directive Example | Home",
+  clickHereToExample: "Click here to go to the example page",
 };
 
 export default en;

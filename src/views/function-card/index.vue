@@ -1,6 +1,18 @@
 <template>
   <div flex h-full uno-padding-5 flex-wrap>
     <el-card shadow="hover">
+      <div flex>
+        <div class="i-vs-language text-blue-400"></div>
+        {{
+          t("i18nComponent", {
+            "element-plus": "element-plus",
+            "vue-i18n": "vue-i18n",
+          })
+        }}
+      </div>
+      <LanguageSwitcher></LanguageSwitcher>
+    </el-card>
+    <el-card shadow="hover">
       <div m-b-2>{{ t("customSwitchComponent") }}</div>
       <PlaneSwitch
         v-model:checked="switchState"
@@ -10,7 +22,7 @@
     </el-card>
     <el-card shadow="hover">
       <p>
-        {{ t("iconIntegration") }},
+        {{ t("iconIntegration", { unocss: "unocss", iconify: "iconify" }) }},
         <a
           flex
           op30
@@ -20,7 +32,7 @@
           href="https://yesicon.app"
           target="_blank"
         >
-          <span class="i-material-symbols-link-rounded"></span>
+          <span class="i-mingcute-link-3-fill"></span>
           {{ t("clickHereForIcons") }}
         </a>
       </p>
@@ -31,19 +43,32 @@
       ></div>
     </el-card>
     <el-card shadow="hover">
-      <div flex>
-        <div class="i-vs-language text-blue-400"></div>
-        {{ t("i18nComponent") }}
-      </div>
-      <LanguageSwitcher></LanguageSwitcher>
-    </el-card>
-    <el-card shadow="hover">
       <p>{{ t("themeSwitch") }}</p>
       <ThemeSwitch cursor-pointer></ThemeSwitch>
     </el-card>
     <el-card shadow="hover">
       <p>{{ t("fullscreenSwitch") }}♐</p>
       <p>{{ t("fullscreenDescription") }}♐</p>
+    </el-card>
+    <el-card shadow="hover">
+      <p>{{ t("codeStandards") }}🐧</p>
+      <p>{{ t("codeConventions") }}</p>
+    </el-card>
+    <el-card shadow="hover">
+      <p>{{ t("permissionExample") }}</p>
+      <p>
+        <router-link
+          flex
+          op30
+          dark:op60
+          hover="op80"
+          dark:hover="op80"
+          to="/permission/page"
+        >
+          <span class="i-ph-link-bold"></span>
+          {{ t("clickHereToExample") }}
+        </router-link>
+      </p>
     </el-card>
   </div>
 </template>
@@ -65,8 +90,13 @@ const handleSwitchChange = (newState: boolean) => {
 
 <style scoped>
 :deep(.el-card) {
-  margin: 8px;
+  margin: 5px;
   width: 300px;
   height: 130px;
+  display: flex;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 </style>

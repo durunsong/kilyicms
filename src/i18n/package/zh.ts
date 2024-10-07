@@ -229,6 +229,11 @@ const zh = {
   themeSwitch: "常规三种主题色切换（不包括灰色和色弱模式）",
   fullscreenSwitch: "两种全屏模式切换（菜单区和内容区）",
   fullscreenDescription: "屏幕右上角和内容区右上角",
+  codeStandards: "代码规范",
+  codeConventions:
+    "组件: 大驼峰, 方法名: 小驼峰, 类名: -链接符/下划线, 文件名: -链接符/小驼峰, 属性: 小驼峰/下划线",
+  permissionExample: "权限指令案例 | 首页",
+  clickHereToExample: "点击这里跳转到示例页面",
 };
 
 export default zh;
