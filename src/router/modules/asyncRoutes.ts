@@ -123,7 +123,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
               import("@/views/user-center/user-management/user-list.vue"),
           },
           {
-            path: "user_recycle_bin",
+            path: "user-recycle-bin",
             name: "user_recycle_bin",
             meta: {
               title: "router_user_recycle_bin",

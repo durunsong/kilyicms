@@ -221,6 +221,14 @@ const zh = {
   Top_mode: "顶部模式",
   mixed_mode: "混合模式",
   function_card: "功能卡片",
+  customSwitchComponent: "自定义开关组件",
+  iconIntegration: "unocss集成标签图标iconify",
+  clickHereForIcons: "点击此处找图标",
+  i18nComponent:
+    "国际化组件：16种语言切换，element-plus组件内置语言和vue-i18n语言切换同步",
+  themeSwitch: "常规三种主题色切换（不包括灰色和色弱模式）",
+  fullscreenSwitch: "两种全屏模式切换（菜单区和内容区）",
+  fullscreenDescription: "屏幕右上角和内容区右上角",
 };
 
 export default zh;

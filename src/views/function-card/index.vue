@@ -1,16 +1,16 @@
 <template>
-  <div flex flex-col h-full uno-padding-5 flex-wrap>
-    <el-card class="w-[300px]" shadow="hover">
-      <div m-b-2>自定义开关组件</div>
+  <div flex h-full uno-padding-5 flex-wrap>
+    <el-card shadow="hover">
+      <div m-b-2>{{ t("customSwitchComponent") }}</div>
       <PlaneSwitch
         v-model:checked="switchState"
         @update:checked="handleSwitchChange"
       ></PlaneSwitch>
       <div m-t-2>Switch is {{ switchState ? "ON" : "OFF" }}</div>
     </el-card>
-    <el-card class="w-[300px]" shadow="hover">
+    <el-card shadow="hover">
       <p>
-        unocss集成标签图标iconify,
+        {{ t("iconIntegration") }},
         <a
           flex
           op30
@@ -21,7 +21,7 @@
           target="_blank"
         >
           <span class="i-material-symbols-link-rounded"></span>
-          点击此处找图标
+          {{ t("clickHereForIcons") }}
         </a>
       </p>
       <div
@@ -30,32 +30,32 @@
         aria-hidden="true"
       ></div>
     </el-card>
-    <el-card class="w-[300px]" shadow="hover">
+    <el-card shadow="hover">
       <div flex>
         <div class="i-vs-language text-blue-400"></div>
-        国际化组件:16种语言切换,element-plus组件内置语言和vue-i18n语言切换同步
+        {{ t("i18nComponent") }}
       </div>
       <LanguageSwitcher></LanguageSwitcher>
     </el-card>
-    <el-card class="w-[300px]" shadow="hover">
-      <p>常规三种主题色切换(不包括灰色和色弱模式)</p>
+    <el-card shadow="hover">
+      <p>{{ t("themeSwitch") }}</p>
       <ThemeSwitch cursor-pointer></ThemeSwitch>
     </el-card>
-    <el-card class="w-[300px]" shadow="hover">
-      <p>两种全屏模式切换(菜单区和内容区)♐</p>
-      <p>屏幕右上角和内容区右上角♐</p>
+    <el-card shadow="hover">
+      <p>{{ t("fullscreenSwitch") }}♐</p>
+      <p>{{ t("fullscreenDescription") }}♐</p>
     </el-card>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-// import { useI18n } from "vue-i18n";
+import { useI18n } from "vue-i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 
 const switchState = ref(true);
-// const { t } = useI18n();
+const { t } = useI18n();
 // 处理子组件发出的开关状态变化事件
 const handleSwitchChange = (newState: boolean) => {
   switchState.value = newState;
@@ -66,5 +66,7 @@ const handleSwitchChange = (newState: boolean) => {
 <style scoped>
 :deep(.el-card) {
   margin: 8px;
+  width: 300px;
+  height: 130px;
 }
 </style>

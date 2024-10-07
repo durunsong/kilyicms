@@ -226,6 +226,14 @@ const en = {
   mixed_mode: "Mixed mode",
   Cancel_duplicate_request: "Cancel duplicate request",
   function_card: "Function Card",
+  customSwitchComponent: "Custom Switch Component",
+  iconIntegration: "{unocss} integrates label icon {iconify}",
+  clickHereForIcons: "Click here for icons",
+  i18nComponent:
+    "Internationalization component: 16 language switches, {element-plus} and {vue-i18n} language sync",
+  themeSwitch: "Three theme switch (excluding gray and weak color mode)",
+  fullscreenSwitch: "Two fullscreen modes switch (menu and content area)",
+  fullscreenDescription: "Top right of screen and top right of content area",
 };
 
 export default en;

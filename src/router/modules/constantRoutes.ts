@@ -49,7 +49,7 @@ export const constant_Routes: RouteRecordRaw[] = [
   {
     path: "/function-card",
     component: Layouts,
-    redirect: "/function-card/functions-and-Components",
+    redirect: "/function-card/functions-and-components",
     name: "functionCard",
     meta: {
       title: "function_card",
@@ -58,7 +58,7 @@ export const constant_Routes: RouteRecordRaw[] = [
     },
     children: [
       {
-        path: "functions-and-Components",
+        path: "functions-and-components",
         component: () => import("@/views/function-card/index.vue"),
         name: "FunctionsAndComponents",
         meta: {
