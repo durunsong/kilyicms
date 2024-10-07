@@ -239,6 +239,11 @@ const en = {
     "Component: PascalCase, Method: camelCase, Class: kebab-case/underscore, Filename: kebab-case/camelCase, Attribute: camelCase/underscore",
   permissionExample: "Permission Directive Example | Home",
   clickHereToExample: "Click here to go to the example page",
+  hooksExample: "More than 10 {hooks} example encapsulations",
+  clickHereToHookExample: "Click here to go to the example page",
+  multiLevelRouteManagement: "Multi-level route management",
+  clickHereToMultiRouteExample:
+    "Click here to go to the multi-level route management example page",
 };
 
 export default en;

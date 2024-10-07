@@ -70,6 +70,38 @@
         </router-link>
       </p>
     </el-card>
+    <el-card shadow="hover">
+      <p>{{ t("hooksExample", { hooks: "hooks" }) }}</p>
+      <p>
+        <router-link
+          flex
+          op30
+          dark:op60
+          hover="op80"
+          dark:hover="op80"
+          to="/hook-demo/use-fullscreen-loading"
+        >
+          <span class="i-solar-to-pip-bold"></span>
+          {{ t("clickHereToHookExample") }}
+        </router-link>
+      </p>
+    </el-card>
+    <el-card shadow="hover">
+      <p>{{ t("multiLevelRouteManagement") }}</p>
+      <p>
+        <router-link
+          flex
+          op30
+          dark:op60
+          hover="op80"
+          dark:hover="op80"
+          to="/menu/menu1/menu1-2/menu1-2-1"
+        >
+          <span class="i-logos-go"></span>
+          {{ t("clickHereToMultiRouteExample") }}
+        </router-link>
+      </p>
+    </el-card>
   </div>
 </template>
 
