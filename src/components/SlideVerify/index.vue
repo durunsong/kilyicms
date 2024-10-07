@@ -6,7 +6,7 @@
       class="slider_close_btn"
       circle
       @click="handleClose"
-    />
+    ></el-button>
     <div class="slide_inner_box">
       <SlideVerify
         class="slide_box"
@@ -18,7 +18,7 @@
         @fail="onFail"
         @refresh="onRefresh"
         :imgs="img"
-      />
+      ></SlideVerify>
       <div class="msg_box" :style="'color:' + fontColor">{{ msg }}</div>
     </div>
   </div>
@@ -28,14 +28,26 @@
 import { ref } from "vue";
 import SlideVerify, { SlideVerifyInstance } from "vue3-slide-verify"; //引入滑动验证组件
 import "vue3-slide-verify/dist/style.css"; //引入滑动验证组件样式
-import slideImg from "@/assets/images/slideimg.png";
+import slideImg_1 from "@/assets/images/slideimg-1.png";
+import slideImg_2 from "@/assets/images/slideimg-2.png";
+import slideImg_3 from "@/assets/images/slideimg-3.png";
+import slideImg_4 from "@/assets/images/slideimg-4.png";
+import slideImg_5 from "@/assets/images/slideimg-5.png";
+import slideImg_6 from "@/assets/images/slideimg-6.png";
 import { Close } from "@element-plus/icons-vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 const msg = ref<string>("");
 //自定义图片
-const img = ref([slideImg]);
+const img = ref([
+  slideImg_1,
+  slideImg_2,
+  slideImg_3,
+  slideImg_4,
+  slideImg_5,
+  slideImg_6,
+]);
 const block = ref<SlideVerifyInstance>();
 const emit = defineEmits(["again", "success", "fail", "refresh", "close"]);
 
