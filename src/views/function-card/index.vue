@@ -1,6 +1,6 @@
 <template>
   <div flex flex-col h-full uno-padding-5 flex-wrap>
-    <el-card class="w-[400px]" shadow="hover">
+    <el-card class="w-[300px]" shadow="hover">
       <div m-b-2>自定义开关组件</div>
       <PlaneSwitch
         v-model:checked="switchState"
@@ -8,7 +8,7 @@
       ></PlaneSwitch>
       <div m-t-2>Switch is {{ switchState ? "ON" : "OFF" }}</div>
     </el-card>
-    <el-card class="w-[400px]" shadow="hover">
+    <el-card class="w-[300px]" shadow="hover">
       <p>
         unocss集成标签图标iconify,
         <a
@@ -30,18 +30,18 @@
         aria-hidden="true"
       ></div>
     </el-card>
-    <el-card class="w-[400px]" shadow="hover">
+    <el-card class="w-[300px]" shadow="hover">
       <div flex>
         <div class="i-vs-language text-blue-400"></div>
         国际化组件:16种语言切换,element-plus组件内置语言和vue-i18n语言切换同步
       </div>
       <LanguageSwitcher></LanguageSwitcher>
     </el-card>
-    <el-card class="w-[400px]" shadow="hover">
+    <el-card class="w-[300px]" shadow="hover">
       <p>常规三种主题色切换(不包括灰色和色弱模式)</p>
       <ThemeSwitch cursor-pointer></ThemeSwitch>
     </el-card>
-    <el-card class="w-[400px]" shadow="hover">
+    <el-card class="w-[300px]" shadow="hover">
       <p>两种全屏模式切换(菜单区和内容区)♐</p>
       <p>屏幕右上角和内容区右上角♐</p>
     </el-card>

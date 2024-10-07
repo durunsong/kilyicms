@@ -21,7 +21,7 @@ const pendingRequests: any = {};
 
 // 创建 axios 实例
 const request = axios.create({
-  baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会携带/api
+  baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会默认携带 VITE_BASE_API
   timeout: 5000,
 });
 

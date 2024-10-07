@@ -10,6 +10,7 @@
         <SvgIcon
           v-if="theOnlyOneChild.meta.svgIcon"
           :name="theOnlyOneChild.meta.svgIcon"
+          :aria-hidden="false"
         ></SvgIcon>
         <component
           v-else-if="theOnlyOneChild.meta.elIcon"
@@ -27,6 +28,7 @@
       <SvgIcon
         v-if="props.item.meta?.svgIcon"
         :name="props.item.meta.svgIcon"
+        :aria-hidden="false"
       ></SvgIcon>
       <component
         v-else-if="props.item.meta?.elIcon"

@@ -5,18 +5,18 @@
       v-if="layoutClasses.mobile && layoutClasses.openSidebar"
       class="drawer-bg"
       @click="handleClickOutside"
-    />
+    ></div>
     <!-- 左侧边栏 -->
-    <Sidebar class="sidebar-container" />
+    <Sidebar class="sidebar-container"></Sidebar>
     <!-- 主容器 -->
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <!-- 头部导航栏和标签栏 -->
       <div :class="{ 'fixed-header': fixedHeader }" class="layout-header">
-        <NavigationBar />
-        <TagsView v-show="showTagsView" />
+        <NavigationBar></NavigationBar>
+        <TagsView v-show="showTagsView"></TagsView>
       </div>
       <!-- 页面主体内容 -->
-      <AppMain class="app-main" />
+      <AppMain class="app-main"></AppMain>
     </div>
   </div>
 </template>
@@ -80,7 +80,7 @@ $transition-time: 0.35s;
   left: 0;
   z-index: 1001;
   overflow: hidden;
-  border-right: var(--kilyicms-sidebar-border-right);
+  // border-right: var(--kilyicms-sidebar-border-right);
 }
 
 .main-container {

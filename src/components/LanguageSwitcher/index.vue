@@ -11,7 +11,7 @@
     >
       <template #reference>
         <div class="reference_btn">
-          <SvgIcon name="select_lang"></SvgIcon>
+          <SvgIcon name="select_lang" :aria-hidden="false"></SvgIcon>
           <span v-show="isMobileWidth">{{ current_language }}</span>
         </div>
       </template>

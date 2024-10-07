@@ -11,14 +11,12 @@
     <div class="right-menu">
       <SearchMenu v-if="showSearchMenu" class="right-menu-item"></SearchMenu>
       <Screenfull v-if="showScreenfull" class="right-menu-item"></Screenfull>
-      <div class="mr-10px">
-        <el-tooltip effect="dark" :content="t('Theme_Mode')" placement="bottom">
-          <ThemeSwitch
-            v-if="showThemeSwitch"
-            class="right-menu-item"
-          ></ThemeSwitch>
-        </el-tooltip>
-      </div>
+      <el-tooltip effect="dark" :content="t('Theme_Mode')" placement="bottom">
+        <ThemeSwitch
+          v-if="showThemeSwitch"
+          class="right-menu-item"
+        ></ThemeSwitch>
+      </el-tooltip>
       <LanguageSwitcher></LanguageSwitcher>
       <Notify v-if="showNotify" class="right-menu-item"></Notify>
       <el-dropdown class="right-menu-item">

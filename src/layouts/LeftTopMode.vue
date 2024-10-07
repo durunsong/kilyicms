@@ -2,18 +2,18 @@
   <div :class="layoutClasses" class="app-wrapper">
     <!-- 头部导航栏和标签栏 -->
     <div class="fixed-header layout-header">
-      <Logo v-if="showLogo" :collapse="false" class="logo" />
+      <Logo v-if="showLogo" :collapse="false" class="logo"></Logo>
       <div class="content">
-        <NavigationBar />
-        <TagsView v-show="showTagsView" />
+        <NavigationBar></NavigationBar>
+        <TagsView v-show="showTagsView"></TagsView>
       </div>
     </div>
     <!-- 主容器 -->
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <!-- 左侧边栏 -->
-      <Sidebar class="sidebar-container" />
+      <Sidebar class="sidebar-container"></Sidebar>
       <!-- 页面主体内容 -->
-      <AppMain class="app-main" />
+      <AppMain class="app-main"></AppMain>
     </div>
   </div>
 </template>
@@ -81,7 +81,7 @@ $transition-time: 0.35s;
   left: 0;
   z-index: 1001;
   overflow: hidden;
-  border-right: var(--kilyicms-sidebar-border-right);
+  // border-right: var(--kilyicms-sidebar-border-right);
   padding-top: var(--kilyicms-navigationbar-height);
 }
 
