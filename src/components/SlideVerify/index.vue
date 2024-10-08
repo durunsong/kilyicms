@@ -25,6 +25,10 @@
 </template>
 
 <script lang="ts" setup>
+/**
+ * @说明
+ * 滑动验证组件在pc浏览器中打开正常，在移动端浏览器中打开，很多浏览器会触发安卓或IOS左滑返回，滑动验证组件的滑动条无法滑动
+ * */
 import { ref } from "vue";
 import SlideVerify, { SlideVerifyInstance } from "vue3-slide-verify"; //引入滑动验证组件
 import "vue3-slide-verify/dist/style.css"; //引入滑动验证组件样式

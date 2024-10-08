@@ -152,7 +152,7 @@
 import { setToken } from "@/utils/cache/cookies";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 import { ref, reactive } from "vue";
-import { loginApi, registerApi } from "@/service/index";
+import { loginApi, registerApi } from "@/service/login";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
 import type { FormInstance, FormRules } from "element-plus";
@@ -177,7 +177,7 @@ interface LoginForm {
   confirmPassword?: string | undefined;
 }
 
-const loading = ref(false);
+const loading = ref<boolean>(false);
 const router = useRouter();
 const form = reactive<LoginForm>({
   userName: "admin",
@@ -186,7 +186,7 @@ const form = reactive<LoginForm>({
 });
 
 const ref_form = ref<FormInstance | null>(null);
-const isShow = ref(false);
+const isShow = ref<boolean>(false);
 
 const rules = {
   userName: [

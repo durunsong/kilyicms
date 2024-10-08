@@ -123,7 +123,7 @@ const handleSwitchChange = (newState: boolean) => {
 <style scoped>
 :deep(.el-card) {
   margin: 5px;
-  width: 300px;
+  width: 310px;
   height: 130px;
   display: flex;
   overflow-y: auto;
