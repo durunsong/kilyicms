@@ -1,11 +1,12 @@
 <template>
   <footer class="layout-footer">
-    MIT © 2024-PRESENT {{ VITE_APP_TITLE }}
+    MIT © 2024-PRESENT {{ VITE_APP_VERSION }} {{ VITE_APP_TITLE }}
   </footer>
 </template>
 
 <script lang="ts" setup>
 const VITE_APP_TITLE = import.meta.env.VITE_APP_TITLE;
+const VITE_APP_VERSION = import.meta.env.VITE_APP_VERSION;
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div flex h-full uno-padding-5 flex-wrap>
+  <div flex uno-padding-5 flex-wrap>
     <el-card shadow="hover">
       <div flex>
         <div class="i-vs-language text-blue-400"></div>
