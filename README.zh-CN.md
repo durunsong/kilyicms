@@ -181,6 +181,14 @@ pnpm test
 ![Snipaste_2.png](./src/assets/case-img/Snipaste_2.png)
 ![Snipaste_3.png](./src/assets/case-img/Snipaste_3.png)
 
+## 🌐国际化多语言自动化翻译程序
+
+#### 准备：百度翻译api---------> appid appkey
+
+#### 代码仓库 (具体看百度翻译api文档)
+
+[点击这里访问我的另一个仓库](https://github.com/durunsong/Baidu-trans.git)
+
 ## 💕 感谢 Star
 
 小项目获取 star 不易，如果你喜欢这个项目的话，欢迎支持一个 star！这是作者持续维护的唯一动力（小声：毕竟是免费的）

@@ -187,6 +187,14 @@ pnpm lint
 ![Snipaste_2.png](./src/assets/case-img/Snipaste_2.png)
 ![Snipaste_3.png](./src/assets/case-img/Snipaste_3.png)
 
+## 🌐Internationalized multilingual automated translation program
+
+#### Preparation: Baidu translation api ---------> appid appkey
+
+#### code repository (see Baidu translation api docs for details)
+
+[Click here to visit my other repository](https://github.com/durunsong/Baidu-trans.git)
+
 ## 💕 Thanks for the Star
 
 It's not easy to get stars for a small project. If you like this project, feel free to support it with a star! This is the only motivation for the author to keep maintaining it (whisper: after all, it's free).
