@@ -6,92 +6,92 @@ import { useSettingsStore } from "./settings";
 import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
 import CACHE_KEY from "@/constants/cache-key";
-import { getLocalData, setLocalData } from "@/utils/cache/local-storage";
-// import { loginApi } from "@/service/login";
-// import {  getUserInfoApi } from "@/service/login";
-// import { type LoginRequestData } from "@/service/login/types/login";
-// export interface LoginRequestData {
-//   /** admin 或 user */
-//   username: "admin" | "user";
-//   /** 密码 */
-//   password: string;
-//   /** 验证码 */
-//   code: string;
-// }
+import { setLocalData, removeLocalData } from "@/utils/cache/local-storage";
+import { loginApi, userInfoApi } from "@/service/login";
+import { ElNotification } from "element-plus";
+import { useGreeting } from "@/hooks/useGreeting";
 import routeSettings from "@/config/route";
+import { LoginRequestData } from "@/types/store.user";
+import i18n from "@/i18n";
+const { t } = i18n.global;
 
-export const useUserStore = defineStore("user", () => {
+export const useUserStore: any = defineStore("user", () => {
   const token = ref<string>(getToken() || "");
   const roles = ref<string[]>([]);
-  const username = ref<string>("");
-
+  const userName = ref<string>("");
   const tagsViewStore = useTagsViewStore();
   const settingsStore = useSettingsStore();
-
-  // 先存储本地模拟权限
-  const adminRoles = getLocalData(CACHE_KEY.TOKEN_ROLE);
-
   /** 登录 */
-  const login = async () => {
-    // const login = async ({ username, password, code }: LoginRequestData) => {
-    // const { data } = await loginApi({ username, password, code });
-    let __data;
-    if (!adminRoles) {
-      __data = {
-        token: "token-admin",
-      };
-    } else if (adminRoles && adminRoles == "token-admin") {
-      __data = {
-        token: "token-admin",
-      };
+  const login = async ({ userName, password }: LoginRequestData) => {
+    const res: any = await loginApi({ userName, password });
+    // 判断登录结果
+    if (res.status === 200) {
+      setToken(res.token);
     } else {
-      __data = {
-        token: "token-user",
-      };
+      showNotification(res.message, "warning");
+      return; // 如果登录失败，终止后续操作
     }
-    setToken(__data.token);
-    token.value = __data.token;
+    token.value = res.token;
   };
-  /** 获取用户详情 */
-  const getInfo = async () => {
-    // const { data } = await getUserInfoApi()
-    let __data;
-    if (!adminRoles) {
-      __data = {
-        username: "admin",
-        roles: ["admin"],
-      };
-    } else if (adminRoles && adminRoles == "token-admin") {
-      __data = {
-        username: "admin",
-        roles: ["admin"],
-      };
-    } else {
-      __data = {
-        username: "user",
-        roles: ["user"],
-      };
-    }
-    username.value = __data.username;
+
+  /** 获取用户角色 */
+  const getInfoRoles = async () => {
+    // 登录问候语
+    const { showGreetingNotification } = useGreeting(t);
+    // 获取用户信息
+    const res: any = await userInfoApi();
+    setLocalData(CACHE_KEY.USER_INFO, res.userInfo);
+    // 显示问候语
+    showGreetingNotification(t("login_success"), res.userInfo.userName);
+    // 这里模拟获取用户信息，具体逻辑看前后端约束
+    userName.value = res.userInfo.userName;
     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
     roles.value =
-      __data.roles?.length > 0 ? __data.roles : routeSettings.defaultRoles;
+      res.userInfo.roles?.length > 0
+        ? res.userInfo.roles
+        : routeSettings.defaultRoles;
   };
+
   /** 模拟角色变化 */
   const changeRoles = async (role: string) => {
-    // 先存储本地模拟权限切换
-    const roleAdmin = "token-" + role;
-    setLocalData(CACHE_KEY.TOKEN_ROLE, roleAdmin);
-
-    const newToken = "token-" + role;
-    token.value = newToken;
-    setToken(newToken);
-    // 用刷新页面代替重新登录
-    window.location.reload();
+    try {
+      // 这里userName和password具体是什么，需要看后端SQL表设计和接口约束
+      const newRole = role == "admin" ? "admin" : "user";
+      const params = {
+        userName: newRole,
+        password: "123456",
+      };
+      // 登录API调用
+      const res: any = await loginApi(params);
+      // 判断登录结果
+      if (res.status === 200) {
+        setToken(res.token);
+      } else {
+        showNotification(res.message, "warning");
+        return; // 如果登录失败，终止后续操作
+      }
+      // 刷新页面（可根据需求选择是否必要） ---- 免登录刷新页面
+      window.location.reload();
+    } catch (error: any) {
+      showNotification(error, "error");
+    }
   };
+
+  // 通知弹窗函数
+  const showNotification = (
+    message: string,
+    type: "success" | "warning" | "error",
+  ) => {
+    ElNotification({
+      message,
+      type,
+    });
+  };
+
   /** 登出 */
   const logout = () => {
     removeToken();
+    removeLocalData(CACHE_KEY.USER_INFO);
     token.value = "";
     roles.value = [];
     resetRouter();
@@ -114,9 +114,9 @@ export const useUserStore = defineStore("user", () => {
   return {
     token,
     roles,
-    username,
+    userName,
     login,
-    getInfo,
+    getInfoRoles,
     changeRoles,
     logout,
     resetToken,

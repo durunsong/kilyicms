@@ -149,10 +149,9 @@
 </template>
 
 <script setup lang="ts">
-import { setToken } from "@/utils/cache/cookies";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 import { ref, reactive } from "vue";
-import { loginApi, registerApi, userInfoApi } from "@/service/login";
+import { registerApi } from "@/service/login";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
 import type { FormInstance, FormRules } from "element-plus";
@@ -160,12 +159,7 @@ import SlideVerify from "@/components/SlideVerify/index.vue";
 import { InternalRuleItem, Values, ValidateOption } from "async-validator";
 import { User, Lock } from "@element-plus/icons-vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
-import { useGreeting } from "@/hooks/useGreeting";
-import CACHE_KEY from "@/constants/cache-key";
-import { setLocalData } from "@/utils/cache/local-storage";
-// 登录
-// import { useUserStore } from "@/store/modules/user";
-// import { type LoginRequestData } from "@/service/login/types/login";
+import { useUserStore } from "@/store/modules/user";
 const sliderVisible = ref<boolean>(false); //滑动验证ui
 const isSlider = ref<boolean>(false); // 是否开启验证
 import { useI18n } from "vue-i18n";
@@ -260,36 +254,10 @@ const handlerExecutiveLogging = () => {
   // 执行登录操作
   loading.value = true;
   const params = form;
-  // 登录问候语
-  const { showGreetingNotification } = useGreeting(t);
-  loginApi(params)
-    .then((res: any) => {
-      if (res.status === 200) {
-        setToken(res.token);
-      } else if (res.status === 403) {
-        ElNotification({
-          message: res.message,
-          type: "warning",
-        });
-      } else {
-        ElNotification({
-          message: res.message,
-          type: "warning",
-        });
-      }
-      loading.value = false;
-    })
+  useUserStore()
+    .login(params)
     .then(() => {
-      userInfoApi().then((rest: any) => {
-        setLocalData(CACHE_KEY.USER_INFO, rest.userInfo);
-        // 显示问候语
-        showGreetingNotification(t("login_success"), rest.userInfo.userName);
-        router.push("/");
-      });
-    })
-    .catch((error: Error) => {
-      console.log("error", error);
-      loading.value = false;
+      router.push("/");
     })
     .finally(() => {
       loading.value = false;
