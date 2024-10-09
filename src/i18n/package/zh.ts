@@ -238,6 +238,7 @@ const zh = {
   clickHereToHookExample: "点击这里跳转到案例页面",
   multiLevelRouteManagement: "多级路由管理",
   clickHereToMultiRouteExample: "点击这里跳转到多级路由管理案例页面",
+  login_success: "登录成功",
 };
 
 export default zh;

@@ -33,4 +33,7 @@ router.post("/register", userController.registerUser);
 // 刷新jwt
 router.post("/refresh-token", userController.refreshToken);
 
+// 获取用户信息
+router.get("/userInfo", userController.getUserDetails);
+
 module.exports = router;

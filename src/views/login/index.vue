@@ -152,7 +152,7 @@
 import { setToken } from "@/utils/cache/cookies";
 import ThemeSwitch from "@/components/ThemeSwitch/index.vue";
 import { ref, reactive } from "vue";
-import { loginApi, registerApi } from "@/service/login";
+import { loginApi, registerApi, userInfoApi } from "@/service/login";
 import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
 import type { FormInstance, FormRules } from "element-plus";
@@ -258,18 +258,14 @@ const handleSlideSuccess = () => {
 // 登录接口请求验证
 const handlerExecutiveLogging = () => {
   // 执行登录操作
-  // loading.value = true;
+  loading.value = true;
   const params = form;
   // 登录问候语
   const { showGreetingNotification } = useGreeting(t);
   loginApi(params)
     .then((res: any) => {
       if (res.status === 200) {
-        // 显示问候语
-        showGreetingNotification(res.message, res.userInfo.userName);
         setToken(res.token);
-        setLocalData(CACHE_KEY.USER_INFO, res.userInfo);
-        router.push("/");
       } else if (res.status === 403) {
         ElNotification({
           message: res.message,
@@ -283,8 +279,19 @@ const handlerExecutiveLogging = () => {
       }
       loading.value = false;
     })
+    .then(() => {
+      userInfoApi().then((rest: any) => {
+        setLocalData(CACHE_KEY.USER_INFO, rest.userInfo);
+        // 显示问候语
+        showGreetingNotification(t("login_success"), rest.userInfo.userName);
+        router.push("/");
+      });
+    })
     .catch((error: Error) => {
       console.log("error", error);
+      loading.value = false;
+    })
+    .finally(() => {
       loading.value = false;
     });
 };

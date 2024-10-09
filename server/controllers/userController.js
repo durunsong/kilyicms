@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
-const { connection } = require("../config/db.js");
+const { connection } = require("../config/db-connection.js");
 
 const saltRounds = 10;
 
@@ -328,14 +328,12 @@ const restoreUserApi = (req, res) => {
   });
 };
 
-// 用户登录接口
+// 登录接口
 const loginUser = (req, res) => {
   const { userName, password } = req.body;
-
   if (!userName || !password) {
     return res.status(400).json({ message: "账号和密码都是必需的" });
   }
-
   const findUserQuery =
     "SELECT * FROM users WHERE userName = ? AND is_delete = 0";
   connection.query(findUserQuery, [userName], async (err, results) => {
@@ -343,47 +341,70 @@ const loginUser = (req, res) => {
       console.error(err);
       return res.status(500).json({ message: "查询用户失败" });
     }
-
     if (results.length === 0) {
       return res.status(404).json({ message: "用户不存在" });
     }
-
     const user = results[0];
     const hashFromDb = user.password;
-
     // 验证密码 检查密码是否匹配
     const passWordMatch = await bcrypt.compare(password, hashFromDb);
-
     if (!passWordMatch) {
       return res.status(401).json({ message: "用户名或密码错误" });
     }
-
     // 生成 JWT
     const token = jwt.sign(
-      { userId: user.id, userName: user.userName },
+      { id: user.id, userName: user.userName },
       "jwt_secret",
       { expiresIn: "1h" },
     );
-
     // 登录时间
     const login_time = moment().format("YYYY-MM-DD HH:mm:ss");
-
-    // 返回用户信息
-    const userInfo = {
-      userName: user.userName,
-      account: user.account,
-      avatar: user.avatar,
-      description: user.description,
-      create_time: user.create_time,
-      update_time: user.update_time,
-      is_delete: user.is_delete,
-      nick_name: user.nick_name,
-      role_ids: user.role_ids,
-      login_time: login_time,
-    };
-
-    res.status(200).json({ message: "登录成功", status: 200, token, userInfo });
+    res
+      .status(200)
+      .json({ message: "登录成功", status: 200, token, login_time });
   });
+};
+
+// 获取用户详情接口
+const getUserDetails = (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1]; // 从请求头获取 token
+  if (!token) {
+    return res.status(401).json({ message: "Token 不存在" });
+  }
+  try {
+    const decoded = jwt.verify(token, "jwt_secret"); // 解码 JWT
+    const userId = decoded.id; // 获取解码后的 id
+    // 使用 id 查询用户详情
+    const findUserQuery = "SELECT * FROM users WHERE id = ? AND is_delete = 0";
+    connection.query(findUserQuery, [userId], (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ message: "查询用户失败" });
+      }
+      if (results.length === 0) {
+        return res.status(404).json({ message: "用户不存在" });
+      }
+      const user = results[0];
+      // 返回用户信息
+      const userInfo = {
+        id: user.id,
+        userName: user.userName,
+        account: user.account,
+        avatar: user.avatar,
+        description: user.description,
+        create_time: user.create_time,
+        update_time: user.update_time,
+        is_delete: user.is_delete,
+        nick_name: user.nick_name,
+        role_ids: user.role_ids,
+      };
+      res
+        .status(200)
+        .json({ message: "获取用户信息成功", status: 200, userInfo });
+    });
+  } catch {
+    return res.status(403).json({ message: "无效的 token" });
+  }
 };
 
 // 刷新jwt接口
@@ -491,6 +512,7 @@ module.exports = {
   permanentDeleteUser,
   restoreUserApi,
   loginUser,
+  getUserDetails,
   refreshToken,
   registerUser,
 };

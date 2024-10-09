@@ -46,3 +46,7 @@ export const registerApi = (params: RegisterRequestData) =>
     method: "post",
     data: params,
   });
+
+// userInfo
+export const userInfoApi = () =>
+  request({ url: "/api/users/userInfo", method: "GET" });

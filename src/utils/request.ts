@@ -5,14 +5,14 @@ import axios, {
 } from "axios";
 import { ElNotification, ElLoading } from "element-plus";
 import i18n from "@/i18n";
-import CACHE_KEY from "@/constants/cache-key";
-import { getToken, setToken } from "@/utils/cache/cookies";
+// import CACHE_KEY from "@/constants/cache-key";
+import { getToken } from "@/utils/cache/cookies";
 import { useUserStoreHook } from "@/store/modules/user";
 
 /** 退出登录并强制刷新页面（会重定向到登录页） */
 const logout = () => {
   useUserStoreHook().logout();
-  location.reload();
+  // location.reload();
 };
 
 const { t } = i18n.global;
@@ -66,7 +66,9 @@ const hideLoading = () => {
 // 生成请求 key
 const generateRequestKey = (config: InternalAxiosRequestConfig) => {
   const { method, url, params, data } = config;
-  return `${method}:${url}:${JSON.stringify(params)}:${JSON.stringify(data)}`;
+  // 使用时间戳确保每次请求 key 唯一
+  const timestamp = Date.now();
+  return `${method}:${url}:${JSON.stringify(params)}:${JSON.stringify(data)}:${timestamp}`;
 };
 
 // 添加请求到 pending 中
@@ -143,28 +145,29 @@ request.interceptors.response.use(
   },
   async (error: any) => {
     hideLoading();
-
     let errorInfo = "";
     const status = error.response ? error.response.status : 0;
-    const originalRequest = error.config;
+    // const originalRequest = error.config;
 
     // 处理 HTTP 错误状态码
     switch (status) {
       //  Token 过期时，尝试刷新 Token
       case 401: {
         errorInfo = t("case_401");
-        const refreshToken = setToken(CACHE_KEY.REFRESH_TOKEN);
-        if (refreshToken && !originalRequest._retry) {
-          originalRequest._retry = true;
-          // 实现刷新 token 的逻辑
-          // const newToken = await refreshAccessToken(refreshToken);
-          // setToken(newToken);
-          // originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
-          // return request(originalRequest); // 重新发起请求
-        } else {
-          // 退出登录
-          logout();
-        }
+        // const refreshToken = setToken(CACHE_KEY.REFRESH_TOKEN);
+        // if (refreshToken && !originalRequest._retry) {
+        //   originalRequest._retry = true;
+        //   // 实现刷新 token 的逻辑
+        //   const newToken = await refreshAccessToken(refreshToken);
+        //   setToken(newToken);
+        //   originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
+        //   return request(originalRequest); // 重新发起请求
+        // } else {
+        //   // 退出登录
+        //   logout();
+        // }
+        // 退出登录
+        logout();
         break;
       }
       case 403: {

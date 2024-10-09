@@ -1,4 +1,4 @@
-// 配置模块
+// 配置模块  单链接
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   user: "root",
   password: "root",
   database: "test",
-  multipleStatements: true
+  multipleStatements: true,
 });
 
 const connectDb = () => {

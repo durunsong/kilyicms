@@ -244,6 +244,7 @@ const en = {
   multiLevelRouteManagement: "Multi-level route management",
   clickHereToMultiRouteExample:
     "Click here to go to the multi-level route management example page",
+  login_success: "Login success",
 };
 
 export default en;
