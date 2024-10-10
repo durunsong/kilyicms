@@ -11,9 +11,6 @@
       <h3 v-if="!isShow">
         {{ t("user_login") }}
         <!-- 演示账号 -->
-        <span style="font-weight: normal; color: #999; font-size: 14px"
-          >演示账号</span
-        >
         <el-radio-group
           v-if="!isShow"
           v-model="switchRoles"
