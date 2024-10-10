@@ -6,7 +6,11 @@ import { useSettingsStore } from "./settings";
 import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
 import CACHE_KEY from "@/constants/cache-key";
-import { setLocalData, removeLocalData } from "@/utils/cache/local-storage";
+import {
+  setLocalData,
+  getLocalData,
+  removeLocalData,
+} from "@/utils/cache/local-storage";
 import { loginApi, userInfoApi } from "@/service/login";
 import { ElNotification } from "element-plus";
 import { useGreeting } from "@/hooks/useGreeting";
@@ -14,6 +18,8 @@ import routeSettings from "@/config/route";
 import { LoginRequestData } from "@/types/store.user";
 import i18n from "@/i18n";
 const { t } = i18n.global;
+const is_login = getLocalData(CACHE_KEY.IS_LOGIN_KEY);
+const is_show_login_notice = getLocalData(CACHE_KEY.IS_SHOW_NOTICE) || false;
 
 export const useUserStore: any = defineStore("user", () => {
   const token = ref<string>(getToken() || "");
@@ -34,7 +40,7 @@ export const useUserStore: any = defineStore("user", () => {
     token.value = res.token;
   };
 
-  /** 获取用户角色 */
+  /** 获取用户角色详情 */
   const getInfoRoles = async () => {
     // 登录问候语
     const { showGreetingNotification } = useGreeting(t);
@@ -42,7 +48,15 @@ export const useUserStore: any = defineStore("user", () => {
     const res: any = await userInfoApi();
     setLocalData(CACHE_KEY.USER_INFO, res.userInfo);
     // 显示问候语
-    showGreetingNotification(t("login_success"), res.userInfo.userName);
+    if (!is_login && !is_show_login_notice) {
+      showGreetingNotification(t("login_success"), res.userInfo.userName);
+    } else if (is_login && is_show_login_notice) {
+      showGreetingNotification(
+        t("switch_roles_Successfully"),
+        res.userInfo.userName,
+      );
+      setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
+    }
     // 这里模拟获取用户信息，具体逻辑看前后端约束
     userName.value = res.userInfo.userName;
     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
@@ -55,7 +69,7 @@ export const useUserStore: any = defineStore("user", () => {
   /** 模拟角色变化 */
   const changeRoles = async (role: string) => {
     try {
-      // 这里userName和password具体是什么，需要看后端SQL表设计和接口约束
+      // 这里userName和password具体是什么，需要看后端SQL表设计和接口约束，这里只是个示例
       const newRole = role == "admin" ? "admin" : "user";
       const params = {
         userName: newRole,
@@ -66,9 +80,11 @@ export const useUserStore: any = defineStore("user", () => {
       // 判断登录结果
       if (res.status === 200) {
         setToken(res.token);
+        // 切换角色notification
+        setLocalData(CACHE_KEY.IS_SHOW_NOTICE, true);
       } else {
         showNotification(res.message, "warning");
-        return; // 如果登录失败，终止后续操作
+        return;
       }
       // 刷新页面（可根据需求选择是否必要） ---- 免登录刷新页面
       window.location.reload();
@@ -92,6 +108,8 @@ export const useUserStore: any = defineStore("user", () => {
   const logout = () => {
     removeToken();
     removeLocalData(CACHE_KEY.USER_INFO);
+    removeLocalData(CACHE_KEY.IS_SHOW_NOTICE);
+    setLocalData(CACHE_KEY.IS_LOGIN_KEY, false);
     token.value = "";
     roles.value = [];
     resetRouter();

@@ -12,6 +12,8 @@ class CACHE_KEY {
   static readonly USER_INFO = `${SYSTEM_NAME}_userInfo`;
   static readonly REFRESH_TOKEN = `${SYSTEM_NAME}_refreshToken`;
   static readonly TOKEN_ROLE = `${SYSTEM_NAME}_token_role`;
+  static readonly IS_LOGIN_KEY = `${SYSTEM_NAME}_is_login`;
+  static readonly IS_SHOW_NOTICE = `${SYSTEM_NAME}_is_show_notice`;
 }
 
 export default CACHE_KEY;

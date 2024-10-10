@@ -160,6 +160,8 @@ import { InternalRuleItem, Values, ValidateOption } from "async-validator";
 import { User, Lock } from "@element-plus/icons-vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
 import { useUserStore } from "@/store/modules/user";
+import { setLocalData } from "@/utils/cache/local-storage";
+import CACHE_KEY from "@/constants/cache-key";
 const sliderVisible = ref<boolean>(false); //滑动验证ui
 const isSlider = ref<boolean>(false); // 是否开启验证
 import { useI18n } from "vue-i18n";
@@ -246,7 +248,7 @@ const handleSlideSuccess = () => {
     sliderVisible.value = false;
     // 登录
     handlerExecutiveLogging();
-  }, 1500);
+  }, 1000);
 };
 
 // 登录接口请求验证
@@ -257,6 +259,8 @@ const handlerExecutiveLogging = () => {
   useUserStore()
     .login(params)
     .then(() => {
+      // 登录成功notify标记
+      setLocalData(CACHE_KEY.IS_LOGIN_KEY, true);
       router.push("/");
     })
     .finally(() => {
@@ -287,7 +291,7 @@ const toggleForm = () => {
 
 // 注册接口验证
 const handlerExecutiveRegister = () => {
-  // loading.value = true;
+  loading.value = true;
   registerApi(form)
     .then((res: any) => {
       if (res.status === 200) {
@@ -297,9 +301,6 @@ const handlerExecutiveRegister = () => {
         });
         toggleForm(); // 登录和注册表单之间切换
       }
-    })
-    .catch(() => {
-      loading.value = false;
     })
     .finally(() => {
       loading.value = false;
