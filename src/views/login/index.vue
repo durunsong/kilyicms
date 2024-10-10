@@ -8,14 +8,28 @@
       <div class="title">
         <img src="@/assets/layouts/logo-text-2.png" />
       </div>
-      <h3 v-if="!isShow">{{ t("user_login") }}</h3>
+      <h3 v-if="!isShow">
+        {{ t("user_login") }}
+        <!-- 演示账号 -->
+        <span style="font-weight: normal; color: #999; font-size: 14px"
+          >选择演示账号:</span
+        >
+        <el-radio-group
+          v-if="!isShow"
+          v-model="switchRoles"
+          @change="changeRole"
+        >
+          <el-radio-button label="admin" value="admin"></el-radio-button>
+          <el-radio-button label="user" value="user"></el-radio-button>
+        </el-radio-group>
+      </h3>
       <h3 v-else>{{ t("user_register") }}</h3>
       <transition name="el-fade-in-linear">
         <!-- 登录 -->
         <el-form
           v-if="!isShow"
           :model="form"
-          :rules="rules"
+          :rules="loginRules"
           class="login_form"
           ref="ref_form"
           @keyup.enter="onLoginConfirm"
@@ -180,11 +194,12 @@ const form = reactive<LoginForm>({
   password: "123456",
   confirmPassword: undefined,
 });
+const switchRoles = ref<string>("admin");
 
 const ref_form = ref<FormInstance | null>(null);
 const isShow = ref<boolean>(false);
 
-const rules = {
+const loginRules = {
   userName: [
     {
       required: true,
@@ -239,6 +254,24 @@ const registerRules: FormRules = {
       trigger: "blur",
     },
   ],
+};
+
+// 演示账号切换
+const changeRole = (role: string) => {
+  console.log(role);
+  if (role === "admin") {
+    Object.assign(form, {
+      userName: "admin",
+      password: "123456",
+      confirmPassword: undefined,
+    });
+  } else {
+    Object.assign(form, {
+      userName: "user",
+      password: "123456",
+      confirmPassword: undefined,
+    });
+  }
 };
 
 // 图片验证码通过
