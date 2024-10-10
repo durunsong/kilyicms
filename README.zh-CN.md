@@ -177,9 +177,19 @@ pnpm test
 
 ## 🌄项目预览图
 
+### pc预览图
+
 ![Snipaste_1.png](./src/assets/case-img/Snipaste_1.png)
 ![Snipaste_2.png](./src/assets/case-img/Snipaste_2.png)
 ![Snipaste_3.png](./src/assets/case-img/Snipaste_3.png)
+
+### 移动端预览图
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./src/assets/case-img/m-1.png" alt="Snipaste_4.png" style="width: 30%;">
+  <img src="./src/assets/case-img/m-2.png" alt="Snipaste_5.png" style="width: 30%;">
+  <img src="./src/assets/case-img/m-3.png" alt="Snipaste_6.png" style="width: 30%;">
+</div>
 
 ## 🌐国际化多语言自动化翻译程序
 
