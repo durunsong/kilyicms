@@ -12,12 +12,12 @@
         {{ t("user_login") }}
         <!-- 演示账号 -->
         <span style="font-weight: normal; color: #999; font-size: 14px"
-          >选择演示账号:</span
+          >演示账号</span
         >
         <el-radio-group
           v-if="!isShow"
           v-model="switchRoles"
-          @change="changeRole"
+          @change="handleChangeRole"
         >
           <el-radio-button label="admin" value="admin"></el-radio-button>
           <el-radio-button label="user" value="user"></el-radio-button>
@@ -257,7 +257,7 @@ const registerRules: FormRules = {
 };
 
 // 演示账号切换
-const changeRole = (role: string | number | boolean | undefined) => {
+const handleChangeRole = (role: string | number | boolean | undefined) => {
   if (role === "admin") {
     Object.assign(form, {
       userName: "admin",
