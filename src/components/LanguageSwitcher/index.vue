@@ -12,7 +12,7 @@
       <template #reference>
         <div class="reference_btn">
           <SvgIcon name="select_lang" :aria-hidden="false"></SvgIcon>
-          <span v-show="isMobileWidth">{{ current_language }}</span>
+          <span class="current_language">{{ current_language }}</span>
         </div>
       </template>
       <div class="category_btn_cate">
@@ -51,7 +51,6 @@ import { useI18n } from "vue-i18n";
 import CACHE_KEY from "@/constants/cache-key";
 import { getLocalData, setLocalData } from "@/utils/cache/local-storage";
 
-const isMobileWidth = ref(window.innerWidth <= 880 ? false : true);
 const { t, locale } = useI18n();
 const router = useRouter();
 const popoverVisible = ref(false);
@@ -273,6 +272,12 @@ const confirmLang = () => {
       border: 1px solid #1296db;
       color: #fff;
     }
+  }
+}
+/** 移动端适配 */
+@media screen and (max-width: 880px) {
+  .current_language {
+    display: none;
   }
 }
 </style>

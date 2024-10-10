@@ -257,8 +257,7 @@ const registerRules: FormRules = {
 };
 
 // 演示账号切换
-const changeRole = (role: string) => {
-  console.log(role);
+const changeRole = (role: string | number | boolean | undefined) => {
   if (role === "admin") {
     Object.assign(form, {
       userName: "admin",
