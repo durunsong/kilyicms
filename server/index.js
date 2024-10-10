@@ -8,7 +8,7 @@ const { connectDb } = require("./config/db-connection");
 
 // 创建服务器对象
 const app = express();
-const port = 4000;
+const PORT = process.env.PORT || 4000;
 
 // 在服务器启动时，调用 hashExistingPasswords 函数
 // 备用方案， 如果需要加密所有用户密码，则取消注释
@@ -26,6 +26,6 @@ connectDb();
 app.use("/api/users", userRoutes);
 
 // 启动服务器
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
