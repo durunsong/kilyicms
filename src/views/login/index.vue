@@ -323,7 +323,9 @@ const toggleForm = () => {
 // 注册接口验证
 const handlerExecutiveRegister = () => {
   loading.value = true;
-  registerApi(form)
+  const params: any = form;
+  params.roles = [params.roles];
+  registerApi(params)
     .then((res: any) => {
       if (res.status === 200) {
         ElNotification({
