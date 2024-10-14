@@ -15,11 +15,12 @@ CREATE TABLE IF NOT EXISTS users (
     role_ids JSON,
     avatar VARCHAR(255),
     uuid VARCHAR(36) NOT NULL,
-    token VARCHAR(255)
+    token VARCHAR(255),
+    roles JSON
 );
 
 -- Optional: users sql表 结构
-INSERT INTO users (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, uuid, token)
+INSERT INTO users (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, uuid, token,roles)
 VALUES (
     'testuser',
     NOW(),
@@ -32,6 +33,7 @@ VALUES (
     JSON_ARRAY(101, 102, 301),
     'https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800',
     UUID(),
-    ''
+    '',
+    JSON_ARRAY('admin')
 );
 
