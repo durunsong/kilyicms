@@ -45,6 +45,7 @@ const createUser = (req, res) => {
   const is_delete = 0;
   const nick_name = "管理员";
   const role_ids = [101, 102, 301];
+  const roles = ["admin"];
   const avatar =
     "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
   // 先对密码进行加密
@@ -56,8 +57,8 @@ const createUser = (req, res) => {
       return;
     }
     const query = `INSERT INTO users 
-            (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+            (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar,roles) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     const values = [
       account,
       create_time,
@@ -69,6 +70,7 @@ const createUser = (req, res) => {
       nick_name,
       JSON.stringify(role_ids),
       avatar,
+      JSON.stringify(roles),
     ];
     connection.query(query, values, (err, results) => {
       if (err) {
@@ -171,6 +173,7 @@ const updateUser = (req, res) => {
   const is_delete = 0;
   const nick_name = "管理员";
   const role_ids = [101, 102, 301];
+  const roles = ["admin"];
   const avatar =
     "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
   // 对密码进行加密
@@ -183,7 +186,7 @@ const updateUser = (req, res) => {
     }
     const query = `UPDATE users SET 
             account = ?, is_delete = ?, password = ?, update_time = ?, description = ?, userName = ?, 
-            nick_name = ?, role_ids = ?, avatar = ? 
+            nick_name = ?, role_ids = ?, avatar = ? , roles = ?,
             WHERE id = ?`;
     const values = [
       account,
@@ -196,6 +199,7 @@ const updateUser = (req, res) => {
       JSON.stringify(role_ids),
       avatar,
       id,
+      JSON.stringify(roles),
     ];
     connection.query(query, values, (err, results) => {
       if (err) {
@@ -397,6 +401,7 @@ const getUserDetails = (req, res) => {
         is_delete: user.is_delete,
         nick_name: user.nick_name,
         role_ids: user.role_ids,
+        roles: user.roles,
       };
       res
         .status(200)
@@ -463,6 +468,7 @@ const registerUser = (req, res) => {
     const is_delete = 0;
     const nick_name = "新用户"; // 默认昵称
     const role_ids = [201]; // 普通用户角色ID
+    const roles = ["admin"];
     const avatar =
       "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
     // 密码加密
@@ -474,8 +480,8 @@ const registerUser = (req, res) => {
       }
       // 插入用户数据
       const insertUserQuery = `INSERT INTO users 
-                (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+                (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar,roles) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       const values = [
         account,
         create_time,
@@ -487,6 +493,7 @@ const registerUser = (req, res) => {
         nick_name,
         JSON.stringify(role_ids),
         avatar,
+        JSON.stringify(roles),
       ];
       connection.query(insertUserQuery, values, (err, results) => {
         if (err) {
