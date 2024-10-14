@@ -203,7 +203,15 @@ request.interceptors.response.use(
         break;
       }
       default: {
-        errorInfo = t("other_case");
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.message
+        ) {
+          errorInfo = error.response.data.message; // 使用后端返回的错误信息
+        } else {
+          errorInfo = t("other_case"); // 使用默认的本地化信息
+        }
         break;
       }
     }

@@ -246,6 +246,7 @@ const en = {
     "Click here to go to the multi-level route management example page",
   login_success: "Login success",
   switch_roles_Successfully: "Switching Roles Successfully",
+  character: "Character",
 };
 
 export default en;

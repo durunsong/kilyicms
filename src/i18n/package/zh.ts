@@ -240,6 +240,7 @@ const zh = {
   clickHereToMultiRouteExample: "点击这里跳转到多级路由管理案例页面",
   login_success: "登录成功",
   switch_roles_Successfully: "切换角色成功",
+  character: "角色",
 };
 
 export default zh;

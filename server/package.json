@@ -23,7 +23,8 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.30.1",
-    "mysql2": "^3.11.3"
+    "mysql2": "^3.11.3",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@vercel/node": "^3.2.15"

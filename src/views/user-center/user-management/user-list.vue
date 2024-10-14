@@ -90,6 +90,12 @@
           autocomplete="new-password"
         ></el-input>
       </el-form-item>
+      <el-form-item :label="t('character')">
+        <el-select v-model="newItem.roles" placeholder="选择角色">
+          <el-option label="Admin" value="admin"></el-option>
+          <el-option label="User" value="user"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item :label="t('description')">
         <el-input v-model="newItem.description"></el-input>
       </el-form-item>
@@ -114,6 +120,12 @@
           v-model="editItemData.password"
           autocomplete="new-password"
         ></el-input>
+      </el-form-item>
+      <el-form-item :label="t('roles')">
+        <el-select v-model="editItemData.roles" placeholder="选择角色">
+          <el-option label="Admin" value="admin"></el-option>
+          <el-option label="User" value="user"></el-option>
+        </el-select>
       </el-form-item>
       <el-form-item :label="t('description')">
         <el-input v-model="editItemData.description"></el-input>
@@ -151,6 +163,7 @@ interface ListItem {
   userName: string;
   description: string;
   password: string;
+  roles: string;
 }
 
 const pickerData = ref<[Date, Date] | undefined>(undefined);
@@ -163,12 +176,14 @@ const newItem = ref<Omit<ListItem, "id">>({
   userName: "",
   description: "",
   password: "",
+  roles: "",
 });
 
 const editItemData = ref<Omit<ListItem, "id">>({
   userName: "",
   description: "",
   password: "",
+  roles: "",
 });
 const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
@@ -227,13 +242,15 @@ const fetchItems = async () => {
 // 新增
 const addItem = async () => {
   try {
-    const addData = { ...newItem.value, id: userList.value.length + 1 };
+    const addData: any = { ...newItem.value, id: userList.value.length + 1 };
+    addData.roles = [addData.roles];
     const response: any = await addItemApi(addData);
     if (response.status == 200) {
       showAddDialog.value = false;
       newItem.value.userName = "";
       newItem.value.password = "";
       newItem.value.description = "";
+      newItem.value.roles = "";
       ElMessage.success(t("Add_successful"));
       fetchItems();
     } else {
@@ -250,16 +267,19 @@ const editItem = (item: ListItem) => {
   editItemData.value.userName = item.userName;
   editItemData.value.password = item.password;
   editItemData.value.description = item.description;
+  editItemData.value.description = item.description;
+  editItemData.value.roles = item.roles[0];
   showEditDialog.value = true;
 };
 // 编辑内容
 const updateItem = async () => {
   try {
     if (editingItemId.value !== null) {
-      const response: any = await updateItemApi(
-        editingItemId.value,
-        editItemData.value,
-      );
+      const editData: any = {
+        ...editItemData.value,
+      };
+      editData.roles = [editData.roles];
+      const response: any = await updateItemApi(editingItemId.value, editData);
       if (response.status === 200) {
         fetchItems();
         showEditDialog.value = false;

@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
 const { connection } = require("../config/db-connection.js");
+const { v4: uuidv4 } = require("uuid");
 
 const saltRounds = 10;
 
@@ -37,7 +38,7 @@ const hashExistingPasswords = () => {
 
 // 添加用户接口
 const createUser = (req, res) => {
-  const { userName, password, description } = req.body;
+  const { userName, password, description, roles } = req.body;
   // 增加8小时以适应中国时区
   const create_time = moment().format("YYYY-MM-DD HH:mm:ss");
   const update_time = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -45,39 +46,60 @@ const createUser = (req, res) => {
   const is_delete = 0;
   const nick_name = "管理员";
   const role_ids = [101, 102, 301];
-  const roles = ["admin"];
   const avatar =
     "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
-  // 先对密码进行加密
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
+  // 生成 UUID
+  const uuid = uuidv4();
+  // 首先查重
+  const checkQuery = "SELECT * FROM users WHERE userName = ?";
+  connection.query(checkQuery, [userName], (err, results) => {
     if (err) {
-      res
-        .status(500)
-        .json({ status: 500, message: "密码加密失败", error: err });
+      res.status(500).json({ status: 500, message: "查询失败", error: err });
       return;
     }
-    const query = `INSERT INTO users 
-            (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar,roles) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-    const values = [
-      account,
-      create_time,
-      is_delete,
-      hashedPassword,
-      update_time,
-      description,
-      userName,
-      nick_name,
-      JSON.stringify(role_ids),
-      avatar,
-      JSON.stringify(roles),
-    ];
-    connection.query(query, values, (err, results) => {
+    if (results.length > 0) {
+      // 如果查到重复的用户名
+      res
+        .status(400)
+        .json({ status: 400, message: "用户名已存在，请换个名字试试" });
+      return;
+    }
+    // 先对密码进行加密
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
-        res.status(500).json({ status: 500, message: "创建失败", error: err });
+        res
+          .status(500)
+          .json({ status: 500, message: "密码加密失败", error: err });
         return;
       }
-      res.status(200).json({ status: 200, message: "创建成功", data: results });
+      const query = `INSERT INTO users 
+              (uuid, account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, roles) 
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+      const values = [
+        uuid, // 在这里插入 uuid
+        account,
+        create_time,
+        is_delete,
+        hashedPassword,
+        update_time,
+        description,
+        userName,
+        nick_name,
+        JSON.stringify(role_ids),
+        avatar,
+        JSON.stringify(roles),
+      ];
+      connection.query(query, values, (err, results) => {
+        if (err) {
+          res
+            .status(500)
+            .json({ status: 500, message: "创建失败", error: err });
+          return;
+        }
+        res
+          .status(200)
+          .json({ status: 200, message: "创建成功", data: results });
+      });
     });
   });
 };
@@ -166,14 +188,13 @@ const getUsers = (req, res) => {
 // 更新用户接口
 const updateUser = (req, res) => {
   const { id } = req.params;
-  const { userName, password, description } = req.body;
+  const { userName, password, description, roles } = req.body;
   const update_time = moment().format("YYYY-MM-DD HH:mm:ss");
   // 待处理数据权限菜单转化
   const account = "testuser";
   const is_delete = 0;
   const nick_name = "管理员";
   const role_ids = [101, 102, 301];
-  const roles = ["admin"];
   const avatar =
     "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
   // 对密码进行加密
@@ -186,7 +207,7 @@ const updateUser = (req, res) => {
     }
     const query = `UPDATE users SET 
             account = ?, is_delete = ?, password = ?, update_time = ?, description = ?, userName = ?, 
-            nick_name = ?, role_ids = ?, avatar = ? , roles = ?,
+            nick_name = ?, role_ids = ?, avatar = ? , roles = ?
             WHERE id = ?`;
     const values = [
       account,
@@ -198,8 +219,8 @@ const updateUser = (req, res) => {
       nick_name,
       JSON.stringify(role_ids),
       avatar,
-      id,
       JSON.stringify(roles),
+      id,
     ];
     connection.query(query, values, (err, results) => {
       if (err) {
@@ -434,13 +455,15 @@ const refreshToken = (req, res) => {
 
 // 注册用户接口
 const registerUser = (req, res) => {
-  const { userName, password, confirmPassword, description } = req.body;
+  const { userName, password, confirmPassword, description, roles } = req.body;
   // 检查必填字段
   if (!userName || !password || !confirmPassword) {
     return res
       .status(400)
       .json({ status: 400, message: "用户名、密码和确认密码为必填项" });
   }
+  // 生成 UUID
+  const uuid = uuidv4();
   // 检查密码是否一致
   if (password !== confirmPassword) {
     return res
@@ -468,7 +491,6 @@ const registerUser = (req, res) => {
     const is_delete = 0;
     const nick_name = "新用户"; // 默认昵称
     const role_ids = [201]; // 普通用户角色ID
-    const roles = ["admin"];
     const avatar =
       "https://img1.baidu.com/it/u=1248484120,3563242407&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=800";
     // 密码加密
@@ -480,9 +502,10 @@ const registerUser = (req, res) => {
       }
       // 插入用户数据
       const insertUserQuery = `INSERT INTO users 
-                (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar,roles) 
+                (uuid,account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar,roles) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       const values = [
+        uuid,
         account,
         create_time,
         is_delete,

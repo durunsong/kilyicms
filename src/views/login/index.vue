@@ -134,6 +134,16 @@
             >
             </el-input>
           </el-form-item>
+          <el-form-item
+            label-width="100px"
+            prop="roles"
+            :label="t('character')"
+          >
+            <el-select v-model="form.roles" placeholder="选择角色">
+              <el-option size="large" label="Admin" value="admin"></el-option>
+              <el-option size="large" label="User" value="user"></el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item>
             <div class="button_side">
               <el-button
@@ -167,7 +177,6 @@ import { useRouter } from "vue-router";
 import { ElNotification } from "element-plus";
 import type { FormInstance, FormRules } from "element-plus";
 import SlideVerify from "@/components/SlideVerify/index.vue";
-import { InternalRuleItem, Values, ValidateOption } from "async-validator";
 import { User, Lock } from "@element-plus/icons-vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher/index.vue";
 import { useUserStore } from "@/store/modules/user";
@@ -182,6 +191,7 @@ interface LoginForm {
   userName: string;
   password: string;
   confirmPassword?: string | undefined;
+  roles?: string | undefined;
 }
 
 const loading = ref<boolean>(false);
@@ -190,6 +200,7 @@ const form = reactive<LoginForm>({
   userName: "admin",
   password: "123456",
   confirmPassword: undefined,
+  roles: undefined,
 });
 const switchRoles = ref<string>("admin");
 
@@ -234,20 +245,11 @@ const registerRules: FormRules = {
       message: t("Please_confirm_the_password"),
       trigger: "blur",
     },
+  ],
+  roles: [
     {
-      validator: (
-        rule: InternalRuleItem,
-        value: string,
-        callback: (error?: string | Error) => void,
-        _source: Values,
-        _options: ValidateOption,
-      ) => {
-        if (value !== form.password) {
-          callback(new Error(t("passwords_are_different")));
-        } else {
-          callback();
-        }
-      },
+      required: true,
+      message: "Please select your role",
       trigger: "blur",
     },
   ],
@@ -337,7 +339,6 @@ const handlerExecutiveRegister = () => {
 };
 
 const onRegister = () => {
-  // loading.value = true;
   ref_form.value?.validate((valid: boolean) => {
     if (valid) {
       handlerExecutiveRegister();
@@ -389,7 +390,7 @@ const onRegister = () => {
   }
 
   .box_card_style {
-    height: 535px;
+    height: 580px;
   }
 }
 
@@ -413,7 +414,8 @@ const onRegister = () => {
   }
 }
 
-:deep(.el-input) {
+:deep(.el-input),
+:deep(.el-select) {
   width: 280px;
 }
 
