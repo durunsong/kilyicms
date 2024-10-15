@@ -91,7 +91,10 @@
         ></el-input>
       </el-form-item>
       <el-form-item :label="t('character')">
-        <el-select v-model="newItem.roles" placeholder="选择角色">
+        <el-select
+          v-model="newItem.roles"
+          :placeholder="t('Selecting_a_Character')"
+        >
           <el-option label="Admin" value="admin"></el-option>
           <el-option label="User" value="user"></el-option>
         </el-select>
@@ -122,7 +125,10 @@
         ></el-input>
       </el-form-item>
       <el-form-item :label="t('roles')">
-        <el-select v-model="editItemData.roles" placeholder="选择角色">
+        <el-select
+          v-model="editItemData.roles"
+          :placeholder="t('Selecting_a_Character')"
+        >
           <el-option label="Admin" value="admin"></el-option>
           <el-option label="User" value="user"></el-option>
         </el-select>

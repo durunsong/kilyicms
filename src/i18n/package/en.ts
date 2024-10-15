@@ -247,6 +247,8 @@ const en = {
   login_success: "Login success",
   switch_roles_Successfully: "Switching Roles Successfully",
   character: "Character",
+  Please_select_your_role: "Please select your role",
+  Selecting_a_Character: "Selecting a Character",
 };
 
 export default en;

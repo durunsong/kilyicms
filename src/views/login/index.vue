@@ -139,7 +139,10 @@
             prop="roles"
             :label="t('character')"
           >
-            <el-select v-model="form.roles" placeholder="选择角色">
+            <el-select
+              v-model="form.roles"
+              :placeholder="t('Selecting_a_Character')"
+            >
               <el-option size="large" label="Admin" value="admin"></el-option>
               <el-option size="large" label="User" value="user"></el-option>
             </el-select>
@@ -249,7 +252,7 @@ const registerRules: FormRules = {
   roles: [
     {
       required: true,
-      message: "Please select your role",
+      message: t("Please_select_your_role"),
       trigger: "blur",
     },
   ],

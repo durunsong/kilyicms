@@ -502,8 +502,8 @@ const registerUser = (req, res) => {
       }
       // 插入用户数据
       const insertUserQuery = `INSERT INTO users 
-                (uuid,account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar,roles) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+      (uuid, account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, roles) 
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       const values = [
         uuid,
         account,
@@ -520,6 +520,8 @@ const registerUser = (req, res) => {
       ];
       connection.query(insertUserQuery, values, (err, results) => {
         if (err) {
+          console.log(err);
+
           return res
             .status(500)
             .json({ status: 500, message: "注册失败", error: err });

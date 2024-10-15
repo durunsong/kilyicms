@@ -241,6 +241,8 @@ const zh = {
   login_success: "登录成功",
   switch_roles_Successfully: "切换角色成功",
   character: "角色",
+  Please_select_your_role: "请选择你的角色",
+  Selecting_a_Character: "选择角色",
 };
 
 export default zh;
