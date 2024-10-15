@@ -12,7 +12,6 @@ import { useUserStoreHook } from "@/store/modules/user";
 /** 退出登录并强制刷新页面（会重定向到登录页） */
 const logout = () => {
   useUserStoreHook().logout();
-  // location.reload();
 };
 
 const { t } = i18n.global;

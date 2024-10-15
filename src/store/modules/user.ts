@@ -18,10 +18,12 @@ import routeSettings from "@/config/route";
 import { LoginRequestData } from "@/types/store.user";
 import i18n from "@/i18n";
 const { t } = i18n.global;
-const is_login = getLocalData(CACHE_KEY.IS_LOGIN_KEY);
-const is_show_login_notice = getLocalData(CACHE_KEY.IS_SHOW_NOTICE) || false;
 
 export const useUserStore: any = defineStore("user", () => {
+  const is_login = getLocalData(CACHE_KEY.IS_LOGIN_KEY) ?? false;
+  const is_show_login_notice = getLocalData(CACHE_KEY.IS_SHOW_NOTICE) ?? false;
+  const is_show_login_notice_tips =
+    getLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS) ?? false;
   const token = ref<string>(getToken() || "");
   const roles = ref<string[]>([]);
   const userName = ref<string>("");
@@ -33,6 +35,8 @@ export const useUserStore: any = defineStore("user", () => {
     // 判断登录结果
     if (res.status === 200) {
       setToken(res.token);
+      // 登录成功notify标记
+      setLocalData(CACHE_KEY.IS_LOGIN_KEY, true);
     } else {
       showNotification(res.message, "warning");
       return; // 如果登录失败，终止后续操作
@@ -55,7 +59,9 @@ export const useUserStore: any = defineStore("user", () => {
         t("switch_roles_Successfully"),
         res.userInfo.userName,
       );
-      setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
+      if (is_show_login_notice_tips) {
+        setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
+      }
     }
     // 这里模拟获取用户信息，具体逻辑看前后端约束
     userName.value = res.userInfo.userName;
@@ -82,13 +88,14 @@ export const useUserStore: any = defineStore("user", () => {
         setToken(res.token);
         // 切换角色notification
         setLocalData(CACHE_KEY.IS_SHOW_NOTICE, true);
+        setLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS, true);
       } else {
         showNotification(res.message, "warning");
         return;
       }
       // 刷新页面（可根据需求选择是否必要） ---- 免登录刷新页面
       window.location.reload();
-    } catch (error: any) {
+    } catch (error: Error | any) {
       showNotification(error, "error");
     }
   };
@@ -108,12 +115,17 @@ export const useUserStore: any = defineStore("user", () => {
   const logout = () => {
     removeToken();
     removeLocalData(CACHE_KEY.USER_INFO);
-    removeLocalData(CACHE_KEY.IS_SHOW_NOTICE);
+    setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
     setLocalData(CACHE_KEY.IS_LOGIN_KEY, false);
+    removeLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS);
     token.value = "";
     roles.value = [];
     resetRouter();
     _resetTagsView();
+    // 刷新页面
+    setTimeout(() => {
+      window.location.reload();
+    });
   };
   /** 重置 Token */
   const resetToken = () => {
