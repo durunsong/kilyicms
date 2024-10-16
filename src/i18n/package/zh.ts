@@ -243,6 +243,8 @@ const zh = {
   character: "角色",
   Please_select_your_role: "请选择你的角色",
   Selecting_a_Character: "选择角色",
+  Get_Success: "获取成功",
+  error_occurs: "发生错误",
 };
 
 export default zh;

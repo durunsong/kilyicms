@@ -249,6 +249,8 @@ const en = {
   character: "Character",
   Please_select_your_role: "Please select your role",
   Selecting_a_Character: "Selecting a Character",
+  Get_Success: "Get Success",
+  error_occurs: "Error occurs",
 };
 
 export default en;
