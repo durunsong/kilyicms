@@ -122,10 +122,6 @@ export const useUserStore: any = defineStore("user", () => {
     roles.value = [];
     resetRouter();
     _resetTagsView();
-    // 刷新页面
-    setTimeout(() => {
-      window.location.reload();
-    });
   };
   /** 重置 Token */
   const resetToken = () => {

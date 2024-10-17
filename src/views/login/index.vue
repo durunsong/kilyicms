@@ -291,7 +291,9 @@ const handlerExecutiveLogging = () => {
   useUserStore()
     .login(params)
     .then(() => {
-      router.push("/");
+      router.push({
+        path: "/",
+      });
     })
     .finally(() => {
       loading.value = false;
