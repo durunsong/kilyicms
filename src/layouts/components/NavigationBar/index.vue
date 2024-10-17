@@ -43,7 +43,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useAppStore } from "@/store/modules/app";
 import { useSettingsStore } from "@/store/modules/settings";
@@ -65,7 +64,6 @@ import { getLocalData } from "@/utils/cache/local-storage";
 const { t } = useI18n();
 const { isMobile } = useDevice();
 const { isTop } = useLayoutMode();
-const router = useRouter();
 const appStore = useAppStore();
 const userStore = useUserStore();
 const settingsStore = useSettingsStore();
@@ -83,13 +81,13 @@ const toggleSidebar = () => {
 /** 登出 */
 const logout = () => {
   userStore.logout();
-  router.push("/login");
+  window.location.reload();
 };
 </script>
 
 <style lang="scss" scoped>
-.navigation-bar {
-  height: var(--kilyicms-navigationbar-height);
+.navigation-bar   router.push("/login");
+vigationbar-height);
   overflow: hidden;
   color: var(--kilyicms-navigationbar-text-color);
   display: flex;
