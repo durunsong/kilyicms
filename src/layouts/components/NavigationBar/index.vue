@@ -86,8 +86,7 @@ const logout = () => {
 </script>
 
 <style lang="scss" scoped>
-.navigation-bar   router.push("/login");
-vigationbar-height);
+.navigation-tionbar-height {
   overflow: hidden;
   color: var(--kilyicms-navigationbar-text-color);
   display: flex;
