@@ -429,7 +429,7 @@ const getUserDetails = (req, res) => {
         .json({ message: "获取用户信息成功", status: 200, userInfo });
     });
   } catch {
-    return res.status(403).json({ message: "无效的 token" });
+    return res.status(403).json({ message: "登录过期，请重新登录" });
   }
 };
 
