@@ -1,18 +1,18 @@
 const el = {
-  router_menu1: "μενού 1color",
-  router_menu2: "μενού 2color",
-  router_menu1_1: "μενού 1-1",
-  router_menu1_2: "μενού 1-2",
-  router_menu1_2_1: "μενού 1-2-1",
-  router_menu1_2_2: "μενού 1-2-2",
-  router_menu1_3: "μενού 1-3",
-  router_Hooks: "Αγκίστρια",
-  router_useFullscreenLoading: "Χρήση πλήρους οθόνης Loading",
-  router_useWatermark: "χρήση Watermark",
+  router_menu1: "menu1",
+  router_menu2: "menu2",
+  router_menu1_1: "menu1-1",
+  router_menu1_2: "menu1-2",
+  router_menu1_2_1: "menu1-2-1",
+  router_menu1_2_2: "menu1-2-2",
+  router_menu1_3: "menu1-3",
+  router_Hooks: "Hooks",
+  router_useFullscreenLoading: "useFullscreenLoading",
+  router_useWatermark: "useWatermark",
   router_home: "Αρχική σελίδα",
   router_login: "Σύνδεση",
   router_register: "Εγγραφή",
-  router_user: "Χρήστης",
+  router_user: "ρυθμίσεις χρήστη",
   router_user_management: "Διαχείριση χρηστών",
   router_user_recycle_bin: "Κάδος ανακύκλωσης χρήστη",
   router_Rich_text_summary: "Περίληψη εμπλουτισμένου κειμένου",
@@ -33,6 +33,7 @@ const el = {
   router_Page_level_authority: "Αρχή επιπέδου σελίδας",
   router_Button_level_authority: "Αρχή επιπέδου κουμπιού",
   router_Site_Configuration: "Ρύθμιση τοποθεσίας",
+  router_Functions_and_Components: "Λειτουργίες και συστατικά στοιχεία",
   select_language: "Επιλογή γλώσσας",
   confirm_ok_text: "Επιβεβαίωση",
   confirm_cancel_text: "Ακύρωση",
@@ -117,7 +118,7 @@ const el = {
   swipe_right: "Σύρετε δεξιά",
   hello_admin_page:
     "Καλώς ήρθατε στην αρχική σελίδα του ρόλου {administrator}.",
-  hello_editor_page: "Καλωσορίσατε στην αρχική σελίδα του ρόλου {συντάκτης}",
+  hello_editor_page: "Καλώς ήρθατε στην αρχική σελίδα του ρόλου {χρήστης}.",
   back_home: "Πήγαινε σπίτι",
   query_success: "Επιτυχία ερωτήματος",
   query_failed: "Αποτυχία ερωτήματος",
@@ -222,6 +223,37 @@ const el = {
   Top_mode: "Κορυφή λειτουργίας",
   mixed_mode: "Μικτή λειτουργία",
   Cancel_duplicate_request: "Ακύρωση διπλότυπου αιτήματος",
+  function_card: "Κάρτα λειτουργίας",
+  customSwitchComponent: "Προσαρμοσμένο στοιχείο διακόπτη",
+  iconIntegration: "{unocs} ενσωματώνει εικονίδιο ετικέτας {iconify}",
+  clickHereForIcons: "Κάντε κλικ εδώ για εικονίδια",
+  i18nComponent:
+    "Συστατικό διεθνοποίησης: 16 γλωσσικοί διακόπτες, {element-plus} και {vue-i18n} γλωσσικός συγχρονισμός",
+  themeSwitch:
+    "Διακόπτης τριών θεμάτων (εκτός από τη λειτουργία γκρι και αδύναμου χρώματος)",
+  fullscreenSwitch:
+    "Δύο λειτουργίες πλήρους οθόνης διακόπτης (μενού και περιοχή περιεχομένου)",
+  fullscreenDescription:
+    "Πάνω δεξιά της οθόνης και πάνω δεξιά της περιοχής περιεχομένου",
+  codeStandards: "Πρότυπα κώδικα",
+  codeConventions:
+    "Συστατικό: Μέθοδος: ΚάμελCase, Κατηγορία: Κεμπάπ-υπόδειγμα/υπόδειγμα, Όνομα αρχείου: Κεμπάπ-υπόδειγμα/ΚάμελCase, Χαρακτηριστικό: ΚάμελCase/υπόδειγμα",
+  permissionExample: "Παράδειγμα οδηγίας για την άδεια",
+  clickHereToExample:
+    "Κάντε κλικ εδώ για να μεταβείτε στην παραδειγματική σελίδα",
+  hooksExample: "Περισσότεροι από 10 {γάντζοι} παραδείγματα ενθυλάκωσης",
+  clickHereToHookExample:
+    "Κάντε κλικ εδώ για να μεταβείτε στην παραδειγματική σελίδα",
+  multiLevelRouteManagement: "Διαχείριση πολλαπλών επιπέδων διαδρομών",
+  clickHereToMultiRouteExample:
+    "Κάντε κλικ εδώ για να μεταβείτε στη σελίδα παραδειγμάτων διαχείρισης διαδρομής πολλαπλών επιπέδων",
+  login_success: "Επιτυχία σύνδεσης",
+  switch_roles_Successfully: "Αλλαγή ρόλων επιτυχώς",
+  character: "Χαρακτήρας",
+  Please_select_your_role: "Παρακαλώ επιλέξτε το ρόλο σας",
+  Selecting_a_Character: "Επιλογή ενός χαρακτήρα",
+  Get_Success: "Αποκτήστε επιτυχία",
+  error_occurs: "Εμφανίζεται σφάλμα",
 };
 
 export default el;
