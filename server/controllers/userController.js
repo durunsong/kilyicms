@@ -109,14 +109,18 @@ const getUsers = (req, res) => {
   // 1. 检查是否存在 token
   const authHeader = req.headers["authorization"];
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ status: 401, message: "请重新登录" });
+    return res
+      .status(401)
+      .json({ status: 401, message: "登录过期，请重新登录" });
   }
   // 2. 提取 token
   const token = authHeader.split(" ")[1]; // 只获取 Bearer 后面的 token 部分
   // 3. 验证 token 是否有效
   jwt.verify(token, "jwt_secret", (err) => {
     if (err) {
-      return res.status(401).json({ status: 401, message: "请重新登录" });
+      return res
+        .status(401)
+        .json({ status: 401, message: "登录过期，请重新登录" });
     }
     // 如果 token 验证通过，继续执行查询用户列表逻辑
     const { pageNum, pageSize, keywords, startTime, endTime } = req.query;
@@ -394,7 +398,7 @@ const loginUser = (req, res) => {
 const getUserDetails = (req, res) => {
   const token = req.headers.authorization?.split(" ")[1]; // 从请求头获取 token
   if (!token) {
-    return res.status(401).json({ message: "Token 不存在" });
+    return res.status(401).json({ message: "用户未登录" });
   }
   try {
     const decoded = jwt.verify(token, "jwt_secret"); // 解码 JWT
