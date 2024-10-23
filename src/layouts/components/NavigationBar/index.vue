@@ -21,7 +21,13 @@
       <Notify v-if="showNotify" class="right-menu-item"></Notify>
       <el-dropdown class="right-menu-item">
         <div class="right-menu-avatar">
-          <el-avatar :src="userInfo.avatar" :size="30"></el-avatar>
+          <el-avatar
+            :src="userInfo.avatar"
+            :size="30"
+            :class="isRotating ? 'rotate' : ''"
+            @mouseover="startRotate"
+            @mouseleave="stopRotate"
+          ></el-avatar>
           <span>{{ userInfo.userName || userStore.username }}</span>
         </div>
         <template #dropdown>
@@ -43,6 +49,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useAppStore } from "@/store/modules/app";
 import { useSettingsStore } from "@/store/modules/settings";
@@ -70,8 +77,34 @@ const settingsStore = useSettingsStore();
 const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } =
   storeToRefs(settingsStore);
 
-// 暂时这样用
+/** 暂时这样用 */
 const userInfo: any = getLocalData(CACHE_KEY.USER_INFO);
+
+const isRotating = ref(false);
+const rotateSpeed = ref(1);
+let rotateInterval: any = null;
+
+/** 开始头像旋转并逐渐加速 */
+const startRotate = () => {
+  if (!rotateInterval) {
+    isRotating.value = true;
+    rotateInterval = setInterval(() => {
+      rotateSpeed.value += 0.3; // 每次增加旋转速度
+      const avatar = document.querySelector(".rotate") as HTMLElement;
+      avatar.style.animationDuration = `${10 / rotateSpeed.value}s`;
+    }, 100);
+  }
+};
+
+/** 停止头像旋转并恢复速度 */
+const stopRotate = () => {
+  isRotating.value = false;
+  clearInterval(rotateInterval);
+  rotateInterval = null;
+  rotateSpeed.value = 1; // 恢复初始速度
+  const avatar = document.querySelector(".rotate") as HTMLElement;
+  avatar.style.animationDuration = `${10 / rotateSpeed.value}s`;
+};
 
 /** 切换侧边栏 */
 const toggleSidebar = () => {
@@ -86,6 +119,23 @@ const logout = () => {
 </script>
 
 <style lang="scss" scoped>
+.right-menu-avatar .el-avatar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+  animation: spin infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .navigation-bar {
   height: var(--kilyicms-navigationbar-height);
   overflow: hidden;
