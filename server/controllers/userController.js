@@ -361,24 +361,26 @@ const restoreUserApi = (req, res) => {
 const loginUser = (req, res) => {
   const { userName, password } = req.body;
   if (!userName || !password) {
-    return res.status(400).json({ message: "账号和密码都是必需的" });
+    return res
+      .status(400)
+      .json({ status: 400, message: "账号和密码都是必需的" });
   }
   const findUserQuery =
     "SELECT * FROM users WHERE userName = ? AND is_delete = 0";
   connection.query(findUserQuery, [userName], async (err, results) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ message: "查询用户失败" });
+      return res.status(500).json({ status: 500, message: "查询用户失败" });
     }
     if (results.length === 0) {
-      return res.status(404).json({ message: "用户不存在" });
+      return res.status(404).json({ status: 404, message: "用户不存在" });
     }
     const user = results[0];
     const hashFromDb = user.password;
     // 验证密码 检查密码是否匹配
     const passWordMatch = await bcrypt.compare(password, hashFromDb);
     if (!passWordMatch) {
-      return res.status(401).json({ message: "用户名或密码错误" });
+      return res.status(409).json({ status: 409, message: "用户名或密码错误" });
     }
     // 生成 JWT
     const token = jwt.sign(
