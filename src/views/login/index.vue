@@ -263,12 +263,14 @@ const handleChangeRole = (role: string | number | boolean | undefined) => {
       userName: "admin",
       password: "123456",
       confirmPassword: undefined,
+      roles: undefined,
     });
   } else {
     Object.assign(form, {
       userName: "user",
       password: "123456",
       confirmPassword: undefined,
+      roles: undefined,
     });
   }
 };
@@ -325,7 +327,6 @@ const toggleForm = () => {
 const handlerExecutiveRegister = () => {
   loading.value = true;
   const params: any = form;
-  params.roles = [params.roles];
   registerApi(params)
     .then((res: any) => {
       if (res.status === 200) {
@@ -342,6 +343,11 @@ const handlerExecutiveRegister = () => {
 };
 
 const onRegister = () => {
+  const params: any = form;
+  if (Array.isArray(params.roles)) {
+    params.roles = undefined;
+  }
+
   ref_form.value?.validate((valid: boolean) => {
     if (valid) {
       handlerExecutiveRegister();

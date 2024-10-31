@@ -3,7 +3,7 @@
     <el-input
       class="search_input"
       v-model.trim="searchKeyword"
-      :placeholder="t('please_enter')"
+      :placeholder="t('please_enter') + '↵'"
       @keyup.enter="handleSearchItems"
       clearable
       @clear="handleClearIpt"
@@ -37,7 +37,10 @@
   <el-button class="add_btn" type="primary" @click="showAddDialog = true">
     {{ t("Add_personnel") }}
   </el-button>
-  <el-table :data="userList">
+  <el-table
+    :data="userList"
+    :header-cell-style="{ background: '#d9ece9', color: '#666' }"
+  >
     <el-table-column :label="t('serial_number')" width="100">
       <template #default="scope">
         {{ scope.$index + 1 }}
@@ -357,31 +360,22 @@ onMounted(() => {
 }
 </style>
 <style lang="scss" scoped>
-:deep(.el-date-user) {
-  height: 41px;
-}
-
-:deep(.el-table__header) {
-  background-color: #eaeaea;
-}
-
 .search_container {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 
   .date_time_picker {
-    width: 450px;
+    max-width: 440px;
   }
 
   .search_input {
     width: 250px;
-    height: 42px;
     margin-right: 15px;
   }
 
   .search_btn {
-    height: 41px;
+    margin-left: 10px;
     width: 100px;
   }
 }
@@ -392,7 +386,6 @@ onMounted(() => {
 
 .add_btn {
   width: fit-content;
-  height: 41px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
