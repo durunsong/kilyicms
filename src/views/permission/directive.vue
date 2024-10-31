@@ -58,7 +58,7 @@
         </el-tab-pane>
         <el-tab-pane
           v-if="checkPermission(['admin', 'user'])"
-          :label="'admin' + t('and') + 'user'"
+          :label="'admin ' + t('and') + ' user'"
         >
           {{ t("here_adopted") }}
           <el-tag>v-if="checkPermission(['admin', 'user'])"</el-tag>
