@@ -9,17 +9,17 @@
               :is="Component"
               :key="route.path"
               class="app-container-grow"
-            />
+            ></component>
           </keep-alive>
         </transition>
       </router-view>
       <!-- 页脚 -->
-      <Footer v-if="settingsStore.showFooter" />
+      <Footer v-if="settingsStore.showFooter"></Footer>
     </div>
     <!-- 返回顶部 -->
-    <el-backtop />
+    <el-backtop></el-backtop>
     <!-- 返回顶部（固定 Header 情况下） -->
-    <el-backtop target=".app-scrollbar" />
+    <el-backtop target=".app-scrollbar"></el-backtop>
   </section>
 </template>
 
@@ -33,7 +33,7 @@ const settingsStore = useSettingsStore();
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixins.scss";
+@use "@/styles/mixins";
 
 .app-main {
   width: 100%;

@@ -3,15 +3,15 @@
     <!-- 头部导航栏和标签栏 -->
     <div class="fixed-header layout-header">
       <div class="content">
-        <Logo v-if="showLogo" :collapse="false" class="logo" />
-        <NavigationBar class="navigation-bar" />
+        <Logo v-if="showLogo" :collapse="false" class="logo"></Logo>
+        <NavigationBar class="navigation-bar"></NavigationBar>
       </div>
-      <TagsView v-show="showTagsView" />
+      <TagsView v-show="showTagsView"></TagsView>
     </div>
     <!-- 主容器 -->
     <div :class="{ hasTagsView: showTagsView }" class="main-container">
       <!-- 页面主体内容 -->
-      <AppMain class="app-main" />
+      <AppMain class="app-main"></AppMain>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ const { showTagsView, showLogo } = storeToRefs(settingsStore);
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixins.scss";
+@use "@/styles/mixins";
 $transition-time: 0.35s;
 
 .app-wrapper {

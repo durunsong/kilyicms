@@ -1,8 +1,8 @@
 <template>
   <div class="setting-container">
     <h4>{{ t("Layout_configuration") }}</h4>
-    <SelectLayoutMode />
-    <el-divider />
+    <SelectLayoutMode></SelectLayoutMode>
+    <el-divider></el-divider>
     <h4>{{ t("functional_configuration") }}</h4>
     <div
       class="setting-item"
@@ -13,7 +13,7 @@
       <el-switch
         v-model="settingValue.value"
         :disabled="!isLeft && settingName === t('fixed_header')"
-      />
+      ></el-switch>
     </div>
     <el-button type="danger" :icon="Refresh" @click="resetConfigLayout">
       {{ t("Reset_layout") }}
@@ -74,7 +74,7 @@ watchEffect(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixins.scss";
+@use "@/styles/mixins";
 
 .setting-container {
   padding: 20px;
