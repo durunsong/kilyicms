@@ -10,9 +10,10 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 
 ## 📺 Online Preview
 
-| Location            | Account       | Link                                 |
-| ------------------- | ------------- | ------------------------------------ |
-| vercel/github-pages | admin or user | [Link](https://kilyicms.vercel.app/) |
+| Location     | Account       | Link                                          |
+| ------------ | ------------- | --------------------------------------------- |
+| vercel       | admin or user | [Link](https://kilyicms.vercel.app/)          |
+| github-pages | admin or user | [Link](https://durunsong.github.io/kilyicms/) |
 
 ## ❤️ Powered by Love
 
