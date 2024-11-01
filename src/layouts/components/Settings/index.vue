@@ -74,7 +74,7 @@ watchEffect(() => {
 </script>
 
 <style lang="scss" scoped>
-@use "@/styles/mixins";
+@import "@/styles/mixins.scss";
 
 .setting-container {
   padding: 20px;
