@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-container">
+  <div class="scroll-container" id="el_tour_visible_4">
     <el-icon class="arrow left" @click="scrollTo('left')">
       <ArrowLeft></ArrowLeft>
     </el-icon>

@@ -1,5 +1,5 @@
 <template>
-  <div class="handle-button" @click="show = true">
+  <div class="handle-button" @click="show = true" id="el_tour_visible_11">
     <el-icon :size="24">
       <Setting></Setting>
     </el-icon>

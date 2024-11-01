@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'has-logo': isLogo }">
+  <div :class="{ 'has-logo': isLogo }" id="el_tour_visible_1">
     <Logo v-if="isLogo" :collapse="isCollapse"></Logo>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu

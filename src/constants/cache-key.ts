@@ -15,6 +15,7 @@ class CACHE_KEY {
   static readonly IS_LOGIN_KEY = `${SYSTEM_NAME}_is_login`;
   static readonly IS_SHOW_NOTICE = `${SYSTEM_NAME}_is_show_notice`;
   static readonly IS_SHOW_NOTICE_TIPS = `${SYSTEM_NAME}_is_show_notice_tips`;
+  static readonly IS_SHOW_Tour_Visible = `${SYSTEM_NAME}_is_show_tour_visible`;
 }
 
 export default CACHE_KEY;
