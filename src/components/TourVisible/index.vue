@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import { ref, computed, type Ref, type ComputedRef } from "vue";
 import CACHE_KEY from "@/constants/cache-key";
-import { getLocalData, setLocalData } from "@/utils/cache/local-storage";
+import { setLocalData } from "@/utils/cache/local-storage";
 
 const props = defineProps(["data"]);
 const emits = defineEmits([
@@ -39,11 +39,8 @@ const emits = defineEmits([
 // 当前步数，从0开始，由于第0步是开始语，后面的步数可以正好对应
 const currentStep: Ref<number> = ref(0);
 
-// 获取是否开启引导----本地缓存数据
-const IS_SHOW_Tour_Visible: any = getLocalData(CACHE_KEY.IS_SHOW_Tour_Visible);
-
-// 引导组件开启状态，根据本地缓存值动态设置初始值
-const open: Ref<boolean> = ref(IS_SHOW_Tour_Visible !== false) || false;
+// 引导组件开启状态
+const open: Ref<boolean> = ref(false);
 
 // 动态修改下一步按钮名称
 const nextBtnName: ComputedRef<string> = computed(() => {
@@ -72,7 +69,7 @@ const handleSkip = () => {
   open.value = false;
   emits("update:modelValue", false); // 更新绑定值，确保关闭
   emits("skip");
-  setLocalData(CACHE_KEY.IS_SHOW_Tour_Visible, false); // 更新本地缓存
+  setLocalData(CACHE_KEY.IS_SHOW_Tour_Visible, true); // 更新本地缓存
 };
 
 // 点击上一步按钮时触发
