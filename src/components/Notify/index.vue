@@ -12,8 +12,8 @@
             :content="t('message_notification')"
             placement="bottom"
           >
-            <el-icon :size="20">
-              <Bell />
+            <el-icon :size="20" class="shake-hover">
+              <Bell></Bell>
             </el-icon>
           </el-tooltip>
         </el-badge>
@@ -31,10 +31,10 @@
                 :value="item.list.length"
                 :max="badgeMax"
                 :type="item.type"
-              />
+              ></el-badge>
             </template>
             <el-scrollbar height="400px">
-              <NotifyList :list="item.list" />
+              <NotifyList :list="item.list"></NotifyList>
             </el-scrollbar>
           </el-tab-pane>
         </el-tabs>
@@ -123,5 +123,24 @@ const handleHistory = () => {
   text-align: center;
   padding-top: 12px;
   border-top: 1px solid var(--el-border-color);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-3px);
+  }
+  40%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.shake-hover:hover {
+  animation: shake 0.5s ease-in-out;
 }
 </style>
