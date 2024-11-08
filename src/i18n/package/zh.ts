@@ -245,6 +245,7 @@ const zh = {
   Selecting_a_Character: "选择角色",
   Get_Success: "获取成功",
   error_occurs: "发生错误",
+  router_translation_process: "翻译程序",
 };
 
 export default zh;

@@ -251,6 +251,7 @@ const en = {
   Selecting_a_Character: "Selecting a Character",
   Get_Success: "Get Success",
   error_occurs: "Error occurs",
+  router_translation_process: "Translation process",
 };
 
 export default en;

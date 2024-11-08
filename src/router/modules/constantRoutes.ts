@@ -65,6 +65,15 @@ export const constant_Routes: RouteRecordRaw[] = [
           title: "router_Functions_and_Components",
         },
       },
+      {
+        path: "translation-process",
+        component: () =>
+          import("@/views/function-card/translation-process.vue"),
+        name: "translationProcess",
+        meta: {
+          title: "router_translation_process",
+        },
+      },
     ],
   },
   {
