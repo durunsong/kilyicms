@@ -1,9 +1,9 @@
 <template>
-  <div class="iframe-container">
+  <div class="w-full h-screen">
     <iframe
       :src="url"
       frameborder="0"
-      class="iframe"
+      class="w-full h-full min-h-[500px]"
       title="Embedded Page"
     ></iframe>
   </div>
@@ -14,16 +14,3 @@ import { ref } from "vue";
 
 const url = ref("https://translation-tools.vercel.app/");
 </script>
-
-<style scoped>
-.iframe-container {
-  width: 100%;
-  height: 100vh;
-}
-
-.iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-}
-</style>
