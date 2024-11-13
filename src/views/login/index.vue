@@ -327,6 +327,7 @@ const toggleForm = () => {
 const handlerExecutiveRegister = () => {
   loading.value = true;
   const params: any = form;
+  params.roles = [params.roles];
   registerApi(params)
     .then((res: any) => {
       if (res.status === 200) {
