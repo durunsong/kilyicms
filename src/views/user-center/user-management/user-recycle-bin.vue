@@ -45,7 +45,7 @@
     </el-table-column>
     <el-table-column :label="t('name')" align="center">
       <template #default="scope">
-        <span v-html="highlightKeyword(scope.row.userName)"></span>
+        <span v-html="highlightKeyword(scope.row.user_name)"></span>
       </template>
     </el-table-column>
     <el-table-column
@@ -119,7 +119,7 @@ const { t } = useI18n();
 
 interface ListItem {
   id: number;
-  userName: string;
+  user_name: string;
   description: string;
   password: string;
 }

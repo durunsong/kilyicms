@@ -66,7 +66,7 @@ Kilyicms is a front-end and back-end separation/open source management system ba
 7. Enable debugging in production environment - encapsulated hooks - 🎈
 8. Backend Permissions, Routing Permissions, Page Permissions, Button Permissions 🎈
 9. Optimization of right mouse button management in background tabs🎈
-10. Login userName watermark settings, local and global watermark case demo🎈
+10. Login user_name watermark settings, local and global watermark case demo🎈
 11. Upload Excel sheet + parsing + printing
 12. PDF preview + printing
 13. Rich text dynamic content editing + image upload + video upload

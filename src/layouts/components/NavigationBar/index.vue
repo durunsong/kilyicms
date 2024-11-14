@@ -46,7 +46,7 @@
             @mouseover="startRotate"
             @mouseleave="stopRotate"
           ></el-avatar>
-          <span>{{ userInfo.userName || userStore.username }}</span>
+          <span>{{ userInfo.user_name || userStore.user_name }}</span>
         </div>
         <template #dropdown>
           <el-dropdown-menu>

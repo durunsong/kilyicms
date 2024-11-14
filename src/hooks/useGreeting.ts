@@ -3,23 +3,23 @@ import { ElNotification } from "element-plus";
 import { h } from "vue";
 
 export function useGreeting(t: (key: string) => string) {
-  const getGreetingMessage = (userName: string) => {
+  const getGreetingMessage = (user_name: string) => {
     const currentHour = new Date().getHours();
     let greeting = "";
 
     if (currentHour < 12) {
-      greeting = `${t("good_morning")}, ${userName}`;
+      greeting = `${t("good_morning")}, ${user_name}`;
     } else if (currentHour < 18) {
-      greeting = `${t("good_afternoon")}, ${userName}`;
+      greeting = `${t("good_afternoon")}, ${user_name}`;
     } else {
-      greeting = `${t("good_evening")}, ${userName}`;
+      greeting = `${t("good_evening")}, ${user_name}`;
     }
 
     return greeting;
   };
 
-  const showGreetingNotification = (message: string, userName: string) => {
-    const greetingMessage = getGreetingMessage(userName);
+  const showGreetingNotification = (message: string, user_name: string) => {
+    const greetingMessage = getGreetingMessage(user_name);
 
     ElNotification({
       title: message,

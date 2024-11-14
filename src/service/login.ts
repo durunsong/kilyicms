@@ -2,13 +2,13 @@ import request from "@/utils/request";
 
 // 登录请求参数类型
 interface LoginRequestData {
-  userName: string;
+  user_name: string;
   password: string;
 }
 
 // 注册请求参数类型
 interface RegisterRequestData {
-  userName: string;
+  user_name: string;
   password: string;
   confirmPassword?: string;
 }
@@ -19,7 +19,7 @@ interface LoginResponse {
   message: string;
   token: string;
   userInfo: {
-    userName: string;
+    user_name: string;
     email?: string;
     // 其他用户信息字段
   };

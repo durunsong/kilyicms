@@ -67,7 +67,7 @@ watchEffect(() => {
 /** 开启或关闭系统水印 */
 watchEffect(() => {
   showWatermark.value
-    ? setWatermark(userInfo.userName ?? import.meta.env.VITE_APP_TITLE)
+    ? setWatermark(userInfo.user_name ?? import.meta.env.VITE_APP_TITLE)
     : clearWatermark();
 });
 </script>

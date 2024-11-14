@@ -26,12 +26,12 @@ export const useUserStore: any = defineStore("user", () => {
     getLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS) ?? false;
   const token = ref<string>(getToken() || "");
   const roles = ref<string[]>([]);
-  const userName = ref<string>("");
+  const user_name = ref<string>("");
   const tagsViewStore = useTagsViewStore();
   const settingsStore = useSettingsStore();
   /** 登录 */
-  const login = async ({ userName, password }: LoginRequestData) => {
-    const res: any = await loginApi({ userName, password });
+  const login = async ({ user_name, password }: LoginRequestData) => {
+    const res: any = await loginApi({ user_name, password });
     // 判断登录结果
     if (res.status === 200) {
       setToken(res.token);
@@ -53,18 +53,18 @@ export const useUserStore: any = defineStore("user", () => {
     setLocalData(CACHE_KEY.USER_INFO, res.userInfo);
     // 显示问候语
     if (!is_login && !is_show_login_notice) {
-      showGreetingNotification(t("login_success"), res.userInfo.userName);
+      showGreetingNotification(t("login_success"), res.userInfo.user_name);
     } else if (is_login && is_show_login_notice) {
       showGreetingNotification(
         t("switch_roles_Successfully"),
-        res.userInfo.userName,
+        res.userInfo.user_name,
       );
       if (is_show_login_notice_tips) {
         setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
       }
     }
     // 这里模拟获取用户信息，具体逻辑看前后端约束
-    userName.value = res.userInfo.userName;
+    user_name.value = res.userInfo.user_name;
     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
     roles.value =
       res.userInfo.roles?.length > 0
@@ -75,10 +75,10 @@ export const useUserStore: any = defineStore("user", () => {
   /** 模拟角色变化 */
   const changeRoles = async (role: string) => {
     try {
-      // 这里userName和password具体是什么，需要看后端SQL表设计和接口约束，这里只是个示例
+      // 这里user_name和password具体是什么，需要看后端SQL表设计和接口约束，这里只是个示例
       const newRole = role == "admin" ? "admin" : "user";
       const params = {
-        userName: newRole,
+        user_name: newRole,
         password: "123456",
       };
       // 登录API调用
@@ -140,7 +140,7 @@ export const useUserStore: any = defineStore("user", () => {
   return {
     token,
     roles,
-    userName,
+    user_name,
     login,
     getInfoRoles,
     changeRoles,

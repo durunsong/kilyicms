@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL,
     update_time DATETIME NOT NULL,
     description TEXT,
-    userName VARCHAR(50),
+    user_name VARCHAR(50),
     nick_name VARCHAR(50),
     role_ids JSON,
     avatar VARCHAR(255),
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Optional: users sql表 结构
-INSERT INTO users (account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, uuid, token,roles)
+INSERT INTO users (account, create_time, is_delete, password, update_time, description, user_name, nick_name, role_ids, avatar, uuid, token,roles)
 VALUES (
     'testuser',
     NOW(),

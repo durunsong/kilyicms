@@ -19,15 +19,18 @@ const hashExistingPasswords = () => {
         // 假设bcrypt的密码前缀为$2b$
         bcrypt.hash(user.password, saltRounds, (err, hash) => {
           if (err) {
-            console.error("Error hashing password for user:", user.userName);
+            console.error("Error hashing password for user:", user.user_name);
             return;
           }
           const updateUserQuery = "UPDATE users SET password = ? WHERE id = ?";
           connection.query(updateUserQuery, [hash, user.id], (err) => {
             if (err) {
-              console.error("Error updating password for user:", user.userName);
+              console.error(
+                "Error updating password for user:",
+                user.user_name,
+              );
             } else {
-              console.log("Password updated for user:", user.userName);
+              console.log("Password updated for user:", user.user_name);
             }
           });
         });
@@ -38,7 +41,7 @@ const hashExistingPasswords = () => {
 
 // 添加用户接口
 const createUser = (req, res) => {
-  const { userName, password, description, roles } = req.body;
+  const { user_name, password, description, roles } = req.body;
   // 增加8小时以适应中国时区
   const create_time = moment().format("YYYY-MM-DD HH:mm:ss");
   const update_time = moment().format("YYYY-MM-DD HH:mm:ss");
@@ -51,8 +54,8 @@ const createUser = (req, res) => {
   // 生成 UUID
   const uuid = uuidv4();
   // 首先查重
-  const checkQuery = "SELECT * FROM users WHERE userName = ?";
-  connection.query(checkQuery, [userName], (err, results) => {
+  const checkQuery = "SELECT * FROM users WHERE user_name = ?";
+  connection.query(checkQuery, [user_name], (err, results) => {
     if (err) {
       res.status(500).json({ status: 500, message: "查询失败", error: err });
       return;
@@ -73,7 +76,7 @@ const createUser = (req, res) => {
         return;
       }
       const query = `INSERT INTO users 
-              (uuid, account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, roles) 
+              (uuid, account, create_time, is_delete, password, update_time, description, user_name, nick_name, role_ids, avatar, roles) 
               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       const values = [
         uuid, // 在这里插入 uuid
@@ -83,7 +86,7 @@ const createUser = (req, res) => {
         hashedPassword,
         update_time,
         description,
-        userName,
+        user_name,
         nick_name,
         JSON.stringify(role_ids),
         avatar,
@@ -130,8 +133,8 @@ const getUsers = (req, res) => {
     const queryParams = [];
 
     if (keywords) {
-      query += " AND (userName LIKE ? OR description LIKE ?)";
-      countQuery += " AND (userName LIKE ? OR description LIKE ?)";
+      query += " AND (user_name LIKE ? OR description LIKE ?)";
+      countQuery += " AND (user_name LIKE ? OR description LIKE ?)";
       const keywordPattern = `%${keywords}%`;
       queryParams.push(keywordPattern, keywordPattern);
     }
@@ -192,7 +195,7 @@ const getUsers = (req, res) => {
 // 更新用户接口
 const updateUser = (req, res) => {
   const { id } = req.params;
-  const { userName, password, description, roles } = req.body;
+  const { user_name, password, description, roles } = req.body;
   const update_time = moment().format("YYYY-MM-DD HH:mm:ss");
   // 待处理数据权限菜单转化
   const account = "testuser";
@@ -210,7 +213,7 @@ const updateUser = (req, res) => {
       return;
     }
     const query = `UPDATE users SET 
-            account = ?, is_delete = ?, password = ?, update_time = ?, description = ?, userName = ?, 
+            account = ?, is_delete = ?, password = ?, update_time = ?, description = ?, user_name = ?, 
             nick_name = ?, role_ids = ?, avatar = ? , roles = ?
             WHERE id = ?`;
     const values = [
@@ -219,7 +222,7 @@ const updateUser = (req, res) => {
       hashedPassword,
       update_time,
       description,
-      userName,
+      user_name,
       nick_name,
       JSON.stringify(role_ids),
       avatar,
@@ -263,8 +266,8 @@ const getDeletedUsers = (req, res) => {
   const queryParams = [];
 
   if (keywords) {
-    query += " AND (userName LIKE ? OR description LIKE ?)";
-    countQuery += " AND (userName LIKE ? OR description LIKE ?)";
+    query += " AND (user_name LIKE ? OR description LIKE ?)";
+    countQuery += " AND (user_name LIKE ? OR description LIKE ?)";
     const keywordPattern = `%${keywords}%`;
     queryParams.push(keywordPattern, keywordPattern);
   }
@@ -359,15 +362,15 @@ const restoreUserApi = (req, res) => {
 
 // 登录接口
 const loginUser = (req, res) => {
-  const { userName, password } = req.body;
-  if (!userName || !password) {
+  const { user_name, password } = req.body;
+  if (!user_name || !password) {
     return res
       .status(400)
       .json({ status: 400, message: "账号和密码都是必需的" });
   }
   const findUserQuery =
-    "SELECT * FROM users WHERE userName = ? AND is_delete = 0";
-  connection.query(findUserQuery, [userName], async (err, results) => {
+    "SELECT * FROM users WHERE user_name = ? AND is_delete = 0";
+  connection.query(findUserQuery, [user_name], async (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ status: 500, message: "查询用户失败" });
@@ -384,7 +387,7 @@ const loginUser = (req, res) => {
     }
     // 生成 JWT
     const token = jwt.sign(
-      { id: user.id, userName: user.userName },
+      { id: user.id, user_name: user.user_name },
       "jwt_secret",
       { expiresIn: "1h" },
     );
@@ -419,7 +422,7 @@ const getUserDetails = (req, res) => {
       // 返回用户信息
       const userInfo = {
         id: user.id,
-        userName: user.userName,
+        user_name: user.user_name,
         account: user.account,
         avatar: user.avatar,
         description: user.description,
@@ -451,7 +454,7 @@ const refreshToken = (req, res) => {
     }
     // 生成新的 JWT
     const newToken = jwt.sign(
-      { userId: user.userId, userName: user.userName },
+      { userId: user.userId, user_name: user.user_name },
       "jwt_secret",
       { expiresIn: "1h" },
     );
@@ -461,9 +464,9 @@ const refreshToken = (req, res) => {
 
 // 注册用户接口
 const registerUser = (req, res) => {
-  const { userName, password, confirmPassword, description, roles } = req.body;
+  const { user_name, password, confirmPassword, description, roles } = req.body;
   // 检查必填字段
-  if (!userName || !password || !confirmPassword) {
+  if (!user_name || !password || !confirmPassword) {
     return res
       .status(400)
       .json({ status: 400, message: "用户名、密码和确认密码为必填项" });
@@ -477,8 +480,8 @@ const registerUser = (req, res) => {
       .json({ status: 400, message: "密码和确认密码不一致" });
   }
   // 检查用户是否已存在
-  const checkUserQuery = "SELECT * FROM users WHERE userName = ?";
-  connection.query(checkUserQuery, [userName], (err, results) => {
+  const checkUserQuery = "SELECT * FROM users WHERE user_name = ?";
+  connection.query(checkUserQuery, [user_name], (err, results) => {
     if (err) {
       return res
         .status(500)
@@ -493,7 +496,7 @@ const registerUser = (req, res) => {
     // 增加8小时以适应中国时区
     const create_time = moment().format("YYYY-MM-DD HH:mm:ss");
     const update_time = moment().format("YYYY-MM-DD HH:mm:ss");
-    const account = userName; // 用户名作为账号
+    const account = user_name; // 用户名作为账号
     const is_delete = 0;
     const nick_name = "新用户"; // 默认昵称
     const role_ids = [201]; // 普通用户角色ID
@@ -508,7 +511,7 @@ const registerUser = (req, res) => {
       }
       // 插入用户数据
       const insertUserQuery = `INSERT INTO users 
-      (uuid, account, create_time, is_delete, password, update_time, description, userName, nick_name, role_ids, avatar, roles) 
+      (uuid, account, create_time, is_delete, password, update_time, description, user_name, nick_name, role_ids, avatar, roles) 
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
       const values = [
         uuid,
@@ -518,7 +521,7 @@ const registerUser = (req, res) => {
         hashedPassword,
         update_time,
         description || "",
-        userName,
+        user_name,
         nick_name,
         JSON.stringify(role_ids),
         avatar,

@@ -32,12 +32,12 @@
           @keyup.enter="onLoginConfirm"
         >
           <el-form-item
-            prop="userName"
+            prop="user_name"
             :label="t('user_name')"
             label-width="100px"
           >
             <el-input
-              v-model.trim="form.userName"
+              v-model.trim="form.user_name"
               :placeholder="t('Please_enter_your_username')"
               size="large"
               :prefix-icon="User"
@@ -94,12 +94,12 @@
           @keyup.enter="onRegister"
         >
           <el-form-item
-            prop="userName"
+            prop="user_name"
             :label="t('user_name')"
             label-width="100px"
           >
             <el-input
-              v-model.trim="form.userName"
+              v-model.trim="form.user_name"
               :placeholder="t('Please_enter_your_username')"
               size="large"
               :prefix-icon="User"
@@ -189,7 +189,7 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 interface LoginForm {
-  userName: string;
+  user_name: string;
   password: string;
   confirmPassword?: string | undefined;
   roles?: string | undefined;
@@ -198,7 +198,7 @@ interface LoginForm {
 const loading = ref<boolean>(false);
 const router = useRouter();
 const form = reactive<LoginForm>({
-  userName: "admin",
+  user_name: "admin",
   password: "123456",
   confirmPassword: undefined,
   roles: undefined,
@@ -209,7 +209,7 @@ const ref_form = ref<FormInstance | null>(null);
 const isShow = ref<boolean>(false);
 
 const loginRules = {
-  userName: [
+  user_name: [
     {
       required: true,
       message: t("Please_enter_your_username"),
@@ -226,7 +226,7 @@ const loginRules = {
 };
 
 const registerRules: FormRules = {
-  userName: [
+  user_name: [
     {
       required: true,
       message: t("Please_enter_your_username"),
@@ -260,14 +260,14 @@ const registerRules: FormRules = {
 const handleChangeRole = (role: string | number | boolean | undefined) => {
   if (role === "admin") {
     Object.assign(form, {
-      userName: "admin",
+      user_name: "admin",
       password: "123456",
       confirmPassword: undefined,
       roles: undefined,
     });
   } else {
     Object.assign(form, {
-      userName: "user",
+      user_name: "user",
       password: "123456",
       confirmPassword: undefined,
       roles: undefined,

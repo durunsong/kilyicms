@@ -48,7 +48,7 @@
     </el-table-column>
     <el-table-column :label="t('name')" align="center">
       <template #default="scope">
-        <span v-html="highlightKeyword(scope.row.userName)"></span>
+        <span v-html="highlightKeyword(scope.row.user_name)"></span>
       </template>
     </el-table-column>
     <el-table-column
@@ -85,7 +85,7 @@
   <el-dialog :title="t('Add_personnel')" v-model="showAddDialog">
     <el-form :model="newItem">
       <el-form-item :label="t('Account_name')">
-        <el-input v-model="newItem.userName"></el-input>
+        <el-input v-model="newItem.user_name"></el-input>
       </el-form-item>
       <el-form-item :label="t('password')">
         <el-input
@@ -119,7 +119,7 @@
   <el-dialog :title="t('editorial_staff')" v-model="showEditDialog">
     <el-form :model="editItemData">
       <el-form-item :label="t('name')">
-        <el-input v-model="editItemData.userName"></el-input>
+        <el-input v-model="editItemData.user_name"></el-input>
       </el-form-item>
       <el-form-item :label="t('password')">
         <el-input
@@ -169,7 +169,7 @@ const { t } = useI18n();
 
 interface ListItem {
   id: number;
-  userName: string;
+  user_name: string;
   description: string;
   password: string;
   roles: string;
@@ -182,14 +182,14 @@ const searchKeyword = ref<string>("");
 const showAddDialog = ref<boolean>(false);
 const showEditDialog = ref<boolean>(false);
 const newItem = ref<Omit<ListItem, "id">>({
-  userName: "",
+  user_name: "",
   description: "",
   password: "",
   roles: "",
 });
 
 const editItemData = ref<Omit<ListItem, "id">>({
-  userName: "",
+  user_name: "",
   description: "",
   password: "",
   roles: "",
@@ -256,7 +256,7 @@ const addItem = async () => {
     const response: any = await addItemApi(addData);
     if (response.status == 200) {
       showAddDialog.value = false;
-      newItem.value.userName = "";
+      newItem.value.user_name = "";
       newItem.value.password = "";
       newItem.value.description = "";
       newItem.value.roles = "";
@@ -273,7 +273,7 @@ const addItem = async () => {
 // 编辑按钮
 const editItem = (item: ListItem) => {
   editingItemId.value = item.id;
-  editItemData.value.userName = item.userName;
+  editItemData.value.user_name = item.user_name;
   editItemData.value.password = item.password;
   editItemData.value.description = item.description;
   editItemData.value.description = item.description;
