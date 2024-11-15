@@ -10,10 +10,10 @@ Kilyicms 是一个前后端分离/开源的中后台管理系统基础解决方�
 
 ## 📺 在线预览
 
-| 位置         | 账号          | 链接                                          |
-| ------------ | ------------- | --------------------------------------------- |
-| vercel       | admin or user | [链接](https://kilyicms.vercel.app/)          |
-| github-pages | admin or user | [链接](https://durunsong.github.io/kilyicms/) |
+| 位置         | 账号          | 链接                                                                                               |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------------- |
+| vercel       | admin or user | <a href="https://kilyicms.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a>          |
+| github-pages | admin or user | <a href="https://durunsong.github.io/kilyicms/" target="_blank" rel="noopener noreferrer">Link</a> |
 
 ## ❤️ 用爱发电
 
