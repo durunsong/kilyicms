@@ -139,6 +139,23 @@ request.interceptors.response.use(
     // 移除 pending 请求
     removePendingRequest(response.config);
 
+    // 检查后端返回的 requiresRelogin 字段
+    console.log("requiresRelogin", response.data);
+    if (response.data?.requiresRelogin) {
+      // 退出登录并重定向到登录页面
+      logout();
+      // 弹出提示重新登录
+      ElNotification({
+        message: "用户信息已更新，请重新登录！",
+        type: "warning",
+        duration: 1.5 * 1000,
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+      return Promise.reject(new Error("用户信息已更新，请重新登录！"));
+    }
+
     // 响应成功，返回数据
     return response.data;
   },
