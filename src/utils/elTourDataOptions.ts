@@ -1,72 +1,75 @@
+import i18n from "@/i18n";
+const { t } = i18n.global;
+
 export const elTourDataOptions = [
   {
-    title: "欢迎来到kilyicms",
-    description: "点击继续开始介绍",
+    title: t("tour_welcomeTitle"),
+    description: t("tour_welcomeDescription"),
   },
   {
     target: "#el_tour_visible_1",
     title: "",
-    description: "左边菜单栏",
+    description: t("tour_menuDescription"),
     placement: "right",
   },
   {
     target: "#el_tour_visible_2",
     title: "",
-    description: "展开折叠按钮",
+    description: t("tour_toggleButtonDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_3",
     title: "",
-    description: "面包屑导航",
+    description: t("tour_breadcrumbDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_4",
     title: "",
-    description: "标签页导航",
+    description: t("tour_tabNavigationDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_5",
     title: "",
-    description: "菜单搜索",
+    description: t("tour_menuSearchDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_6",
     title: "",
-    description: "全屏切换",
+    description: t("tour_fullscreenDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_7",
     title: "",
-    description: "主题切换",
+    description: t("tour_themeSwitchDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_8",
-    title: "国际化",
-    description: "多语言切换",
+    title: t("tour_languageSwitchTitle"),
+    description: t("tour_languageSwitchDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_9",
     title: "",
-    description: "消息通知",
+    description: t("tour_notificationDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_10",
     title: "",
-    description: "个人设置",
+    description: t("tour_userSettingsDescription"),
     placement: "bottom",
   },
   {
     target: "#el_tour_visible_11",
-    title: "自定义设置",
-    description: "系统设置",
+    title: t("tour_customSettingsTitle"),
+    description: t("tour_customSettingsDescription"),
     placement: "left",
   },
 ];

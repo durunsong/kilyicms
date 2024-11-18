@@ -4,10 +4,14 @@
       v-for="(item, index) in props.data"
       :key="index"
       :target="item.target"
-      :title="item.title ? item.title : `第${currentStep + 1}步`"
+      :title="
+        item.title
+          ? item.title
+          : t('tour_step', { currentStep: currentStep + 1 })
+      "
       :description="item.description"
       :prev-button-props="{
-        children: '上一步',
+        children: t('tour_prev'),
         onClick: handlePrevClick,
       }"
       :next-button-props="{
@@ -17,7 +21,9 @@
       :placement="item.placement"
     ></el-tour-step>
     <template #indicators>
-      <el-button size="small" @click="handleSkip">跳过</el-button>
+      <el-button size="small" @click="handleSkip">{{
+        t("tour_skip")
+      }}</el-button>
     </template>
   </el-tour>
 </template>
@@ -26,7 +32,9 @@
 import { ref, computed, type Ref, type ComputedRef } from "vue";
 import CACHE_KEY from "@/constants/cache-key";
 import { setLocalData } from "@/utils/cache/local-storage";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const props = defineProps(["data"]);
 const emits = defineEmits([
   "change",
@@ -46,11 +54,14 @@ const open: Ref<boolean> = ref(false);
 const nextBtnName: ComputedRef<string> = computed(() => {
   let name = "";
   if (currentStep.value === 0) {
-    name = "开始";
+    name = t("tour_start");
   } else if (currentStep.value === props.data.length - 1) {
-    name = "完成";
+    name = t("tour_complete");
   } else {
-    name = `下一步（${currentStep.value + 1} / ${props.data.length}）`;
+    name = t("tour_nextStep", {
+      currentStep: currentStep.value + 1,
+      totalSteps: props.data.length,
+    });
   }
   return name;
 });
