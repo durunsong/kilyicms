@@ -3,7 +3,6 @@ import store from "@/store";
 import { defineStore } from "pinia";
 import { useTagsViewStore } from "./tags-view";
 import { useSettingsStore } from "./settings";
-import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
 import CACHE_KEY from "@/constants/cache-key";
 import {
@@ -24,7 +23,6 @@ export const useUserStore: any = defineStore("user", () => {
   const is_show_login_notice = getLocalData(CACHE_KEY.IS_SHOW_NOTICE) ?? false;
   const is_show_login_notice_tips =
     getLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS) ?? false;
-  const token = ref<string>(getToken() || "");
   const roles = ref<string[]>([]);
   const user_name = ref<string>("");
   const tagsViewStore = useTagsViewStore();
@@ -34,14 +32,12 @@ export const useUserStore: any = defineStore("user", () => {
     const res: any = await loginApi({ user_name, password });
     // 判断登录结果
     if (res.status === 200) {
-      setToken(res.token);
       // 登录成功notify标记
       setLocalData(CACHE_KEY.IS_LOGIN_KEY, true);
     } else {
       showNotification(res.message, "warning");
       return; // 如果登录失败，终止后续操作
     }
-    token.value = res.token;
   };
 
   /** 获取用户角色详情 */
@@ -85,7 +81,6 @@ export const useUserStore: any = defineStore("user", () => {
       const res: any = await loginApi(params);
       // 判断登录结果
       if (res.status === 200) {
-        setToken(res.token);
         // 切换角色notification
         setLocalData(CACHE_KEY.IS_SHOW_NOTICE, true);
         setLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS, true);
@@ -113,22 +108,15 @@ export const useUserStore: any = defineStore("user", () => {
 
   /** 登出 */
   const logout = () => {
-    removeToken();
     removeLocalData(CACHE_KEY.USER_INFO);
     setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
     setLocalData(CACHE_KEY.IS_LOGIN_KEY, false);
     removeLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS);
-    token.value = "";
     roles.value = [];
     resetRouter();
     _resetTagsView();
   };
-  /** 重置 Token */
-  const resetToken = () => {
-    removeToken();
-    token.value = "";
-    roles.value = [];
-  };
+
   /** 重置 Visited Views 和 Cached Views */
   const _resetTagsView = () => {
     if (!settingsStore.cacheTagsView) {
@@ -138,14 +126,12 @@ export const useUserStore: any = defineStore("user", () => {
   };
 
   return {
-    token,
     roles,
     user_name,
     login,
     getInfoRoles,
     changeRoles,
     logout,
-    resetToken,
   };
 });
 

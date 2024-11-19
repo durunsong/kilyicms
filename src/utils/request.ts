@@ -5,13 +5,15 @@ import axios, {
 } from "axios";
 import { ElNotification, ElLoading } from "element-plus";
 import i18n from "@/i18n";
-// import CACHE_KEY from "@/constants/cache-key";
-import { getToken } from "@/utils/cache/cookies";
 import { useUserStoreHook } from "@/store/modules/user";
+import router from "@/router";
 
 /** 退出登录并强制刷新页面（会重定向到登录页） */
 const logout = () => {
   useUserStoreHook().logout();
+  setTimeout(() => {
+    router.push("/login");
+  }, 2000);
 };
 
 const { t } = i18n.global;
@@ -22,6 +24,7 @@ const pendingRequests: any = {};
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会默认携带 VITE_BASE_API
   timeout: 5000,
+  withCredentials: true,
 });
 
 // 展示 loading
@@ -107,14 +110,6 @@ request.interceptors.request.use(
     config.headers.set("Pragma", "no-cache");
     config.headers.set("Expires", "0");
 
-    // 从 Cookie 中获取 token
-    const token = getToken();
-
-    // 如果 token 存在，将其添加到请求头中
-    if (token) {
-      config.headers.set("Authorization", `Bearer ${token}`); // 使用 set 方法
-    }
-
     // 文件上传设置
     if (config.headers.get("Content-Type") === "multipart/form-data") {
       config.headers.set("Content-Type", "multipart/form-data");
@@ -140,19 +135,15 @@ request.interceptors.response.use(
     removePendingRequest(response.config);
 
     // 检查后端返回的 requiresRelogin 字段
-    console.log("requiresRelogin", response.data);
     if (response.data?.requiresRelogin) {
-      // 退出登录并重定向到登录页面
-      logout();
       // 弹出提示重新登录
       ElNotification({
         message: "用户信息已更新，请重新登录！",
         type: "warning",
         duration: 1.5 * 1000,
       });
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
+      // 退出登录并重定向到登录页面
+      logout();
       return Promise.reject(new Error("用户信息已更新，请重新登录！"));
     }
 
@@ -170,18 +161,6 @@ request.interceptors.response.use(
       //  Token 过期时，尝试刷新 Token
       case 401: {
         errorInfo = t("case_401");
-        // const refreshToken = setToken(CACHE_KEY.REFRESH_TOKEN);
-        // if (refreshToken && !originalRequest._retry) {
-        //   originalRequest._retry = true;
-        //   // 实现刷新 token 的逻辑
-        //   const newToken = await refreshAccessToken(refreshToken);
-        //   setToken(newToken);
-        //   originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
-        //   return request(originalRequest); // 重新发起请求
-        // } else {
-        //   // 退出登录
-        //   logout();
-        // }
         // 退出登录
         logout();
         break;

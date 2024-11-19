@@ -47,6 +47,10 @@ export const registerApi = (params: RegisterRequestData) =>
     data: params,
   });
 
+// logout
+export const logoutApi = () =>
+  request({ url: "/api/users/logout", method: "GET" });
+
 // userInfo
 export const userInfoApi = () =>
   request({ url: "/api/users/userInfo", method: "GET" });

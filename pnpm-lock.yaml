@@ -20,9 +20,6 @@ importers:
       element-plus:
         specifier: 2.8.2
         version: 2.8.2(vue@3.5.4(typescript@5.5.4))
-      js-cookie:
-        specifier: 3.0.5
-        version: 3.0.5
       lodash-es:
         specifier: 4.17.21
         version: 4.17.21
@@ -66,9 +63,6 @@ importers:
       '@iconify/json':
         specifier: ^2.2.261
         version: 2.2.266
-      '@types/js-cookie':
-        specifier: 3.0.6
-        version: 3.0.6
       '@types/lodash-es':
         specifier: 4.17.12
         version: 4.17.12
@@ -816,9 +810,6 @@ packages:
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
-
-  '@types/js-cookie@3.0.6':
-    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
 
   '@types/lodash-es@4.17.12':
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
@@ -3936,8 +3927,6 @@ snapshots:
   '@trysound/sax@0.2.0': {}
 
   '@types/estree@1.0.6': {}
-
-  '@types/js-cookie@3.0.6': {}
 
   '@types/lodash-es@4.17.12':
     dependencies:
