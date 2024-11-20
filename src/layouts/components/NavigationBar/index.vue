@@ -85,8 +85,6 @@ import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { useI18n } from "vue-i18n";
 import CACHE_KEY from "@/constants/cache-key";
 import { getLocalData } from "@/utils/cache/local-storage";
-import { useRouter } from "vue-router";
-const router = useRouter();
 
 const { t } = useI18n();
 const { isMobile } = useDevice();
@@ -134,7 +132,7 @@ const toggleSidebar = () => {
 /** 登出 */
 const logout = () => {
   userStore.logout();
-  router.push("/login");
+  window.location.reload();
 };
 </script>
 
