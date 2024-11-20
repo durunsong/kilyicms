@@ -34,8 +34,6 @@ export const useUserStore: any = defineStore("user", () => {
     const res: any = await loginApi({ user_name, password });
     // 判断登录结果
     if (res.status === 200) {
-      console.log("登录成功", res.token);
-
       setToken(res.token);
       // 登录成功notify标记
       setLocalData(CACHE_KEY.IS_LOGIN_KEY, true);
@@ -77,7 +75,7 @@ export const useUserStore: any = defineStore("user", () => {
   /** 模拟角色变化 */
   const changeRoles = async (role: string) => {
     try {
-      // 这里user_name和password具体是什么，需要看后端SQL表设计和接口约束，这里只是个示例
+      // 这里user_name和password具体是什么，需要看后端SQL设计和接口约束，这里只是个示例
       const newRole = role == "admin" ? "admin" : "user";
       const params = {
         user_name: newRole,
