@@ -6,6 +6,7 @@ import axios, {
 import { ElNotification, ElLoading } from "element-plus";
 import i18n from "@/i18n";
 import { useUserStoreHook } from "@/store/modules/user";
+import { getToken } from "@/utils/cache/cookies";
 import router from "@/router";
 
 /** 退出登录并强制刷新页面（会重定向到登录页） */
@@ -24,7 +25,7 @@ const pendingRequests: any = {};
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会默认携带 VITE_BASE_API
   timeout: 5000,
-  withCredentials: true,
+  // withCredentials: true, // 跨域请求时是否需要使用凭证
 });
 
 // 展示 loading
@@ -109,6 +110,13 @@ request.interceptors.request.use(
     config.headers.set("Cache-Control", "no-cache");
     config.headers.set("Pragma", "no-cache");
     config.headers.set("Expires", "0");
+
+    // 从 Cookie 中获取 token
+    const token = getToken();
+    // 如果 token 存在，将其添加到请求头中
+    if (token) {
+      config.headers.set("Authorization", `Bearer ${token}`); // 使用 set 方法
+    }
 
     // 文件上传设置
     if (config.headers.get("Content-Type") === "multipart/form-data") {
