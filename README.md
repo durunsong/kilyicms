@@ -196,6 +196,11 @@ pnpm lint
   <img src="./src/assets/case-img/m-3.png" alt="Snipaste_6.png" style="width: 30%;">
 </div>
 
+### Notes
+
+- This project utilizes the vercel deployment, so you need scientific Internet access to access the normal
+- As vercel and github subdomain can not setcookie, so the project manually set the cookie, token is explicitly transferred set in the cookie, in the formal project need to modify this part, the back-end part of the setcookie code, you can refer to!
+
 ## 🌐Internationalized multilingual automated translation program
 
 #### Preparation: Baidu translation api ---------> appid appkey
