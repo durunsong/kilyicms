@@ -4,7 +4,7 @@ const bodyParserMiddleware = require("./middleware/bodyParserMiddleware");
 const corsMiddleware = require("./middleware/corsMiddleware");
 const userRoutes = require("./routes/userRoutes");
 const { connectDb } = require("./config/db-connection");
-// const { hashExistingPasswords } = require("./controllers/userController");
+// const { hashExistingPasswords } = require("./controllers/hashExistingPasswords");
 
 // 创建服务器对象
 const app = express();
