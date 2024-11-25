@@ -77,7 +77,7 @@ const permanentDeleteUser = (req, res) => {
       return;
     }
     if (results.affectedRows === 0) {
-      res.status(404).json({ status: 404, message: "用户不存在" });
+      res.status(409).json({ status: 409, message: "用户不存在" });
     } else {
       res.status(200).json({ status: 200, message: "用户删除成功" });
     }
@@ -96,8 +96,8 @@ const restoreUserApi = (req, res) => {
     }
     if (results.affectedRows === 0) {
       res
-        .status(404)
-        .json({ status: 404, message: "用户不存在或已被永久删除" });
+        .status(409)
+        .json({ status: 409, message: "用户不存在或已被永久删除" });
     } else {
       res.status(200).json({ status: 200, message: "用户还原成功" });
     }

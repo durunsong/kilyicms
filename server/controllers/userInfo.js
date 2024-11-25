@@ -21,7 +21,7 @@ const getUserDetails = (req, res) => {
         return res.status(500).json({ message: "查询用户失败" });
       }
       if (results.length === 0) {
-        return res.status(404).json({ message: "用户不存在" });
+        return res.status(409).json({ message: "用户不存在" });
       }
 
       const user = results[0];

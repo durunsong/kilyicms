@@ -24,7 +24,7 @@ const loginUser = (req, res) => {
     }
 
     if (results.length === 0) {
-      return res.status(404).json({ status: 404, message: "用户不存在" });
+      return res.status(409).json({ status: 409, message: "用户不存在" });
     }
 
     const user = results[0];
