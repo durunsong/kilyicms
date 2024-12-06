@@ -74,6 +74,14 @@ export const constant_Routes: RouteRecordRaw[] = [
           title: "router_translation_process",
         },
       },
+      {
+        path: "ip",
+        component: () => import("@/views/function-card/ip.vue"),
+        name: "ip",
+        meta: {
+          title: "router_ip_address",
+        },
+      },
     ],
   },
   {

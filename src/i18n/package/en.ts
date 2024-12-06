@@ -273,6 +273,7 @@ const en = {
   tour_userSettingsDescription: "User settings",
   tour_customSettingsTitle: "Custom Settings",
   tour_customSettingsDescription: "System settings",
+  router_ip_address: "IP Address",
 };
 
 export default en;

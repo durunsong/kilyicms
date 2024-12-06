@@ -267,6 +267,7 @@ const zh = {
   tour_userSettingsDescription: "个人设置",
   tour_customSettingsTitle: "自定义设置",
   tour_customSettingsDescription: "系统设置",
+  router_ip_address: "IP地址",
 };
 
 export default zh;
