@@ -105,11 +105,26 @@ Ensure that you have installed Node.js and npm (or use pnpm/yarn). Then run the 
 
 ```js
 git clone https://github.com/durunsong/kilyicms.git
-cd kilyicms (Frontend project)
-cd server (Backend project)
+cd kilyicms (front-end project)
+cd server (backend project - mysql version)
 ```
 
+### Backend version
+
+#### MySQL version
+
+```js
+git clone https://github.com/durunsong/kilyicms.git
+cd server (backend project - mysql version)
 ```
+
+#### Neon PostgreSQL version [click here to visit my other repository](https://github.com/durunsong/kilyicms-server.git)
+
+```js
+git clone https://github.com/durunsong/kilyicms-server.git
+cd server (backend project - neon PostgreSQL version)
+```
+
 # Setup
 
 1. Install the recommended plugins from the .vscode directory.
@@ -131,7 +146,8 @@ pnpm i
 # Start the development server
 
 pnpm run dev
-```
+
+````
 
 ## ✔️ Preview
 
@@ -143,7 +159,7 @@ pnpm preview:test
 # Preview the production environment
 
 pnpm preview:prod
-```
+````
 
 ## 📦️ Multi-environment Packaging
 

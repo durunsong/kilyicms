@@ -107,8 +107,26 @@ Kilyicms 是一个前后端分离/开源的中后台管理系统基础解决方�
 ```js
 git clone https://github.com/durunsong/kilyicms.git
 cd kilyicms (前端项目)
-cd server (后端项目)
+cd server (后端项目--mysql版本)
 ```
+
+### 后端版本
+
+#### MySQL版本
+
+```js
+git clone https://github.com/durunsong/kilyicms.git
+cd server (后端项目--mysql版本)
+```
+
+#### Neon PostgreSQL版本 [点击这里访问我的另一个仓库](https://github.com/durunsong/kilyicms-server.git)
+
+```js
+git clone https://github.com/durunsong/kilyicms-server.git
+cd server (后端项目--neon PostgreSQL版本)
+```
+
+### 前端版本
 
 ```bash
 # 配置
