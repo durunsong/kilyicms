@@ -304,6 +304,7 @@ const ru = {
   proxyCheckError: "Ошибка обнаружения прокси / VPN.",
   proxyCheckStatusError: "Ошибка обнаружения из - за кода состояния.",
   errorOccurred: "Произошла ошибка:",
+  router_translation_process: "Процесс перевода",
   genericError: "Тест не удался, попробуйте позже.",
 };
 

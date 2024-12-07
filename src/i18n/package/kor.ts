@@ -265,6 +265,7 @@ const kor = {
   tour_userSettingsDescription: "개인 설정",
   tour_customSettingsTitle: "사용자 정의 설정",
   tour_customSettingsDescription: "시스템 설정",
+  router_ip_address: "IP 주소",
   detectionTitle: "사용자 {keywords} 및 VPN/프록시 테스트(앞뒤 솔루션)",
   webrtcComparison: "{webrtc} 와 {ipify} 비교 판단 사례",
   ipifyDetection: "{ipify} 감지된 IP는 타사 서비스를 통해 판단({service})",
@@ -299,6 +300,7 @@ const kor = {
   proxyCheckError: "프록시/VPN을 테스트하지 못했습니다.",
   proxyCheckStatusError: "테스트 실패, 상태 코드 오류.",
   errorOccurred: "오류 발생:",
+  router_translation_process: "번역 과정",
   genericError: "테스트에 실패했습니다. 나중에 다시 시도하십시오.",
 };
 export default kor;

@@ -312,6 +312,7 @@ const el = {
   proxyCheckStatusError:
     "Αποτυχία ανίχνευσης λόγω σφάλματος κωδικού κατάστασης.",
   errorOccurred: "Παρουσιάστηκε σφάλμα:",
+  router_translation_process: "Διαδικασία μετάφρασης",
   genericError: "Η ανίχνευση απέτυχε, δοκιμάστε ξανά αργότερα.",
 };
 

@@ -308,6 +308,7 @@ const spa = {
   proxyCheckStatusError:
     "La detección falló debido a un error en el Código de Estado.",
   errorOccurred: "Se produjo un error:",
+  router_translation_process: "Proceso de traducción",
   genericError: "La prueba falló, por favor vuelva a intentarlo más tarde.",
 };
 export default spa;

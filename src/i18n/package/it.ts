@@ -306,6 +306,7 @@ const it = {
   proxyCheckStatusError:
     "Rilevamento non riuscito a causa di errore del codice di stato.",
   errorOccurred: "Si è verificato un errore:",
+  router_translation_process: "Processo di traduzione",
   genericError: "Rilevamento fallito, riprova più tardi.",
 };
 

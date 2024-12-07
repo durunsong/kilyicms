@@ -266,6 +266,7 @@ const jp = {
   tour_userSettingsDescription: "個人設定",
   tour_customSettingsTitle: "カスタム設定",
   tour_customSettingsDescription: "システム設定",
+  router_ip_address: "IPアドレス",
   detectionTitle:
     "ユーザ{keywords}とVPN/エージェント検出（前後端ソリューション）",
   webrtcComparison: "{webrtc}と{ipify}の比較判断例",
@@ -303,6 +304,7 @@ const jp = {
   proxyCheckStatusError:
     "検出に失敗しました。ステータスコードが間違っています。",
   errorOccurred: "エラーが発生しました：",
+  router_translation_process: "翻訳プロセス",
   genericError: "検出に失敗しました。後で再試行してください。",
 };
 export default jp;

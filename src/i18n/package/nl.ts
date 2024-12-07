@@ -301,6 +301,7 @@ const nl = {
   proxyCheckError: "Proxy/VPN detectie mislukt.",
   proxyCheckStatusError: "Detectie mislukt als gevolg van statuscode fout.",
   errorOccurred: "Er is een fout opgetreden:",
+  router_translation_process: "Vertaalproces",
   genericError: "Detectie mislukt, probeer het later opnieuw.",
 };
 

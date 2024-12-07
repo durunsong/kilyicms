@@ -303,6 +303,7 @@ const pt = {
   proxyCheckError: "Proxy/VPN felismerés sikertelen.",
   proxyCheckStatusError: "Az észlelés nem sikerült állapotkód hiba miatt.",
   errorOccurred: "Hiba történt:",
+  router_translation_process: "Processo de tradução",
   genericError: "Az észlelés sikertelen, kérjük próbálja meg újra később.",
 };
 

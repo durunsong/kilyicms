@@ -306,6 +306,7 @@ const pl = {
   proxyCheckError: "Wykrywanie proxy/VPN nie powiodło się.",
   proxyCheckStatusError: "Wykrycie nie powiodło się z powodu błędu kodu stanu.",
   errorOccurred: "Wystąpił błąd:",
+  router_translation_process: "Proces tłumaczenia",
   genericError: "Wykrycie nie powiodło się, spróbuj ponownie później.",
 };
 

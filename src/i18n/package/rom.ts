@@ -304,6 +304,7 @@ const rom = {
   proxyCheckStatusError:
     "Detectarea a eșuat din cauza erorii codului de stare.",
   errorOccurred: "A apărut o eroare:",
+  router_translation_process: "Procesul de traducere",
   genericError: "Detectarea a eșuat, vă rugăm să încercați din nou mai târziu.",
 };
 export default rom;

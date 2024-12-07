@@ -309,6 +309,7 @@ const fra = {
   proxyCheckStatusError:
     "La détection a échoué en raison d'une erreur de code d'état.",
   errorOccurred: "Une erreur est survenue:",
+  router_translation_process: "Processus de traduction",
   genericError: "La détection a échoué, Veuillez réessayer plus tard.",
 };
 

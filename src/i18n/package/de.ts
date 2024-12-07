@@ -306,6 +306,7 @@ const de = {
   proxyCheckStatusError:
     "Die Erkennung ist aufgrund eines Statuscodes fehlgeschlagen.",
   errorOccurred: "Es ist ein Fehler aufgetreten:",
+  router_translation_process: "Übersetzungsprozess",
   genericError:
     "Die Erkennung ist fehlgeschlagen, bitte versuchen Sie es später erneut.",
 };

@@ -301,6 +301,7 @@ const ara = {
   proxyCheckError: "وكيل / فبن فشل الكشف .",
   proxyCheckStatusError: "الكشف عن فشل بسبب خطأ في رمز الحالة .",
   errorOccurred: "حدث خطأ :",
+  router_translation_process: "عملية الترجمة",
   genericError: "فشل الكشف ، يرجى المحاولة مرة أخرى في وقت لاحق .",
 };
 

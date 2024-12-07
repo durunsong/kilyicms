@@ -303,6 +303,7 @@ const swe = {
   proxyCheckError: "Detektering av proxy/VPN misslyckades.",
   proxyCheckStatusError: "Upptäckt misslyckades på grund av statuskodfel.",
   errorOccurred: "Ett fel uppstod:",
+  router_translation_process: "Översättningsprocess",
   genericError: "Upptäckt misslyckades, försök igen senare.",
 };
 export default swe;
