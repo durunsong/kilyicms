@@ -267,5 +267,42 @@ const swe = {
   tour_userSettingsDescription: "Användarinställningar",
   tour_customSettingsTitle: "Anpassade inställningar",
   tour_customSettingsDescription: "Systeminställningar",
+  router_ip_address: "IP- adress",
+  detectionTitle:
+    "Användare {keywords} och VPN/Proxy Detection (Frontend och Backend Solutions)",
+  webrtcComparison: "{webrtc} och {ipify} Jämförelseexempel",
+  ipifyDetection:
+    "{ipify} identifierad IP bedömd av tredjepartstjänst ({service})",
+  recheck: "Kontrollera om",
+  stunRequestInfo:
+    "Denna demo gör hemligt förfrågningar till STUN servrar, som registrerar dina förfrågningar. Dessa förfrågningar visas inte i utvecklarkonsolen och kan inte blockeras av webbläsarinsticksprogram (t.ex. AdBlock, Ghostery).",
+  webrtcPublicIp: "Din offentliga {webrtc} IP-adress är:",
+  ipifyPublicIp: "Din offentliga IP-adress som erhållits via {ipify} är:",
+  comparisonMatch:
+    "Resultat: {webrtc} och {ipify} IP-adresser matchar. Du använder inte en VPN/proxy",
+  comparisonMismatch:
+    "Resultat: {webrtc} och {ipify} IP-adresser matchar inte. Du kanske använder en VPN/proxy",
+  ipifyError:
+    "Misslyckades hämta {ipify} IP- adress. Kontrollera din nätverksanslutning!",
+  vpnCheckTitle: "Resultat för detektering av proxy/VPN",
+  ipifyCurrentIP: "IP- adress identifierad via ipify:",
+  proxyCheckRange: "IP- område detekterat via proxycheck.io:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Typ:",
+  proxyCheckProvider: "Leverantör:",
+  proxyCheckCountry: "Land:",
+  proxyCheckCity: "Stad:",
+  proxyCheckTimezone: "Tidszon:",
+  proxyCheckCoordinates: "Koordinater:",
+  dataLoading: "Data laddas, vänta...",
+  comparisonMatch_ss:
+    "Resultat: Enligt {service}, använder du inte en VPN/proxy",
+  comparisonMismatch_ss:
+    "Resultat: Enligt {service}, kan du använda en VPN/proxy",
+  ipFetchError: "Misslyckades hämta IP- adress.",
+  proxyCheckError: "Detektering av proxy/VPN misslyckades.",
+  proxyCheckStatusError: "Upptäckt misslyckades på grund av statuskodfel.",
+  errorOccurred: "Ett fel uppstod:",
+  genericError: "Upptäckt misslyckades, försök igen senare.",
 };
 export default swe;

@@ -268,5 +268,42 @@ const rom = {
   tour_userSettingsDescription: "Setări utilizator",
   tour_customSettingsTitle: "Configurări personalizate",
   tour_customSettingsDescription: "Setări sistem",
+  router_ip_address: "Adresă IP",
+  detectionTitle:
+    "Utilizator {keywords} și detectarea VPN/Proxy (soluții Frontend și Backend)",
+  webrtcComparison: "{webrtc} și {ipify} Exemplu de comparație",
+  ipifyDetection: "{ipify} detectat IP judecat de serviciul terț ({service})",
+  recheck: "Verifică din nou",
+  stunRequestInfo:
+    "Acest demo face în secret cereri către serverele STUN, care înregistrează cererile dumneavoastră. Aceste solicitări nu vor apărea în consola dezvoltatorilor și nu pot fi blocate de pluginurile browser-ului (de exemplu, AdBlock, Ghostery).",
+  webrtcPublicIp: "Adresa dvs. IP publică {webrtc} este:",
+  ipifyPublicIp:
+    "Adresa dvs. IP publică obţinută prin intermediul {ipify} este:",
+  comparisonMatch:
+    "Rezultat: {webrtc} şi {ipify} adresele IP se potrivesc. Nu utilizați un VPN/proxy",
+  comparisonMismatch:
+    "Rezultat: {webrtc} şi {ipify} adresele IP nu se potrivesc. Este posibil să utilizați un VPN/proxy",
+  ipifyError:
+    "A eșuat preluarea adresei IP {ipify}. Vă rugăm să verificați conexiunea la rețea!",
+  vpnCheckTitle: "Rezultatele detectării proxy/VPN",
+  ipifyCurrentIP: "Adresa IP detectată prin intermediul ipify:",
+  proxyCheckRange: "Intervalul IP detectat prin proxycheck.io:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Tip:",
+  proxyCheckProvider: "Furnizor:",
+  proxyCheckCountry: "Țară:",
+  proxyCheckCity: "Oraș:",
+  proxyCheckTimezone: "Fus orar:",
+  proxyCheckCoordinates: "Coordonate:",
+  dataLoading: "Datele se încarcă, vă rog aşteptaţi...",
+  comparisonMatch_ss: "Rezultat: Conform {service}, nu utilizați un VPN/proxy",
+  comparisonMismatch_ss:
+    "Rezultat: Conform {service}, este posibil să utilizați un VPN/proxy",
+  ipFetchError: "A eșuat preluarea adresei IP.",
+  proxyCheckError: "Detectarea proxy/VPN a eșuat.",
+  proxyCheckStatusError:
+    "Detectarea a eșuat din cauza erorii codului de stare.",
+  errorOccurred: "A apărut o eroare:",
+  genericError: "Detectarea a eșuat, vă rugăm să încercați din nou mai târziu.",
 };
 export default rom;

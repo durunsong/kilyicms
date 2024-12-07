@@ -266,5 +266,43 @@ const jp = {
   tour_userSettingsDescription: "個人設定",
   tour_customSettingsTitle: "カスタム設定",
   tour_customSettingsDescription: "システム設定",
+  detectionTitle:
+    "ユーザ{keywords}とVPN/エージェント検出（前後端ソリューション）",
+  webrtcComparison: "{webrtc}と{ipify}の比較判断例",
+  ipifyDetection:
+    "{ipify}検出されたIPはサードパーティサービスによって判断される（{service}）",
+  recheck: "再検出",
+  stunRequestInfo:
+    "このプレゼンテーションでは、STUNサーバに秘密裏にリクエストを送信し、これらのサーバはあなたのリクエストを記録します。これらの要求は開発者コンソールに表示されず、ブラウザプラグイン（AdBlock、Ghosteryなど）によってブロックされません。",
+  webrtcPublicIp: "あなたの{webrtc}パブリックネットワークIPアドレスは：",
+  ipifyPublicIp:
+    "{ipify}から取得したパブリックネットワークIPアドレスは、次のとおりです。",
+  comparisonMatch:
+    "検出結果：{webrtc}と{ipify}のIPアドレスは同じで、VPN/エージェントを使用していません",
+  comparisonMismatch:
+    "検出結果：{webrtc}と{ipify}のIPアドレスが異なり、VPN/エージェントを使用している可能性があります",
+  ipifyError:
+    "{ipify}IPアドレスの取得に失敗しました。ネットワーク接続を確認してください！",
+  vpnCheckTitle: "エージェント/VPN検出結果",
+  ipifyCurrentIP: "ipify現在のIPアドレスを検出するには：",
+  proxyCheckRange: "proxycheck.io現在のIP範囲を検出する：",
+  proxyCheckProxy: "エージェント：",
+  proxyCheckType: "タイプ:",
+  proxyCheckProvider: "プロバイダ：",
+  proxyCheckCountry: "国：",
+  proxyCheckCity: "都市：",
+  proxyCheckTimezone: "タイムゾーン:",
+  proxyCheckCoordinates: "緯度:",
+  dataLoading: "データ・ロード中、しばらくお待ちください...",
+  comparisonMatch_ss:
+    "検出結果：{service}検出により、VPN/エージェントを使用していません",
+  comparisonMismatch_ss:
+    "検出結果：{service}検出により、VPN/エージェントを使用している可能性があります",
+  ipFetchError: "IPアドレスの取得に失敗しました。",
+  proxyCheckError: "エージェント/VPNの検出に失敗しました。",
+  proxyCheckStatusError:
+    "検出に失敗しました。ステータスコードが間違っています。",
+  errorOccurred: "エラーが発生しました：",
+  genericError: "検出に失敗しました。後で再試行してください。",
 };
 export default jp;

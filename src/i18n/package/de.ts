@@ -269,5 +269,44 @@ const de = {
   tour_userSettingsDescription: "Benutzereinstellungen",
   tour_customSettingsTitle: "Benutzerdefinierte Einstellungen",
   tour_customSettingsDescription: "Systemeinstellungen",
+  router_ip_address: "IP-Adresse",
+  detectionTitle:
+    "User {keywords} und VPN/Proxy Detection (Frontend- und Backend-Lösungen)",
+  webrtcComparison: "{webrtc} und {ipify} Vergleichsbeispiel",
+  ipifyDetection:
+    "{ipify} erkannte IP, die von Drittanbieterdiensten beurteilt wird ({service})",
+  recheck: "Überprüfen Sie erneut",
+  stunRequestInfo:
+    "Diese Demo stellt heimlich Anfragen an STUN Server, die Ihre Anfragen aufzeichnen. Diese Anfragen werden nicht in der Entwicklerkonsole angezeigt und können nicht durch Browser-Plugins (z.B. AdBlock, Ghostery) blockiert werden.",
+  webrtcPublicIp: "Ihre öffentliche IP-Adresse {webrtc} lautet:",
+  ipifyPublicIp:
+    "Ihre öffentliche IP-Adresse, die Sie über {ipify} erhalten haben, lautet:",
+  comparisonMatch:
+    "Ergebnis: {webrtc} und {ipify} IP-Adressen stimmen überein. Sie verwenden kein VPN/Proxy",
+  comparisonMismatch:
+    "Ergebnis: {webrtc} und {ipify} IP-Adressen stimmen nicht überein. Möglicherweise verwenden Sie ein VPN/Proxy",
+  ipifyError:
+    "Abrufen der {ipify} IP-Adresse fehlgeschlagen. Bitte überprüfen Sie Ihre Netzwerkverbindung!",
+  vpnCheckTitle: "Ergebnisse der Proxy-/VPN-Erkennung",
+  ipifyCurrentIP: "IP-Adresse über ipify erkannt:",
+  proxyCheckRange: "IP-Bereich über proxycheck.io erkannt:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Typ:",
+  proxyCheckProvider: "Anbieter:",
+  proxyCheckCountry: "Land:",
+  proxyCheckCity: "Ort:",
+  proxyCheckTimezone: "Zeitzone:",
+  proxyCheckCoordinates: "Koordinaten:",
+  dataLoading: "Daten werden geladen, bitte warten...",
+  comparisonMatch_ss: "Ergebnis: Laut {service} verwenden Sie kein VPN/Proxy",
+  comparisonMismatch_ss:
+    "Ergebnis: Laut {service} verwenden Sie möglicherweise ein VPN/Proxy",
+  ipFetchError: "IP-Adresse konnte nicht abgerufen werden.",
+  proxyCheckError: "Proxy/VPN Erkennung fehlgeschlagen.",
+  proxyCheckStatusError:
+    "Die Erkennung ist aufgrund eines Statuscodes fehlgeschlagen.",
+  errorOccurred: "Es ist ein Fehler aufgetreten:",
+  genericError:
+    "Die Erkennung ist fehlgeschlagen, bitte versuchen Sie es später erneut.",
 };
 export default de;

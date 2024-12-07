@@ -265,5 +265,40 @@ const kor = {
   tour_userSettingsDescription: "개인 설정",
   tour_customSettingsTitle: "사용자 정의 설정",
   tour_customSettingsDescription: "시스템 설정",
+  detectionTitle: "사용자 {keywords} 및 VPN/프록시 테스트(앞뒤 솔루션)",
+  webrtcComparison: "{webrtc} 와 {ipify} 비교 판단 사례",
+  ipifyDetection: "{ipify} 감지된 IP는 타사 서비스를 통해 판단({service})",
+  recheck: "재검사",
+  stunRequestInfo:
+    "이 프레젠테이션은 요청을 기록하는 STUN 서버에 비밀리에 요청을 보냅니다.이러한 요청은 개발자 콘솔에 표시되지 않으며 브라우저 플러그인(AdBlock, Ghostery 등)에 의해 차단될 수 없습니다.",
+  webrtcPublicIp: "{webrtc} 공용 네트워크 IP 주소는 다음과 같습니다.",
+  ipifyPublicIp:
+    "{ipify} 를 통해 얻은 공용 네트워크 IP 주소는 다음과 같습니다.",
+  comparisonMatch:
+    "테스트 결과: {webrtc} 와 {ipify} 의 IP 주소가 같으며 VPN/ 에이전트를 사용하지 않았습니다.",
+  comparisonMismatch:
+    "테스트 결과: {webrtc} 와 {ipify} 의 IP 주소가 다르므로 VPN/ 에이전트를 사용하고 있을 수 있습니다",
+  ipifyError:
+    "{ipify} IP 주소를 가져오지 못했습니다. 네트워크 연결을 확인하십시오!",
+  vpnCheckTitle: "프록시/VPN 검사 결과",
+  ipifyCurrentIP: "ipify가 현재 IP 주소를 감지합니다.",
+  proxyCheckRange: "proxycheck.io 는 현재 IP 범위를 감지합니다.",
+  proxyCheckProxy: "에이전트:",
+  proxyCheckType: "유형:",
+  proxyCheckProvider: "공급업체:",
+  proxyCheckCountry: "국가:",
+  proxyCheckCity: "도시:",
+  proxyCheckTimezone: "시간대:",
+  proxyCheckCoordinates: "경위도:",
+  dataLoading: "데이터 로드 중, 잠시 후...",
+  comparisonMatch_ss:
+    "테스트 결과: {service} 테스트를 통해 VPN/ 에이전트를 사용하지 않았습니다.",
+  comparisonMismatch_ss:
+    "테스트 결과: {service} 테스트를 통해 VPN/에이전트를 사용하고 있을 수 있음",
+  ipFetchError: "IP 주소를 가져오지 못했습니다.",
+  proxyCheckError: "프록시/VPN을 테스트하지 못했습니다.",
+  proxyCheckStatusError: "테스트 실패, 상태 코드 오류.",
+  errorOccurred: "오류 발생:",
+  genericError: "테스트에 실패했습니다. 나중에 다시 시도하십시오.",
 };
 export default kor;

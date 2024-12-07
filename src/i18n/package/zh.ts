@@ -268,6 +268,37 @@ const zh = {
   tour_customSettingsTitle: "自定义设置",
   tour_customSettingsDescription: "系统设置",
   router_ip_address: "IP地址",
+  detectionTitle: "用户 {keywords} 和 VPN/代理检测 (前后端解决方案)",
+  webrtcComparison: "{webrtc} 和 {ipify} 对比判断案例",
+  ipifyDetection: "{ipify} 检测的 IP 通过第三方服务判断 ({service})",
+  recheck: "重新检测",
+  stunRequestInfo:
+    "该演示会秘密向 STUN 服务器发出请求，这些服务器会记录你的请求。这些请求不会显示在开发者控制台中，而且无法被浏览器插件（AdBlock、Ghostery 等）阻止。",
+  webrtcPublicIp: "你的 {webrtc} 公网 IP 地址是:",
+  ipifyPublicIp: "通过 {ipify} 获取的公网 IP 地址是:",
+  comparisonMatch:
+    "检测结果：{webrtc} 和 {ipify} 的 IP 地址相同，你没有使用 VPN/代理",
+  comparisonMismatch:
+    "检测结果：{webrtc} 和 {ipify} 的 IP 地址不同，你可能正在使用 VPN/代理",
+  ipifyError: "获取 {ipify} IP 地址失败，请检查网络连接！",
+  vpnCheckTitle: "代理/VPN 检测结果",
+  ipifyCurrentIP: "ipify检测当前IP 地址:",
+  proxyCheckRange: "proxycheck.io检测当前IP 范围:",
+  proxyCheckProxy: "代理:",
+  proxyCheckType: "类型:",
+  proxyCheckProvider: "提供商:",
+  proxyCheckCountry: "国家:",
+  proxyCheckCity: "城市:",
+  proxyCheckTimezone: "时区:",
+  proxyCheckCoordinates: "经纬度:",
+  dataLoading: "数据加载中，请稍后...",
+  comparisonMatch_ss: "检测结果：通过{service}检测，你没有使用 VPN/代理",
+  comparisonMismatch_ss: "检测结果：通过{service}检测，你可能正在使用 VPN/代理",
+  ipFetchError: "获取 IP 地址失败。",
+  proxyCheckError: "检测代理/VPN 失败。",
+  proxyCheckStatusError: "检测失败，状态码错误。",
+  errorOccurred: "发生错误:",
+  genericError: "检测失败，请稍后重试。",
 };
 
 export default zh;

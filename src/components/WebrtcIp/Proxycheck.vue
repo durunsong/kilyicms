@@ -1,14 +1,69 @@
 <template>
-  <div class="flex bg-gray-100">
-    <el-card shadow="hover">
-      <h2 class="text-lg font-bold mb-4">代理/VPN 检测</h2>
-      <el-button type="primary" @click="onCheckIP">检测代理/VPN</el-button>
-    </el-card>
+  <div>
+    <h2 class="text-lg font-bold mb-4">{{ $t("vpnCheckTitle") }}</h2>
+    <div v-if="error" class="text-red-500">
+      <p>{{ error }}</p>
+    </div>
+    <div v-else-if="result" class="space-y-2">
+      <p>
+        <strong>{{ $t("ipifyCurrentIP") }}</strong> {{ ip }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckRange") }}</strong> {{ result.range }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckProxy") }}</strong> {{ result.proxy }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckType") }}</strong> {{ result.type }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckProvider") }}</strong> {{ result.provider }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckCountry") }}</strong> {{ result.country }} ({{
+          result.isocode
+        }})
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckCity") }}</strong> {{ result.city }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckTimezone") }}</strong> {{ result.timezone }}
+      </p>
+      <p>
+        <strong>{{ $t("proxyCheckCoordinates") }}</strong>
+        {{ result.latitude }}, {{ result.longitude }}
+      </p>
+    </div>
+    <div v-else>
+      <p>{{ $t("dataLoading") }}</p>
+    </div>
+    <p :class="comparisonResultClass">{{ comparisonResult.message }}</p>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ElMessage, ElMessageBox } from "element-plus";
+import { useI18n } from "vue-i18n";
+import { onMounted, ref, computed } from "vue";
+import { getProxycheck } from "@/service/ip-detection";
+
+const { t } = useI18n();
+
+const ip = ref<string | null>(null);
+const result = ref<any | null>(null);
+const error = ref<string | null>(null);
+
+const comparisonResult = ref<{ key: string; message: string }>({
+  key: "",
+  message: "",
+});
+
+const comparisonResultClass = computed(() =>
+  comparisonResult.value.key === "MATCH"
+    ? "text-sky-500 font-bold text-xl"
+    : "text-red-500 font-bold text-xl",
+);
 
 // 获取当前 IP 地址
 const getCurrentIP = async (): Promise<string> => {
@@ -18,61 +73,54 @@ const getCurrentIP = async (): Promise<string> => {
       const data = await response.json();
       return data.ip;
     } else {
-      throw new Error("获取 IP 地址失败");
+      throw new Error(t("ipFetchError"));
     }
   } catch (error) {
     console.error(error);
-    throw new Error("无法获取 IP 地址");
+    throw new Error(t("ipFetchError"));
   }
 };
 
 // 调用 proxycheck.io 检测代理或 VPN
 const checkIP = async (ip: string): Promise<any> => {
-  //   const apiKey = "你的_proxycheck_api_key"; // 替换为你的 API 密钥
   try {
-    const response = await fetch(`https://proxycheck.io/v2/${ip}?vpn=1&asn=1`);
-    if (response.ok) {
-      const data = await response.json();
-      return data[ip];
+    const response = await getProxycheck(ip);
+    if (response.status === 200) {
+      return response;
     } else {
-      throw new Error("检测代理/VPN 失败");
+      throw new Error(t("proxyCheckStatusError"));
     }
   } catch (error) {
     console.error(error);
-    throw new Error("检测代理/VPN 失败");
+    throw new Error(t("proxyCheckError"));
   }
 };
 
-// 检测代理/VPN功能
-const onCheckIP = async () => {
+// 页面加载时执行检测逻辑
+onMounted(async () => {
   try {
-    // 获取 IP 地址
-    const ip = await getCurrentIP();
-    console.log("当前 IP 地址:", ip);
+    ip.value = await getCurrentIP();
+    const detectionResult = await checkIP(ip.value);
+    result.value = detectionResult;
 
-    // 检测是否使用代理或 VPN
-    const result = await checkIP(ip);
-    console.log("检测结果:", result);
-
-    if (result && result.proxy === "yes") {
-      // 检测到使用代理或 VPN
-      ElMessageBox.alert("检测到您可能正在使用代理或 VPN！", "提示", {
-        confirmButtonText: "确定",
-        type: "warning",
-      });
+    if (detectionResult.proxy === "no") {
+      comparisonResult.value = {
+        key: "MATCH",
+        message:
+          "🟢" + t("comparisonMatch_ss", { service: "proxycheck.io" }) + "✅",
+      };
     } else {
-      // 未检测到代理或 VPN
-      ElMessage({
-        message: "未检测到代理或 VPN",
-        type: "success",
-      });
+      comparisonResult.value = {
+        key: "MISMATCH",
+        message:
+          "🔴" +
+          t("comparisonMismatch_ss", { service: "proxycheck.io" }) +
+          "❌",
+      };
     }
-  } catch (error) {
-    console.error("错误:", error);
-    ElMessage({
-      message: "检测失败，请稍后重试",
-      type: "error",
-    });
+  } catch (err: any) {
+    console.error(t("errorOccurred"), err.message);
+    error.value = err.message || t("genericError");
   }
-};
+});
 </script>

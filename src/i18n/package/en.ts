@@ -274,6 +274,42 @@ const en = {
   tour_customSettingsTitle: "Custom Settings",
   tour_customSettingsDescription: "System settings",
   router_ip_address: "IP Address",
+  detectionTitle:
+    "User {keywords} and VPN/Proxy Detection (Frontend and Backend Solutions)",
+  webrtcComparison: "{webrtc} and {ipify} Comparison Example",
+  ipifyDetection:
+    "{ipify} detected IP judged by third-party service ({service})",
+  recheck: "Recheck",
+  stunRequestInfo:
+    "This demo secretly makes requests to STUN servers, which record your requests. These requests will not appear in the developer console and cannot be blocked by browser plugins (e.g., AdBlock, Ghostery).",
+  webrtcPublicIp: "Your {webrtc} public IP address is:",
+  ipifyPublicIp: "Your public IP address obtained via {ipify} is:",
+  comparisonMatch:
+    "Result: {webrtc} and {ipify} IP addresses match. You are not using a VPN/proxy",
+  comparisonMismatch:
+    "Result: {webrtc} and {ipify} IP addresses do not match. You might be using a VPN/proxy",
+  ipifyError:
+    "Failed to fetch {ipify} IP address. Please check your network connection!",
+  vpnCheckTitle: "Proxy/VPN Detection Results",
+  ipifyCurrentIP: "IP address detected via ipify:",
+  proxyCheckRange: "IP range detected via proxycheck.io:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Type:",
+  proxyCheckProvider: "Provider:",
+  proxyCheckCountry: "Country:",
+  proxyCheckCity: "City:",
+  proxyCheckTimezone: "Timezone:",
+  proxyCheckCoordinates: "Coordinates:",
+  dataLoading: "Data is loading, please wait...",
+  comparisonMatch_ss:
+    "Result: According to {service}, you are not using a VPN/proxy",
+  comparisonMismatch_ss:
+    "Result: According to {service}, you might be using a VPN/proxy",
+  ipFetchError: "Failed to fetch IP address.",
+  proxyCheckError: "Proxy/VPN detection failed.",
+  proxyCheckStatusError: "Detection failed due to status code error.",
+  errorOccurred: "An error occurred:",
+  genericError: "Detection failed, please try again later.",
 };
 
 export default en;

@@ -275,6 +275,44 @@ const el = {
   tour_userSettingsDescription: "Ρυθμίσεις χρήστη",
   tour_customSettingsTitle: "Προσαρμοσμένες ρυθμίσεις",
   tour_customSettingsDescription: "Ρυθμίσεις συστήματος",
+  router_ip_address: "Διεύθυνση IP",
+  detectionTitle:
+    "Αναγνώριση χρηστών {λέξεις-κλειδιά} και Εντοπισμός μεσολάβησης (λύσεις Frontend και Backend)",
+  webrtcComparison: "{webrtc} και {ipify} Παράδειγμα σύγκρισης",
+  ipifyDetection:
+    "{ipify} ανιχνεύθηκε IP που κρίθηκε από υπηρεσία τρίτου μέρους ({υπηρεσία})",
+  recheck: "Επανεξέταση",
+  stunRequestInfo:
+    "Αυτή η επίδειξη κάνει κρυφά αιτήματα στους διακομιστές οι οποίοι καταγράφουν τα αιτήματά σας. Αυτά τα αιτήματα δεν θα εμφανίζονται στην κονσόλα προγραμματιστών και δεν μπορούν να αποκλειστούν από πρόσθετα προγράμματος περιήγησης (π.χ. AdBlock, Ghostery).",
+  webrtcPublicIp: "Η δημόσια διεύθυνση IP σας είναι:",
+  ipifyPublicIp: "Η δημόσια διεύθυνση IP που αποκτάται μέσω του {ipify} είναι:",
+  comparisonMatch:
+    "Αποτέλεσμα: {και {ipify} αντιστοιχούν οι διευθύνσεις IP. Δεν χρησιμοποιείτε VPN /μεσολάβηση",
+  comparisonMismatch:
+    "Αποτέλεσμα: {και {ipify} οι διευθύνσεις IP δεν ταιριάζουν. Μπορεί να χρησιμοποιείτε VPN/μεσολάβηση",
+  ipifyError:
+    "Αποτυχία ανάκτησης της διεύθυνσης IP {ipify}. Παρακαλώ ελέγξτε τη σύνδεσή σας στο δίκτυο!",
+  vpnCheckTitle: "Αποτελέσματα ανίχνευσης μεσολάβησης/VPN",
+  ipifyCurrentIP: "Διεύθυνση IP ανιχνεύθηκε μέσω ipify:",
+  proxyCheckRange: "Εύρος IP ανιχνεύθηκε μέσω proxycheck.io:",
+  proxyCheckProxy: "Αντιπρόσωπος:",
+  proxyCheckType: "Τύπος:",
+  proxyCheckProvider: "Πάροχος:",
+  proxyCheckCountry: "Χώρα:",
+  proxyCheckCity: "Πόλη:",
+  proxyCheckTimezone: "Ζώνη ώρας:",
+  proxyCheckCoordinates: "Συντεταγμένες:",
+  dataLoading: "Τα δεδομένα φορτώνονται, παρακαλώ περιμένετε...",
+  comparisonMatch_ss:
+    "Αποτέλεσμα: Σύμφωνα με την υπηρεσία, δεν χρησιμοποιείτε διακομιστή μεσολάβησης",
+  comparisonMismatch_ss:
+    "Αποτέλεσμα: Σύμφωνα με το {υπηρεσία}, μπορεί να χρησιμοποιείτε ένα διακομιστή μεσολάβησης",
+  ipFetchError: "Αποτυχία ανάκτησης της διεύθυνσης IP.",
+  proxyCheckError: "Αποτυχία ανίχνευσης μεσολάβησης/VPN.",
+  proxyCheckStatusError:
+    "Αποτυχία ανίχνευσης λόγω σφάλματος κωδικού κατάστασης.",
+  errorOccurred: "Παρουσιάστηκε σφάλμα:",
+  genericError: "Η ανίχνευση απέτυχε, δοκιμάστε ξανά αργότερα.",
 };
 
 export default el;

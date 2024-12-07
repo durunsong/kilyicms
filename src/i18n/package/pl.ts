@@ -270,6 +270,43 @@ const pl = {
   tour_userSettingsDescription: "Ustawienia użytkownika",
   tour_customSettingsTitle: "Ustawienia niestandardowe",
   tour_customSettingsDescription: "Ustawienia systemowe",
+  router_ip_address: "Adres IP",
+  detectionTitle:
+    "Użytkownik {słowa kluczowe} i VPN/Proxy Detection (rozwiązania Frontend i Backend)",
+  webrtcComparison: "{webrtc} i {ipify} Przykład porównania",
+  ipifyDetection:
+    "{ipify} wykryty IP oceniany przez usługę zewnętrzną ({usługa})",
+  recheck: "Sprawdź ponownie",
+  stunRequestInfo:
+    "To demo potajemnie składa żądania do serwerów STUN, które rejestrują Twoje żądania. Żądania te nie pojawią się w konsoli dewelopera i nie mogą być zablokowane przez wtyczki przeglądarki (np. AdBlock, Ghostery).",
+  webrtcPublicIp: "Twój publiczny adres IP {webrtc} to:",
+  ipifyPublicIp:
+    "Państwa publiczny adres IP uzyskany za pośrednictwem {ipify} to:",
+  comparisonMatch:
+    "Wynik: {webrtc} i {ipify} pasują adresy IP. Nie używasz VPN /proxy",
+  comparisonMismatch:
+    "Wynik: {webrtc} i {ipify} adresy IP nie pasują. Możesz używać VPN/proxy",
+  ipifyError:
+    "Nie udało się pobrać adresu IP {ipify}. Proszę sprawdzić połączenie sieciowe!",
+  vpnCheckTitle: "Wyniki wykrywania proxy/VPN",
+  ipifyCurrentIP: "Adres IP wykryty przez ipify:",
+  proxyCheckRange: "Zakres IP wykryty za pośrednictwem proxycheck.io:",
+  proxyCheckProxy: "Pośrednik:",
+  proxyCheckType: "Typ:",
+  proxyCheckProvider: "Dostawca:",
+  proxyCheckCountry: "Kraj:",
+  proxyCheckCity: "Miasto:",
+  proxyCheckTimezone: "Strefa czasowa:",
+  proxyCheckCoordinates: "Współrzędne:",
+  dataLoading: "Dane się ładują, proszę poczekać...",
+  comparisonMatch_ss: "Rezultat: Według {service}, nie korzystasz z VPN/proxy",
+  comparisonMismatch_ss:
+    "Rezultat: Według {service}, możesz korzystać z VPN/proxy",
+  ipFetchError: "Nie udało się pobrać adresu IP.",
+  proxyCheckError: "Wykrywanie proxy/VPN nie powiodło się.",
+  proxyCheckStatusError: "Wykrycie nie powiodło się z powodu błędu kodu stanu.",
+  errorOccurred: "Wystąpił błąd:",
+  genericError: "Wykrycie nie powiodło się, spróbuj ponownie później.",
 };
 
 export default pl;

@@ -269,6 +269,44 @@ const it = {
   tour_userSettingsDescription: "Impostazioni utente",
   tour_customSettingsTitle: "Impostazioni personalizzate",
   tour_customSettingsDescription: "Impostazioni di sistema",
+  router_ip_address: "Indirizzo IP",
+  detectionTitle:
+    "Rilevamento di utenti {keywords} e VPN/Proxy (soluzioni Frontend e Backend)",
+  webrtcComparison: "Esempio di confronto di{webrtc} e {ipify} Name",
+  ipifyDetection:
+    "{ipify} IP rilevato giudicato dal servizio di terze parti ({service})",
+  recheck: "Ricontrolla",
+  stunRequestInfo:
+    "Questa demo invia segretamente richieste ai server STUN, che registrano le tue richieste. Queste richieste non appariranno nella console degli sviluppatori e non potranno essere bloccate dai plugin del browser (ad esempio AdBlock, Ghostery).",
+  webrtcPublicIp: "Il tuo indirizzo IP pubblico {webrtc} è:",
+  ipifyPublicIp: "Il tuo indirizzo IP pubblico ottenuto tramite {ipify} è:",
+  comparisonMatch:
+    "Risultato: {webrtc} e {ipify} gli indirizzi IP corrispondono. Non stai utilizzando una VPN/proxy",
+  comparisonMismatch:
+    "Risultato: {webrtc} e {ipify} gli indirizzi IP non corrispondono. Potresti usare una VPN/proxy",
+  ipifyError:
+    "Recupero dell' indirizzo IP {ipify} non riuscito. Controlla la tua connessione di rete!",
+  vpnCheckTitle: "Risultati del rilevamento proxy/VPN",
+  ipifyCurrentIP: "Indirizzo IP rilevato tramite ipify:",
+  proxyCheckRange: "Intervallo IP rilevato tramite proxycheck.io:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Tipo:",
+  proxyCheckProvider: "Fornitore:",
+  proxyCheckCountry: "Paese:",
+  proxyCheckCity: "Città:",
+  proxyCheckTimezone: "Fuso orario:",
+  proxyCheckCoordinates: "Coordinate:",
+  dataLoading: "I dati si stanno caricando, aspettate...",
+  comparisonMatch_ss:
+    "Risultato: Secondo {service}, non stai utilizzando una VPN/proxy",
+  comparisonMismatch_ss:
+    "Risultato: Secondo {service}, potresti utilizzare una VPN/proxy",
+  ipFetchError: "Recupero dell' indirizzo IP non riuscito.",
+  proxyCheckError: "Rilevamento proxy/VPN fallito.",
+  proxyCheckStatusError:
+    "Rilevamento non riuscito a causa di errore del codice di stato.",
+  errorOccurred: "Si è verificato un errore:",
+  genericError: "Rilevamento fallito, riprova più tardi.",
 };
 
 export default it;

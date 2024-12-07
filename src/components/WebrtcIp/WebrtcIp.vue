@@ -1,20 +1,16 @@
 <template>
   <div>
-    <p>
-      该演示会秘密向 STUN 服务器发出请求，这些服务器会记录你的请求。
-      这些请求不会显示在开发者控制台中，而且无法被浏览器插件（AdBlock、Ghostery
-      等）阻止。
-    </p>
+    <p>{{ $t("stunRequestInfo") }}</p>
     <el-row>
       <el-col :span="24">
         <h4>
-          你的 WebRTC 公网 IP 地址是:&ensp;
+          {{ $t("webrtcPublicIp", { webrtc: "WebRTC" }) }}&ensp;
           <span>{{ webrtcIp }}</span>
         </h4>
       </el-col>
       <el-col :span="24">
         <h4>
-          通过 ipify 获取的公网 IP 地址是:&ensp;
+          {{ $t("ipifyPublicIp", { ipify: "ipify" }) }}&ensp;
           <span>{{ ipifyIp }}</span>
         </h4>
       </el-col>
@@ -24,8 +20,11 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from "vue-i18n";
 import { ref, computed, onMounted } from "vue";
 import { ElMessage } from "element-plus";
+
+const { t } = useI18n();
 
 const ipifyIp = ref<string>("");
 const webrtcIp = ref<string>("");
@@ -85,14 +84,16 @@ const getWebrtcIP = (): Promise<string> =>
       });
     }, 2000);
   });
+
 // 获取 ipify 的 IP 地址
 const getIpifyIP = async () => {
   try {
+    // 这里不能放在后端代理，因为后端代理的 IP 地址是固定的，无法获取到真实的客户端 IP 地址
     const response = await fetch("https://api.ipify.org?format=json");
     const data = await response.json();
     ipifyIp.value = data.ip;
   } catch (error) {
-    ElMessage.error("获取 ipify IP 地址失败，请检查网络连接！");
+    ElMessage.error(t("ipifyError", { ipify: "ipify" }));
     console.error("Error fetching ipify:", error);
   }
 };
@@ -106,32 +107,19 @@ const compareIPs = async () => {
     comparisonResult.value = {
       key: "MATCH",
       message:
-        "🟢检测结果：WebRTC 和 ipify 的 IP 地址相同，你没有使用 VPN/代理✅",
+        "🟢" +
+        t("comparisonMatch", { webrtc: "WebRTC", ipify: "ipify" }) +
+        "✅",
     };
   } else {
     comparisonResult.value = {
       key: "MISMATCH",
       message:
-        "🔴检测结果：WebRTC 和 ipify 的 IP 地址不同，你可能正在使用 VPN/代理❌",
+        "🔴" +
+        t("comparisonMismatch", { webrtc: "WebRTC", ipify: "ipify" }) +
+        "❌",
     };
   }
 };
 onMounted(compareIPs);
 </script>
-<style scoped>
-.text-sky-500 {
-  color: skyblue;
-}
-.text-red-500 {
-  color: red;
-}
-.font-bold {
-  font-weight: bold;
-}
-.text-xl {
-  font-size: 1.25rem; /* 20px */
-}
-h4 {
-  line-height: 1;
-}
-</style>

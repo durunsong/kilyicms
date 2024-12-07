@@ -268,6 +268,42 @@ const pt = {
   tour_userSettingsDescription: "Configuração do utilizador",
   tour_customSettingsTitle: "Configuração Personalizada",
   tour_customSettingsDescription: "Configuração do sistema",
+  router_ip_address: "IP- cím",
+  detectionTitle:
+    "Felhasználó {keywords} és VPN/Proxy Detection (Frontend és Backend megoldások)",
+  webrtcComparison: "{webrtc} és {ipify} összehasonlítási példa",
+  ipifyDetection:
+    "{ipify} felismert IP, amelyet harmadik fél szolgáltatása ítél meg ({service})",
+  recheck: "Újbóli ellenőrzés",
+  stunRequestInfo:
+    "Ez a demó titokban kéréseket tesz a STUN szerverekhez, amelyek rögzítik a kéréseit. Ezek a kérések nem jelennek meg a fejlesztői konzolon, és nem blokkolhatók böngészőbővítmények (pl. AdBlock, Ghostery).",
+  webrtcPublicIp: "Az Ön {webrtc} nyilvános IP címe:",
+  ipifyPublicIp: "Az {ipify} segítségével kapott nyilvános IP cím a következő:",
+  comparisonMatch:
+    "Eredmény: {webrtc} és {ipify} IP címek egyeznek. Nem használ VPN /proxyt",
+  comparisonMismatch:
+    "Eredmény: {webrtc} és {ipify} IP címek nem egyeznek meg. Lehet, hogy VPN/proxyt használ",
+  ipifyError:
+    "Nem sikerült letölteni az {ipify} IP- címet. Kérem ellenőrizze a hálózati kapcsolatot!",
+  vpnCheckTitle: "Proxy/VPN észlelési eredmények",
+  ipifyCurrentIP: "IP- cím az ipify segítségével:",
+  proxyCheckRange: "IP tartomány észlelhető a proxycheck.io segítségével:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Típus:",
+  proxyCheckProvider: "Szolgáltató:",
+  proxyCheckCountry: "Ország:",
+  proxyCheckCity: "Város:",
+  proxyCheckTimezone: "Időzóna:",
+  proxyCheckCoordinates: "Koordináták:",
+  dataLoading: "Az adatok betöltődnek, kérem várjon...",
+  comparisonMatch_ss: "Eredmény: A {service} szerint Ön nem használ VPN/proxyt",
+  comparisonMismatch_ss:
+    "Eredmény: A {service} szerint előfordulhat, hogy VPN/proxyt használ",
+  ipFetchError: "Nem sikerült lekérni az IP- címet.",
+  proxyCheckError: "Proxy/VPN felismerés sikertelen.",
+  proxyCheckStatusError: "Az észlelés nem sikerült állapotkód hiba miatt.",
+  errorOccurred: "Hiba történt:",
+  genericError: "Az észlelés sikertelen, kérjük próbálja meg újra később.",
 };
 
 export default pt;

@@ -266,6 +266,42 @@ const nl = {
   tour_userSettingsDescription: "Gebruikersinstellingen",
   tour_customSettingsTitle: "Aangepaste instellingen",
   tour_customSettingsDescription: "Systeeminstellingen",
+  router_ip_address: "IP-adres",
+  detectionTitle:
+    "User {keywords} en VPN/proxy detectie (Frontend en Backend oplossingen)",
+  webrtcComparison: "{webrtc} en {ipify} Vergelijkingsvoorbeeld",
+  ipifyDetection:
+    "{ipify} gedetecteerd IP beoordeeld door service van derden ({service})",
+  recheck: "Hercontroleren",
+  stunRequestInfo:
+    "Deze demo doet stiekem verzoeken aan STUN servers, die uw verzoeken registreren. Deze verzoeken worden niet weergegeven in de ontwikkelaarsconsole en kunnen niet worden geblokkeerd door browserplugins (bijv. AdBlock, Ghostery).",
+  webrtcPublicIp: "Uw {webrtc} openbare IP-adres is:",
+  ipifyPublicIp: "Uw openbare IP-adres verkregen via {ipify} is:",
+  comparisonMatch:
+    "Resultaat: {webrtc} en {ipify} IP-adressen komen overeen. U gebruikt geen VPN /proxy",
+  comparisonMismatch:
+    "Resultaat: {webrtc} en {ipify} IP-adressen komen niet overeen. Mogelijk gebruikt u een VPN/proxy",
+  ipifyError:
+    "Het ophalen van {ipify} IP-adres is mislukt. Controleer uw netwerkverbinding!",
+  vpnCheckTitle: "Proxy/VPN detectie resultaten",
+  ipifyCurrentIP: "IP-adres gedetecteerd via ipify:",
+  proxyCheckRange: "IP-bereik gedetecteerd via proxycheck.io:",
+  proxyCheckProxy: "Proxy:",
+  proxyCheckType: "Type:",
+  proxyCheckProvider: "Provider:",
+  proxyCheckCountry: "Land:",
+  proxyCheckCity: "Stad:",
+  proxyCheckTimezone: "Tijdzone:",
+  proxyCheckCoordinates: "Coördinaten:",
+  dataLoading: "Data wordt geladen, wacht alstublieft...",
+  comparisonMatch_ss: "Resultaat: Volgens {service} gebruikt u geen VPN/proxy",
+  comparisonMismatch_ss:
+    "Resultaat: Volgens {service} gebruikt u mogelijk een VPN/proxy",
+  ipFetchError: "Kan IP-adres niet ophalen.",
+  proxyCheckError: "Proxy/VPN detectie mislukt.",
+  proxyCheckStatusError: "Detectie mislukt als gevolg van statuscode fout.",
+  errorOccurred: "Er is een fout opgetreden:",
+  genericError: "Detectie mislukt, probeer het later opnieuw.",
 };
 
 export default nl;

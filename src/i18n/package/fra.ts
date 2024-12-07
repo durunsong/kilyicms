@@ -272,6 +272,44 @@ const fra = {
   tour_userSettingsDescription: "Paramètres utilisateur",
   tour_customSettingsTitle: "Paramètres personnalisés",
   tour_customSettingsDescription: "Paramètres du système",
+  router_ip_address: "Adresse IP",
+  detectionTitle:
+    "User {keyword} et détection VPN / proxy (solutions front et back - end)",
+  webrtcComparison: "Exemple de comparaison entre {webrtc} et {ipify}",
+  ipifyDetection:
+    "{ipify} détecte une adresse IP jugée par un service tiers ({Service})",
+  recheck: "Revérifier",
+  stunRequestInfo:
+    "Cette démo fait secrètement une demande au serveur Stun, qui enregistre votre demande. Ces requêtes n'apparaissent pas dans la console du développeur et ne sont pas bloquées par des plugins de navigateur (par exemple adblock, ghostery).",
+  webrtcPublicIp: "Votre adresse IP publique {webrtc} est:",
+  ipifyPublicIp: "L'adresse IP publique que vous obtenez via {ipify} est:",
+  comparisonMatch:
+    "Résultat: les adresses IP {webrtc} et {ipify} correspondent. Vous n’utilisez pas de VPN / Proxy",
+  comparisonMismatch:
+    "Résultat: les adresses IP {webrtc} et {ipify} ne correspondent pas. Vous utilisez peut - être un VPN / Proxy",
+  ipifyError:
+    "Impossible d'obtenir l'adresse IP {ipify}. Veuillez vérifier votre connexion réseau!",
+  vpnCheckTitle: "Résultats de détection proxy / VPN",
+  ipifyCurrentIP: "Adresse IP détectée par ipify:",
+  proxyCheckRange: "Plage d'IP détectée par proxycheck.io:",
+  proxyCheckProxy: "Agent:",
+  proxyCheckType: "Type:",
+  proxyCheckProvider: "Fournisseurs:",
+  proxyCheckCountry: "Pays:",
+  proxyCheckCity: "La ville",
+  proxyCheckTimezone: "Fuseau horaire:",
+  proxyCheckCoordinates: "Coordination:",
+  dataLoading: "Chargement des données, veuillez patienter...",
+  comparisonMatch_ss:
+    "Résultat: Selon {Service}, vous n’utilisez pas de VPN / Proxy",
+  comparisonMismatch_ss:
+    "Résultat: Selon {Service}, vous utilisez probablement un VPN / Proxy",
+  ipFetchError: "L'obtention de l'adresse IP a échoué.",
+  proxyCheckError: "La détection proxy / VPN a échoué.",
+  proxyCheckStatusError:
+    "La détection a échoué en raison d'une erreur de code d'état.",
+  errorOccurred: "Une erreur est survenue:",
+  genericError: "La détection a échoué, Veuillez réessayer plus tard.",
 };
 
 export default fra;

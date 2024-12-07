@@ -272,5 +272,42 @@ const spa = {
   tour_userSettingsDescription: "Configuración del usuario",
   tour_customSettingsTitle: "Configuración personalizada",
   tour_customSettingsDescription: "Configuración del sistema",
+  router_ip_address: "Dirección IP",
+  detectionTitle:
+    "Usuario (...) y detección VPN / agente (soluciones Front - end y back - end)",
+  webrtcComparison: "Ejemplos de comparación entre (...) webrtc y (...) ipify)",
+  ipifyDetection:
+    "¿¿ se detecta una IP juzgada por un servicio de terceros ('servicio')?",
+  recheck: "Reexamen",
+  stunRequestInfo:
+    "Esta demostración enviará una solicitud en secreto al servidor stun, que registrará su solicitud. Estas solicitudes no aparecen en la consola del desarrollador ni son bloqueadas por plug - ins del navegador (como adblock, ghostery).",
+  webrtcPublicIp: "Su dirección IP pública es:",
+  ipifyPublicIp: "La dirección IP pública que obtuvo a través de ipify es:",
+  comparisonMatch:
+    "Resultado: webrtc? coincide con la dirección IP de (...) ipify. Usted no utiliza VPN / agente",
+  comparisonMismatch:
+    "Resultado: '¿ webrtc', 'ipify', 'direcciones IP no coinciden. Es posible que esté usando VPN / agente",
+  ipifyError:
+    "No se puede obtener la dirección IP de ipify. ¡¡ por favor, compruebe su conexión a la red!",
+  vpnCheckTitle: "Resultados de la prueba de agente / VPN",
+  ipifyCurrentIP: "Dirección IP detectada a través de ipify:",
+  proxyCheckRange: "Rango IP detectado a través de proxicheck.io:",
+  proxyCheckProxy: "Agente:",
+  proxyCheckType: "Tipo:",
+  proxyCheckProvider: "Proveedores:",
+  proxyCheckCountry: "País:",
+  proxyCheckCity: "Ciudad",
+  proxyCheckTimezone: "Zona horaria:",
+  proxyCheckCoordinates: "Coordinación:",
+  dataLoading: "Cargando datos, por favor Espere...",
+  comparisonMatch_ss: "Resultado: no utiliza VPN / agente, según el servicio",
+  comparisonMismatch_ss:
+    "Resultado: es posible que esté usando VPN / agente de acuerdo con (...).",
+  ipFetchError: "Falló al obtener la dirección Ip.",
+  proxyCheckError: "La detección de agente / VPN falló.",
+  proxyCheckStatusError:
+    "La detección falló debido a un error en el Código de Estado.",
+  errorOccurred: "Se produjo un error:",
+  genericError: "La prueba falló, por favor vuelva a intentarlo más tarde.",
 };
 export default spa;

@@ -268,6 +268,43 @@ const ru = {
   tour_userSettingsDescription: "Индивидуальные настройки",
   tour_customSettingsTitle: "Настройка",
   tour_customSettingsDescription: "Настройки системы",
+  router_ip_address: "IP - адрес",
+  detectionTitle:
+    "Пользователь {ключевое слово} и тестирование VPN / прокси (фронтальные и модульные решения)",
+  webrtcComparison: "Примеры сравнения {webrtc} и {ipify}",
+  ipifyDetection:
+    "Обнаружение IP - адресов, определяемых сторонними службами (сер. service)",
+  recheck: "Повторная проверка",
+  stunRequestInfo:
+    "Эта демонстрация отправляет секретный запрос на сервер STUN, который записывает ваш запрос. Эти запросы не появляются на консоли разработчика и не блокируются плагинами браузера (например, AdBlock, Ghostery).",
+  webrtcPublicIp: "Ваш webrtc публичный IP - адрес:",
+  ipifyPublicIp: "Публичный IP - адрес, который вы получаете с помощью ipify:",
+  comparisonMatch:
+    "Результат: IP - адреса совпадают между webrtc и ipify. Вы не используете VPN / прокси",
+  comparisonMismatch:
+    "Результат: IP - адреса webrtc и ipify не совпадают. Вы можете использовать VPN / прокси",
+  ipifyError:
+    "Невозможно получить IPIFY 'IP - адрес. Пожалуйста, проверьте подключение к сети!",
+  vpnCheckTitle: "Результаты тестирования прокси / VPN",
+  ipifyCurrentIP: "IP - адреса, обнаруженные с помощью ipify:",
+  proxyCheckRange: "Диапазон IP, обнаруженный с помощью proxycheck.io:",
+  proxyCheckProxy: "Агент:",
+  proxyCheckType: "Тип:",
+  proxyCheckProvider: "Поставщики:",
+  proxyCheckCountry: "Страна:",
+  proxyCheckCity: "Города",
+  proxyCheckTimezone: "Часовой пояс:",
+  proxyCheckCoordinates: "Координация:",
+  dataLoading: "Загружаются данные, пожалуйста, подождите немного.",
+  comparisonMatch_ss:
+    "Результат: согласно {service}, вы не используете VPN / прокси",
+  comparisonMismatch_ss:
+    "Результат: согласно {service}, вы можете использовать VPN / прокси",
+  ipFetchError: "Ошибка получения IP - адреса.",
+  proxyCheckError: "Ошибка обнаружения прокси / VPN.",
+  proxyCheckStatusError: "Ошибка обнаружения из - за кода состояния.",
+  errorOccurred: "Произошла ошибка:",
+  genericError: "Тест не удался, попробуйте позже.",
 };
 
 export default ru;

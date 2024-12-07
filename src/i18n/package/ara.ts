@@ -266,6 +266,42 @@ const ara = {
   tour_userSettingsDescription: "إعدادات المستخدم",
   tour_customSettingsTitle: "إعدادات مخصصة",
   tour_customSettingsDescription: "إعدادات النظام",
+  router_ip_address: "عنوان IP",
+  detectionTitle:
+    "المستخدم { الكلمات الرئيسية } و VPN / وكيل الكشف ( الأمامية والخلفية الحلول )",
+  webrtcComparison: "على سبيل المثال مقارنة { webrtc } { ipify }",
+  ipifyDetection: "الكشف عن الملكية الفكرية التي تحددها خدمة طرف ثالث",
+  recheck: "إعادة فحص",
+  stunRequestInfo:
+    "هذا العرض سوف ترسل طلبات سرية إلى خادم الحجر ، والتي سوف تسجل طلبك . هذه الطلبات لا تظهر في وحدة التحكم المطور أو منعت من قبل متصفح الإضافات مثل Adblock ، شبح .",
+  webrtcPublicIp: "عنوان IP الخاص بك { webrtc } هو :",
+  ipifyPublicIp: "عنوان IP العام الذي تحصل عليه من خلال { ipify } هو :",
+  comparisonMatch:
+    "النتيجة : { webrtc } و { ipify } عناوين بروتوكول الإنترنت مطابقة . كنت لا تستخدم VPN / وكيل",
+  comparisonMismatch:
+    "النتيجة : { webrtc } و { ipify } عناوين بروتوكول الإنترنت لا تتطابق . قد تكون باستخدام VPN / وكيل",
+  ipifyError:
+    "غير قادر على الحصول على عنوان IP { ipify } . يرجى التحقق من اتصال الشبكة الخاصة بك !",
+  vpnCheckTitle: "نتائج الكشف عن وكيل / VPN",
+  ipifyCurrentIP: "عناوين بروتوكول الإنترنت التي تم الكشف عنها بواسطة IPIFY :",
+  proxyCheckRange:
+    "مجموعة الملكية الفكرية التي تم الكشف عنها من قبل proxycheck.io :",
+  proxyCheckProxy: "وكيل",
+  proxyCheckType: "نوع",
+  proxyCheckProvider: "الموردين",
+  proxyCheckCountry: "البلد :",
+  proxyCheckCity: "المدينة",
+  proxyCheckTimezone: "المنطقة الزمنية",
+  proxyCheckCoordinates: "التنسيق",
+  dataLoading: "تحميل البيانات ، الرجاء الانتظار . . .",
+  comparisonMatch_ss: "النتائج : وفقا ل { خدمة } ، لم تقم باستخدام VPN / وكيل",
+  comparisonMismatch_ss:
+    "النتيجة : اعتمادا على { خدمة } ، قد تكون باستخدام الشبكات الافتراضية الخاصة / وكيل",
+  ipFetchError: "فشل في الحصول على عنوان بروتوكول الإنترنت .",
+  proxyCheckError: "وكيل / فبن فشل الكشف .",
+  proxyCheckStatusError: "الكشف عن فشل بسبب خطأ في رمز الحالة .",
+  errorOccurred: "حدث خطأ :",
+  genericError: "فشل الكشف ، يرجى المحاولة مرة أخرى في وقت لاحق .",
 };
 
 export default ara;
