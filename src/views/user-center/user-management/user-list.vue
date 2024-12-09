@@ -127,7 +127,7 @@
           autocomplete="new-password"
         ></el-input>
       </el-form-item>
-      <el-form-item :label="t('roles')">
+      <el-form-item :label="t('character')">
         <el-select
           v-model="editItemData.roles"
           :placeholder="t('Selecting_a_Character')"
