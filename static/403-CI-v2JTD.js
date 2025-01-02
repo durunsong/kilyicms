@@ -1,0 +1,1 @@
+import{E as t}from"./ErrorPageLayout-5YZNIHXN.js";import{m as a,p as e,M as o,O as r,V as s,u as c}from"./vue-BQgErKdm.js";import"./index-CbEXVRfY.js";import"./element-OgKPM7dr.js";const n="/kilyicms/static/403-B5pVaGz9.svg",d=a({__name:"403",setup(p){return(m,i)=>(e(),o(t,null,{default:r(()=>[s(c(n))]),_:1}))}});export{d as default};
