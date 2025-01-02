@@ -85,8 +85,10 @@ import { useLayoutMode } from "@/hooks/useLayoutMode";
 import { useI18n } from "vue-i18n";
 import CACHE_KEY from "@/constants/cache-key";
 import { getLocalData } from "@/utils/cache/local-storage";
+import { useRouter } from "vue-router";
 
 const { t } = useI18n();
+const router = useRouter();
 const { isMobile } = useDevice();
 const { isTop } = useLayoutMode();
 const appStore = useAppStore();
@@ -132,7 +134,8 @@ const toggleSidebar = () => {
 /** 登出 */
 const logout = () => {
   userStore.logout();
-  window.location.reload();
+  // replace跳转到登录页
+  router.replace({ path: "/login" });
 };
 </script>
 

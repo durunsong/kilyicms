@@ -293,9 +293,10 @@ const handlerExecutiveLogging = () => {
   useUserStore()
     .login(params)
     .then(() => {
-      router.push({
-        path: "/",
-      });
+      // 获取重定向参数
+      const redirect =
+        (router.currentRoute.value.query.redirect as string) || "/";
+      router.push(decodeURIComponent(redirect));
     })
     .finally(() => {
       loading.value = false;
