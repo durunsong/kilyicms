@@ -4,7 +4,7 @@
  * @type {import("prettier").Config}
  */
 
-export default {
+module.exports = {
   /** 每一行的宽度 */
   printWidth: 120,
   /** 在对象中的括号之间是否用空格来间隔 */
