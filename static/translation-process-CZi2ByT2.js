@@ -1,1 +1,0 @@
-import{m as s,a as t,p as a,q as r,t as o}from"./vue-utQA5pq8.js";const l={class:"w-full h-screen"},n=["src"],m=s({__name:"translation-process",setup(c){const e=t("https://translation-tools.vercel.app/");return(p,_)=>(a(),r("div",l,[o("iframe",{src:e.value,frameborder:"0",class:"w-full h-full min-h-[500px]",title:"Embedded Page"},null,8,n)]))}});export{m as default};
