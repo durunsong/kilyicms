@@ -1,18 +1,12 @@
 <template>
   <div class="slide_box1">
-    <el-button
-      :icon="Close"
-      size="small"
-      class="slider_close_btn"
-      circle
-      @click="handleClose"
-    ></el-button>
+    <el-button :icon="Close" size="small" class="slider_close_btn" circle @click="handleClose"></el-button>
     <div class="slide_inner_box">
       <SlideVerify
         class="slide_box"
         ref="block"
         :slider-text="t('swipe_right')"
-        :accuracy="1"
+        :accuracy="5"
         @again="onAgain"
         @success="onSuccess"
         @fail="onFail"
@@ -44,14 +38,7 @@ const { t } = useI18n();
 
 const msg = ref<string>("");
 //自定义图片
-const img = ref([
-  slideImg_1,
-  slideImg_2,
-  slideImg_3,
-  slideImg_4,
-  slideImg_5,
-  slideImg_6,
-]);
+const img = ref([slideImg_1, slideImg_2, slideImg_3, slideImg_4, slideImg_5, slideImg_6]);
 const block = ref<SlideVerifyInstance>();
 const emit = defineEmits(["again", "success", "fail", "refresh", "close"]);
 
@@ -65,8 +52,7 @@ const onAgain = () => {
 };
 //成功的回调
 const onSuccess = (times: number) => {
-  msg.value =
-    t("successful_which_takes") + (times / 1000).toFixed(1) + t("seconds");
+  msg.value = t("successful_which_takes") + (times / 1000).toFixed(1) + t("seconds");
   fontColor.value = "green";
   emit("success");
 };
