@@ -19,25 +19,12 @@
         @change="formatHandleChange"
       ></el-date-picker>
     </div>
-    <el-button
-      class="search_btn"
-      type="default"
-      @click="handleClearItems"
-      icon="Delete"
-      >{{ t("clear") }}</el-button
-    >
-    <el-button
-      class="search_btn"
-      type="primary"
-      @click="debouncedHandleSearchItems"
-      icon="Search"
-      >{{ t("search") }}</el-button
-    >
+    <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t("clear") }}</el-button>
+    <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{
+      t("search")
+    }}</el-button>
   </div>
-  <el-table
-    :data="userList"
-    :header-cell-style="{ background: '#d9ece9', color: '#666' }"
-  >
+  <el-table :data="userList" :header-cell-style="{ background: '#d9ece9', color: '#666' }">
     <el-table-column :label="t('serial_number')" width="100">
       <template #default="scope">
         {{ scope.$index + 1 }}
@@ -48,16 +35,8 @@
         <span v-html="highlightKeyword(scope.row.user_name)"></span>
       </template>
     </el-table-column>
-    <el-table-column
-      prop="create_time"
-      :label="t('create_time')"
-      align="center"
-    ></el-table-column>
-    <el-table-column
-      prop="update_time"
-      :label="t('update_time')"
-      align="center"
-    ></el-table-column>
+    <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
+    <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
     <el-table-column :label="t('operates')" align="center">
       <template #default="scope">
         <el-popconfirm
@@ -107,11 +86,7 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from "vue";
 import { ElMessage } from "element-plus";
-import {
-  getDeleteUserItemApi,
-  deleteItemSiftApi,
-  restoreUserApi,
-} from "@/service/user";
+import { getDeleteUserItemApi, deleteItemSiftApi, restoreUserApi } from "@/service/user";
 import useMomentFormat from "@/hooks/useMomentFormat";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useI18n } from "vue-i18n";
@@ -134,7 +109,7 @@ const queryParams = reactive({
   pageSize: 7,
   startTime: null as string | null,
   endTime: null as string | null,
-  keywords: null as string | null,
+  keywords: null as string | null
 });
 
 // 还原用户
@@ -192,7 +167,8 @@ const fetchItems = async () => {
   try {
     const response: any = await getDeleteUserItemApi(queryParams);
     userList.value = response.data;
-    total.value = response.total;
+    // 确保 total 是数字类型，防止服务器返回字符串
+    total.value = Number(response.total) || 0;
   } catch {
     ElMessage.error(t("Data_acquisition_failure"));
   }

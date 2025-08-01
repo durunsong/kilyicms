@@ -19,28 +19,15 @@
         @change="formatHandleChange"
       ></el-date-picker>
     </div>
-    <el-button
-      class="search_btn"
-      type="default"
-      @click="handleClearItems"
-      icon="Delete"
-      >{{ t("clear") }}</el-button
-    >
-    <el-button
-      class="search_btn"
-      type="primary"
-      @click="debouncedHandleSearchItems"
-      icon="Search"
-      >{{ t("search") }}</el-button
-    >
+    <el-button class="search_btn" type="default" @click="handleClearItems" icon="Delete">{{ t("clear") }}</el-button>
+    <el-button class="search_btn" type="primary" @click="debouncedHandleSearchItems" icon="Search">{{
+      t("search")
+    }}</el-button>
   </div>
   <el-button class="add_btn" type="primary" @click="showAddDialog = true">
     {{ t("Add_personnel") }}
   </el-button>
-  <el-table
-    :data="userList"
-    :header-cell-style="{ background: '#d9ece9', color: '#666' }"
-  >
+  <el-table :data="userList" :header-cell-style="{ background: '#d9ece9', color: '#666' }">
     <el-table-column :label="t('serial_number')" width="100">
       <template #default="scope">
         {{ scope.$index + 1 }}
@@ -51,22 +38,12 @@
         <span v-html="highlightKeyword(scope.row.user_name)"></span>
       </template>
     </el-table-column>
-    <el-table-column
-      prop="create_time"
-      :label="t('create_time')"
-      align="center"
-    ></el-table-column>
-    <el-table-column
-      prop="update_time"
-      :label="t('update_time')"
-      align="center"
-    ></el-table-column>
+    <el-table-column prop="create_time" :label="t('create_time')" align="center"></el-table-column>
+    <el-table-column prop="update_time" :label="t('update_time')" align="center"></el-table-column>
     <el-table-column :label="t('operates')" align="center">
       <template #default="scope">
         <el-button @click="editItem(scope.row)">{{ t("edit") }}</el-button>
-        <el-button type="danger" @click="deleteItem(scope.row.id)">{{
-          t("delete")
-        }}</el-button>
+        <el-button type="danger" @click="deleteItem(scope.row.id)">{{ t("delete") }}</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -88,16 +65,10 @@
         <el-input v-model="newItem.user_name"></el-input>
       </el-form-item>
       <el-form-item :label="t('password')">
-        <el-input
-          v-model="newItem.password"
-          autocomplete="new-password"
-        ></el-input>
+        <el-input v-model="newItem.password" autocomplete="new-password"></el-input>
       </el-form-item>
       <el-form-item :label="t('character')">
-        <el-select
-          v-model="newItem.roles"
-          :placeholder="t('Selecting_a_Character')"
-        >
+        <el-select v-model="newItem.roles" :placeholder="t('Selecting_a_Character')">
           <el-option label="Admin" value="admin"></el-option>
           <el-option label="User" value="user"></el-option>
         </el-select>
@@ -108,9 +79,7 @@
     </el-form>
     <template v-slot:footer>
       <div class="dialog-footer">
-        <el-button @click="showAddDialog = false">{{
-          t("confirm_cancel_text")
-        }}</el-button>
+        <el-button @click="showAddDialog = false">{{ t("confirm_cancel_text") }}</el-button>
         <el-button type="primary" @click="addItem">{{ t("add") }}</el-button>
       </div>
     </template>
@@ -122,16 +91,10 @@
         <el-input v-model="editItemData.user_name"></el-input>
       </el-form-item>
       <el-form-item :label="t('password')">
-        <el-input
-          v-model="editItemData.password"
-          autocomplete="new-password"
-        ></el-input>
+        <el-input v-model="editItemData.password" autocomplete="new-password"></el-input>
       </el-form-item>
       <el-form-item :label="t('character')">
-        <el-select
-          v-model="editItemData.roles"
-          :placeholder="t('Selecting_a_Character')"
-        >
+        <el-select v-model="editItemData.roles" :placeholder="t('Selecting_a_Character')">
           <el-option label="Admin" value="admin"></el-option>
           <el-option label="User" value="user"></el-option>
         </el-select>
@@ -142,12 +105,8 @@
     </el-form>
     <template v-slot:footer>
       <div class="dialog-footer">
-        <el-button @click="showEditDialog = false">{{
-          t("confirm_cancel_text")
-        }}</el-button>
-        <el-button type="primary" @click="updateItem">{{
-          t("update")
-        }}</el-button>
+        <el-button @click="showEditDialog = false">{{ t("confirm_cancel_text") }}</el-button>
+        <el-button type="primary" @click="updateItem">{{ t("update") }}</el-button>
       </div>
     </template>
   </el-dialog>
@@ -156,12 +115,7 @@
 <script setup lang="ts">
 import { ref, onMounted, reactive, watch } from "vue";
 import { ElMessage } from "element-plus";
-import {
-  getItemApi,
-  addItemApi,
-  updateItemApi,
-  deleteItemApi,
-} from "@/service/user";
+import { getItemApi, addItemApi, updateItemApi, deleteItemApi } from "@/service/user";
 import useMomentFormat from "@/hooks/useMomentFormat";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useI18n } from "vue-i18n";
@@ -185,14 +139,14 @@ const newItem = ref<Omit<ListItem, "id">>({
   user_name: "",
   description: "",
   password: "",
-  roles: "",
+  roles: ""
 });
 
 const editItemData = ref<Omit<ListItem, "id">>({
   user_name: "",
   description: "",
   password: "",
-  roles: "",
+  roles: ""
 });
 const editingItemId = ref<number | null>(null);
 const queryParams = reactive({
@@ -200,7 +154,7 @@ const queryParams = reactive({
   pageSize: 7,
   startTime: null as string | null,
   endTime: null as string | null,
-  keywords: null as string | null,
+  keywords: null as string | null
 });
 
 // 高亮关键词
@@ -242,7 +196,8 @@ const fetchItems = async () => {
   try {
     const response: any = await getItemApi(queryParams);
     userList.value = response.data;
-    total.value = response.total;
+    // 确保 total 是数字类型，防止服务器返回字符串
+    total.value = Number(response.total) || 0;
   } catch {
     ElMessage.error(t("Data_acquisition_failure"));
   }
@@ -285,7 +240,7 @@ const updateItem = async () => {
   try {
     if (editingItemId.value !== null) {
       const editData: any = {
-        ...editItemData.value,
+        ...editItemData.value
       };
       editData.roles = [editData.roles];
       const response: any = await updateItemApi(editingItemId.value, editData);

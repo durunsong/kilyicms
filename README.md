@@ -173,6 +173,22 @@ pnpm build:test
 pnpm build:prod
 ```
 
+### Install ncu:
+
+```
+npm install -g npm-check-updates
+Check which dependencies can be upgraded:
+ncu
+### Update the versions in package.json with one click:
+ncu -u
+### Then reinstall dependencies:
+pnpm install
+# Or
+npm install
+# Or
+yarn
+```
+
 ## 🔧 Code Check
 
 ```pnpm

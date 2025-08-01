@@ -177,6 +177,22 @@ pnpm lint
 pnpm test
 ```
 
+### 安装 ncu：
+
+```
+npm install -g npm-check-updates
+查看哪些依赖可升级：
+ncu
+### 一键更新 package.json 中版本：
+ncu -u
+### 然后重新安装依赖：
+pnpm install
+# 或者
+npm install
+# 或者
+yarn
+```
+
 ## 🎉Git 提交规范参考
 
 - `feat` 增加新的业务功能
