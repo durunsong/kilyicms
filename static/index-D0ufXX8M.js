@@ -1,0 +1,1 @@
+import{_ as o}from"./index-p1n-EO1n.js";import{al as t,y as r,z as n,Q as c}from"./vue-upKi_HIV.js";import"./element-Z4L7BiFU.js";const s={},a={class:"app-container"};function _(i,p){const e=t("router-view");return n(),r("div",a,[c(e)])}const l=o(s,[["render",_]]);export{l as default};
