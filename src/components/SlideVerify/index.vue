@@ -55,7 +55,6 @@ const onSlideStart = () => {
   if (!isSliding.value) {
     startTime.value = Date.now();
     isSliding.value = true;
-    console.log("滑动开始，记录开始时间:", startTime.value);
   }
 };
 
@@ -70,26 +69,20 @@ const onAgain = () => {
 };
 //成功的回调
 const onSuccess = (times: number) => {
-  // 调试输出：查看times参数的实际值和类型
-  console.log("滑块验证成功回调 - times参数:", times, "类型:", typeof times);
-
   let actualTime = 0;
 
   // 优先使用手动计算的时间
   if (isSliding.value && startTime.value > 0) {
     const endTime = Date.now();
     actualTime = endTime - startTime.value;
-    console.log("使用手动计算的时间:", actualTime, "ms");
   }
   // 如果库提供的times参数有效，则使用它
   else if (typeof times === "number" && !isNaN(times) && times > 0) {
     actualTime = times;
-    console.log("使用库提供的时间:", times, "ms");
   }
   // 都无效时提供默认值
   else {
     actualTime = 1000; // 1秒默认值
-    console.warn("时间参数都无效，使用默认值 1000ms");
   }
 
   // 显示验证成功消息
