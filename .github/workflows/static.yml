@@ -47,9 +47,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       # Step 5: 构建项目
-      # 使用 pnpm 运行构建脚本，生成生产环境的构建文件
+      # 使用 pnpm 运行 GitHub Pages 专用构建脚本，生成适用于 GitHub Pages 的构建文件
       - name: 5、构建项目
-        run: pnpm run build:prod
+        run: pnpm run build:github
 
       # Step 6: 部署到 GitHub Pages
       # 使用 peaceiris/actions-gh-pages@v4 部署构建文件到 GitHub Pages
