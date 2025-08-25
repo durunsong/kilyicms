@@ -7,11 +7,11 @@ on:
     branches:
       - main # 当推送到 main 分支时触发
 
-# 设置 GITHUB _ TOKEN 的权限以允许部署到 GitHub 页面
+# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 permissions:
-  contents: read # 仅允许工作流写入 `main` 分支内容。最小化权限以确保安全
-  pages: write
-  id-token: write
+  contents: write # 允许工作流写入内容，部署到 gh-pages 分支时需要此权限
+  pages: write     # 允许部署到 GitHub Pages
+  id-token: write  # 允许使用 OIDC token
 
 jobs:
   deploy:
@@ -56,6 +56,6 @@ jobs:
       - name: 6、部署到 GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.TOKEN }} # 使用 GitHub 提供的密钥进行身份验证
+          github_token: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 自动提供的内置 token
           publish_dir: dist # 指定构建输出目录，默认为 Vite 项目的 dist 目录
           force_orphan: true # 是否使用孤立分支，避免与历史记录冲突
