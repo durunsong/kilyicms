@@ -11,6 +11,8 @@
         @success="onSuccess"
         @fail="onFail"
         @refresh="onRefresh"
+        @mousedown="onSlideStart"
+        @touchstart="onSlideStart"
         :imgs="img"
       ></SlideVerify>
       <div class="msg_box" :style="'color:' + fontColor">{{ msg }}</div>
@@ -44,16 +46,60 @@ const emit = defineEmits(["again", "success", "fail", "refresh", "close"]);
 
 const fontColor = ref("");
 
+// 手动计时相关变量
+const startTime = ref<number>(0);
+const isSliding = ref<boolean>(false);
+
+// 滑动开始事件处理
+const onSlideStart = () => {
+  if (!isSliding.value) {
+    startTime.value = Date.now();
+    isSliding.value = true;
+    console.log("滑动开始，记录开始时间:", startTime.value);
+  }
+};
+
 const onAgain = () => {
   msg.value = t("non_human_operation_detected");
   fontColor.value = "red";
+  // 重置计时状态
+  isSliding.value = false;
+  startTime.value = 0;
   // 刷新
   block.value?.refresh();
 };
 //成功的回调
 const onSuccess = (times: number) => {
-  msg.value = t("successful_which_takes") + (times / 1000).toFixed(1) + t("seconds");
+  // 调试输出：查看times参数的实际值和类型
+  console.log("滑块验证成功回调 - times参数:", times, "类型:", typeof times);
+
+  let actualTime = 0;
+
+  // 优先使用手动计算的时间
+  if (isSliding.value && startTime.value > 0) {
+    const endTime = Date.now();
+    actualTime = endTime - startTime.value;
+    console.log("使用手动计算的时间:", actualTime, "ms");
+  }
+  // 如果库提供的times参数有效，则使用它
+  else if (typeof times === "number" && !isNaN(times) && times > 0) {
+    actualTime = times;
+    console.log("使用库提供的时间:", times, "ms");
+  }
+  // 都无效时提供默认值
+  else {
+    actualTime = 1000; // 1秒默认值
+    console.warn("时间参数都无效，使用默认值 1000ms");
+  }
+
+  // 显示验证成功消息
+  msg.value = t("successful_which_takes") + (actualTime / 1000).toFixed(1) + t("seconds");
   fontColor.value = "green";
+
+  // 重置计时状态
+  isSliding.value = false;
+  startTime.value = 0;
+
   emit("success");
 };
 const handleClose = () => {
@@ -65,6 +111,10 @@ const onFail = () => {
   msg.value = t("Verification_failed");
   fontColor.value = "red";
 
+  // 重置计时状态
+  isSliding.value = false;
+  startTime.value = 0;
+
   setTimeout(() => {
     msg.value = "";
   }, 1000);
@@ -72,6 +122,9 @@ const onFail = () => {
 //点击刷新回调
 const onRefresh = () => {
   msg.value = "";
+  // 重置计时状态
+  isSliding.value = false;
+  startTime.value = 0;
 };
 </script>
 <style scoped>
