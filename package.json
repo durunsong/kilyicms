@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.364",
+    "@plugin-web-update-notification/vite": "^2.0.1",
     "@types/lodash-es": "4.17.12",
     "@types/node": "22.13.5",
     "@types/nprogress": "0.2.3",
