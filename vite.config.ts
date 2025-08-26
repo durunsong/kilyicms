@@ -13,7 +13,7 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
   const { VITE_PUBLIC_PATH } = viteEnv;
   return {
     /** 打包时根据实际情况修改 base */
-    base: VITE_PUBLIC_PATH,
+    base: VITE_PUBLIC_PATH || "/",
     resolve: {
       alias: {
         /** @ 符号指向 src 目录 */

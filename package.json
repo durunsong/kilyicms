@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "vite",
     "build:prod": "vue-tsc --noEmit && vite build",
+    "build:github": "vite build --mode github",
     "preview:prod": "pnpm build:prod && vite preview",
     "lint:eslint": "eslint --cache --max-warnings 0 \"{src,types}/**/*.{vue,js,jsx,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write \"{src,types}/**/*.{vue,js,jsx,ts,tsx,json,css,less,scss,html,md}\"",
