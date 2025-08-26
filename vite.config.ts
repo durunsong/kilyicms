@@ -96,18 +96,29 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
       /** 版本更新通知插件 - 仅在非开发环境启用 */
       mode !== "development" &&
         webUpdateNotice({
-          // 版本类型：使用 package.json 版本号
-          versionType: "pkg_version",
-          // 检查间隔：5分钟
-          checkInterval: 5 * 60 * 1000,
+          // 版本类型：使用构建时间戳，每次构建都生成新版本
+          versionType: "build_timestamp",
+          // 检查间隔：2分钟（更频繁检查）
+          checkInterval: 2 * 60 * 1000,
           // 窗口获得焦点时检查更新
           checkOnWindowFocus: true,
           // 页面加载完成后立即检查
           checkImmediately: true,
           // 加载文件错误时检查更新
           checkOnLoadFileError: true,
-          // 控制台输出版本信息
-          logVersion: true,
+          // 控制台输出版本信息（显示构建时间）
+          logVersion: (version) => {
+            const buildTime = new Date(parseInt(version)).toLocaleString("zh-CN", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: false
+            });
+            console.log(`%c🚀 当前版本构建时间: ${buildTime}`, "color: #1677ff; font-weight: bold;");
+          },
           // 本地化语言
           locale: "zh_CN",
           // 通知配置
@@ -121,10 +132,10 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
           },
           // 通知文案
           notificationProps: {
-            title: "📢 版本更新提醒",
-            description: "检测到版本有更新，为了更好的体验，请刷新页面获取最新内容",
-            buttonText: "立即刷新",
-            dismissButtonText: "稍后提醒"
+            title: "🎉 发现新版本",
+            description: "检测到系统已更新，刷新页面即可体验最新功能和优化",
+            buttonText: "立即更新",
+            dismissButtonText: "稍后再说"
           }
         })
     ].filter(Boolean)
