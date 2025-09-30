@@ -1,7 +1,5 @@
 <template>
-  <footer class="layout-footer">
-    MIT © 2024-PRESENT {{ VITE_APP_VERSION }} {{ VITE_APP_TITLE }}
-  </footer>
+  <footer class="layout-footer">MIT © 2024-PRESENT {{ VITE_APP_VERSION }} {{ VITE_APP_TITLE }}</footer>
 </template>
 
 <script lang="ts" setup>

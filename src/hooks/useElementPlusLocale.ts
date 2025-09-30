@@ -37,7 +37,7 @@ const elLocaleMap: Record<string, any> = {
   fr: fr,
   it: it,
   sv: sv,
-  ja: ja,
+  ja: ja
 };
 
 export const useElementPlusLocale = () => {
@@ -59,6 +59,6 @@ export const useElementPlusLocale = () => {
   });
 
   return {
-    elementLocale,
+    elementLocale
   };
 };

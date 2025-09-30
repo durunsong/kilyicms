@@ -1,26 +1,18 @@
 <template>
   <div class="select-layout-mode">
     <el-tooltip :content="t('Left_side_mode')">
-      <el-container
-        class="layout-mode left"
-        :class="{ active: isLeft }"
-        @click="setLayoutMode(LayoutModeEnum.Left)"
-      >
-        <el-aside />
+      <el-container class="layout-mode left" :class="{ active: isLeft }" @click="setLayoutMode(LayoutModeEnum.Left)">
+        <el-aside></el-aside>
         <el-container>
-          <el-header />
-          <el-main />
+          <el-header></el-header>
+          <el-main></el-main>
         </el-container>
       </el-container>
     </el-tooltip>
     <el-tooltip :content="t('Top_mode')">
-      <el-container
-        class="layout-mode top"
-        :class="{ active: isTop }"
-        @click="setLayoutMode(LayoutModeEnum.Top)"
-      >
-        <el-header />
-        <el-main />
+      <el-container class="layout-mode top" :class="{ active: isTop }" @click="setLayoutMode(LayoutModeEnum.Top)">
+        <el-header></el-header>
+        <el-main></el-main>
       </el-container>
     </el-tooltip>
     <el-tooltip :content="t('mixed_mode')">
@@ -29,10 +21,10 @@
         :class="{ active: isLeftTop }"
         @click="setLayoutMode(LayoutModeEnum.LeftTop)"
       >
-        <el-header />
+        <el-header></el-header>
         <el-container>
-          <el-aside />
-          <el-main />
+          <el-aside></el-aside>
+          <el-main></el-main>
         </el-container>
       </el-container>
     </el-tooltip>

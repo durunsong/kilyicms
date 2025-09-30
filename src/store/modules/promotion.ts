@@ -9,7 +9,7 @@ export const userPomotionStore = defineStore("promotion", () => {
   const metaInfo = ref<MetaInfo>({
     title: "",
     keywords: "",
-    description: "",
+    description: ""
   });
   const affcode = ref("");
   const kilyimallLoginURL = ref("https://www.kilyimall.com/login");
@@ -35,7 +35,7 @@ export const userPomotionStore = defineStore("promotion", () => {
         imageUrl,
         m_kilyimallLoginURL,
         m_kilyimallURL,
-        m_kilyimall,
+        m_kilyimall
       };
 
       if (affcode.value !== "") {
@@ -70,7 +70,7 @@ export const userPomotionStore = defineStore("promotion", () => {
   // Persistence
   const persist = {
     storage: localStorage,
-    paths: ["userInfo"],
+    paths: ["userInfo"]
   };
 
   return {
@@ -92,6 +92,6 @@ export const userPomotionStore = defineStore("promotion", () => {
     setUserInfo,
     setMetaInfo,
     setState,
-    persist,
+    persist
   };
 });

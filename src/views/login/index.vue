@@ -11,11 +11,7 @@
       <h3 v-if="!isShow">
         {{ t("user_login") }}
         <!-- 演示账号 -->
-        <el-radio-group
-          v-if="!isShow"
-          v-model="switchRoles"
-          @change="handleChangeRole"
-        >
+        <el-radio-group v-if="!isShow" v-model="switchRoles" @change="handleChangeRole">
           <el-radio-button label="admin" value="admin"></el-radio-button>
           <el-radio-button label="user" value="user"></el-radio-button>
         </el-radio-group>
@@ -31,11 +27,7 @@
           ref="ref_form"
           @keyup.enter="onLoginConfirm"
         >
-          <el-form-item
-            prop="user_name"
-            :label="t('user_name')"
-            label-width="100px"
-          >
+          <el-form-item prop="user_name" :label="t('user_name')" label-width="100px">
             <el-input
               v-model.trim="form.user_name"
               :placeholder="t('Please_enter_your_username')"
@@ -44,11 +36,7 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item
-            prop="password"
-            :label="t('password')"
-            label-width="100px"
-          >
+          <el-form-item prop="password" :label="t('password')" label-width="100px">
             <el-input
               size="large"
               v-model.trim="form.password"
@@ -59,28 +47,18 @@
             </el-input>
           </el-form-item>
           <div class="slide_verify_right" v-if="sliderVisible">
-            <SlideVerify
-              @success="handleSlideSuccess"
-              @close="sliderVisible = false"
-            ></SlideVerify>
+            <SlideVerify @success="handleSlideSuccess" @close="sliderVisible = false"></SlideVerify>
           </div>
           <el-form-item>
             <div class="button_side">
-              <el-button
-                class="submit_but"
-                type="primary"
-                @click="onLoginConfirm"
-                :loading="loading"
-              >
+              <el-button class="submit_but" type="primary" @click="onLoginConfirm" :loading="loading">
                 {{ t("login") }}
               </el-button>
             </div>
           </el-form-item>
           <el-form-item>
             <div class="toggle-form button_login_side">
-              <el-button class="side_btn" link @click="toggleForm">{{
-                t("Go_to_Register")
-              }}</el-button>
+              <el-button class="side_btn" link @click="toggleForm">{{ t("Go_to_Register") }}</el-button>
             </div>
           </el-form-item>
         </el-form>
@@ -93,11 +71,7 @@
           ref="ref_form"
           @keyup.enter="onRegister"
         >
-          <el-form-item
-            prop="user_name"
-            :label="t('user_name')"
-            label-width="100px"
-          >
+          <el-form-item prop="user_name" :label="t('user_name')" label-width="100px">
             <el-input
               v-model.trim="form.user_name"
               :placeholder="t('Please_enter_your_username')"
@@ -106,11 +80,7 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item
-            prop="password"
-            :label="t('password')"
-            label-width="100px"
-          >
+          <el-form-item prop="password" :label="t('password')" label-width="100px">
             <el-input
               size="large"
               v-model.trim="form.password"
@@ -120,11 +90,7 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item
-            prop="confirmPassword"
-            :label="t('confirm_password')"
-            label-width="100px"
-          >
+          <el-form-item prop="confirmPassword" :label="t('confirm_password')" label-width="100px">
             <el-input
               size="large"
               v-model.trim="form.confirmPassword"
@@ -134,27 +100,15 @@
             >
             </el-input>
           </el-form-item>
-          <el-form-item
-            label-width="100px"
-            prop="roles"
-            :label="t('character')"
-          >
-            <el-select
-              v-model="form.roles"
-              :placeholder="t('Selecting_a_Character')"
-            >
+          <el-form-item label-width="100px" prop="roles" :label="t('character')">
+            <el-select v-model="form.roles" :placeholder="t('Selecting_a_Character')">
               <el-option size="large" label="Admin" value="admin"></el-option>
               <el-option size="large" label="User" value="user"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item>
             <div class="button_side">
-              <el-button
-                class="submit_but"
-                type="primary"
-                @click="onRegister"
-                :loading="loading"
-              >
+              <el-button class="submit_but" type="primary" @click="onRegister" :loading="loading">
                 {{ t("router_register") }}
               </el-button>
             </div>
@@ -201,7 +155,7 @@ const form = reactive<LoginForm>({
   user_name: "admin",
   password: "123456",
   confirmPassword: undefined,
-  roles: undefined,
+  roles: undefined
 });
 const switchRoles = ref<string>("admin");
 
@@ -213,16 +167,16 @@ const loginRules = {
     {
       required: true,
       message: t("Please_enter_your_username"),
-      trigger: "blur",
-    },
+      trigger: "blur"
+    }
   ],
   password: [
     {
       required: true,
       message: t("Please_enter_your_password"),
-      trigger: "blur",
-    },
-  ],
+      trigger: "blur"
+    }
+  ]
 };
 
 const registerRules: FormRules = {
@@ -230,30 +184,30 @@ const registerRules: FormRules = {
     {
       required: true,
       message: t("Please_enter_your_username"),
-      trigger: "blur",
-    },
+      trigger: "blur"
+    }
   ],
   password: [
     {
       required: true,
       message: t("Please_enter_your_password"),
-      trigger: "blur",
-    },
+      trigger: "blur"
+    }
   ],
   confirmPassword: [
     {
       required: true,
       message: t("Please_confirm_the_password"),
-      trigger: "blur",
-    },
+      trigger: "blur"
+    }
   ],
   roles: [
     {
       required: true,
       message: t("Please_select_your_role"),
-      trigger: "blur",
-    },
-  ],
+      trigger: "blur"
+    }
+  ]
 };
 
 // 演示账号切换
@@ -263,14 +217,14 @@ const handleChangeRole = (role: string | number | boolean | undefined) => {
       user_name: "admin",
       password: "123456",
       confirmPassword: undefined,
-      roles: undefined,
+      roles: undefined
     });
   } else {
     Object.assign(form, {
       user_name: "user",
       password: "123456",
       confirmPassword: undefined,
-      roles: undefined,
+      roles: undefined
     });
   }
 };
@@ -294,8 +248,7 @@ const handlerExecutiveLogging = () => {
     .login(params)
     .then(() => {
       // 获取重定向参数
-      const redirect =
-        (router.currentRoute.value.query.redirect as string) || "/";
+      const redirect = (router.currentRoute.value.query.redirect as string) || "/";
       router.push(decodeURIComponent(redirect));
     })
     .finally(() => {
@@ -334,7 +287,7 @@ const handlerExecutiveRegister = () => {
       if (res.status === 200) {
         ElNotification({
           message: res.message,
-          type: "success",
+          type: "success"
         });
         toggleForm(); // 登录和注册表单之间切换
       }

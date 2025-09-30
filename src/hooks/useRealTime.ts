@@ -35,7 +35,7 @@ export const useRealTime = () => {
   });
 
   return {
-    currentTime,
+    currentTime
   };
 };
 

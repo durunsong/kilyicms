@@ -133,8 +133,7 @@ const ru = {
   switching_users: "Переключить пользователя (аналоговый повторный вход)",
   UnoCSS_use_case:
     "Эта страница является примером использования UnoCSS, а остальные страницы по - прежнему используют Scss",
-  Reimagining_atomized_CSS:
-    "Рекомендуемое чтение: Переосмысление атомизации {CSS}",
+  Reimagining_atomized_CSS: "Рекомендуемое чтение: Переосмысление атомизации {CSS}",
   here_adopted: "Принято здесь",
   so_only: "Так что только",
   so: "Так что...",
@@ -160,10 +159,8 @@ const ru = {
   Content_area_enlargement: "Увеличить область содержимого",
   default: "Нарушение обязательств",
   dark_blue: "Темно - синий",
-  warning_set_watermark_after_dom_mount:
-    "Пожалуйста, вызовите сержанта Метхода после монтирования.",
-  Please_recreate_it_watermark:
-    "Элементов водяного знака не существует. Пожалуйста, создайте заново",
+  warning_set_watermark_after_dom_mount: "Пожалуйста, вызовите сержанта Метхода после монтирования.",
+  Please_recreate_it_watermark: "Элементов водяного знака не существует. Пожалуйста, создайте заново",
   case_401: "Без разрешения, пожалуйста, войдите",
   case_403: "Посещение было отклонено.",
   case_404: "Запрос не существует",
@@ -226,10 +223,8 @@ const ru = {
   i18nComponent:
     "Компонент интернационализации: 16 языковых переключателей, {element plus} и языковая синхронизация {vue - i18n}",
   themeSwitch: "Три переключателя темы (без серого и слабого цветов)",
-  fullscreenSwitch:
-    "Два полноэкранных режима переключения (меню и область содержимого)",
-  fullscreenDescription:
-    "Верхний правый угол экрана и верхний правый угол зоны содержимого",
+  fullscreenSwitch: "Два полноэкранных режима переключения (меню и область содержимого)",
+  fullscreenDescription: "Верхний правый угол экрана и верхний правый угол зоны содержимого",
   codeStandards: "Нормативные стандарты",
   codeConventions:
     "Компонент: PascalCase, метод: camelCase, класс: kebab case / Подчёркивание, имя файла: kebb - case / camelCase, атрибут: camelCase / Подчёркивание",
@@ -269,22 +264,17 @@ const ru = {
   tour_customSettingsTitle: "Настройка",
   tour_customSettingsDescription: "Настройки системы",
   router_ip_address: "IP - адрес",
-  detectionTitle:
-    "Пользователь {ключевое слово} и тестирование VPN / прокси (фронтальные и модульные решения)",
+  detectionTitle: "Пользователь {ключевое слово} и тестирование VPN / прокси (фронтальные и модульные решения)",
   webrtcComparison: "Примеры сравнения {webrtc} и {ipify}",
-  ipifyDetection:
-    "Обнаружение IP - адресов, определяемых сторонними службами (сер. service)",
+  ipifyDetection: "Обнаружение IP - адресов, определяемых сторонними службами (сер. service)",
   recheck: "Повторная проверка",
   stunRequestInfo:
     "Эта демонстрация отправляет секретный запрос на сервер STUN, который записывает ваш запрос. Эти запросы не появляются на консоли разработчика и не блокируются плагинами браузера (например, AdBlock, Ghostery).",
   webrtcPublicIp: "Ваш webrtc публичный IP - адрес:",
   ipifyPublicIp: "Публичный IP - адрес, который вы получаете с помощью ipify:",
-  comparisonMatch:
-    "Результат: IP - адреса совпадают между webrtc и ipify. Вы не используете VPN / прокси",
-  comparisonMismatch:
-    "Результат: IP - адреса webrtc и ipify не совпадают. Вы можете использовать VPN / прокси",
-  ipifyError:
-    "Невозможно получить IPIFY 'IP - адрес. Пожалуйста, проверьте подключение к сети!",
+  comparisonMatch: "Результат: IP - адреса совпадают между webrtc и ipify. Вы не используете VPN / прокси",
+  comparisonMismatch: "Результат: IP - адреса webrtc и ipify не совпадают. Вы можете использовать VPN / прокси",
+  ipifyError: "Невозможно получить IPIFY 'IP - адрес. Пожалуйста, проверьте подключение к сети!",
   vpnCheckTitle: "Результаты тестирования прокси / VPN",
   ipifyCurrentIP: "IP - адреса, обнаруженные с помощью ipify:",
   proxyCheckRange: "Диапазон IP, обнаруженный с помощью proxycheck.io:",
@@ -296,16 +286,14 @@ const ru = {
   proxyCheckTimezone: "Часовой пояс:",
   proxyCheckCoordinates: "Координация:",
   dataLoading: "Загружаются данные, пожалуйста, подождите немного.",
-  comparisonMatch_ss:
-    "Результат: согласно {service}, вы не используете VPN / прокси",
-  comparisonMismatch_ss:
-    "Результат: согласно {service}, вы можете использовать VPN / прокси",
+  comparisonMatch_ss: "Результат: согласно {service}, вы не используете VPN / прокси",
+  comparisonMismatch_ss: "Результат: согласно {service}, вы можете использовать VPN / прокси",
   ipFetchError: "Ошибка получения IP - адреса.",
   proxyCheckError: "Ошибка обнаружения прокси / VPN.",
   proxyCheckStatusError: "Ошибка обнаружения из - за кода состояния.",
   errorOccurred: "Произошла ошибка:",
   router_translation_process: "Процесс перевода",
-  genericError: "Тест не удался, попробуйте позже.",
+  genericError: "Тест не удался, попробуйте позже."
 };
 
 export default ru;

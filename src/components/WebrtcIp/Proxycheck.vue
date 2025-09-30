@@ -21,9 +21,7 @@
         <strong>{{ $t("proxyCheckProvider") }}</strong> {{ result.provider }}
       </p>
       <p>
-        <strong>{{ $t("proxyCheckCountry") }}</strong> {{ result.country }} ({{
-          result.isocode
-        }})
+        <strong>{{ $t("proxyCheckCountry") }}</strong> {{ result.country }} ({{ result.isocode }})
       </p>
       <p>
         <strong>{{ $t("proxyCheckCity") }}</strong> {{ result.city }}
@@ -56,13 +54,11 @@ const error = ref<string | null>(null);
 
 const comparisonResult = ref<{ key: string; message: string }>({
   key: "",
-  message: "",
+  message: ""
 });
 
 const comparisonResultClass = computed(() =>
-  comparisonResult.value.key === "MATCH"
-    ? "text-sky-500 font-bold text-xl"
-    : "text-red-500 font-bold text-xl",
+  comparisonResult.value.key === "MATCH" ? "text-sky-500 font-bold text-xl" : "text-red-500 font-bold text-xl"
 );
 
 // 获取当前 IP 地址
@@ -106,16 +102,12 @@ onMounted(async () => {
     if (detectionResult.proxy === "no") {
       comparisonResult.value = {
         key: "MATCH",
-        message:
-          "🟢" + t("comparisonMatch_ss", { service: "proxycheck.io" }) + "✅",
+        message: "🟢" + t("comparisonMatch_ss", { service: "proxycheck.io" }) + "✅"
       };
     } else {
       comparisonResult.value = {
         key: "MISMATCH",
-        message:
-          "🔴" +
-          t("comparisonMismatch_ss", { service: "proxycheck.io" }) +
-          "❌",
+        message: "🔴" + t("comparisonMismatch_ss", { service: "proxycheck.io" }) + "❌"
       };
     }
   } catch (err: any) {

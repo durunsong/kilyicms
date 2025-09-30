@@ -131,8 +131,7 @@ const swe = {
   four_level_routing_cache: "Rutningscache på fyra nivåer",
   your_role: "Din roll är",
   switching_users: "Byta användare (simulerar återanvändning)",
-  UnoCSS_use_case:
-    "Den här sidan är ett {UnoCSS} användningsfall, och resten av sidorna använder fortfarande {Scss}",
+  UnoCSS_use_case: "Den här sidan är ett {UnoCSS} användningsfall, och resten av sidorna använder fortfarande {Scss}",
   Reimagining_atomized_CSS: "Rekommenderad läsning: Ommagining atomized {CSS}",
   here_adopted: "Här antagits",
   so_only: "Så bara",
@@ -151,18 +150,15 @@ const swe = {
   search_results: "Sökresultat",
   warning_message_unique_name:
     "Det går inte att navigera till menyn genom sökning. Ange ett unikt {nyckelord} för motsvarande rutt.",
-  mandatory_dynamic_parameters:
-    "Den här menyn har obligatoriska dynamiska parametrar och kan inte nås genom sökning",
+  mandatory_dynamic_parameters: "Den här menyn har obligatoriska dynamiska parametrar och kan inte nås genom sökning",
   Content_area_full_screen: "Innehållsområde helskärmsläge",
   browser_is_not_working: "Din webbläsare fungerar inte",
   Content_area_recovery: "Återställning av innehållsområde",
   Content_area_enlargement: "Utvidgning av innehållsområdet",
   default: "Standard",
   dark_blue: "Mörkblå",
-  warning_set_watermark_after_dom_mount:
-    "Ring {method} efter att {dom} har monterats.",
-  Please_recreate_it_watermark:
-    "Vattenmärkeselementet finns inte. Återskapa den",
+  warning_set_watermark_after_dom_mount: "Ring {method} efter att {dom} har monterats.",
+  Please_recreate_it_watermark: "Vattenmärkeselementet finns inte. Återskapa den",
   case_401: "Ej auktoriserad, logga in",
   case_403: "Åtkomst nekad",
   case_404: "Begäran finns inte",
@@ -222,13 +218,10 @@ const swe = {
   customSwitchComponent: "Anpassad växlingskomponent",
   iconIntegration: "{unocs} integrerar etikettikonen {iconify}",
   clickHereForIcons: "Klicka här för ikoner",
-  i18nComponent:
-    "Internationalisering komponent: 16 språkväxlar, {element-plus} och {vue-i18n} språksynkronisering",
+  i18nComponent: "Internationalisering komponent: 16 språkväxlar, {element-plus} och {vue-i18n} språksynkronisering",
   themeSwitch: "Tre temaväxlare (exklusive grått och svagt färgläge)",
-  fullscreenSwitch:
-    "Växla mellan två helskärmslägen (meny och innehållsområde)",
-  fullscreenDescription:
-    "Överst till höger på skärmen och överst till höger i innehållsområdet",
+  fullscreenSwitch: "Växla mellan två helskärmslägen (meny och innehållsområde)",
+  fullscreenDescription: "Överst till höger på skärmen och överst till höger i innehållsområdet",
   codeStandards: "Kodnormer",
   codeConventions:
     "Komponent: PascalCase, Metod: camelCase, Klass: kebab-case/underscore, Filenamn: kebab-case/camelCase, Attribut: camelCase/underscore",
@@ -237,8 +230,7 @@ const swe = {
   hooksExample: "Mer än 10 {krokar} exempelkapslingar",
   clickHereToHookExample: "Klicka här för att gå till exempelsidan",
   multiLevelRouteManagement: "Ledning på flera nivåer",
-  clickHereToMultiRouteExample:
-    "Klicka här för att gå till exempelsidan för rutthantering på flera nivåer",
+  clickHereToMultiRouteExample: "Klicka här för att gå till exempelsidan för rutthantering på flera nivåer",
   login_success: "Inloggning lyckad",
   switch_roles_Successfully: "Byta roller framgångsrikt",
   character: "Tecken",
@@ -268,22 +260,17 @@ const swe = {
   tour_customSettingsTitle: "Anpassade inställningar",
   tour_customSettingsDescription: "Systeminställningar",
   router_ip_address: "IP- adress",
-  detectionTitle:
-    "Användare {keywords} och VPN/Proxy Detection (Frontend och Backend Solutions)",
+  detectionTitle: "Användare {keywords} och VPN/Proxy Detection (Frontend och Backend Solutions)",
   webrtcComparison: "{webrtc} och {ipify} Jämförelseexempel",
-  ipifyDetection:
-    "{ipify} identifierad IP bedömd av tredjepartstjänst ({service})",
+  ipifyDetection: "{ipify} identifierad IP bedömd av tredjepartstjänst ({service})",
   recheck: "Kontrollera om",
   stunRequestInfo:
     "Denna demo gör hemligt förfrågningar till STUN servrar, som registrerar dina förfrågningar. Dessa förfrågningar visas inte i utvecklarkonsolen och kan inte blockeras av webbläsarinsticksprogram (t.ex. AdBlock, Ghostery).",
   webrtcPublicIp: "Din offentliga {webrtc} IP-adress är:",
   ipifyPublicIp: "Din offentliga IP-adress som erhållits via {ipify} är:",
-  comparisonMatch:
-    "Resultat: {webrtc} och {ipify} IP-adresser matchar. Du använder inte en VPN/proxy",
-  comparisonMismatch:
-    "Resultat: {webrtc} och {ipify} IP-adresser matchar inte. Du kanske använder en VPN/proxy",
-  ipifyError:
-    "Misslyckades hämta {ipify} IP- adress. Kontrollera din nätverksanslutning!",
+  comparisonMatch: "Resultat: {webrtc} och {ipify} IP-adresser matchar. Du använder inte en VPN/proxy",
+  comparisonMismatch: "Resultat: {webrtc} och {ipify} IP-adresser matchar inte. Du kanske använder en VPN/proxy",
+  ipifyError: "Misslyckades hämta {ipify} IP- adress. Kontrollera din nätverksanslutning!",
   vpnCheckTitle: "Resultat för detektering av proxy/VPN",
   ipifyCurrentIP: "IP- adress identifierad via ipify:",
   proxyCheckRange: "IP- område detekterat via proxycheck.io:",
@@ -295,15 +282,13 @@ const swe = {
   proxyCheckTimezone: "Tidszon:",
   proxyCheckCoordinates: "Koordinater:",
   dataLoading: "Data laddas, vänta...",
-  comparisonMatch_ss:
-    "Resultat: Enligt {service}, använder du inte en VPN/proxy",
-  comparisonMismatch_ss:
-    "Resultat: Enligt {service}, kan du använda en VPN/proxy",
+  comparisonMatch_ss: "Resultat: Enligt {service}, använder du inte en VPN/proxy",
+  comparisonMismatch_ss: "Resultat: Enligt {service}, kan du använda en VPN/proxy",
   ipFetchError: "Misslyckades hämta IP- adress.",
   proxyCheckError: "Detektering av proxy/VPN misslyckades.",
   proxyCheckStatusError: "Upptäckt misslyckades på grund av statuskodfel.",
   errorOccurred: "Ett fel uppstod:",
   router_translation_process: "Översättningsprocess",
-  genericError: "Upptäckt misslyckades, försök igen senare.",
+  genericError: "Upptäckt misslyckades, försök igen senare."
 };
 export default swe;

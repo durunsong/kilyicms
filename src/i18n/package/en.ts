@@ -138,8 +138,7 @@ const en = {
   four_level_routing_cache: "Four-level routing cache",
   your_role: "Your role is",
   switching_users: "Switching users (simulating re-login)",
-  UnoCSS_use_case:
-    "This page is a {UnoCSS} use case, and the rest of the pages still use {Scss}",
+  UnoCSS_use_case: "This page is a {UnoCSS} use case, and the rest of the pages still use {Scss}",
   Reimagining_atomized_CSS: "Recommended reading: Reimagining atomized {CSS}",
   here_adopted: "Here adopted",
   so_only: "So only",
@@ -158,18 +157,15 @@ const en = {
   search_results: "Search results",
   warning_message_unique_name:
     "Cannot navigate to the menu through search. Please set a unique {keyword} for the corresponding route.",
-  mandatory_dynamic_parameters:
-    "This menu has mandatory dynamic parameters and cannot be accessed by search",
+  mandatory_dynamic_parameters: "This menu has mandatory dynamic parameters and cannot be accessed by search",
   Content_area_full_screen: "Content area full screen",
   browser_is_not_working: "Your browser is not working",
   Content_area_recovery: "Content area recovery",
   Content_area_enlargement: "Content area enlargement",
   default: "Default",
   dark_blue: "Dark blue",
-  warning_set_watermark_after_dom_mount:
-    "Please call {method} after the {dom} has been mounted.",
-  Please_recreate_it_watermark:
-    "The watermark element does not exist. Please re-create it",
+  warning_set_watermark_after_dom_mount: "Please call {method} after the {dom} has been mounted.",
+  Please_recreate_it_watermark: "The watermark element does not exist. Please re-create it",
   case_401: "Not authorized, please log in",
   case_403: "Access denied",
   case_404: "Request does not exist",
@@ -229,8 +225,7 @@ const en = {
   customSwitchComponent: "Custom Switch Component",
   iconIntegration: "{unocss} integrates label icon {iconify}",
   clickHereForIcons: "Click here for icons",
-  i18nComponent:
-    "Internationalization component: 16 language switches, {element-plus} and {vue-i18n} language sync",
+  i18nComponent: "Internationalization component: 16 language switches, {element-plus} and {vue-i18n} language sync",
   themeSwitch: "Three theme switch (excluding gray and weak color mode)",
   fullscreenSwitch: "Two fullscreen modes switch (menu and content area)",
   fullscreenDescription: "Top right of screen and top right of content area",
@@ -242,8 +237,7 @@ const en = {
   hooksExample: "More than 10 {hooks} example encapsulations",
   clickHereToHookExample: "Click here to go to the example page",
   multiLevelRouteManagement: "Multi-level route management",
-  clickHereToMultiRouteExample:
-    "Click here to go to the multi-level route management example page",
+  clickHereToMultiRouteExample: "Click here to go to the multi-level route management example page",
   login_success: "Login success",
   switch_roles_Successfully: "Switching Roles Successfully",
   character: "Character",
@@ -274,22 +268,17 @@ const en = {
   tour_customSettingsTitle: "Custom Settings",
   tour_customSettingsDescription: "System settings",
   router_ip_address: "IP Address",
-  detectionTitle:
-    "User {keywords} and VPN/Proxy Detection (Frontend and Backend Solutions)",
+  detectionTitle: "User {keywords} and VPN/Proxy Detection (Frontend and Backend Solutions)",
   webrtcComparison: "{webrtc} and {ipify} Comparison Example",
-  ipifyDetection:
-    "{ipify} detected IP judged by third-party service ({service})",
+  ipifyDetection: "{ipify} detected IP judged by third-party service ({service})",
   recheck: "Recheck",
   stunRequestInfo:
     "This demo secretly makes requests to STUN servers, which record your requests. These requests will not appear in the developer console and cannot be blocked by browser plugins (e.g., AdBlock, Ghostery).",
   webrtcPublicIp: "Your {webrtc} public IP address is:",
   ipifyPublicIp: "Your public IP address obtained via {ipify} is:",
-  comparisonMatch:
-    "Result: {webrtc} and {ipify} IP addresses match. You are not using a VPN/proxy",
-  comparisonMismatch:
-    "Result: {webrtc} and {ipify} IP addresses do not match. You might be using a VPN/proxy",
-  ipifyError:
-    "Failed to fetch {ipify} IP address. Please check your network connection!",
+  comparisonMatch: "Result: {webrtc} and {ipify} IP addresses match. You are not using a VPN/proxy",
+  comparisonMismatch: "Result: {webrtc} and {ipify} IP addresses do not match. You might be using a VPN/proxy",
+  ipifyError: "Failed to fetch {ipify} IP address. Please check your network connection!",
   vpnCheckTitle: "Proxy/VPN Detection Results",
   ipifyCurrentIP: "IP address detected via ipify:",
   proxyCheckRange: "IP range detected via proxycheck.io:",
@@ -301,15 +290,13 @@ const en = {
   proxyCheckTimezone: "Timezone:",
   proxyCheckCoordinates: "Coordinates:",
   dataLoading: "Data is loading, please wait...",
-  comparisonMatch_ss:
-    "Result: According to {service}, you are not using a VPN/proxy",
-  comparisonMismatch_ss:
-    "Result: According to {service}, you might be using a VPN/proxy",
+  comparisonMatch_ss: "Result: According to {service}, you are not using a VPN/proxy",
+  comparisonMismatch_ss: "Result: According to {service}, you might be using a VPN/proxy",
   ipFetchError: "Failed to fetch IP address.",
   proxyCheckError: "Proxy/VPN detection failed.",
   proxyCheckStatusError: "Detection failed due to status code error.",
   errorOccurred: "An error occurred:",
-  genericError: "Detection failed, please try again later.",
+  genericError: "Detection failed, please try again later."
 };
 
 export default en;

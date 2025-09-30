@@ -122,8 +122,7 @@ const ara = {
   pass_argument_as: "تمرير حجة",
   form_verification_fails: "فشل التحقق من صحة النموذج",
   length_characters: "طول 8 إلى 16 حرفا",
-  route_caching_is_disabled:
-    "افتراضيا ، تعطيل التوجيه مخبأ على مستوى 3 أو أعلى . لتمكين ذلك ، انتقل إلى هذا الملف :",
+  route_caching_is_disabled: "افتراضيا ، تعطيل التوجيه مخبأ على مستوى 3 أو أعلى . لتمكين ذلك ، انتقل إلى هذا الملف :",
   second_level_routing: "التوجيه الثانوي",
   second_level_routing_cache: "التوجيه الثانوي مخبأ",
   third_level_routing: "ثلاثة مستوى التوجيه",
@@ -131,8 +130,7 @@ const ara = {
   four_level_routing_cache: "رباعية التوجيه مخبأ",
   your_role: "الطابع الخاص بك هو",
   switching_users: "التبديل بين المستخدمين ( التناظرية إعادة الدخول )",
-  UnoCSS_use_case:
-    "هذه الصفحة هي حالة استخدام { unocss } ، وغيرها من الصفحات لا تزال تستخدم { السكس }",
+  UnoCSS_use_case: "هذه الصفحة هي حالة استخدام { unocss } ، وغيرها من الصفحات لا تزال تستخدم { السكس }",
   Reimagining_atomized_CSS: "أوصي القراءة : إعادة النظر في { المغلق }",
   here_adopted: "من هنا",
   so_only: "لذا فقط",
@@ -151,8 +149,7 @@ const ara = {
   search_results: "نتائج البحث عن",
   warning_message_unique_name:
     "غير قادر على التنقل إلى القائمة عن طريق البحث . يرجى وضع فريد { المفتاح } على الطريق الصحيح .",
-  mandatory_dynamic_parameters:
-    "هذه القائمة قد اضطر المعلمات دينامية لا يمكن الوصول إليها عن طريق البحث",
+  mandatory_dynamic_parameters: "هذه القائمة قد اضطر المعلمات دينامية لا يمكن الوصول إليها عن طريق البحث",
   Content_area_full_screen: "منطقة المحتوى ملء الشاشة",
   browser_is_not_working: "المتصفح لا يعمل بشكل صحيح",
   Content_area_recovery: "استعادة منطقة المحتوى",
@@ -160,8 +157,7 @@ const ara = {
   default: "خرق",
   dark_blue: "أزرق غامق",
   warning_set_watermark_after_dom_mount: "يرجى الاتصال على طريقة بعد جبل دوم .",
-  Please_recreate_it_watermark:
-    "العلامة المائية عنصر غير موجود . الرجاء إعادة إنشاء",
+  Please_recreate_it_watermark: "العلامة المائية عنصر غير موجود . الرجاء إعادة إنشاء",
   case_401: "غير مصرح به ، يرجى تسجيل الدخول",
   case_403: "تم رفض الوصول",
   case_404: "طلب غير موجود",
@@ -210,8 +206,7 @@ const ara = {
   create_global_watermark: "إنشاء العلامة المائية العالمية",
   disable_defense_global_watermark: "تعطيل الدفاع",
   clear_global_watermark: "مسح العلامة المائية العالمية",
-  role_visibility_message:
-    "هذه الصفحة مرئية فقط على دور { } . لا يمكنك الوصول إلى هذه الصفحة بعد تبديل الأدوار",
+  role_visibility_message: "هذه الصفحة مرئية فقط على دور { } . لا يمكنك الوصول إلى هذه الصفحة بعد تبديل الأدوار",
   Close_current: "إيقاف الحالية",
   Left_side_mode: "وضع اليسار",
   Top_mode: "توب مود",
@@ -221,13 +216,10 @@ const ara = {
   customSwitchComponent: "عرف التبديل العامة",
   iconIntegration: "unocss يدمج رمز التسمية iconify",
   clickHereForIcons: "انقر هنا لعرض الرموز",
-  i18nComponent:
-    "المكونات الدولية : 16 لغة التبديل ، { عنصر زائد } { vue-i18n } لغة التزامن",
+  i18nComponent: "المكونات الدولية : 16 لغة التبديل ، { عنصر زائد } { vue-i18n } لغة التزامن",
   themeSwitch: "ثلاثة موضوع التبديل ( باستثناء الرمادي وضعية اللون الضعيف )",
-  fullscreenSwitch:
-    "التبديل بين اثنين من وسائط ملء الشاشة ( القائمة ومحتوى المنطقة )",
-  fullscreenDescription:
-    "الزاوية اليمنى العليا من الشاشة و الزاوية اليمنى العليا من منطقة المحتوى",
+  fullscreenSwitch: "التبديل بين اثنين من وسائط ملء الشاشة ( القائمة ومحتوى المنطقة )",
+  fullscreenDescription: "الزاوية اليمنى العليا من الشاشة و الزاوية اليمنى العليا من منطقة المحتوى",
   codeStandards: "معيار",
   codeConventions:
     "المكونات : باسكال حالة ، طريقة : camelcase ، الفئة : kebab case / التأكيد ، اسم الملف : kebb case / camelcase ، السمة : camelcase / التأكيد",
@@ -236,8 +228,7 @@ const ara = {
   hooksExample: "أكثر من 10 { السنانير } عينة تغليف",
   clickHereToHookExample: "انقر هنا للذهاب إلى صفحة عينة",
   multiLevelRouteManagement: "متعدد المستويات إدارة الطريق",
-  clickHereToMultiRouteExample:
-    "انقر هنا للدخول في إدارة المسار متعدد المستويات عينة الصفحة",
+  clickHereToMultiRouteExample: "انقر هنا للدخول في إدارة المسار متعدد المستويات عينة الصفحة",
   login_success: "تسجيل الدخول بنجاح",
   switch_roles_Successfully: "التبديل بنجاح دور",
   character: "شخصية",
@@ -267,8 +258,7 @@ const ara = {
   tour_customSettingsTitle: "إعدادات مخصصة",
   tour_customSettingsDescription: "إعدادات النظام",
   router_ip_address: "عنوان IP",
-  detectionTitle:
-    "المستخدم { الكلمات الرئيسية } و VPN / وكيل الكشف ( الأمامية والخلفية الحلول )",
+  detectionTitle: "المستخدم { الكلمات الرئيسية } و VPN / وكيل الكشف ( الأمامية والخلفية الحلول )",
   webrtcComparison: "على سبيل المثال مقارنة { webrtc } { ipify }",
   ipifyDetection: "الكشف عن الملكية الفكرية التي تحددها خدمة طرف ثالث",
   recheck: "إعادة فحص",
@@ -276,16 +266,13 @@ const ara = {
     "هذا العرض سوف ترسل طلبات سرية إلى خادم الحجر ، والتي سوف تسجل طلبك . هذه الطلبات لا تظهر في وحدة التحكم المطور أو منعت من قبل متصفح الإضافات مثل Adblock ، شبح .",
   webrtcPublicIp: "عنوان IP الخاص بك { webrtc } هو :",
   ipifyPublicIp: "عنوان IP العام الذي تحصل عليه من خلال { ipify } هو :",
-  comparisonMatch:
-    "النتيجة : { webrtc } و { ipify } عناوين بروتوكول الإنترنت مطابقة . كنت لا تستخدم VPN / وكيل",
+  comparisonMatch: "النتيجة : { webrtc } و { ipify } عناوين بروتوكول الإنترنت مطابقة . كنت لا تستخدم VPN / وكيل",
   comparisonMismatch:
     "النتيجة : { webrtc } و { ipify } عناوين بروتوكول الإنترنت لا تتطابق . قد تكون باستخدام VPN / وكيل",
-  ipifyError:
-    "غير قادر على الحصول على عنوان IP { ipify } . يرجى التحقق من اتصال الشبكة الخاصة بك !",
+  ipifyError: "غير قادر على الحصول على عنوان IP { ipify } . يرجى التحقق من اتصال الشبكة الخاصة بك !",
   vpnCheckTitle: "نتائج الكشف عن وكيل / VPN",
   ipifyCurrentIP: "عناوين بروتوكول الإنترنت التي تم الكشف عنها بواسطة IPIFY :",
-  proxyCheckRange:
-    "مجموعة الملكية الفكرية التي تم الكشف عنها من قبل proxycheck.io :",
+  proxyCheckRange: "مجموعة الملكية الفكرية التي تم الكشف عنها من قبل proxycheck.io :",
   proxyCheckProxy: "وكيل",
   proxyCheckType: "نوع",
   proxyCheckProvider: "الموردين",
@@ -295,14 +282,13 @@ const ara = {
   proxyCheckCoordinates: "التنسيق",
   dataLoading: "تحميل البيانات ، الرجاء الانتظار . . .",
   comparisonMatch_ss: "النتائج : وفقا ل { خدمة } ، لم تقم باستخدام VPN / وكيل",
-  comparisonMismatch_ss:
-    "النتيجة : اعتمادا على { خدمة } ، قد تكون باستخدام الشبكات الافتراضية الخاصة / وكيل",
+  comparisonMismatch_ss: "النتيجة : اعتمادا على { خدمة } ، قد تكون باستخدام الشبكات الافتراضية الخاصة / وكيل",
   ipFetchError: "فشل في الحصول على عنوان بروتوكول الإنترنت .",
   proxyCheckError: "وكيل / فبن فشل الكشف .",
   proxyCheckStatusError: "الكشف عن فشل بسبب خطأ في رمز الحالة .",
   errorOccurred: "حدث خطأ :",
   router_translation_process: "عملية الترجمة",
-  genericError: "فشل الكشف ، يرجى المحاولة مرة أخرى في وقت لاحق .",
+  genericError: "فشل الكشف ، يرجى المحاولة مرة أخرى في وقت لاحق ."
 };
 
 export default ara;

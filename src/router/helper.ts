@@ -4,7 +4,7 @@ import {
   type RouteRecordRaw,
   createRouter,
   createWebHashHistory,
-  createWebHistory,
+  createWebHistory
 } from "vue-router";
 import { cloneDeep, omit } from "lodash-es";
 
@@ -39,24 +39,18 @@ const promoteRouteLevel = (route: RouteRecordRaw) => {
   // 创建 router 实例是为了获取到当前传入的 route 的所有路由信息
   let router: Router | null = createRouter({
     history,
-    routes: [route],
+    routes: [route]
   });
   const routes = router.getRoutes();
   // 在 addToChildren 函数中使用上面获取到的路由信息来更新 route 的 children
   addToChildren(routes, route.children || [], route);
   router = null;
   // 转为二级路由后，去除所有子路由中的 children
-  route.children = route.children?.map(
-    (item) => omit(item, "children") as RouteRecordRaw,
-  );
+  route.children = route.children?.map((item) => omit(item, "children") as RouteRecordRaw);
 };
 
 /** 将给定的子路由添加到指定的路由模块中 */
-const addToChildren = (
-  routes: RouteRecordNormalized[],
-  children: RouteRecordRaw[],
-  routeModule: RouteRecordRaw,
-) => {
+const addToChildren = (routes: RouteRecordNormalized[], children: RouteRecordRaw[], routeModule: RouteRecordRaw) => {
   children.forEach((child) => {
     const route = routes.find((item) => item.name === child.name);
     if (route) {

@@ -28,7 +28,7 @@ const defaultConfig = {
   /** 一处水印所占宽度（数值越大水印密度越低） */
   width: 300,
   /** 一处水印所占高度（数值越大水印密度越低） */
-  height: 200,
+  height: 200
 };
 
 /** body 元素 */
@@ -50,7 +50,7 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
   const observer: Observer = {
     watermarkElMutationObserver: undefined,
     parentElMutationObserver: undefined,
-    parentElResizeObserver: undefined,
+    parentElResizeObserver: undefined
   };
 
   /** 设置水印 */
@@ -59,8 +59,8 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
       console.warn(
         t("warning_set_watermark_after_dom_mount", {
           dom: "DOM",
-          method: "setWatermark",
-        }),
+          method: "setWatermark"
+        })
       );
       return;
     }
@@ -76,9 +76,7 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
 
   /** 创建水印元素 */
   const createWatermarkEl = () => {
-    const isBody =
-      parentEl.value!.tagName.toLowerCase() ===
-      bodyEl.value.tagName.toLowerCase();
+    const isBody = parentEl.value!.tagName.toLowerCase() === bodyEl.value.tagName.toLowerCase();
     const watermarkElPosition = isBody ? "fixed" : "absolute";
     const parentElPosition = isBody ? "" : "relative";
     watermarkEl = document.createElement("div");
@@ -100,11 +98,10 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
     options: Partial<{
       width: number;
       height: number;
-    }> = {},
+    }> = {}
   ) => {
     if (!watermarkEl) return;
-    backupText &&
-      (watermarkEl.style.background = `url(${createBase64()}) left top repeat`);
+    backupText && (watermarkEl.style.background = `url(${createBase64()}) left top repeat`);
     options.width && (watermarkEl.style.width = `${options.width}px`);
     options.height && (watermarkEl.style.height = `${options.height}px`);
   };
@@ -154,10 +151,7 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
     // 判断是否开启防御
     if (mergeConfig.defense) {
       // 防止重复添加监听
-      if (
-        !observer.watermarkElMutationObserver &&
-        !observer.parentElMutationObserver
-      ) {
+      if (!observer.watermarkElMutationObserver && !observer.parentElMutationObserver) {
         // 监听 DOM 变化
         addMutationListener(targetNode);
       }
@@ -205,13 +199,11 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
               });
               break;
           }
-        }, 100),
+        }, 100)
       );
     }, 100);
     // 创建观察器实例并传入回调
-    observer.watermarkElMutationObserver = new MutationObserver(
-      mutationCallback,
-    );
+    observer.watermarkElMutationObserver = new MutationObserver(mutationCallback);
     observer.parentElMutationObserver = new MutationObserver(mutationCallback);
     // 以上述配置开始观察目标节点
     observer.watermarkElMutationObserver.observe(watermarkEl!, {
@@ -220,12 +212,12 @@ export function useWatermark(parentEl: Ref<HTMLElement | null> = bodyEl) {
       // 观察目标子节点是否有添加或者删除，默认为 false
       childList: false,
       // 是否拓展到观察所有后代节点，默认为 false
-      subtree: false,
+      subtree: false
     });
     observer.parentElMutationObserver.observe(targetNode, {
       attributes: false,
       childList: true,
-      subtree: false,
+      subtree: false
     });
   };
 

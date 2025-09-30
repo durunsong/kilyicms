@@ -19,8 +19,8 @@ const props = withDefaults(
     prefix: "icon",
     color: "currentcolor",
     width: 24,
-    height: 24,
-  },
+    height: 24
+  }
 );
 
 const svgId = computed(() => `#${props.prefix}-${props.name}`);

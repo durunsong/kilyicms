@@ -44,9 +44,7 @@ export const removeConfigLayout = () => {
 export const getSidebarStatus = () => {
   return localStorage.getItem(CACHE_KEY.SIDEBAR_STATUS);
 };
-export const setSidebarStatus = (
-  sidebarStatus: SidebarOpened | SidebarClosed,
-) => {
+export const setSidebarStatus = (sidebarStatus: SidebarOpened | SidebarClosed) => {
   localStorage.setItem(CACHE_KEY.SIDEBAR_STATUS, sidebarStatus);
 };
 //#endregion

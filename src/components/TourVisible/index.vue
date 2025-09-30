@@ -4,26 +4,20 @@
       v-for="(item, index) in props.data"
       :key="index"
       :target="item.target"
-      :title="
-        item.title
-          ? item.title
-          : t('tour_step', { currentStep: currentStep + 1 })
-      "
+      :title="item.title ? item.title : t('tour_step', { currentStep: currentStep + 1 })"
       :description="item.description"
       :prev-button-props="{
         children: t('tour_prev'),
-        onClick: handlePrevClick,
+        onClick: handlePrevClick
       }"
       :next-button-props="{
         children: nextBtnName,
-        onClick: handleNextClick,
+        onClick: handleNextClick
       }"
       :placement="item.placement"
     ></el-tour-step>
     <template #indicators>
-      <el-button size="small" @click="handleSkip">{{
-        t("tour_skip")
-      }}</el-button>
+      <el-button size="small" @click="handleSkip">{{ t("tour_skip") }}</el-button>
     </template>
   </el-tour>
 </template>
@@ -36,13 +30,7 @@ import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
 const props = defineProps(["data"]);
-const emits = defineEmits([
-  "change",
-  "prev",
-  "next",
-  "skip",
-  "update:modelValue",
-]);
+const emits = defineEmits(["change", "prev", "next", "skip", "update:modelValue"]);
 
 // 当前步数，从0开始，由于第0步是开始语，后面的步数可以正好对应
 const currentStep: Ref<number> = ref(0);
@@ -60,7 +48,7 @@ const nextBtnName: ComputedRef<string> = computed(() => {
   } else {
     name = t("tour_nextStep", {
       currentStep: currentStep.value + 1,
-      totalSteps: props.data.length,
+      totalSteps: props.data.length
     });
   }
   return name;

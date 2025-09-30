@@ -31,5 +31,5 @@ export default {
   rom,
   ru,
   spa,
-  swe,
+  swe
 };

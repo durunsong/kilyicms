@@ -10,8 +10,8 @@ export const constant_Routes: RouteRecordRaw[] = [
     component: () => import("@/views/login/index.vue"),
     meta: {
       hidden: true,
-      title: "router_login",
-    },
+      title: "router_login"
+    }
   },
   {
     path: "/",
@@ -25,10 +25,10 @@ export const constant_Routes: RouteRecordRaw[] = [
         meta: {
           title: "router_home",
           svgIcon: "dashboard",
-          affix: true,
-        },
-      },
-    ],
+          affix: true
+        }
+      }
+    ]
   },
   {
     path: "/unocss",
@@ -41,10 +41,10 @@ export const constant_Routes: RouteRecordRaw[] = [
         name: "UnoCSS",
         meta: {
           title: "router_UnoCSS",
-          svgIcon: "unocss",
-        },
-      },
-    ],
+          svgIcon: "unocss"
+        }
+      }
+    ]
   },
   {
     path: "/function-card",
@@ -54,7 +54,7 @@ export const constant_Routes: RouteRecordRaw[] = [
     meta: {
       title: "function_card",
       elIcon: "Grid",
-      alwaysShow: true,
+      alwaysShow: true
     },
     children: [
       {
@@ -62,27 +62,26 @@ export const constant_Routes: RouteRecordRaw[] = [
         component: () => import("@/views/function-card/index.vue"),
         name: "FunctionsAndComponents",
         meta: {
-          title: "router_Functions_and_Components",
-        },
+          title: "router_Functions_and_Components"
+        }
       },
       {
         path: "translation-process",
-        component: () =>
-          import("@/views/function-card/translation-process.vue"),
+        component: () => import("@/views/function-card/translation-process.vue"),
         name: "translationProcess",
         meta: {
-          title: "router_translation_process",
-        },
+          title: "router_translation_process"
+        }
       },
       {
         path: "ip",
         component: () => import("@/views/function-card/ip.vue"),
         name: "ip",
         meta: {
-          title: "router_ip_address",
-        },
-      },
-    ],
+          title: "router_ip_address"
+        }
+      }
+    ]
   },
   {
     path: "/hook-demo",
@@ -92,7 +91,7 @@ export const constant_Routes: RouteRecordRaw[] = [
     meta: {
       title: "router_Hooks",
       elIcon: "Menu",
-      alwaysShow: true,
+      alwaysShow: true
     },
     children: [
       {
@@ -100,17 +99,17 @@ export const constant_Routes: RouteRecordRaw[] = [
         component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
         name: "UseFullscreenLoading",
         meta: {
-          title: "router_useFullscreenLoading",
-        },
+          title: "router_useFullscreenLoading"
+        }
       },
       {
         path: "use-watermark",
         component: () => import("@/views/hook-demo/use-watermark.vue"),
         name: "UseWatermark",
         meta: {
-          title: "router_useWatermark",
-        },
-      },
-    ],
-  },
+          title: "router_useWatermark"
+        }
+      }
+    ]
+  }
 ];

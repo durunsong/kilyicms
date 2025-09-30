@@ -12,7 +12,7 @@ export const constantRoutes: RouteRecordRaw[] = [
   // 常量路由
   ...constant_Routes,
   // 任意路由
-  ...anyRoutes,
+  ...anyRoutes
 ];
 
 /**
@@ -21,14 +21,12 @@ export const constantRoutes: RouteRecordRaw[] = [
  */
 export const dynamicRoutes: RouteRecordRaw[] = [
   // 动态路由
-  ...asyncRoutes,
+  ...asyncRoutes
 ];
 
 const router = createRouter({
   history,
-  routes: routeSettings.thirdLevelRouteCache
-    ? flatMultiLevelRoutes(constantRoutes)
-    : constantRoutes,
+  routes: routeSettings.thirdLevelRouteCache ? flatMultiLevelRoutes(constantRoutes) : constantRoutes
 });
 
 /** 重置路由 */

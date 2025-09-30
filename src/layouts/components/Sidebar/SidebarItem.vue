@@ -1,11 +1,6 @@
 <template>
-  <template
-    v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children"
-  >
-    <SidebarItemLink
-      v-if="theOnlyOneChild.meta"
-      :to="resolvePath(theOnlyOneChild.path)"
-    >
+  <template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">
+    <SidebarItemLink v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
       <el-menu-item :index="resolvePath(theOnlyOneChild.path)">
         <SvgIcon
           v-if="theOnlyOneChild.meta.svgIcon"
@@ -25,19 +20,9 @@
   </template>
   <el-sub-menu v-else :index="resolvePath(props.item.path)" teleported>
     <template #title>
-      <SvgIcon
-        v-if="props.item.meta?.svgIcon"
-        :name="props.item.meta.svgIcon"
-        :aria-hidden="false"
-      ></SvgIcon>
-      <component
-        v-else-if="props.item.meta?.elIcon"
-        :is="props.item.meta.elIcon"
-        class="el-icon"
-      ></component>
-      <span v-if="props.item.meta?.title">{{
-        t(props.item.meta.title as string)
-      }}</span>
+      <SvgIcon v-if="props.item.meta?.svgIcon" :name="props.item.meta.svgIcon" :aria-hidden="false"></SvgIcon>
+      <component v-else-if="props.item.meta?.elIcon" :is="props.item.meta.elIcon" class="el-icon"></component>
+      <span v-if="props.item.meta?.title">{{ t(props.item.meta.title as string) }}</span>
     </template>
     <template v-if="props.item.children">
       <SidebarItem
@@ -65,7 +50,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  basePath: "",
+  basePath: ""
 });
 
 /** 是否始终显示根菜单 */

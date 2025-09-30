@@ -6,7 +6,7 @@
         {{
           t("i18nComponent", {
             "element-plus": "element-plus",
-            "vue-i18n": "vue-i18n",
+            "vue-i18n": "vue-i18n"
           })
         }}
       </div>
@@ -14,33 +14,18 @@
     </el-card>
     <el-card shadow="hover">
       <div m-b-2>{{ t("customSwitchComponent") }}</div>
-      <PlaneSwitch
-        v-model:checked="switchState"
-        @update:checked="handleSwitchChange"
-      ></PlaneSwitch>
+      <PlaneSwitch v-model:checked="switchState" @update:checked="handleSwitchChange"></PlaneSwitch>
       <div m-t-2>Switch is {{ switchState ? "ON" : "OFF" }}</div>
     </el-card>
     <el-card shadow="hover">
       <p>
         {{ t("iconIntegration", { unocss: "unocss", iconify: "iconify" }) }},
-        <a
-          flex
-          op30
-          dark:op60
-          hover="op80"
-          dark:hover="op80"
-          href="https://yesicon.app"
-          target="_blank"
-        >
+        <a flex op30 dark:op60 hover="op80" dark:hover="op80" href="https://yesicon.app" target="_blank">
           <span class="i-mingcute-link-3-fill"></span>
           {{ t("clickHereForIcons") }}
         </a>
       </p>
-      <div
-        class="i-whh-mymusic text-blue-400"
-        role="img"
-        aria-hidden="true"
-      ></div>
+      <div class="i-whh-mymusic text-blue-400" role="img" aria-hidden="true"></div>
     </el-card>
     <el-card shadow="hover">
       <p>{{ t("themeSwitch") }}</p>
@@ -57,14 +42,7 @@
     <el-card shadow="hover">
       <p>{{ t("permissionExample") }}</p>
       <p>
-        <router-link
-          flex
-          op30
-          dark:op60
-          hover="op80"
-          dark:hover="op80"
-          to="/permission/page"
-        >
+        <router-link flex op30 dark:op60 hover="op80" dark:hover="op80" to="/permission/page">
           <span class="i-ph-link-bold"></span>
           {{ t("clickHereToExample") }}
         </router-link>
@@ -73,14 +51,7 @@
     <el-card shadow="hover">
       <p>{{ t("hooksExample", { hooks: "hooks" }) }}</p>
       <p>
-        <router-link
-          flex
-          op30
-          dark:op60
-          hover="op80"
-          dark:hover="op80"
-          to="/hook-demo/use-fullscreen-loading"
-        >
+        <router-link flex op30 dark:op60 hover="op80" dark:hover="op80" to="/hook-demo/use-fullscreen-loading">
           <span class="i-solar-to-pip-bold"></span>
           {{ t("clickHereToHookExample") }}
         </router-link>
@@ -89,14 +60,7 @@
     <el-card shadow="hover">
       <p>{{ t("multiLevelRouteManagement") }}</p>
       <p>
-        <router-link
-          flex
-          op30
-          dark:op60
-          hover="op80"
-          dark:hover="op80"
-          to="/menu/menu1/menu1-2/menu1-2-1"
-        >
+        <router-link flex op30 dark:op60 hover="op80" dark:hover="op80" to="/menu/menu1/menu1-2/menu1-2-1">
           <span class="i-logos-go"></span>
           {{ t("clickHereToMultiRouteExample") }}
         </router-link>

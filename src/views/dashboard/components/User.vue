@@ -1,8 +1,6 @@
 <template>
   <div class="app-container center">
-    <el-empty
-      :description="t('hello_editor_page', { user: 'user' })"
-    ></el-empty>
+    <el-empty :description="t('hello_editor_page', { user: 'user' })"></el-empty>
   </div>
 </template>
 

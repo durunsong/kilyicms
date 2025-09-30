@@ -1,27 +1,16 @@
 <template>
   <div>
     <!-- 全屏 -->
-    <el-tooltip
-      v-if="!content"
-      effect="dark"
-      :content="fullscreenTips"
-      placement="bottom"
-    >
-      <SvgIcon
-        :name="fullscreenSvgName"
-        @click="handleFullscreenClick"
-        :aria-hidden="false"
-      />
+    <el-tooltip v-if="!content" effect="dark" :content="fullscreenTips" placement="bottom">
+      <SvgIcon :name="fullscreenSvgName" @click="handleFullscreenClick" :aria-hidden="false"></SvgIcon>
     </el-tooltip>
     <!-- 内容区 -->
     <el-dropdown v-else :disabled="isFullscreen">
-      <SvgIcon :name="contentLargeSvgName" :aria-hidden="false" />
+      <SvgIcon :name="contentLargeSvgName" :aria-hidden="false"></SvgIcon>
       <template #dropdown>
         <el-dropdown-menu>
           <!-- 内容区放大 -->
-          <el-dropdown-item @click="handleContentLargeClick">{{
-            contentLargeTips
-          }}</el-dropdown-item>
+          <el-dropdown-item @click="handleContentLargeClick">{{ contentLargeTips }}</el-dropdown-item>
           <!-- 内容区全屏 -->
           <el-dropdown-item @click="handleContentFullClick">
             {{ t("Content_area_full_screen") }}
@@ -54,7 +43,7 @@ interface Props {
 // 使用 withDefaults 设置默认值，但移除 t() 的直接调用，避免报错
 const props = withDefaults(defineProps<Props>(), {
   element: "html", // 默认全屏元素是 html
-  content: false, // 默认不只针对内容区
+  content: false // 默认不只针对内容区
 });
 
 // 使用 computed 动态计算 openTips 和 exitTips，避免直接在 props 中调用 t()

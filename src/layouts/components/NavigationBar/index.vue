@@ -7,36 +7,16 @@
       @toggle-click="toggleSidebar"
       id="el_tour_visible_2"
     ></Hamburger>
-    <Breadcrumb
-      v-if="!isTop || isMobile"
-      class="breadcrumb"
-      id="el_tour_visible_3"
-    ></Breadcrumb>
+    <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" id="el_tour_visible_3"></Breadcrumb>
     <Sidebar v-if="isTop && !isMobile" class="sidebar"></Sidebar>
     <div class="right-menu">
-      <SearchMenu
-        v-if="showSearchMenu"
-        class="right-menu-item"
-        id="el_tour_visible_5"
-      ></SearchMenu>
-      <Screenfull
-        v-if="showScreenfull"
-        class="right-menu-item"
-        id="el_tour_visible_6"
-      ></Screenfull>
+      <SearchMenu v-if="showSearchMenu" class="right-menu-item" id="el_tour_visible_5"></SearchMenu>
+      <Screenfull v-if="showScreenfull" class="right-menu-item" id="el_tour_visible_6"></Screenfull>
       <el-tooltip effect="dark" :content="t('Theme_Mode')" placement="bottom">
-        <ThemeSwitch
-          v-if="showThemeSwitch"
-          class="right-menu-item"
-          id="el_tour_visible_7"
-        ></ThemeSwitch>
+        <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" id="el_tour_visible_7"></ThemeSwitch>
       </el-tooltip>
       <LanguageSwitcher id="el_tour_visible_8"></LanguageSwitcher>
-      <Notify
-        v-if="showNotify"
-        class="right-menu-item"
-        id="el_tour_visible_9"
-      ></Notify>
+      <Notify v-if="showNotify" class="right-menu-item" id="el_tour_visible_9"></Notify>
       <el-dropdown class="right-menu-item" id="el_tour_visible_10">
         <div class="right-menu-avatar">
           <el-avatar
@@ -94,8 +74,7 @@ const { isTop } = useLayoutMode();
 const appStore = useAppStore();
 const userStore = useUserStore();
 const settingsStore = useSettingsStore();
-const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } =
-  storeToRefs(settingsStore);
+const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore);
 
 /** 暂时这样用 */
 const userInfo: any = getLocalData(CACHE_KEY.USER_INFO);

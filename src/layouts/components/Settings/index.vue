@@ -4,16 +4,9 @@
     <SelectLayoutMode></SelectLayoutMode>
     <el-divider></el-divider>
     <h4>{{ t("functional_configuration") }}</h4>
-    <div
-      class="setting-item"
-      v-for="(settingValue, settingName, index) in switchSettings"
-      :key="index"
-    >
+    <div class="setting-item" v-for="(settingValue, settingName, index) in switchSettings" :key="index">
       <span class="setting-name">{{ settingName }}</span>
-      <el-switch
-        v-model="settingValue.value"
-        :disabled="!isLeft && settingName === t('fixed_header')"
-      ></el-switch>
+      <el-switch v-model="settingValue.value" :disabled="!isLeft && settingName === t('fixed_header')"></el-switch>
     </div>
     <el-button type="danger" :icon="Refresh" @click="resetConfigLayout">
       {{ t("Reset_layout") }}
@@ -48,7 +41,7 @@ const {
   cacheTagsView,
   showWatermark,
   showGreyMode,
-  showColorWeakness,
+  showColorWeakness
 } = storeToRefs(settingsStore);
 
 /** 定义 switch 设置项 */
@@ -64,7 +57,7 @@ const switchSettings = {
   [t("cache_tab_bar")]: cacheTagsView,
   [t("enable_watermark")]: showWatermark,
   [t("show_gray_mode")]: showGreyMode,
-  [t("show_weak_mode")]: showColorWeakness,
+  [t("show_weak_mode")]: showColorWeakness
 };
 
 /** 非左侧模式时，Header 都是 fixed 布局 */

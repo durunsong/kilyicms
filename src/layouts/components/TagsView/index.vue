@@ -12,20 +12,12 @@
         @contextmenu.prevent="openMenu(tag, $event)"
       >
         {{ t(tag.meta?.title as string) }}
-        <el-icon
-          v-if="!isAffix(tag)"
-          :size="12"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        >
+        <el-icon v-if="!isAffix(tag)" :size="12" @click.prevent.stop="closeSelectedTag(tag)">
           <Close></Close>
         </el-icon>
       </router-link>
     </ScrollPane>
-    <ul
-      v-show="visible"
-      class="contextmenu"
-      :style="{ left: left + 'px', top: top + 'px' }"
-    >
+    <ul v-show="visible" class="contextmenu" :style="{ left: left + 'px', top: top + 'px' }">
       <li @click="refreshSelectedTag(selectedTag)">{{ t("refresh") }}</li>
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
         {{ t("Close_current") }}
@@ -40,13 +32,7 @@
 
 <script lang="ts" setup>
 import { getCurrentInstance, onMounted, ref, watch } from "vue";
-import {
-  type RouteLocationNormalizedLoaded,
-  type RouteRecordRaw,
-  RouterLink,
-  useRoute,
-  useRouter,
-} from "vue-router";
+import { type RouteLocationNormalizedLoaded, type RouteRecordRaw, RouterLink, useRoute, useRouter } from "vue-router";
 import { type TagView, useTagsViewStore } from "@/store/modules/tags-view";
 import { usePermissionStore } from "@/store/modules/permission";
 import { useRouteListener } from "@/hooks/useRouteListener";
@@ -96,7 +82,7 @@ const filterAffixTags = (routes: RouteRecordRaw[], basePath = "/") => {
         fullPath: tagPath,
         path: tagPath,
         name: route.name,
-        meta: { ...route.meta },
+        meta: { ...route.meta }
       });
     }
     if (route.children) {
@@ -157,9 +143,7 @@ const closeAllTags = (view: TagView) => {
 
 /** 关闭左侧标签页 */
 const closeLeftTags = (view: TagView) => {
-  const index = tagsViewStore.visitedViews.findIndex(
-    (v) => v.path === view.path,
-  );
+  const index = tagsViewStore.visitedViews.findIndex((v) => v.path === view.path);
   if (index > 0) {
     const leftTags = tagsViewStore.visitedViews.slice(0, index);
     leftTags.forEach((tag) => {
@@ -177,9 +161,7 @@ const closeLeftTags = (view: TagView) => {
 
 /** 关闭右侧标签页 */
 const closeRightTags = (view: TagView) => {
-  const index = tagsViewStore.visitedViews.findIndex(
-    (v) => v.path === view.path,
-  );
+  const index = tagsViewStore.visitedViews.findIndex((v) => v.path === view.path);
   if (index >= 0) {
     // 获取要删除的右侧标签页
     const rightTags = tagsViewStore.visitedViews.slice(index + 1);
@@ -191,9 +173,7 @@ const closeRightTags = (view: TagView) => {
       }
     });
     // 检查当前页面是否仍在已打开的标签页列表中
-    const currentTagExists = tagsViewStore.visitedViews.some(
-      (v) => v.path === route.path,
-    );
+    const currentTagExists = tagsViewStore.visitedViews.some((v) => v.path === route.path);
     if (!currentTagExists) {
       // 如果当前路由已经不存在，跳转到左侧的最后一个标签页
       const leftTags = tagsViewStore.visitedViews.slice(0, index + 1);
@@ -207,10 +187,7 @@ const closeRightTags = (view: TagView) => {
     } else {
       // 当前标签页在列表中，确保路由跳转到当前标签页的位置
       // 如果关闭的右侧标签页在当前标签的右边
-      if (
-        index <
-        tagsViewStore.visitedViews.findIndex((v) => v.path === route.path)
-      ) {
+      if (index < tagsViewStore.visitedViews.findIndex((v) => v.path === route.path)) {
         const newIndex = Math.max(index, 0); // 确保不超出范围
         const newTag = tagsViewStore.visitedViews[newIndex];
         if (newTag && newTag.fullPath) {
@@ -263,9 +240,7 @@ const closeMenu = () => {
 };
 
 watch(visible, (value) => {
-  value
-    ? document.body.addEventListener("click", closeMenu)
-    : document.body.removeEventListener("click", closeMenu);
+  value ? document.body.addEventListener("click", closeMenu) : document.body.removeEventListener("click", closeMenu);
 });
 
 onMounted(() => {

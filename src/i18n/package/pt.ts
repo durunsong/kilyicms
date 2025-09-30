@@ -78,8 +78,7 @@ const pt = {
   Enter_full_screen: "Entrar no ecrã completo",
   light: "luz",
   dark: "escuro",
-  shift_delete:
-    "Você tem certeza de que deseja excluir este item completamente?",
+  shift_delete: "Você tem certeza de que deseja excluir este item completamente?",
   restore: "Restaurar",
   sure_Restore: "Tens a certeza que queres restaurar este?",
   Restore_successfully: "Restaurar com sucesso",
@@ -132,8 +131,7 @@ const pt = {
   four_level_routing_cache: "Cache de roteamento de quatro níveis",
   your_role: "O teu papel é",
   switching_users: "Mudar de utilizadores (simular uma nova autenticação)",
-  UnoCSS_use_case:
-    "Esta página é um caso de uso {UnoCSS} e o resto das páginas ainda usam {Scss}",
+  UnoCSS_use_case: "Esta página é um caso de uso {UnoCSS} e o resto das páginas ainda usam {Scss}",
   Reimagining_atomized_CSS: "Leitura recomendada: Reimagining atomized {CSS}",
   here_adopted: "Aqui adoptado",
   so_only: "Só assim",
@@ -152,18 +150,15 @@ const pt = {
   search_results: "Resultados da pesquisa",
   warning_message_unique_name:
     "Não é possível navegar para o menu através da pesquisa. Por favor, defina um {keyword} exclusivo para a rota correspondente.",
-  mandatory_dynamic_parameters:
-    "Este menu tem parâmetros dinâmicos obrigatórios e não pode ser acessado por pesquisa",
+  mandatory_dynamic_parameters: "Este menu tem parâmetros dinâmicos obrigatórios e não pode ser acessado por pesquisa",
   Content_area_full_screen: "Área de conteúdo em ecrã inteiro",
   browser_is_not_working: "Seu navegador não está funcionando",
   Content_area_recovery: "Recuperação da área de conteúdo",
   Content_area_enlargement: "Alargamento da área de conteúdo",
   default: "Predefinição",
   dark_blue: "Azul escuro",
-  warning_set_watermark_after_dom_mount:
-    "Por favor, chame {method} após o {dom} ter sido montado.",
-  Please_recreate_it_watermark:
-    "O elemento marca d'água não existe. Por favor recria-o",
+  warning_set_watermark_after_dom_mount: "Por favor, chame {method} após o {dom} ter sido montado.",
+  Please_recreate_it_watermark: "O elemento marca d'água não existe. Por favor recria-o",
   case_401: "Não autorizado, faça login",
   case_403: "Acesso negado",
   case_404: "O pedido não existe",
@@ -225,11 +220,9 @@ const pt = {
   clickHereForIcons: "Carregue aqui para os ícones",
   i18nComponent:
     "Componente de internacionalização: 16 comutadores de idiomas, {element-plus} e {vue-i18n} sincronização de idiomas",
-  themeSwitch:
-    "Interruptor de três temas (excluindo o modo de cor cinza e fraco)",
+  themeSwitch: "Interruptor de três temas (excluindo o modo de cor cinza e fraco)",
   fullscreenSwitch: "Dois modos de tela cheia switch (menu e área de conteúdo)",
-  fullscreenDescription:
-    "Parte superior direita da tela e parte superior direita da área de conteúdo",
+  fullscreenDescription: "Parte superior direita da tela e parte superior direita da área de conteúdo",
   codeStandards: "Normas de Código",
   codeConventions:
     "Componente: PascalCase, Método: camelCase, Classe: kebab-case/underscore, Nome do arquivo: kebab-case/camelCase, Atributo: camelCase/underscore",
@@ -269,22 +262,17 @@ const pt = {
   tour_customSettingsTitle: "Configuração Personalizada",
   tour_customSettingsDescription: "Configuração do sistema",
   router_ip_address: "IP- cím",
-  detectionTitle:
-    "Felhasználó {keywords} és VPN/Proxy Detection (Frontend és Backend megoldások)",
+  detectionTitle: "Felhasználó {keywords} és VPN/Proxy Detection (Frontend és Backend megoldások)",
   webrtcComparison: "{webrtc} és {ipify} összehasonlítási példa",
-  ipifyDetection:
-    "{ipify} felismert IP, amelyet harmadik fél szolgáltatása ítél meg ({service})",
+  ipifyDetection: "{ipify} felismert IP, amelyet harmadik fél szolgáltatása ítél meg ({service})",
   recheck: "Újbóli ellenőrzés",
   stunRequestInfo:
     "Ez a demó titokban kéréseket tesz a STUN szerverekhez, amelyek rögzítik a kéréseit. Ezek a kérések nem jelennek meg a fejlesztői konzolon, és nem blokkolhatók böngészőbővítmények (pl. AdBlock, Ghostery).",
   webrtcPublicIp: "Az Ön {webrtc} nyilvános IP címe:",
   ipifyPublicIp: "Az {ipify} segítségével kapott nyilvános IP cím a következő:",
-  comparisonMatch:
-    "Eredmény: {webrtc} és {ipify} IP címek egyeznek. Nem használ VPN /proxyt",
-  comparisonMismatch:
-    "Eredmény: {webrtc} és {ipify} IP címek nem egyeznek meg. Lehet, hogy VPN/proxyt használ",
-  ipifyError:
-    "Nem sikerült letölteni az {ipify} IP- címet. Kérem ellenőrizze a hálózati kapcsolatot!",
+  comparisonMatch: "Eredmény: {webrtc} és {ipify} IP címek egyeznek. Nem használ VPN /proxyt",
+  comparisonMismatch: "Eredmény: {webrtc} és {ipify} IP címek nem egyeznek meg. Lehet, hogy VPN/proxyt használ",
+  ipifyError: "Nem sikerült letölteni az {ipify} IP- címet. Kérem ellenőrizze a hálózati kapcsolatot!",
   vpnCheckTitle: "Proxy/VPN észlelési eredmények",
   ipifyCurrentIP: "IP- cím az ipify segítségével:",
   proxyCheckRange: "IP tartomány észlelhető a proxycheck.io segítségével:",
@@ -297,14 +285,13 @@ const pt = {
   proxyCheckCoordinates: "Koordináták:",
   dataLoading: "Az adatok betöltődnek, kérem várjon...",
   comparisonMatch_ss: "Eredmény: A {service} szerint Ön nem használ VPN/proxyt",
-  comparisonMismatch_ss:
-    "Eredmény: A {service} szerint előfordulhat, hogy VPN/proxyt használ",
+  comparisonMismatch_ss: "Eredmény: A {service} szerint előfordulhat, hogy VPN/proxyt használ",
   ipFetchError: "Nem sikerült lekérni az IP- címet.",
   proxyCheckError: "Proxy/VPN felismerés sikertelen.",
   proxyCheckStatusError: "Az észlelés nem sikerült állapotkód hiba miatt.",
   errorOccurred: "Hiba történt:",
   router_translation_process: "Processo de tradução",
-  genericError: "Az észlelés sikertelen, kérjük próbálja meg újra később.",
+  genericError: "Az észlelés sikertelen, kérjük próbálja meg újra később."
 };
 
 export default pt;

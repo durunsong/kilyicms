@@ -26,7 +26,7 @@ nprogress.configure({
   showSpinner: false, // 隐藏加载ico
   trickleSpeed: 100, // 自动递增的间隔
   minimum: 0.15, // 启动时的最小百分比，稍微降低，增加平滑度
-  parent: "body", // 进度条的父容器
+  parent: "body" // 进度条的父容器
 });
 
 export default nprogress;

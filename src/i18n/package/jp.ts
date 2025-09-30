@@ -131,8 +131,7 @@ const jp = {
   four_level_routing_cache: "レベル4ルーティングキャッシュ",
   your_role: "あなたの役割",
   switching_users: "ユーザーの切り替え（再ログインのシミュレーション）",
-  UnoCSS_use_case:
-    "このページは{UnoCSS}の使用例であり、他のページは{Scss}を使用しています。",
+  UnoCSS_use_case: "このページは{UnoCSS}の使用例であり、他のページは{Scss}を使用しています。",
   Reimagining_atomized_CSS: "推奨読解：原子化{CSS}の再構想",
   here_adopted: "ここでは",
   so_only: "だからただ",
@@ -151,8 +150,7 @@ const jp = {
   search_results: "検索結果",
   warning_message_unique_name:
     "検索からメニューにアクセスできません。対応するルーティングに固有の{keyword}を設定してください。",
-  mandatory_dynamic_parameters:
-    "このメニューには必要な動的パラメータがあり、検索ではアクセスできません",
+  mandatory_dynamic_parameters: "このメニューには必要な動的パラメータがあり、検索ではアクセスできません",
   Content_area_full_screen: "コンテンツ領域の全画面表示",
   browser_is_not_working: "あなたのブラウザはサポートされていません",
   Content_area_recovery: "コンテンツ領域の復元",
@@ -161,8 +159,7 @@ const jp = {
   dark_blue: "ダークブルー",
   warning_set_watermark_after_dom_mount:
     "{method}メソッドを呼び出してウォーターマークを設定するには、{dom}のマウントが完了してから",
-  Please_recreate_it_watermark:
-    "ウォーターマーク要素は存在しません。再作成してください",
+  Please_recreate_it_watermark: "ウォーターマーク要素は存在しません。再作成してください",
   Cancel_duplicate_request: "重複要求の取消し",
   case_401: "認証されていません。ログインしてください",
   case_403: "アクセス拒否",
@@ -224,8 +221,7 @@ const jp = {
   clickHereForIcons: "アイコンを探すにはここをクリックしてください",
   i18nComponent:
     "国際化コンポーネント：16言語切り替え、{element-plus}コンポーネント組み込み言語と{vue-i 18 n}言語切り替え同期",
-  themeSwitch:
-    "一般的な3つのテーマカラー切り替え（グレーモードと色弱モードを除く）",
+  themeSwitch: "一般的な3つのテーマカラー切り替え（グレーモードと色弱モードを除く）",
   fullscreenSwitch: "2つの全画面モード切り替え（メニュー領域とコンテンツ領域）",
   fullscreenDescription: "画面右上隅とコンテンツ領域右上隅",
   codeStandards: "コード仕様",
@@ -236,8 +232,7 @@ const jp = {
   hooksExample: "10件以上の{hooks}ケース・パッケージ",
   clickHereToHookExample: "ここをクリックしてケースページにジャンプ",
   multiLevelRouteManagement: "マルチレベルルーティング管理",
-  clickHereToMultiRouteExample:
-    "ここをクリックしてマルチレベルルーティング管理のケースページにジャンプします",
+  clickHereToMultiRouteExample: "ここをクリックしてマルチレベルルーティング管理のケースページにジャンプします",
   login_success: "ログイン成功",
   switch_roles_Successfully: "役割の切り替えに成功しました",
   character: "ロール＃ロール＃",
@@ -267,23 +262,17 @@ const jp = {
   tour_customSettingsTitle: "カスタム設定",
   tour_customSettingsDescription: "システム設定",
   router_ip_address: "IPアドレス",
-  detectionTitle:
-    "ユーザ{keywords}とVPN/エージェント検出（前後端ソリューション）",
+  detectionTitle: "ユーザ{keywords}とVPN/エージェント検出（前後端ソリューション）",
   webrtcComparison: "{webrtc}と{ipify}の比較判断例",
-  ipifyDetection:
-    "{ipify}検出されたIPはサードパーティサービスによって判断される（{service}）",
+  ipifyDetection: "{ipify}検出されたIPはサードパーティサービスによって判断される（{service}）",
   recheck: "再検出",
   stunRequestInfo:
     "このプレゼンテーションでは、STUNサーバに秘密裏にリクエストを送信し、これらのサーバはあなたのリクエストを記録します。これらの要求は開発者コンソールに表示されず、ブラウザプラグイン（AdBlock、Ghosteryなど）によってブロックされません。",
   webrtcPublicIp: "あなたの{webrtc}パブリックネットワークIPアドレスは：",
-  ipifyPublicIp:
-    "{ipify}から取得したパブリックネットワークIPアドレスは、次のとおりです。",
-  comparisonMatch:
-    "検出結果：{webrtc}と{ipify}のIPアドレスは同じで、VPN/エージェントを使用していません",
-  comparisonMismatch:
-    "検出結果：{webrtc}と{ipify}のIPアドレスが異なり、VPN/エージェントを使用している可能性があります",
-  ipifyError:
-    "{ipify}IPアドレスの取得に失敗しました。ネットワーク接続を確認してください！",
+  ipifyPublicIp: "{ipify}から取得したパブリックネットワークIPアドレスは、次のとおりです。",
+  comparisonMatch: "検出結果：{webrtc}と{ipify}のIPアドレスは同じで、VPN/エージェントを使用していません",
+  comparisonMismatch: "検出結果：{webrtc}と{ipify}のIPアドレスが異なり、VPN/エージェントを使用している可能性があります",
+  ipifyError: "{ipify}IPアドレスの取得に失敗しました。ネットワーク接続を確認してください！",
   vpnCheckTitle: "エージェント/VPN検出結果",
   ipifyCurrentIP: "ipify現在のIPアドレスを検出するには：",
   proxyCheckRange: "proxycheck.io現在のIP範囲を検出する：",
@@ -295,16 +284,13 @@ const jp = {
   proxyCheckTimezone: "タイムゾーン:",
   proxyCheckCoordinates: "緯度:",
   dataLoading: "データ・ロード中、しばらくお待ちください...",
-  comparisonMatch_ss:
-    "検出結果：{service}検出により、VPN/エージェントを使用していません",
-  comparisonMismatch_ss:
-    "検出結果：{service}検出により、VPN/エージェントを使用している可能性があります",
+  comparisonMatch_ss: "検出結果：{service}検出により、VPN/エージェントを使用していません",
+  comparisonMismatch_ss: "検出結果：{service}検出により、VPN/エージェントを使用している可能性があります",
   ipFetchError: "IPアドレスの取得に失敗しました。",
   proxyCheckError: "エージェント/VPNの検出に失敗しました。",
-  proxyCheckStatusError:
-    "検出に失敗しました。ステータスコードが間違っています。",
+  proxyCheckStatusError: "検出に失敗しました。ステータスコードが間違っています。",
   errorOccurred: "エラーが発生しました：",
   router_translation_process: "翻訳プロセス",
-  genericError: "検出に失敗しました。後で再試行してください。",
+  genericError: "検出に失敗しました。後で再試行してください。"
 };
 export default jp;

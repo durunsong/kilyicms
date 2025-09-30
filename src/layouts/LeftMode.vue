@@ -1,11 +1,7 @@
 <template>
   <div :class="layoutClasses" class="app-wrapper">
     <!-- mobile 端侧边栏遮罩层 -->
-    <div
-      v-if="layoutClasses.mobile && layoutClasses.openSidebar"
-      class="drawer-bg"
-      @click="handleClickOutside"
-    ></div>
+    <div v-if="layoutClasses.mobile && layoutClasses.openSidebar" class="drawer-bg" @click="handleClickOutside"></div>
     <!-- 左侧边栏 -->
     <Sidebar class="sidebar-container"></Sidebar>
     <!-- 主容器 -->
@@ -40,7 +36,7 @@ const layoutClasses = computed(() => {
     hideSidebar: !appStore.sidebar.opened,
     openSidebar: appStore.sidebar.opened,
     withoutAnimation: appStore.sidebar.withoutAnimation,
-    mobile: isMobile.value,
+    mobile: isMobile.value
   };
 });
 

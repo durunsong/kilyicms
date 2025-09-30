@@ -100,8 +100,7 @@ const rom = {
   Please_enter_your_email: "Vă rugăm să introduceți e-mail",
   password_mismatch: "Parolă necorespunzătoare",
   Please_enter_your_password_again: "Vă rugăm să introduceți parola din nou",
-  Please_enter_your_verification_code:
-    "Vă rugăm să introduceți codul de verificare",
+  Please_enter_your_verification_code: "Vă rugăm să introduceți codul de verificare",
   verification_code: "Codul de verificare",
   login: "Autentificare",
   confirm_password: "Confirmă parola",
@@ -132,8 +131,7 @@ const rom = {
   four_level_routing_cache: "cache de rutare cu patru niveluri",
   your_role: "Rolul tău este",
   switching_users: "Schimbarea utilizatorilor (simulând re-autentificarea)",
-  UnoCSS_use_case:
-    "Această pagină este un caz de utilizare {UnoCSS}, iar restul paginilor utilizează încă {Scss}",
+  UnoCSS_use_case: "Această pagină este un caz de utilizare {UnoCSS}, iar restul paginilor utilizează încă {Scss}",
   Reimagining_atomized_CSS: "Citire recomandată: Reimaginarea atomizată {CSS}",
   here_adopted: "Aici adoptat",
   so_only: "Deci numai",
@@ -152,18 +150,15 @@ const rom = {
   search_results: "Rezultatele căutării",
   warning_message_unique_name:
     "Nu se poate naviga la meniu prin căutare. Vă rugăm să setați un {cuvânt cheie} unic pentru ruta corespunzătoare.",
-  mandatory_dynamic_parameters:
-    "Acest meniu are parametri dinamici obligatorii și nu poate fi accesat prin căutare",
+  mandatory_dynamic_parameters: "Acest meniu are parametri dinamici obligatorii și nu poate fi accesat prin căutare",
   Content_area_full_screen: "Zonă de conținut ecran complet",
   browser_is_not_working: "Browserul tău nu funcționează",
   Content_area_recovery: "Recuperarea zonei de conținut",
   Content_area_enlargement: "Extinderea domeniului de conținut",
   default: "Implicit",
   dark_blue: "Albastru închis",
-  warning_set_watermark_after_dom_mount:
-    "Vă rugăm să apelați {method} după ce {dom} a fost montat.",
-  Please_recreate_it_watermark:
-    "Elementul filigranei nu există. Vă rugăm să-l re-creați",
+  warning_set_watermark_after_dom_mount: "Vă rugăm să apelați {method} după ce {dom} a fost montat.",
+  Please_recreate_it_watermark: "Elementul filigranei nu există. Vă rugăm să-l re-creați",
   case_401: "Nu este autorizat, vă rugăm să vă conectați",
   case_403: "Acces refuzat",
   case_404: "Cererea nu există",
@@ -226,10 +221,8 @@ const rom = {
   i18nComponent:
     "Componentă internaționalizare: 16 comutatoare de limbă, {element-plus} și {vue-i18n} sincronizare limbă",
   themeSwitch: "Trei teme comutatoare (excluzând modul gri și culoare slabă)",
-  fullscreenSwitch:
-    "Două moduri de comutare pe tot ecranul (meniu și zona conținutului)",
-  fullscreenDescription:
-    "În dreapta sus a ecranului și în dreapta sus a zonei de conținut",
+  fullscreenSwitch: "Două moduri de comutare pe tot ecranul (meniu și zona conținutului)",
+  fullscreenDescription: "În dreapta sus a ecranului și în dreapta sus a zonei de conținut",
   codeStandards: "Standarde de cod",
   codeConventions:
     "Componentă: PascalCase, Metodă: camelCase, Clasă: kebab-case/understore, Nume fișier: kebab-case/camelCase, Atribut: camelCase/understore",
@@ -269,22 +262,18 @@ const rom = {
   tour_customSettingsTitle: "Configurări personalizate",
   tour_customSettingsDescription: "Setări sistem",
   router_ip_address: "Adresă IP",
-  detectionTitle:
-    "Utilizator {keywords} și detectarea VPN/Proxy (soluții Frontend și Backend)",
+  detectionTitle: "Utilizator {keywords} și detectarea VPN/Proxy (soluții Frontend și Backend)",
   webrtcComparison: "{webrtc} și {ipify} Exemplu de comparație",
   ipifyDetection: "{ipify} detectat IP judecat de serviciul terț ({service})",
   recheck: "Verifică din nou",
   stunRequestInfo:
     "Acest demo face în secret cereri către serverele STUN, care înregistrează cererile dumneavoastră. Aceste solicitări nu vor apărea în consola dezvoltatorilor și nu pot fi blocate de pluginurile browser-ului (de exemplu, AdBlock, Ghostery).",
   webrtcPublicIp: "Adresa dvs. IP publică {webrtc} este:",
-  ipifyPublicIp:
-    "Adresa dvs. IP publică obţinută prin intermediul {ipify} este:",
-  comparisonMatch:
-    "Rezultat: {webrtc} şi {ipify} adresele IP se potrivesc. Nu utilizați un VPN/proxy",
+  ipifyPublicIp: "Adresa dvs. IP publică obţinută prin intermediul {ipify} este:",
+  comparisonMatch: "Rezultat: {webrtc} şi {ipify} adresele IP se potrivesc. Nu utilizați un VPN/proxy",
   comparisonMismatch:
     "Rezultat: {webrtc} şi {ipify} adresele IP nu se potrivesc. Este posibil să utilizați un VPN/proxy",
-  ipifyError:
-    "A eșuat preluarea adresei IP {ipify}. Vă rugăm să verificați conexiunea la rețea!",
+  ipifyError: "A eșuat preluarea adresei IP {ipify}. Vă rugăm să verificați conexiunea la rețea!",
   vpnCheckTitle: "Rezultatele detectării proxy/VPN",
   ipifyCurrentIP: "Adresa IP detectată prin intermediul ipify:",
   proxyCheckRange: "Intervalul IP detectat prin proxycheck.io:",
@@ -297,14 +286,12 @@ const rom = {
   proxyCheckCoordinates: "Coordonate:",
   dataLoading: "Datele se încarcă, vă rog aşteptaţi...",
   comparisonMatch_ss: "Rezultat: Conform {service}, nu utilizați un VPN/proxy",
-  comparisonMismatch_ss:
-    "Rezultat: Conform {service}, este posibil să utilizați un VPN/proxy",
+  comparisonMismatch_ss: "Rezultat: Conform {service}, este posibil să utilizați un VPN/proxy",
   ipFetchError: "A eșuat preluarea adresei IP.",
   proxyCheckError: "Detectarea proxy/VPN a eșuat.",
-  proxyCheckStatusError:
-    "Detectarea a eșuat din cauza erorii codului de stare.",
+  proxyCheckStatusError: "Detectarea a eșuat din cauza erorii codului de stare.",
   errorOccurred: "A apărut o eroare:",
   router_translation_process: "Procesul de traducere",
-  genericError: "Detectarea a eșuat, vă rugăm să încercați din nou mai târziu.",
+  genericError: "Detectarea a eșuat, vă rugăm să încercați din nou mai târziu."
 };
 export default rom;

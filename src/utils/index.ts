@@ -11,9 +11,7 @@ export const getCssVariableValue = (cssVariableName: string) => {
   let cssVariableValue = "";
   try {
     // 没有拿到值时，会返回空串
-    cssVariableValue = getComputedStyle(
-      document.documentElement,
-    ).getPropertyValue(cssVariableName);
+    cssVariableValue = getComputedStyle(document.documentElement).getPropertyValue(cssVariableName);
   } catch (error) {
     console.error(error);
   }
@@ -21,15 +19,9 @@ export const getCssVariableValue = (cssVariableName: string) => {
 };
 
 /** 用 JS 设置全局 CSS 变量 */
-export const setCssVariableValue = (
-  cssVariableName: string,
-  cssVariableValue: string,
-) => {
+export const setCssVariableValue = (cssVariableName: string, cssVariableValue: string) => {
   try {
-    document.documentElement.style.setProperty(
-      cssVariableName,
-      cssVariableValue,
-    );
+    document.documentElement.style.setProperty(cssVariableName, cssVariableValue);
   } catch (error) {
     console.error(error);
   }

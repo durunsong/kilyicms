@@ -1,8 +1,4 @@
-import axios, {
-  InternalAxiosRequestConfig,
-  AxiosResponse,
-  AxiosHeaders,
-} from "axios";
+import axios, { InternalAxiosRequestConfig, AxiosResponse, AxiosHeaders } from "axios";
 import { ElNotification, ElLoading } from "element-plus";
 import i18n from "@/i18n";
 import { useUserStoreHook } from "@/store/modules/user";
@@ -24,7 +20,7 @@ const pendingRequests: any = {};
 // 创建 axios 实例
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API, // 基础路径上会默认携带 VITE_BASE_API
-  timeout: 5000,
+  timeout: 5000
   // withCredentials: true, // 跨域请求时是否需要使用凭证
 });
 
@@ -55,7 +51,7 @@ const showLoading = () => {
                     repeatCount="indefinite"/>
             </path>
         </svg>
-    `,
+    `
   });
 };
 
@@ -130,7 +126,7 @@ request.interceptors.request.use(
   (error: any) => {
     hideLoading();
     return Promise.reject(error);
-  },
+  }
 );
 
 // 响应拦截器
@@ -148,7 +144,7 @@ request.interceptors.response.use(
       ElNotification({
         message: "用户信息已更新，请重新登录！",
         type: "warning",
-        duration: 1.5 * 1000,
+        duration: 1.5 * 1000
       });
       // 退出登录并重定向到登录页面
       logout();
@@ -206,11 +202,7 @@ request.interceptors.response.use(
         break;
       }
       default: {
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.message
-        ) {
+        if (error.response && error.response.data && error.response.data.message) {
           errorInfo = error.response.data.message; // 使用后端返回的错误信息
         } else {
           errorInfo = t("other_case"); // 使用默认的本地化信息
@@ -223,12 +215,12 @@ request.interceptors.response.use(
     ElNotification({
       message: errorInfo,
       type: "error",
-      duration: 1 * 1000,
+      duration: 1 * 1000
     });
 
     // 将错误信息返回给前端页面，方便捕获具体的 message
     return Promise.reject(error.response ? error.response.data : error);
-  },
+  }
 );
 
 export default request;

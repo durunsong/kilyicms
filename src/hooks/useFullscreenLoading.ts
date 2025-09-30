@@ -4,7 +4,7 @@ const { t } = i18n.global;
 
 const defaultOptions = {
   lock: true,
-  text: t("message_loading"),
+  text: t("message_loading")
 };
 
 interface LoadingInstance {
@@ -14,7 +14,7 @@ interface LoadingInstance {
 interface UseFullscreenLoading {
   <T extends (...args: any[]) => ReturnType<T>>(
     fn: T,
-    options?: LoadingOptions,
+    options?: LoadingOptions
   ): (...args: Parameters<T>) => Promise<ReturnType<T>>;
 }
 
@@ -24,10 +24,7 @@ interface UseFullscreenLoading {
  * @param options LoadingOptions
  * @returns 返回一个新的函数，该函数返回一个 Promise
  */
-export const useFullscreenLoading: UseFullscreenLoading = (
-  fn,
-  options = {},
-) => {
+export const useFullscreenLoading: UseFullscreenLoading = (fn, options = {}) => {
   let loadingInstance: LoadingInstance;
   return async (...args) => {
     try {

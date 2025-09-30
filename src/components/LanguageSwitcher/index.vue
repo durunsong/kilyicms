@@ -16,11 +16,7 @@
         </div>
       </template>
       <div class="category_btn_cate">
-        <el-checkbox-group
-          v-model="checkList_status"
-          @change="ChangeLanguage"
-          class="gory_btn_bts"
-        >
+        <el-checkbox-group v-model="checkList_status" @change="ChangeLanguage" class="gory_btn_bts">
           <el-checkbox
             size="small"
             :border="true"
@@ -69,7 +65,7 @@ watch(
       checkList_status.value = oldVal;
     }
   },
-  { deep: true },
+  { deep: true }
 );
 
 const current_language = computed(() => {

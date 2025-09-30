@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-card :header="t('third_level_routing') + '- menu1-2'">
-      <router-view />
+      <router-view></router-view>
     </el-card>
   </div>
 </template>

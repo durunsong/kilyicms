@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <SwitchRoles />
+    <SwitchRoles></SwitchRoles>
     <el-tag type="warning" size="large">
       {{ t("role_visibility_message", { role: "admin" }) }}
     </el-tag>

@@ -2,11 +2,7 @@ import { createI18n } from "vue-i18n";
 import messages from "@/i18n/package";
 import { langList } from "@/utils/langList";
 import CACHE_KEY from "@/constants/cache-key";
-import {
-  getLocalData,
-  setLocalData,
-  removeLocalData,
-} from "@/utils/cache/local-storage";
+import { getLocalData, setLocalData, removeLocalData } from "@/utils/cache/local-storage";
 
 // 支持的语言
 const langListArr: string[] = langList.map((lang) => lang.category);
@@ -40,7 +36,7 @@ const i18n = createI18n({
   legacy: false, // 解决报错的(vue3写法)
   globalInjection: true, // 全局注册$t方法
   allowComposition: true, // 允许组合式api
-  messages,
+  messages
 });
 
 export default i18n;

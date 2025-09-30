@@ -19,16 +19,10 @@
       <div style="width: 100%">
         <div flex items-center justify-between>
           <h3 class="text-blue-500">
-            🥝{{
-              $t("ipifyDetection", { ipify: "ipify", service: "proxycheck.io" })
-            }}
+            🥝{{ $t("ipifyDetection", { ipify: "ipify", service: "proxycheck.io" }) }}
             🔽
           </h3>
-          <el-button
-            type="primary"
-            @click="reloadComponentProxycheck"
-            icon="Refresh"
-          >
+          <el-button type="primary" @click="reloadComponentProxycheck" icon="Refresh">
             {{ $t("recheck") }}
           </el-button>
         </div>

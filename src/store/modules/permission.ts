@@ -44,17 +44,13 @@ export const usePermissionStore: any = defineStore("permission", () => {
 
   const _set = (accessedRoutes: RouteRecordRaw[]) => {
     routes.value = constantRoutes.concat(accessedRoutes);
-    addRoutes.value = routeSettings.thirdLevelRouteCache
-      ? flatMultiLevelRoutes(accessedRoutes)
-      : accessedRoutes;
+    addRoutes.value = routeSettings.thirdLevelRouteCache ? flatMultiLevelRoutes(accessedRoutes) : accessedRoutes;
   };
 
   return { routes, addRoutes, setRoutes, setAllRoutes };
 });
 
 /** 在 setup 外使用 */
-export function usePermissionStoreHook(): ReturnType<
-  typeof usePermissionStore
-> {
+export function usePermissionStoreHook(): ReturnType<typeof usePermissionStore> {
   return usePermissionStore(store);
 }

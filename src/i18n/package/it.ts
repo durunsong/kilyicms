@@ -131,8 +131,7 @@ const it = {
   four_level_routing_cache: "cache di routing a quattro livelli",
   your_role: "Il tuo ruolo è",
   switching_users: "Scambio di utenti (simulazione di re-login)",
-  UnoCSS_use_case:
-    "Questa pagina è un caso d'uso {UnoCSS}, e il resto delle pagine utilizza ancora {Scss}",
+  UnoCSS_use_case: "Questa pagina è un caso d'uso {UnoCSS}, e il resto delle pagine utilizza ancora {Scss}",
   Reimagining_atomized_CSS: "Lettura consigliata: Reimagining atomized {CSS}",
   here_adopted: "Qui adottato",
   so_only: "Così solo",
@@ -151,18 +150,15 @@ const it = {
   search_results: "Risultati della ricerca",
   warning_message_unique_name:
     "Impossibile accedere al menu tramite la ricerca. Imposta una {keyword} univoca per il percorso corrispondente.",
-  mandatory_dynamic_parameters:
-    "Questo menu ha parametri dinamici obbligatori e non è accessibile tramite ricerca",
+  mandatory_dynamic_parameters: "Questo menu ha parametri dinamici obbligatori e non è accessibile tramite ricerca",
   Content_area_full_screen: "Area contenuti a schermo intero",
   browser_is_not_working: "Il tuo browser non funziona",
   Content_area_recovery: "Recupero dell'area del contenuto",
   Content_area_enlargement: "Ampliamento dei contenuti",
   default: "Predefinito",
   dark_blue: "Blu scuro",
-  warning_set_watermark_after_dom_mount:
-    "Si prega di chiamare {method} dopo che il {dom} è stato montato.",
-  Please_recreate_it_watermark:
-    "L'elemento filigrana non esiste. Per favore ricrealo",
+  warning_set_watermark_after_dom_mount: "Si prega di chiamare {method} dopo che il {dom} è stato montato.",
+  Please_recreate_it_watermark: "L'elemento filigrana non esiste. Per favore ricrealo",
   case_401: "Non autorizzato, accedi",
   case_403: "Accesso negato",
   case_404: "La richiesta non esiste",
@@ -174,8 +170,7 @@ const it = {
   case_504: "Timeout richiesta",
   other_case: "Problema di rete!",
   Theme_Mode: "Modalità tema",
-  message_jump_to_history_page:
-    "Vai alla pagina della cronologia di {pageName}.",
+  message_jump_to_history_page: "Vai alla pagina della cronologia di {pageName}.",
   message_notification: "notifica del messaggio",
   button_view_history: "Cronologia di {pageName} Visualizza",
   notifications: "Notifiche",
@@ -225,12 +220,9 @@ const it = {
   clickHereForIcons: "Clicca qui per le icone",
   i18nComponent:
     "Componente di internazionalizzazione: 16 interruttori di lingua, {element-plus} e {vue-i18n} sincronizzazione della lingua",
-  themeSwitch:
-    "Interruttore a tre temi (escluso la modalità di colore grigio e debole)",
-  fullscreenSwitch:
-    "Due modalità di commutazione a schermo intero (menu e area contenuto)",
-  fullscreenDescription:
-    "In alto a destra dello schermo e in alto a destra dell'area del contenuto",
+  themeSwitch: "Interruttore a tre temi (escluso la modalità di colore grigio e debole)",
+  fullscreenSwitch: "Due modalità di commutazione a schermo intero (menu e area contenuto)",
+  fullscreenDescription: "In alto a destra dello schermo e in alto a destra dell'area del contenuto",
   codeStandards: "Norme di codice",
   codeConventions:
     "Componente: PascalCase, Metodo: camelCase, Classe: kebab-case/understcore, Nome file: kebab-case/camelCase, Attributo: camelCase/understcore",
@@ -239,8 +231,7 @@ const it = {
   hooksExample: "Più di 10 incapsulazioni {ganci} di esempio",
   clickHereToHookExample: "Clicca qui per andare alla pagina di esempio",
   multiLevelRouteManagement: "Gestione multilivello delle rotte",
-  clickHereToMultiRouteExample:
-    "Clicca qui per andare alla pagina di esempio di gestione del percorso multilivello",
+  clickHereToMultiRouteExample: "Clicca qui per andare alla pagina di esempio di gestione del percorso multilivello",
   login_success: "Successo di accesso",
   switch_roles_Successfully: "Cambiare ruoli con successo",
   character: "Carattere",
@@ -270,22 +261,17 @@ const it = {
   tour_customSettingsTitle: "Impostazioni personalizzate",
   tour_customSettingsDescription: "Impostazioni di sistema",
   router_ip_address: "Indirizzo IP",
-  detectionTitle:
-    "Rilevamento di utenti {keywords} e VPN/Proxy (soluzioni Frontend e Backend)",
+  detectionTitle: "Rilevamento di utenti {keywords} e VPN/Proxy (soluzioni Frontend e Backend)",
   webrtcComparison: "Esempio di confronto di{webrtc} e {ipify} Name",
-  ipifyDetection:
-    "{ipify} IP rilevato giudicato dal servizio di terze parti ({service})",
+  ipifyDetection: "{ipify} IP rilevato giudicato dal servizio di terze parti ({service})",
   recheck: "Ricontrolla",
   stunRequestInfo:
     "Questa demo invia segretamente richieste ai server STUN, che registrano le tue richieste. Queste richieste non appariranno nella console degli sviluppatori e non potranno essere bloccate dai plugin del browser (ad esempio AdBlock, Ghostery).",
   webrtcPublicIp: "Il tuo indirizzo IP pubblico {webrtc} è:",
   ipifyPublicIp: "Il tuo indirizzo IP pubblico ottenuto tramite {ipify} è:",
-  comparisonMatch:
-    "Risultato: {webrtc} e {ipify} gli indirizzi IP corrispondono. Non stai utilizzando una VPN/proxy",
-  comparisonMismatch:
-    "Risultato: {webrtc} e {ipify} gli indirizzi IP non corrispondono. Potresti usare una VPN/proxy",
-  ipifyError:
-    "Recupero dell' indirizzo IP {ipify} non riuscito. Controlla la tua connessione di rete!",
+  comparisonMatch: "Risultato: {webrtc} e {ipify} gli indirizzi IP corrispondono. Non stai utilizzando una VPN/proxy",
+  comparisonMismatch: "Risultato: {webrtc} e {ipify} gli indirizzi IP non corrispondono. Potresti usare una VPN/proxy",
+  ipifyError: "Recupero dell' indirizzo IP {ipify} non riuscito. Controlla la tua connessione di rete!",
   vpnCheckTitle: "Risultati del rilevamento proxy/VPN",
   ipifyCurrentIP: "Indirizzo IP rilevato tramite ipify:",
   proxyCheckRange: "Intervallo IP rilevato tramite proxycheck.io:",
@@ -297,17 +283,14 @@ const it = {
   proxyCheckTimezone: "Fuso orario:",
   proxyCheckCoordinates: "Coordinate:",
   dataLoading: "I dati si stanno caricando, aspettate...",
-  comparisonMatch_ss:
-    "Risultato: Secondo {service}, non stai utilizzando una VPN/proxy",
-  comparisonMismatch_ss:
-    "Risultato: Secondo {service}, potresti utilizzare una VPN/proxy",
+  comparisonMatch_ss: "Risultato: Secondo {service}, non stai utilizzando una VPN/proxy",
+  comparisonMismatch_ss: "Risultato: Secondo {service}, potresti utilizzare una VPN/proxy",
   ipFetchError: "Recupero dell' indirizzo IP non riuscito.",
   proxyCheckError: "Rilevamento proxy/VPN fallito.",
-  proxyCheckStatusError:
-    "Rilevamento non riuscito a causa di errore del codice di stato.",
+  proxyCheckStatusError: "Rilevamento non riuscito a causa di errore del codice di stato.",
   errorOccurred: "Si è verificato un errore:",
   router_translation_process: "Processo di traduzione",
-  genericError: "Rilevamento fallito, riprova più tardi.",
+  genericError: "Rilevamento fallito, riprova più tardi."
 };
 
 export default it;

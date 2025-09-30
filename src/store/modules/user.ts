@@ -6,11 +6,7 @@ import { useSettingsStore } from "./settings";
 import { getToken, removeToken, setToken } from "@/utils/cache/cookies";
 import { resetRouter } from "@/router";
 import CACHE_KEY from "@/constants/cache-key";
-import {
-  setLocalData,
-  getLocalData,
-  removeLocalData,
-} from "@/utils/cache/local-storage";
+import { setLocalData, getLocalData, removeLocalData } from "@/utils/cache/local-storage";
 import { loginApi, userInfoApi } from "@/service/login";
 import { ElNotification } from "element-plus";
 import { useGreeting } from "@/hooks/useGreeting";
@@ -22,8 +18,7 @@ const { t } = i18n.global;
 export const useUserStore: any = defineStore("user", () => {
   const is_login = getLocalData(CACHE_KEY.IS_LOGIN_KEY) ?? false;
   const is_show_login_notice = getLocalData(CACHE_KEY.IS_SHOW_NOTICE) ?? false;
-  const is_show_login_notice_tips =
-    getLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS) ?? false;
+  const is_show_login_notice_tips = getLocalData(CACHE_KEY.IS_SHOW_NOTICE_TIPS) ?? false;
   const token = ref<string>(getToken() || "");
   const roles = ref<string[]>([]);
   const user_name = ref<string>("");
@@ -55,10 +50,7 @@ export const useUserStore: any = defineStore("user", () => {
     if (!is_login && !is_show_login_notice) {
       showGreetingNotification(t("login_success"), res.userInfo.user_name);
     } else if (is_login && is_show_login_notice) {
-      showGreetingNotification(
-        t("switch_roles_Successfully"),
-        res.userInfo.user_name,
-      );
+      showGreetingNotification(t("switch_roles_Successfully"), res.userInfo.user_name);
       if (is_show_login_notice_tips) {
         setLocalData(CACHE_KEY.IS_SHOW_NOTICE, false);
       }
@@ -66,10 +58,7 @@ export const useUserStore: any = defineStore("user", () => {
     // 这里模拟获取用户信息，具体逻辑看前后端约束
     user_name.value = res.userInfo.user_name;
     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
-    roles.value =
-      res.userInfo.roles?.length > 0
-        ? res.userInfo.roles
-        : routeSettings.defaultRoles;
+    roles.value = res.userInfo.roles?.length > 0 ? res.userInfo.roles : routeSettings.defaultRoles;
   };
 
   /** 模拟角色变化 */
@@ -79,7 +68,7 @@ export const useUserStore: any = defineStore("user", () => {
       const newRole = role == "admin" ? "admin" : "user";
       const params = {
         user_name: newRole,
-        password: "123456",
+        password: "123456"
       };
       // 登录API调用
       const res: any = await loginApi(params);
@@ -101,13 +90,10 @@ export const useUserStore: any = defineStore("user", () => {
   };
 
   // 通知弹窗函数
-  const showNotification = (
-    message: string,
-    type: "success" | "warning" | "error",
-  ) => {
+  const showNotification = (message: string, type: "success" | "warning" | "error") => {
     ElNotification({
       message,
-      type,
+      type
     });
   };
 
@@ -146,7 +132,7 @@ export const useUserStore: any = defineStore("user", () => {
     getInfoRoles,
     changeRoles,
     logout,
-    resetToken,
+    resetToken
   };
 });
 

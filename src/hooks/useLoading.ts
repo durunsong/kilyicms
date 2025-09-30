@@ -7,7 +7,7 @@ const { t } = i18n.global;
 const defaultOptions: Options = {
   lock: true,
   text: t("message_loading"),
-  background: "rgba(0, 0, 0, 0.1)",
+  background: "rgba(0, 0, 0, 0.1)"
 };
 
 /**
@@ -22,7 +22,7 @@ const defaultOptions: Options = {
  */
 export const useLoading = <T extends (...args: any[]) => any>(
   fn: T,
-  options: Options = {},
+  options: Options = {}
 ): ReturnType<T> | Promise<ReturnType<T>> => {
   let loading: any;
 
@@ -38,9 +38,7 @@ export const useLoading = <T extends (...args: any[]) => any>(
 
   const _options: Options = { ...defaultOptions, ...options };
 
-  const newFn: any = (
-    ...args: Parameters<T>
-  ): ReturnType<T> | Promise<ReturnType<T>> => {
+  const newFn: any = (...args: Parameters<T>): ReturnType<T> | Promise<ReturnType<T>> => {
     try {
       showLoading(_options);
       const result = fn(...args);

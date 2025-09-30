@@ -5,9 +5,9 @@ const { t } = i18n.global;
 const SUCCESS_RESPONSE_DATA = {
   code: 0,
   data: {
-    list: [] as number[],
+    list: [] as number[]
   },
-  message: t("Get_Success"),
+  message: t("Get_Success")
 };
 
 /** 模拟请求接口成功 */

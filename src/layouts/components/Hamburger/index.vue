@@ -1,8 +1,8 @@
 <template>
   <div @click="toggleClick">
     <el-icon :size="26" class="icon">
-      <Fold v-if="props.isActive" />
-      <Expand v-else />
+      <Fold v-if="props.isActive"></Fold>
+      <Expand v-else></Expand>
     </el-icon>
   </div>
 </template>
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  isActive: false,
+  isActive: false
 });
 
 const emit = defineEmits<{

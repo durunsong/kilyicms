@@ -78,8 +78,7 @@ const de = {
   Enter_full_screen: "Vollbildmodus aufrufen",
   light: "Licht",
   dark: "dunkel",
-  shift_delete:
-    "Sind Sie sicher, dass Sie diesen Artikel vollständig löschen möchten?",
+  shift_delete: "Sind Sie sicher, dass Sie diesen Artikel vollständig löschen möchten?",
   restore: "Wiederherstellen",
   sure_Restore: "Sind Sie sicher, dass Sie diese wiederherstellen möchten?",
   Restore_successfully: "Wiederherstellen erfolgreich",
@@ -101,8 +100,7 @@ const de = {
   Please_enter_your_email: "Bitte geben Sie Ihre E-Mail-Adresse ein",
   password_mismatch: "Kennwortfehler",
   Please_enter_your_password_again: "Bitte geben Sie Ihr Passwort erneut ein",
-  Please_enter_your_verification_code:
-    "Bitte geben Sie Ihren Bestätigungscode ein",
+  Please_enter_your_verification_code: "Bitte geben Sie Ihren Bestätigungscode ein",
   verification_code: "Prüfcode",
   login: "Login",
   confirm_password: "Passwort bestätigen",
@@ -133,10 +131,8 @@ const de = {
   four_level_routing_cache: "Vierstufiger Routing-Cache",
   your_role: "Ihre Rolle ist",
   switching_users: "Benutzer wechseln (Wiederanmeldung simulieren)",
-  UnoCSS_use_case:
-    "Diese Seite ist ein {UnoCSS} Anwendungsfall, und der Rest der Seiten verwendet immer noch {Scss}",
-  Reimagining_atomized_CSS:
-    "Empfohlene Lektüre: Neuinterpretation atomised {CSS}",
+  UnoCSS_use_case: "Diese Seite ist ein {UnoCSS} Anwendungsfall, und der Rest der Seiten verwendet immer noch {Scss}",
+  Reimagining_atomized_CSS: "Empfohlene Lektüre: Neuinterpretation atomised {CSS}",
   here_adopted: "Hier angenommen",
   so_only: "Also nur",
   so: "Also",
@@ -162,10 +158,8 @@ const de = {
   Content_area_enlargement: "Erweiterung des Inhaltsbereichs",
   default: "Standard",
   dark_blue: "Dunkelblau",
-  warning_set_watermark_after_dom_mount:
-    "Bitte rufen Sie {method} nach dem Einhängen des {dom} auf.",
-  Please_recreate_it_watermark:
-    "Das Wasserzeichen-Element existiert nicht. Bitte erstellen Sie es neu",
+  warning_set_watermark_after_dom_mount: "Bitte rufen Sie {method} nach dem Einhängen des {dom} auf.",
+  Please_recreate_it_watermark: "Das Wasserzeichen-Element existiert nicht. Bitte erstellen Sie es neu",
   case_401: "Nicht autorisiert, bitte einloggen",
   case_403: "Zugang verweigert",
   case_404: "Anfrage existiert nicht",
@@ -229,8 +223,7 @@ const de = {
     "Internationalisierungskomponente: 16 Sprachschalter, {element-plus} und {vue-i18n} Sprachsynchronisierung",
   themeSwitch: "Drei Theme-Schalter (außer Grau- und Schwachfarbmodus)",
   fullscreenSwitch: "Zwei Vollbildmodus-Schalter (Menü und Inhaltsbereich)",
-  fullscreenDescription:
-    "Rechts oben auf dem Bildschirm und rechts oben im Inhaltsbereich",
+  fullscreenDescription: "Rechts oben auf dem Bildschirm und rechts oben im Inhaltsbereich",
   codeStandards: "Kodex-Normen",
   codeConventions:
     "Komponente: PascalCase, Methode: camelCase, Klasse: kebab-case/underscore, Dateiname: kebab-case/camelCase, Attribut: camelCase/underscore",
@@ -239,8 +232,7 @@ const de = {
   hooksExample: "Mehr als 10 {Haken} Beispielverkapselungen",
   clickHereToHookExample: "Klicken Sie hier, um zur Beispielseite zu gelangen",
   multiLevelRouteManagement: "Mehrstufiges Streckenmanagement",
-  clickHereToMultiRouteExample:
-    "Klicken Sie hier, um zur Beispielseite für mehrstufige Routenverwaltung zu gelangen",
+  clickHereToMultiRouteExample: "Klicken Sie hier, um zur Beispielseite für mehrstufige Routenverwaltung zu gelangen",
   login_success: "Login erfolgreich",
   switch_roles_Successfully: "Rollenwechsel erfolgreich",
   character: "Zeichen",
@@ -270,23 +262,18 @@ const de = {
   tour_customSettingsTitle: "Benutzerdefinierte Einstellungen",
   tour_customSettingsDescription: "Systemeinstellungen",
   router_ip_address: "IP-Adresse",
-  detectionTitle:
-    "User {keywords} und VPN/Proxy Detection (Frontend- und Backend-Lösungen)",
+  detectionTitle: "User {keywords} und VPN/Proxy Detection (Frontend- und Backend-Lösungen)",
   webrtcComparison: "{webrtc} und {ipify} Vergleichsbeispiel",
-  ipifyDetection:
-    "{ipify} erkannte IP, die von Drittanbieterdiensten beurteilt wird ({service})",
+  ipifyDetection: "{ipify} erkannte IP, die von Drittanbieterdiensten beurteilt wird ({service})",
   recheck: "Überprüfen Sie erneut",
   stunRequestInfo:
     "Diese Demo stellt heimlich Anfragen an STUN Server, die Ihre Anfragen aufzeichnen. Diese Anfragen werden nicht in der Entwicklerkonsole angezeigt und können nicht durch Browser-Plugins (z.B. AdBlock, Ghostery) blockiert werden.",
   webrtcPublicIp: "Ihre öffentliche IP-Adresse {webrtc} lautet:",
-  ipifyPublicIp:
-    "Ihre öffentliche IP-Adresse, die Sie über {ipify} erhalten haben, lautet:",
-  comparisonMatch:
-    "Ergebnis: {webrtc} und {ipify} IP-Adressen stimmen überein. Sie verwenden kein VPN/Proxy",
+  ipifyPublicIp: "Ihre öffentliche IP-Adresse, die Sie über {ipify} erhalten haben, lautet:",
+  comparisonMatch: "Ergebnis: {webrtc} und {ipify} IP-Adressen stimmen überein. Sie verwenden kein VPN/Proxy",
   comparisonMismatch:
     "Ergebnis: {webrtc} und {ipify} IP-Adressen stimmen nicht überein. Möglicherweise verwenden Sie ein VPN/Proxy",
-  ipifyError:
-    "Abrufen der {ipify} IP-Adresse fehlgeschlagen. Bitte überprüfen Sie Ihre Netzwerkverbindung!",
+  ipifyError: "Abrufen der {ipify} IP-Adresse fehlgeschlagen. Bitte überprüfen Sie Ihre Netzwerkverbindung!",
   vpnCheckTitle: "Ergebnisse der Proxy-/VPN-Erkennung",
   ipifyCurrentIP: "IP-Adresse über ipify erkannt:",
   proxyCheckRange: "IP-Bereich über proxycheck.io erkannt:",
@@ -299,15 +286,12 @@ const de = {
   proxyCheckCoordinates: "Koordinaten:",
   dataLoading: "Daten werden geladen, bitte warten...",
   comparisonMatch_ss: "Ergebnis: Laut {service} verwenden Sie kein VPN/Proxy",
-  comparisonMismatch_ss:
-    "Ergebnis: Laut {service} verwenden Sie möglicherweise ein VPN/Proxy",
+  comparisonMismatch_ss: "Ergebnis: Laut {service} verwenden Sie möglicherweise ein VPN/Proxy",
   ipFetchError: "IP-Adresse konnte nicht abgerufen werden.",
   proxyCheckError: "Proxy/VPN Erkennung fehlgeschlagen.",
-  proxyCheckStatusError:
-    "Die Erkennung ist aufgrund eines Statuscodes fehlgeschlagen.",
+  proxyCheckStatusError: "Die Erkennung ist aufgrund eines Statuscodes fehlgeschlagen.",
   errorOccurred: "Es ist ein Fehler aufgetreten:",
   router_translation_process: "Übersetzungsprozess",
-  genericError:
-    "Die Erkennung ist fehlgeschlagen, bitte versuchen Sie es später erneut.",
+  genericError: "Die Erkennung ist fehlgeschlagen, bitte versuchen Sie es später erneut."
 };
 export default de;

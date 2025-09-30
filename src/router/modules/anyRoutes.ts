@@ -9,28 +9,28 @@ export const anyRoutes: RouteRecordRaw[] = [
     path: "/redirect",
     component: Layouts,
     meta: {
-      hidden: true,
+      hidden: true
     },
     children: [
       {
         path: ":path(.*)",
-        component: () => import("@/views/redirect/index.vue"),
-      },
-    ],
+        component: () => import("@/views/redirect/index.vue")
+      }
+    ]
   },
   {
     path: "/403",
     component: () => import("@/views/error-page/403.vue"),
     meta: {
-      hidden: true,
-    },
+      hidden: true
+    }
   },
   {
     path: "/404",
     component: () => import("@/views/error-page/404.vue"),
     meta: {
-      hidden: true,
+      hidden: true
     },
-    alias: "/:pathMatch(.*)*",
-  },
+    alias: "/:pathMatch(.*)*"
+  }
 ];

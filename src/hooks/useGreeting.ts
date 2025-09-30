@@ -24,11 +24,11 @@ export function useGreeting(t: (key: string) => string) {
     ElNotification({
       title: message,
       message: h("i", { style: "color: teal" }, greetingMessage),
-      type: "success",
+      type: "success"
     });
   };
 
   return {
-    showGreetingNotification,
+    showGreetingNotification
   };
 }

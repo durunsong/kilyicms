@@ -78,8 +78,7 @@ const fra = {
   Enter_full_screen: "Aller en plein écran",
   light: "Lumière",
   dark: "Sombre",
-  shift_delete:
-    "Êtes - vous sûr de vouloir supprimer complètement cet élément?",
+  shift_delete: "Êtes - vous sûr de vouloir supprimer complètement cet élément?",
   restore: "Restaurer",
   sure_Restore: "Êtes - vous sûr de vouloir restaurer ce fichier?",
   Restore_successfully: "Restauration réussie",
@@ -100,10 +99,8 @@ const fra = {
   Please_enter_your_password: "Veuillez entrer votre mot de passe",
   Please_enter_your_email: "Veuillez entrer votre email",
   password_mismatch: "Les mots de passe ne correspondent pas",
-  Please_enter_your_password_again:
-    "Veuillez saisir à nouveau votre mot de passe",
-  Please_enter_your_verification_code:
-    "Veuillez entrer votre code de vérification",
+  Please_enter_your_password_again: "Veuillez saisir à nouveau votre mot de passe",
+  Please_enter_your_verification_code: "Veuillez entrer votre code de vérification",
   verification_code: "Code de vérification",
   login: "Se connecter",
   confirm_password: "Confirmer le mot de passe",
@@ -134,10 +131,8 @@ const fra = {
   four_level_routing_cache: "Cache de routage à quatre niveaux",
   your_role: "Votre rôle est",
   switching_users: "Changer d'utilisateur (simuler une reconnexion)",
-  UnoCSS_use_case:
-    "Cette page est un cas d'utilisation de {unocss}, les autres pages utilisent encore {scss}",
-  Reimagining_atomized_CSS:
-    "Lecture recommandée: Réinventer l'atomisation {CSS}",
+  UnoCSS_use_case: "Cette page est un cas d'utilisation de {unocss}, les autres pages utilisent encore {scss}",
+  Reimagining_atomized_CSS: "Lecture recommandée: Réinventer l'atomisation {CSS}",
   here_adopted: "Ici par",
   so_only: "Donc seulement",
   so: "Donc",
@@ -155,18 +150,15 @@ const fra = {
   search_results: "Résultats de la recherche",
   warning_message_unique_name:
     "Impossible de naviguer dans le menu via la recherche. Veuillez définir un {mot - clé} unique pour l'itinéraire correspondant.",
-  mandatory_dynamic_parameters:
-    "Ce menu a des paramètres dynamiques forcés et n'est pas accessible par recherche",
+  mandatory_dynamic_parameters: "Ce menu a des paramètres dynamiques forcés et n'est pas accessible par recherche",
   Content_area_full_screen: "Zone de contenu plein écran",
   browser_is_not_working: "Votre navigateur ne fonctionne pas correctement",
   Content_area_recovery: "Récupération de zone de contenu",
   Content_area_enlargement: "Zone de contenu agrandir",
   default: "Violation",
   dark_blue: "Bleu foncé",
-  warning_set_watermark_after_dom_mount:
-    "Veuillez appeler {Method} Après avoir monté {Dom}.",
-  Please_recreate_it_watermark:
-    "L'élément filigrane n'existe pas. Veuillez recréer",
+  warning_set_watermark_after_dom_mount: "Veuillez appeler {Method} Après avoir monté {Dom}.",
+  Please_recreate_it_watermark: "L'élément filigrane n'existe pas. Veuillez recréer",
   case_401: "Non autorisé, veuillez vous connecter",
   case_403: "Accès refusé",
   case_404: "La demande n'existe pas",
@@ -228,12 +220,9 @@ const fra = {
   clickHereForIcons: "Cliquez ici pour les icônes",
   i18nComponent:
     "Composants d'internationalisation: 16 commutateurs de langue, {element plus} et {vue - i18n} synchronisation des langues",
-  themeSwitch:
-    "Trois commutateurs thématiques (modes gris et faible couleur non inclus)",
-  fullscreenSwitch:
-    "Deux modes de commutation plein écran (menu et zone de contenu)",
-  fullscreenDescription:
-    "Coin supérieur droit de l'écran et coin supérieur droit de la zone de contenu",
+  themeSwitch: "Trois commutateurs thématiques (modes gris et faible couleur non inclus)",
+  fullscreenSwitch: "Deux modes de commutation plein écran (menu et zone de contenu)",
+  fullscreenDescription: "Coin supérieur droit de l'écran et coin supérieur droit de la zone de contenu",
   codeStandards: "Normes de spécification",
   codeConventions:
     "Composants: pascalcase, méthode: CamelCase, classe: kebab Case / underscore, nom du fichier: kebb Case / CamelCase, propriété: CamelCase / underscore",
@@ -242,8 +231,7 @@ const fra = {
   hooksExample: "Plus de 10 {Hooks} exemples de Packaging",
   clickHereToHookExample: "Cliquez ici pour aller à la page d'exemple",
   multiLevelRouteManagement: "Gestion des itinéraires Multi - niveaux",
-  clickHereToMultiRouteExample:
-    "Cliquez ici pour accéder à la page d'exemples de gestion d'itinéraires multiniveaux",
+  clickHereToMultiRouteExample: "Cliquez ici pour accéder à la page d'exemples de gestion d'itinéraires multiniveaux",
   login_success: "Connexion réussie",
   switch_roles_Successfully: "Changement de rôle réussi",
   character: "Caractère",
@@ -273,22 +261,18 @@ const fra = {
   tour_customSettingsTitle: "Paramètres personnalisés",
   tour_customSettingsDescription: "Paramètres du système",
   router_ip_address: "Adresse IP",
-  detectionTitle:
-    "User {keyword} et détection VPN / proxy (solutions front et back - end)",
+  detectionTitle: "User {keyword} et détection VPN / proxy (solutions front et back - end)",
   webrtcComparison: "Exemple de comparaison entre {webrtc} et {ipify}",
-  ipifyDetection:
-    "{ipify} détecte une adresse IP jugée par un service tiers ({Service})",
+  ipifyDetection: "{ipify} détecte une adresse IP jugée par un service tiers ({Service})",
   recheck: "Revérifier",
   stunRequestInfo:
     "Cette démo fait secrètement une demande au serveur Stun, qui enregistre votre demande. Ces requêtes n'apparaissent pas dans la console du développeur et ne sont pas bloquées par des plugins de navigateur (par exemple adblock, ghostery).",
   webrtcPublicIp: "Votre adresse IP publique {webrtc} est:",
   ipifyPublicIp: "L'adresse IP publique que vous obtenez via {ipify} est:",
-  comparisonMatch:
-    "Résultat: les adresses IP {webrtc} et {ipify} correspondent. Vous n’utilisez pas de VPN / Proxy",
+  comparisonMatch: "Résultat: les adresses IP {webrtc} et {ipify} correspondent. Vous n’utilisez pas de VPN / Proxy",
   comparisonMismatch:
     "Résultat: les adresses IP {webrtc} et {ipify} ne correspondent pas. Vous utilisez peut - être un VPN / Proxy",
-  ipifyError:
-    "Impossible d'obtenir l'adresse IP {ipify}. Veuillez vérifier votre connexion réseau!",
+  ipifyError: "Impossible d'obtenir l'adresse IP {ipify}. Veuillez vérifier votre connexion réseau!",
   vpnCheckTitle: "Résultats de détection proxy / VPN",
   ipifyCurrentIP: "Adresse IP détectée par ipify:",
   proxyCheckRange: "Plage d'IP détectée par proxycheck.io:",
@@ -300,17 +284,14 @@ const fra = {
   proxyCheckTimezone: "Fuseau horaire:",
   proxyCheckCoordinates: "Coordination:",
   dataLoading: "Chargement des données, veuillez patienter...",
-  comparisonMatch_ss:
-    "Résultat: Selon {Service}, vous n’utilisez pas de VPN / Proxy",
-  comparisonMismatch_ss:
-    "Résultat: Selon {Service}, vous utilisez probablement un VPN / Proxy",
+  comparisonMatch_ss: "Résultat: Selon {Service}, vous n’utilisez pas de VPN / Proxy",
+  comparisonMismatch_ss: "Résultat: Selon {Service}, vous utilisez probablement un VPN / Proxy",
   ipFetchError: "L'obtention de l'adresse IP a échoué.",
   proxyCheckError: "La détection proxy / VPN a échoué.",
-  proxyCheckStatusError:
-    "La détection a échoué en raison d'une erreur de code d'état.",
+  proxyCheckStatusError: "La détection a échoué en raison d'une erreur de code d'état.",
   errorOccurred: "Une erreur est survenue:",
   router_translation_process: "Processus de traduction",
-  genericError: "La détection a échoué, Veuillez réessayer plus tard.",
+  genericError: "La détection a échoué, Veuillez réessayer plus tard."
 };
 
 export default fra;

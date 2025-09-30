@@ -2,22 +2,20 @@
   <div class="search-footer">
     <template v-if="!isMobile">
       <span class="search-footer-item">
-        <SvgIcon name="keyboard-enter" />
+        <SvgIcon name="keyboard-enter"></SvgIcon>
         <span>{{ t("confirm_ok_text") }}</span>
       </span>
       <span class="search-footer-item">
-        <SvgIcon name="keyboard-up" />
-        <SvgIcon name="keyboard-down" />
+        <SvgIcon name="keyboard-up"></SvgIcon>
+        <SvgIcon name="keyboard-down"></SvgIcon>
         <span>{{ t("switch") }}</span>
       </span>
       <span class="search-footer-item">
-        <SvgIcon name="keyboard-esc" />
+        <SvgIcon name="keyboard-esc"></SvgIcon>
         <span>{{ t("close") }}</span>
       </span>
     </template>
-    <span class="search-footer-total">{{
-      t("total_items", { count: props.total })
-    }}</span>
+    <span class="search-footer-total">{{ t("total_items", { count: props.total }) }}</span>
   </div>
 </template>
 

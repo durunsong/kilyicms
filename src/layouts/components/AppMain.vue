@@ -5,11 +5,7 @@
       <router-view v-slot="{ Component, route }">
         <transition name="el-fade-in" mode="out-in">
           <keep-alive :include="tagsViewStore.cachedViews">
-            <component
-              :is="Component"
-              :key="route.path"
-              class="app-container-grow"
-            ></component>
+            <component :is="Component" :key="route.path" class="app-container-grow"></component>
           </keep-alive>
         </transition>
       </router-view>

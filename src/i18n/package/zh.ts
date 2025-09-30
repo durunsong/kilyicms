@@ -127,8 +127,7 @@ const zh = {
   pass_argument_as: "传参为",
   form_verification_fails: "表单验证失败",
   length_characters: "长度为8到16个字符",
-  route_caching_is_disabled:
-    "三级及其以上路由缓存功能默认关闭，需要请前往此配置文件中打开：",
+  route_caching_is_disabled: "三级及其以上路由缓存功能默认关闭，需要请前往此配置文件中打开：",
   second_level_routing: "二级路由",
   third_level_routing: "三级路由",
   second_level_routing_cache: "二级路由缓存",
@@ -153,8 +152,7 @@ const zh = {
   total_items: "共 {count} 项",
   No_search_results_available: "暂无搜索结果",
   search_results: "搜索结果",
-  warning_message_unique_name:
-    "无法通过搜索进入该菜单，请为对应的路由设置唯一的 {keyword}。",
+  warning_message_unique_name: "无法通过搜索进入该菜单，请为对应的路由设置唯一的 {keyword}。",
   mandatory_dynamic_parameters: "该菜单有必填的动态参数，无法通过搜索进入",
   Content_area_full_screen: "内容区域全屏",
   browser_is_not_working: "你的浏览器不支持",
@@ -162,8 +160,7 @@ const zh = {
   Content_area_enlargement: "内容区放大",
   default: "默认",
   dark_blue: "深蓝",
-  warning_set_watermark_after_dom_mount:
-    "请在 {dom} 挂载完成后再调用 {method} 方法设置水印",
+  warning_set_watermark_after_dom_mount: "请在 {dom} 挂载完成后再调用 {method} 方法设置水印",
   Please_recreate_it_watermark: "水印元素已不存在，请重新创建",
   Cancel_duplicate_request: "取消重复请求",
   case_401: "未授权，请登录",
@@ -214,8 +211,7 @@ const zh = {
   create_global_watermark: "创建全局水印",
   disable_defense_global_watermark: "关闭防御功能",
   clear_global_watermark: "清除全局水印",
-  role_visibility_message:
-    "当前页面只有 {role} 角色可见，切换角色后将不能进入该页面",
+  role_visibility_message: "当前页面只有 {role} 角色可见，切换角色后将不能进入该页面",
   Close_current: "关闭当前",
   Left_side_mode: "左侧模式",
   Top_mode: "顶部模式",
@@ -224,14 +220,12 @@ const zh = {
   customSwitchComponent: "自定义开关组件",
   iconIntegration: "{unocss}集成标签图标{iconify}",
   clickHereForIcons: "点击此处找图标",
-  i18nComponent:
-    "国际化组件：16种语言切换，{element-plus}组件内置语言和{vue-i18n}语言切换同步",
+  i18nComponent: "国际化组件：16种语言切换，{element-plus}组件内置语言和{vue-i18n}语言切换同步",
   themeSwitch: "常规三种主题色切换（不包括灰色和色弱模式）",
   fullscreenSwitch: "两种全屏模式切换（菜单区和内容区）",
   fullscreenDescription: "屏幕右上角和内容区右上角",
   codeStandards: "代码规范",
-  codeConventions:
-    "组件: 大驼峰, 方法名: 小驼峰, 类名: -链接符/下划线, 文件名: -链接符/小驼峰, 属性: 小驼峰/下划线",
+  codeConventions: "组件: 大驼峰, 方法名: 小驼峰, 类名: -链接符/下划线, 文件名: -链接符/小驼峰, 属性: 小驼峰/下划线",
   permissionExample: "权限指令案例 | 首页",
   clickHereToExample: "点击这里跳转到示例页面",
   hooksExample: "10多个{hooks}案例封装",
@@ -276,10 +270,8 @@ const zh = {
     "该演示会秘密向 STUN 服务器发出请求，这些服务器会记录你的请求。这些请求不会显示在开发者控制台中，而且无法被浏览器插件（AdBlock、Ghostery 等）阻止。",
   webrtcPublicIp: "你的 {webrtc} 公网 IP 地址是:",
   ipifyPublicIp: "通过 {ipify} 获取的公网 IP 地址是:",
-  comparisonMatch:
-    "检测结果：{webrtc} 和 {ipify} 的 IP 地址相同，你没有使用 VPN/代理",
-  comparisonMismatch:
-    "检测结果：{webrtc} 和 {ipify} 的 IP 地址不同，你可能正在使用 VPN/代理",
+  comparisonMatch: "检测结果：{webrtc} 和 {ipify} 的 IP 地址相同，你没有使用 VPN/代理",
+  comparisonMismatch: "检测结果：{webrtc} 和 {ipify} 的 IP 地址不同，你可能正在使用 VPN/代理",
   ipifyError: "获取 {ipify} IP 地址失败，请检查网络连接！",
   vpnCheckTitle: "代理/VPN 检测结果",
   ipifyCurrentIP: "ipify检测当前IP 地址:",
@@ -298,7 +290,7 @@ const zh = {
   proxyCheckError: "检测代理/VPN 失败。",
   proxyCheckStatusError: "检测失败，状态码错误。",
   errorOccurred: "发生错误:",
-  genericError: "检测失败，请稍后重试。",
+  genericError: "检测失败，请稍后重试。"
 };
 
 export default zh;

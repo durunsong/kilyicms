@@ -22,14 +22,14 @@ const defaultPaginationData: DefaultPaginationData = {
   currentPage: 1,
   pageSizes: [10, 20, 50],
   pageSize: 10,
-  layout: "total, sizes, prev, pager, next, jumper",
+  layout: "total, sizes, prev, pager, next, jumper"
 };
 
 export function usePagination(initialPaginationData: PaginationData = {}) {
   /** 合并分页参数 */
   const paginationData = reactive({
     ...defaultPaginationData,
-    ...initialPaginationData,
+    ...initialPaginationData
   });
   /** 改变当前页码 */
   const handleCurrentChange = (value: number) => {

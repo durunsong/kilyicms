@@ -11,7 +11,7 @@
       </el-link>
     </h4>
     <el-card :header="t('second_level_routing') + '- menu1'">
-      <router-view />
+      <router-view></router-view>
     </el-card>
   </div>
 </template>

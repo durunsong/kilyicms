@@ -50,11 +50,7 @@
 
 <script lang="ts" setup>
 import { computed, ref, shallowRef } from "vue";
-import {
-  type RouteRecordName,
-  type RouteRecordRaw,
-  useRouter,
-} from "vue-router";
+import { type RouteRecordName, type RouteRecordRaw, useRouter } from "vue-router";
 import { usePermissionStore } from "@/store/modules/permission";
 import SearchResult from "./SearchResult.vue";
 import SearchFooter from "./SearchFooter.vue";
@@ -90,13 +86,9 @@ const menusData = computed(() => cloneDeep(usePermissionStore().routes));
 const handleSearch = debounce(() => {
   const flatMenusData = flatTree(menusData.value);
   resultList.value = flatMenusData.filter((menu) => {
-    const translatedTitle = menu.meta?.title
-      ? t(menu.meta.title as string)
-      : ""; // 使用 t 函数翻译 title
+    const translatedTitle = menu.meta?.title ? t(menu.meta.title as string) : ""; // 使用 t 函数翻译 title
     return keyword.value
-      ? translatedTitle
-          .toLocaleLowerCase()
-          .includes(keyword.value.toLocaleLowerCase().trim())
+      ? translatedTitle.toLocaleLowerCase().includes(keyword.value.toLocaleLowerCase().trim())
       : false;
   });
   // 默认选中搜索结果的第一项
@@ -137,9 +129,7 @@ const handleUp = () => {
   const { length } = resultList.value;
   if (length === 0) return;
   // 获取该 name 在菜单中第一次出现的位置
-  const index = resultList.value.findIndex(
-    (item) => item.name === activeRouteName.value,
-  );
+  const index = resultList.value.findIndex((item) => item.name === activeRouteName.value);
   // 如果已处在顶部
   if (index === 0) {
     const bottomName = resultList.value[length - 1].name;
@@ -164,9 +154,7 @@ const handleDown = () => {
   const { length } = resultList.value;
   if (length === 0) return;
   // 获取该 name 在菜单中最后一次出现的位置（可解决遇到连续两个相同 name 导致的下键不能生效的问题）
-  const index = resultList.value
-    .map((item) => item.name)
-    .lastIndexOf(activeRouteName.value);
+  const index = resultList.value.map((item) => item.name).lastIndexOf(activeRouteName.value);
   // 如果已处在底部
   if (index === length - 1) {
     const topName = resultList.value[0].name;

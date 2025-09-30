@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-tooltip effect="dark" :content="t('search_menu')" placement="bottom">
-      <SvgIcon name="search" @click="handleOpen" :aria-hidden="false" />
+      <SvgIcon name="search" @click="handleOpen" :aria-hidden="false"></SvgIcon>
     </el-tooltip>
-    <SearchModal v-model="modalVisible" />
+    <SearchModal v-model="modalVisible"></SearchModal>
   </div>
 </template>
 

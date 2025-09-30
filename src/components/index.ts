@@ -7,7 +7,7 @@ import PlaneSwitch from "./PlaneSwitch/index.vue";
 // 全局对象
 const allGlobalComponents: Record<string, Component> = {
   SvgIcon,
-  PlaneSwitch,
+  PlaneSwitch
   // Pagination,
 };
 
@@ -21,5 +21,5 @@ export default {
       // 注册为全局组件
       app.component(key, allGlobalComponents[key]);
     });
-  },
+  }
 };

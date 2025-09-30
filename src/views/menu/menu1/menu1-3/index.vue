@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-card :header="t('third_level_routing') + ' - menu1-3'">
-      <el-input v-model="text" />
+      <el-input v-model="text"></el-input>
     </el-card>
   </div>
 </template>
@@ -12,7 +12,7 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 defineOptions({
-  name: "Menu1-3",
+  name: "Menu1-3"
 });
 
 const text = ref("");

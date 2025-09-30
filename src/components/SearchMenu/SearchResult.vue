@@ -10,30 +10,17 @@
       @mouseenter="handleMouseenter(item)"
     >
       <SvgIcon v-if="item.meta?.svgIcon" :name="item.meta.svgIcon"></SvgIcon>
-      <component
-        v-else-if="item.meta?.elIcon"
-        :is="item.meta.elIcon"
-        class="el-icon"
-      ></component>
+      <component v-else-if="item.meta?.elIcon" :is="item.meta.elIcon" class="el-icon"></component>
       <span class="result-item-title">
         {{ t(item.meta?.title as string) }}
       </span>
-      <SvgIcon
-        v-if="modelValue && modelValue === item.name"
-        name="keyboard-enter"
-      ></SvgIcon>
+      <SvgIcon v-if="modelValue && modelValue === item.name" name="keyboard-enter"></SvgIcon>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {
-  getCurrentInstance,
-  onBeforeMount,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-} from "vue";
+import { getCurrentInstance, onBeforeMount, onBeforeUnmount, onMounted, ref } from "vue";
 import { type RouteRecordName, type RouteRecordRaw } from "vue-router";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
@@ -55,7 +42,7 @@ const itemStyle = (item: RouteRecordRaw) => {
   const flag = item.name === modelValue.value;
   return {
     background: flag ? "var(--el-color-primary)" : "",
-    color: flag ? "#ffffff" : "",
+    color: flag ? "#ffffff" : ""
   };
 };
 
@@ -74,15 +61,11 @@ const getScrollbarHeight = () => {
 
 /** 根据下标计算到顶部的距离 */
 const getScrollTop = (index: number) => {
-  const currentInstance = instance?.proxy?.$refs[
-    `resultItemRef${index}`
-  ] as HTMLDivElement[];
+  const currentInstance = instance?.proxy?.$refs[`resultItemRef${index}`] as HTMLDivElement[];
   if (!currentInstance) return 0;
   const currentRef = currentInstance[0];
   const scrollTop = currentRef.offsetTop + 128; // 128 = 两个 result-item （56 + 56 = 112）高度与上下 margin（8 + 8 = 16）大小之和
-  return scrollTop > scrollbarHeight.value
-    ? scrollTop - scrollbarHeight.value
-    : 0;
+  return scrollTop > scrollbarHeight.value ? scrollTop - scrollbarHeight.value : 0;
 };
 
 /** 在组件挂载前添加窗口大小变化事件监听器 */

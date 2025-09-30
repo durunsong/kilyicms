@@ -62,14 +62,8 @@ body {
   height: 25px;
   padding: 1px;
   border-radius: 13px;
-  background: linear-gradient(
-      90deg,
-      var(--street) 0%,
-      var(--street) 25%,
-      var(--sky-1) 75%,
-      var(--sky-2) 100%
-    )
-    left var(--p, 0%) top 0;
+  background: linear-gradient(90deg, var(--street) 0%, var(--street) 25%, var(--sky-1) 75%, var(--sky-2) 100%) left
+    var(--p, 0%) top 0;
   background-position-x: var(--p, 0%);
   background-size: 400% auto;
   transition: background-position 0.6s;

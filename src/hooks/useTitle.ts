@@ -11,9 +11,7 @@ const dynamicTitle = ref<string>("");
 /** 设置标题 */
 const setTitle = (title: string) => {
   const titleText = t(title);
-  dynamicTitle.value = titleText
-    ? `${VITE_APP_TITLE} | ${titleText}`
-    : VITE_APP_TITLE;
+  dynamicTitle.value = titleText ? `${VITE_APP_TITLE} | ${titleText}` : VITE_APP_TITLE;
 };
 
 /** 监听标题变化 */

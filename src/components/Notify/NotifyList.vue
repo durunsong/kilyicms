@@ -9,26 +9,14 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <el-empty v-if="props.list.length === 0" />
-  <el-card
-    v-else
-    v-for="(item, index) in props.list"
-    :key="index"
-    shadow="never"
-    class="card-container"
-  >
+  <el-empty v-if="props.list.length === 0"></el-empty>
+  <el-card v-else v-for="(item, index) in props.list" :key="index" shadow="never" class="card-container">
     <template #header>
       <div class="card-header">
         <div>
           <span>
             <span class="card-title">{{ item.title }}</span>
-            <el-tag
-              v-if="item.extra"
-              :type="item.status"
-              effect="plain"
-              size="small"
-              >{{ item.extra }}</el-tag
-            >
+            <el-tag v-if="item.extra" :type="item.status" effect="plain" size="small">{{ item.extra }}</el-tag>
           </span>
           <div class="card-time">{{ item.datetime }}</div>
         </div>

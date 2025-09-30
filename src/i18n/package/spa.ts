@@ -78,8 +78,7 @@ const spa = {
   Enter_full_screen: "Entrar en pantalla completa",
   light: "Luz",
   dark: "Oscuro",
-  shift_delete:
-    "¿Está seguro de que quiere eliminar completamente este proyecto?",
+  shift_delete: "¿Está seguro de que quiere eliminar completamente este proyecto?",
   restore: "Restaurar",
   sure_Restore: "¿Está seguro de que quiere restaurar este archivo?",
   Restore_successfully: "Restauración exitosa",
@@ -100,8 +99,7 @@ const spa = {
   Please_enter_your_password: "Introduzca su contraseña",
   Please_enter_your_email: "Introduzca su correo electrónico",
   password_mismatch: "La contraseña no coincide",
-  Please_enter_your_password_again:
-    "Por favor, vuelva a introducir la contraseña",
+  Please_enter_your_password_again: "Por favor, vuelva a introducir la contraseña",
   Please_enter_your_verification_code: "Introduzca su Código de verificación",
   verification_code: "Código de verificación",
   login: "Iniciar sesión",
@@ -116,8 +114,7 @@ const spa = {
   Verification_failed: "¡La verificación falló!",
   swipe_right: "Deslizarse a la derecha",
   hello_admin_page: "Bienvenidos a la página principal del personaje de admin",
-  hello_editor_page:
-    "Bienvenidos a la página principal del personaje de usuario",
+  hello_editor_page: "Bienvenidos a la página principal del personaje de usuario",
   back_home: "Vete a casa.",
   query_success: "La consulta fue exitosa",
   query_failed: "La consulta falló",
@@ -134,10 +131,8 @@ const spa = {
   four_level_routing_cache: "Caché de enrutamiento de cuatro niveles",
   your_role: "Tu personaje es",
   switching_users: "Cambiar usuario (simular volver a iniciar sesión)",
-  UnoCSS_use_case:
-    "Esta página es un caso de uso de (...) unocss), y el resto de páginas todavía usan (...) scss",
-  Reimagining_atomized_CSS:
-    "Lectura recomendada: replantear la atomización (...) css..",
+  UnoCSS_use_case: "Esta página es un caso de uso de (...) unocss), y el resto de páginas todavía usan (...) scss",
+  Reimagining_atomized_CSS: "Lectura recomendada: replantear la atomización (...) css..",
   here_adopted: "Aquí se pasa",
   so_only: "Así que solo",
   so: "Así que",
@@ -163,10 +158,8 @@ const spa = {
   Content_area_enlargement: "Ampliación del área de contenido",
   default: "Incumplimiento de contrato",
   dark_blue: "Azul oscuro",
-  warning_set_watermark_after_dom_mount:
-    "Por favor, llame a método después de montar el dom.",
-  Please_recreate_it_watermark:
-    "El elemento de marca de agua no existe. Por favor, recrear",
+  warning_set_watermark_after_dom_mount: "Por favor, llame a método después de montar el dom.",
+  Please_recreate_it_watermark: "El elemento de marca de agua no existe. Por favor, recrear",
   case_401: "No autorizado, inicie sesión",
   case_403: "Acceso denegado",
   case_404: "La solicitud no existe",
@@ -228,12 +221,9 @@ const spa = {
   clickHereForIcons: "Haga clic aquí para ver el icono",
   i18nComponent:
     "Componentes internacionalizados: 16 interruptores de lenguaje, (...) elemento plus!) y (...) sincronización de lenguaje",
-  themeSwitch:
-    "Tres interruptores temáticos (excluyendo los modos gris y de color débil)",
-  fullscreenSwitch:
-    "Cambio de dos modos de pantalla completa (menú y área de contenido)",
-  fullscreenDescription:
-    "Esquina superior derecha de la pantalla y esquina superior derecha del área de contenido",
+  themeSwitch: "Tres interruptores temáticos (excluyendo los modos gris y de color débil)",
+  fullscreenSwitch: "Cambio de dos modos de pantalla completa (menú y área de contenido)",
+  fullscreenDescription: "Esquina superior derecha de la pantalla y esquina superior derecha del área de contenido",
   codeStandards: "Normas normativas",
   codeConventions:
     "Componente: pascalcase, método: camelcase, clase: kebab Case / subrayado, nombre del archivo: kebb - Case / camelcase, atributo: CamelCase / subrayado",
@@ -273,22 +263,18 @@ const spa = {
   tour_customSettingsTitle: "Configuración personalizada",
   tour_customSettingsDescription: "Configuración del sistema",
   router_ip_address: "Dirección IP",
-  detectionTitle:
-    "Usuario (...) y detección VPN / agente (soluciones Front - end y back - end)",
+  detectionTitle: "Usuario (...) y detección VPN / agente (soluciones Front - end y back - end)",
   webrtcComparison: "Ejemplos de comparación entre (...) webrtc y (...) ipify)",
-  ipifyDetection:
-    "¿¿ se detecta una IP juzgada por un servicio de terceros ('servicio')?",
+  ipifyDetection: "¿¿ se detecta una IP juzgada por un servicio de terceros ('servicio')?",
   recheck: "Reexamen",
   stunRequestInfo:
     "Esta demostración enviará una solicitud en secreto al servidor stun, que registrará su solicitud. Estas solicitudes no aparecen en la consola del desarrollador ni son bloqueadas por plug - ins del navegador (como adblock, ghostery).",
   webrtcPublicIp: "Su dirección IP pública es:",
   ipifyPublicIp: "La dirección IP pública que obtuvo a través de ipify es:",
-  comparisonMatch:
-    "Resultado: webrtc? coincide con la dirección IP de (...) ipify. Usted no utiliza VPN / agente",
+  comparisonMatch: "Resultado: webrtc? coincide con la dirección IP de (...) ipify. Usted no utiliza VPN / agente",
   comparisonMismatch:
     "Resultado: '¿ webrtc', 'ipify', 'direcciones IP no coinciden. Es posible que esté usando VPN / agente",
-  ipifyError:
-    "No se puede obtener la dirección IP de ipify. ¡¡ por favor, compruebe su conexión a la red!",
+  ipifyError: "No se puede obtener la dirección IP de ipify. ¡¡ por favor, compruebe su conexión a la red!",
   vpnCheckTitle: "Resultados de la prueba de agente / VPN",
   ipifyCurrentIP: "Dirección IP detectada a través de ipify:",
   proxyCheckRange: "Rango IP detectado a través de proxicheck.io:",
@@ -301,14 +287,12 @@ const spa = {
   proxyCheckCoordinates: "Coordinación:",
   dataLoading: "Cargando datos, por favor Espere...",
   comparisonMatch_ss: "Resultado: no utiliza VPN / agente, según el servicio",
-  comparisonMismatch_ss:
-    "Resultado: es posible que esté usando VPN / agente de acuerdo con (...).",
+  comparisonMismatch_ss: "Resultado: es posible que esté usando VPN / agente de acuerdo con (...).",
   ipFetchError: "Falló al obtener la dirección Ip.",
   proxyCheckError: "La detección de agente / VPN falló.",
-  proxyCheckStatusError:
-    "La detección falló debido a un error en el Código de Estado.",
+  proxyCheckStatusError: "La detección falló debido a un error en el Código de Estado.",
   errorOccurred: "Se produjo un error:",
   router_translation_process: "Proceso de traducción",
-  genericError: "La prueba falló, por favor vuelva a intentarlo más tarde.",
+  genericError: "La prueba falló, por favor vuelva a intentarlo más tarde."
 };
 export default spa;

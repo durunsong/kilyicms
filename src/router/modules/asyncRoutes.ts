@@ -14,7 +14,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     name: "Menu",
     meta: {
       title: "router_Multilevel_routing",
-      svgIcon: "menu",
+      svgIcon: "menu"
     },
     children: [
       {
@@ -23,7 +23,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
         redirect: "/menu/menu1/menu1-1",
         name: "Menu1",
         meta: {
-          title: "router_menu1",
+          title: "router_menu1"
         },
         children: [
           {
@@ -32,8 +32,8 @@ export const asyncRoutes: RouteRecordRaw[] = [
             name: "Menu1-1",
             meta: {
               title: "router_menu1_1",
-              keepAlive: true,
-            },
+              keepAlive: true
+            }
           },
           {
             path: "menu1-2",
@@ -41,30 +41,28 @@ export const asyncRoutes: RouteRecordRaw[] = [
             redirect: "/menu/menu1/menu1-2/menu1-2-1",
             name: "Menu1-2",
             meta: {
-              title: "router_menu1_2",
+              title: "router_menu1_2"
             },
             children: [
               {
                 path: "menu1-2-1",
-                component: () =>
-                  import("@/views/menu/menu1/menu1-2/menu1-2-1/index.vue"),
+                component: () => import("@/views/menu/menu1/menu1-2/menu1-2-1/index.vue"),
                 name: "Menu1-2-1",
                 meta: {
                   title: "router_menu1_2_1",
-                  keepAlive: true,
-                },
+                  keepAlive: true
+                }
               },
               {
                 path: "menu1-2-2",
-                component: () =>
-                  import("@/views/menu/menu1/menu1-2/menu1-2-2/index.vue"),
+                component: () => import("@/views/menu/menu1/menu1-2/menu1-2-2/index.vue"),
                 name: "Menu1-2-2",
                 meta: {
                   title: "router_menu1_2_2",
-                  keepAlive: true,
-                },
-              },
-            ],
+                  keepAlive: true
+                }
+              }
+            ]
           },
           {
             path: "menu1-3",
@@ -72,10 +70,10 @@ export const asyncRoutes: RouteRecordRaw[] = [
             name: "Menu1-3",
             meta: {
               title: "router_menu1_3",
-              keepAlive: true,
-            },
-          },
-        ],
+              keepAlive: true
+            }
+          }
+        ]
       },
       {
         path: "menu2",
@@ -83,10 +81,10 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: "Menu2",
         meta: {
           title: "router_menu2",
-          keepAlive: true,
-        },
-      },
-    ],
+          keepAlive: true
+        }
+      }
+    ]
   },
   {
     path: "/website",
@@ -96,7 +94,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     meta: {
       title: "router_Site_Configuration",
       svgIcon: "website",
-      roles: ["admin"],
+      roles: ["admin"]
     },
     children: [
       {
@@ -107,7 +105,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
           title: "router_user",
           elIcon: "User",
           roles: ["admin"],
-          alwaysShow: true,
+          alwaysShow: true
         },
         component: () => import("@/views/user-center/index.vue"),
         children: [
@@ -117,10 +115,9 @@ export const asyncRoutes: RouteRecordRaw[] = [
             meta: {
               title: "router_user_management",
               elIcon: "UserFilled",
-              roles: ["admin"],
+              roles: ["admin"]
             },
-            component: () =>
-              import("@/views/user-center/user-management/user-list.vue"),
+            component: () => import("@/views/user-center/user-management/user-list.vue")
           },
           {
             path: "user-recycle-bin",
@@ -128,16 +125,13 @@ export const asyncRoutes: RouteRecordRaw[] = [
             meta: {
               title: "router_user_recycle_bin",
               hidden: false,
-              elIcon: "DeleteFilled",
+              elIcon: "DeleteFilled"
             },
-            component: () =>
-              import(
-                "@/views/user-center/user-management/user-recycle-bin.vue"
-              ),
-          },
-        ],
-      },
-    ],
+            component: () => import("@/views/user-center/user-management/user-recycle-bin.vue")
+          }
+        ]
+      }
+    ]
   },
   {
     path: "/permission",
@@ -148,7 +142,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
       title: "router_Authority_case",
       svgIcon: "lock",
       roles: ["admin", "user"], // 可以在根路由中设置角色
-      alwaysShow: true, // 将始终显示根菜单
+      alwaysShow: true // 将始终显示根菜单
     },
     children: [
       {
@@ -157,17 +151,17 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: "PagePermission",
         meta: {
           title: "router_Page_level_authority",
-          roles: ["admin"], // 或者在子导航中设置角色
-        },
+          roles: ["admin"] // 或者在子导航中设置角色
+        }
       },
       {
         path: "directive",
         component: () => import("@/views/permission/directive.vue"),
         name: "DirectivePermission",
         meta: {
-          title: "router_Button_level_authority", // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
-        },
-      },
-    ],
-  },
+          title: "router_Button_level_authority" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+        }
+      }
+    ]
+  }
 ];

@@ -1,8 +1,5 @@
 import { ref, watchEffect } from "vue";
-import {
-  getActiveThemeName,
-  setActiveThemeName,
-} from "@/utils/cache/local-storage";
+import { getActiveThemeName, setActiveThemeName } from "@/utils/cache/local-storage";
 import i18n from "@/i18n";
 
 const { t } = i18n.global;
@@ -21,22 +18,20 @@ interface ThemeList {
 const themeList: ThemeList[] = [
   {
     title: t("default"),
-    name: DEFAULT_THEME_NAME,
+    name: DEFAULT_THEME_NAME
   },
   {
     title: t("dark"),
-    name: "dark",
+    name: "dark"
   },
   {
     title: t("dark_blue"),
-    name: "dark-blue",
-  },
+    name: "dark-blue"
+  }
 ];
 
 /** 正在应用的主题名称 */
-const activeThemeName = ref<ThemeName>(
-  getActiveThemeName() || DEFAULT_THEME_NAME,
-);
+const activeThemeName = ref<ThemeName>(getActiveThemeName() || DEFAULT_THEME_NAME);
 
 /** 设置主题 */
 const setTheme = (value: ThemeName) => {

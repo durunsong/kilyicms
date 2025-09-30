@@ -6,7 +6,7 @@ type Timer = ReturnType<typeof setTimeout> | null;
 export function useDebounce<T extends (...args: any[]) => void>(
   func: T,
   wait: number,
-  immediate = false,
+  immediate = false
 ): (...args: Parameters<T>) => void {
   const timeout = ref<Timer>(null);
 

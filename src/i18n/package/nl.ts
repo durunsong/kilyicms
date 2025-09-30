@@ -131,8 +131,7 @@ const nl = {
   four_level_routing_cache: "Routingcache op vier niveaus",
   your_role: "Jouw rol is",
   switching_users: "Wisselen van gebruikers (opnieuw inloggen simuleren)",
-  UnoCSS_use_case:
-    "Deze pagina is een {UnoCSS} use case, en de rest van de pagina's gebruiken nog steeds {Scss}",
+  UnoCSS_use_case: "Deze pagina is een {UnoCSS} use case, en de rest van de pagina's gebruiken nog steeds {Scss}",
   Reimagining_atomized_CSS: "Aanbevolen lezen: Herontwerpen atomiseerd {CSS}",
   here_adopted: "Hier aangenomen",
   so_only: "Dus alleen",
@@ -151,18 +150,15 @@ const nl = {
   search_results: "Zoekresultaten",
   warning_message_unique_name:
     "Kan niet naar het menu navigeren via zoeken. Stel een uniek {keyword} in voor de corresponderende route.",
-  mandatory_dynamic_parameters:
-    "Dit menu heeft verplichte dynamische parameters en is niet toegankelijk via zoeken",
+  mandatory_dynamic_parameters: "Dit menu heeft verplichte dynamische parameters en is niet toegankelijk via zoeken",
   Content_area_full_screen: "Inhoudsgebied volledig scherm",
   browser_is_not_working: "Uw browser werkt niet",
   Content_area_recovery: "Herstel van inhoudsgebieden",
   Content_area_enlargement: "Uitbreiding van het inhoudsgebied",
   default: "Standaard",
   dark_blue: "Donkerblauw",
-  warning_set_watermark_after_dom_mount:
-    "Bel {methode} nadat de {dom} is gemount.",
-  Please_recreate_it_watermark:
-    "Het watermerkelement bestaat niet. Maak het alsjeblieft opnieuw aan",
+  warning_set_watermark_after_dom_mount: "Bel {methode} nadat de {dom} is gemount.",
+  Please_recreate_it_watermark: "Het watermerkelement bestaat niet. Maak het alsjeblieft opnieuw aan",
   case_401: "Niet geautoriseerd, gelieve in te loggen",
   case_403: "Toegang geweigerd",
   case_404: "Verzoek bestaat niet",
@@ -222,12 +218,10 @@ const nl = {
   customSwitchComponent: "Aangepaste schakelcomponent",
   iconIntegration: "{unocss} integreert labelpictogram {iconify}",
   clickHereForIcons: "Klik hier voor pictogrammen",
-  i18nComponent:
-    "Internationaliseringscomponent: 16 taalschakelaars, {element-plus} en {vue-i18n} taalsynchronisatie",
+  i18nComponent: "Internationaliseringscomponent: 16 taalschakelaars, {element-plus} en {vue-i18n} taalsynchronisatie",
   themeSwitch: "Drie thema schakelaar (behalve grijze en zwakke kleur modus)",
   fullscreenSwitch: "Twee fullscreen modi switch (menu en inhoudsgebied)",
-  fullscreenDescription:
-    "Rechtsboven van het scherm en rechtsboven van het inhoudsgebied",
+  fullscreenDescription: "Rechtsboven van het scherm en rechtsboven van het inhoudsgebied",
   codeStandards: "Codenormen",
   codeConventions:
     "Component: PascalCase, Methode: camelCase, Klasse: kebab-case/underscore, Bestandsnaam: kebab-case/camelCase, Attribute: camelCase/underscore",
@@ -236,8 +230,7 @@ const nl = {
   hooksExample: "Meer dan 10 {haken} voorbeeldinkapssels",
   clickHereToHookExample: "Klik hier om naar de voorbeeldpagina te gaan",
   multiLevelRouteManagement: "Routebeheer op meerdere niveaus",
-  clickHereToMultiRouteExample:
-    "Klik hier om naar de voorbeeldpagina voor routebeheer met meerdere niveaus te gaan",
+  clickHereToMultiRouteExample: "Klik hier om naar de voorbeeldpagina voor routebeheer met meerdere niveaus te gaan",
   login_success: "Inloggen succesvol",
   switch_roles_Successfully: "Van rol wisselen succesvol",
   character: "Teken",
@@ -267,22 +260,18 @@ const nl = {
   tour_customSettingsTitle: "Aangepaste instellingen",
   tour_customSettingsDescription: "Systeeminstellingen",
   router_ip_address: "IP-adres",
-  detectionTitle:
-    "User {keywords} en VPN/proxy detectie (Frontend en Backend oplossingen)",
+  detectionTitle: "User {keywords} en VPN/proxy detectie (Frontend en Backend oplossingen)",
   webrtcComparison: "{webrtc} en {ipify} Vergelijkingsvoorbeeld",
-  ipifyDetection:
-    "{ipify} gedetecteerd IP beoordeeld door service van derden ({service})",
+  ipifyDetection: "{ipify} gedetecteerd IP beoordeeld door service van derden ({service})",
   recheck: "Hercontroleren",
   stunRequestInfo:
     "Deze demo doet stiekem verzoeken aan STUN servers, die uw verzoeken registreren. Deze verzoeken worden niet weergegeven in de ontwikkelaarsconsole en kunnen niet worden geblokkeerd door browserplugins (bijv. AdBlock, Ghostery).",
   webrtcPublicIp: "Uw {webrtc} openbare IP-adres is:",
   ipifyPublicIp: "Uw openbare IP-adres verkregen via {ipify} is:",
-  comparisonMatch:
-    "Resultaat: {webrtc} en {ipify} IP-adressen komen overeen. U gebruikt geen VPN /proxy",
+  comparisonMatch: "Resultaat: {webrtc} en {ipify} IP-adressen komen overeen. U gebruikt geen VPN /proxy",
   comparisonMismatch:
     "Resultaat: {webrtc} en {ipify} IP-adressen komen niet overeen. Mogelijk gebruikt u een VPN/proxy",
-  ipifyError:
-    "Het ophalen van {ipify} IP-adres is mislukt. Controleer uw netwerkverbinding!",
+  ipifyError: "Het ophalen van {ipify} IP-adres is mislukt. Controleer uw netwerkverbinding!",
   vpnCheckTitle: "Proxy/VPN detectie resultaten",
   ipifyCurrentIP: "IP-adres gedetecteerd via ipify:",
   proxyCheckRange: "IP-bereik gedetecteerd via proxycheck.io:",
@@ -295,14 +284,13 @@ const nl = {
   proxyCheckCoordinates: "Coördinaten:",
   dataLoading: "Data wordt geladen, wacht alstublieft...",
   comparisonMatch_ss: "Resultaat: Volgens {service} gebruikt u geen VPN/proxy",
-  comparisonMismatch_ss:
-    "Resultaat: Volgens {service} gebruikt u mogelijk een VPN/proxy",
+  comparisonMismatch_ss: "Resultaat: Volgens {service} gebruikt u mogelijk een VPN/proxy",
   ipFetchError: "Kan IP-adres niet ophalen.",
   proxyCheckError: "Proxy/VPN detectie mislukt.",
   proxyCheckStatusError: "Detectie mislukt als gevolg van statuscode fout.",
   errorOccurred: "Er is een fout opgetreden:",
   router_translation_process: "Vertaalproces",
-  genericError: "Detectie mislukt, probeer het later opnieuw.",
+  genericError: "Detectie mislukt, probeer het later opnieuw."
 };
 
 export default nl;

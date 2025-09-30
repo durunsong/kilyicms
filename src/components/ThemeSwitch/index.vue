@@ -27,13 +27,10 @@ import { type ThemeName, useTheme } from "@/hooks/useTheme";
 
 const { themeList, activeThemeName, setTheme } = useTheme();
 
-const handleChangeTheme = (
-  { clientX, clientY }: MouseEvent,
-  themeName: ThemeName,
-) => {
+const handleChangeTheme = ({ clientX, clientY }: MouseEvent, themeName: ThemeName) => {
   const maxRadius = Math.hypot(
     Math.max(clientX, window.innerWidth - clientX),
-    Math.max(clientY, window.innerHeight - clientY),
+    Math.max(clientY, window.innerHeight - clientY)
   );
   const style = document.documentElement.style;
   style.setProperty("--kilyicms-theme-x", clientX + "px");
@@ -43,8 +40,6 @@ const handleChangeTheme = (
     setTheme(themeName);
   };
 
-  document.startViewTransition
-    ? document.startViewTransition(handler)
-    : handler();
+  document.startViewTransition ? document.startViewTransition(handler) : handler();
 };
 </script>

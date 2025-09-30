@@ -100,8 +100,7 @@ const pl = {
   Please_enter_your_email: "Proszę wpisać swój e-mail",
   password_mismatch: "Niedopasowanie hasła",
   Please_enter_your_password_again: "Proszę wprowadzić hasło ponownie",
-  Please_enter_your_verification_code:
-    "Proszę wprowadzić swój kod weryfikacyjny",
+  Please_enter_your_verification_code: "Proszę wprowadzić swój kod weryfikacyjny",
   verification_code: "Kod weryfikacji",
   login: "Zaloguj się",
   confirm_password: "Potwierdź hasło",
@@ -132,10 +131,8 @@ const pl = {
   four_level_routing_cache: "Czteropoziomowa pamięć podręczna routingu",
   your_role: "Twoja rola to",
   switching_users: "Przełączanie użytkowników (symulacja ponownego logowania)",
-  UnoCSS_use_case:
-    "Ta strona jest przypadkiem użycia {UnoCSS}, a reszta stron nadal używa {Scss}",
-  Reimagining_atomized_CSS:
-    "Zalecane czytanie: Przekształcenie atomizowanego {CSS}",
+  UnoCSS_use_case: "Ta strona jest przypadkiem użycia {UnoCSS}, a reszta stron nadal używa {Scss}",
+  Reimagining_atomized_CSS: "Zalecane czytanie: Przekształcenie atomizowanego {CSS}",
   here_adopted: "W niniejszym przyjęciu",
   so_only: "Więc tylko",
   so: "Więc...",
@@ -161,10 +158,8 @@ const pl = {
   Content_area_enlargement: "Rozszerzenie obszaru treści",
   default: "Domyślne",
   dark_blue: "Ciemny niebieski",
-  warning_set_watermark_after_dom_mount:
-    "Proszę wywołać {method} po zamontowaniu {dom}.",
-  Please_recreate_it_watermark:
-    "Element znaku wodnego nie istnieje. Proszę go ponownie utworzyć.",
+  warning_set_watermark_after_dom_mount: "Proszę wywołać {method} po zamontowaniu {dom}.",
+  Please_recreate_it_watermark: "Element znaku wodnego nie istnieje. Proszę go ponownie utworzyć.",
   case_401: "Nie autoryzowane, proszę zalogować się",
   case_403: "Dostęp odmowa",
   case_404: "Żądanie nie istnieje",
@@ -226,12 +221,9 @@ const pl = {
   clickHereForIcons: "Kliknij tutaj, aby uzyskać ikony",
   i18nComponent:
     "Komponent internacjonalizacji: 16 przełączniki językowe, {element-plus} i {vue-i18n} synchronizacja językowa",
-  themeSwitch:
-    "Przełącznik trzech motywów (z wyłączeniem trybu szarości i słabych kolorów)",
-  fullscreenSwitch:
-    "Przełącznik trybów pełnoekranowych (menu i obszar zawartości)",
-  fullscreenDescription:
-    "Prawa górna część ekranu i prawa górna część obszaru zawartości",
+  themeSwitch: "Przełącznik trzech motywów (z wyłączeniem trybu szarości i słabych kolorów)",
+  fullscreenSwitch: "Przełącznik trybów pełnoekranowych (menu i obszar zawartości)",
+  fullscreenDescription: "Prawa górna część ekranu i prawa górna część obszaru zawartości",
   codeStandards: "Normy kodeksu",
   codeConventions:
     "Składnik: PascalCase, Metoda: camelCase, Klasa: kebab-case/underscore, Nazwa pliku: kebab-case/camelCase, Atrybut: camelCase/underscore",
@@ -240,8 +232,7 @@ const pl = {
   hooksExample: "Więcej niż 10 {haki} przykładowe kapsułki",
   clickHereToHookExample: "Kliknij tutaj, aby przejść do strony przykładowej",
   multiLevelRouteManagement: "Wielopoziomowe zarządzanie trasami",
-  clickHereToMultiRouteExample:
-    "Kliknij tutaj, aby przejść do wielopoziomowej strony przykładowej zarządzania trasami",
+  clickHereToMultiRouteExample: "Kliknij tutaj, aby przejść do wielopoziomowej strony przykładowej zarządzania trasami",
   login_success: "Powodzenie logowania",
   switch_roles_Successfully: "Skuteczna zmiana roli",
   character: "Znak",
@@ -271,23 +262,17 @@ const pl = {
   tour_customSettingsTitle: "Ustawienia niestandardowe",
   tour_customSettingsDescription: "Ustawienia systemowe",
   router_ip_address: "Adres IP",
-  detectionTitle:
-    "Użytkownik {słowa kluczowe} i VPN/Proxy Detection (rozwiązania Frontend i Backend)",
+  detectionTitle: "Użytkownik {słowa kluczowe} i VPN/Proxy Detection (rozwiązania Frontend i Backend)",
   webrtcComparison: "{webrtc} i {ipify} Przykład porównania",
-  ipifyDetection:
-    "{ipify} wykryty IP oceniany przez usługę zewnętrzną ({usługa})",
+  ipifyDetection: "{ipify} wykryty IP oceniany przez usługę zewnętrzną ({usługa})",
   recheck: "Sprawdź ponownie",
   stunRequestInfo:
     "To demo potajemnie składa żądania do serwerów STUN, które rejestrują Twoje żądania. Żądania te nie pojawią się w konsoli dewelopera i nie mogą być zablokowane przez wtyczki przeglądarki (np. AdBlock, Ghostery).",
   webrtcPublicIp: "Twój publiczny adres IP {webrtc} to:",
-  ipifyPublicIp:
-    "Państwa publiczny adres IP uzyskany za pośrednictwem {ipify} to:",
-  comparisonMatch:
-    "Wynik: {webrtc} i {ipify} pasują adresy IP. Nie używasz VPN /proxy",
-  comparisonMismatch:
-    "Wynik: {webrtc} i {ipify} adresy IP nie pasują. Możesz używać VPN/proxy",
-  ipifyError:
-    "Nie udało się pobrać adresu IP {ipify}. Proszę sprawdzić połączenie sieciowe!",
+  ipifyPublicIp: "Państwa publiczny adres IP uzyskany za pośrednictwem {ipify} to:",
+  comparisonMatch: "Wynik: {webrtc} i {ipify} pasują adresy IP. Nie używasz VPN /proxy",
+  comparisonMismatch: "Wynik: {webrtc} i {ipify} adresy IP nie pasują. Możesz używać VPN/proxy",
+  ipifyError: "Nie udało się pobrać adresu IP {ipify}. Proszę sprawdzić połączenie sieciowe!",
   vpnCheckTitle: "Wyniki wykrywania proxy/VPN",
   ipifyCurrentIP: "Adres IP wykryty przez ipify:",
   proxyCheckRange: "Zakres IP wykryty za pośrednictwem proxycheck.io:",
@@ -300,14 +285,13 @@ const pl = {
   proxyCheckCoordinates: "Współrzędne:",
   dataLoading: "Dane się ładują, proszę poczekać...",
   comparisonMatch_ss: "Rezultat: Według {service}, nie korzystasz z VPN/proxy",
-  comparisonMismatch_ss:
-    "Rezultat: Według {service}, możesz korzystać z VPN/proxy",
+  comparisonMismatch_ss: "Rezultat: Według {service}, możesz korzystać z VPN/proxy",
   ipFetchError: "Nie udało się pobrać adresu IP.",
   proxyCheckError: "Wykrywanie proxy/VPN nie powiodło się.",
   proxyCheckStatusError: "Wykrycie nie powiodło się z powodu błędu kodu stanu.",
   errorOccurred: "Wystąpił błąd:",
   router_translation_process: "Proces tłumaczenia",
-  genericError: "Wykrycie nie powiodło się, spróbuj ponownie później.",
+  genericError: "Wykrycie nie powiodło się, spróbuj ponownie później."
 };
 
 export default pl;

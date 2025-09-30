@@ -5,6 +5,6 @@ export const getProxycheck = (ip: string) => {
   return request({
     url: "/proxycheck",
     method: "GET",
-    params: { ip },
+    params: { ip }
   });
 };

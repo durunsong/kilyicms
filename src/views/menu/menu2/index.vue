@@ -2,7 +2,7 @@
 import { ref } from "vue";
 
 defineOptions({
-  name: "Menu2",
+  name: "Menu2"
 });
 
 const text = ref("");
@@ -11,7 +11,7 @@ const text = ref("");
 <template>
   <div class="app-container">
     <el-card header="二级路由缓存 - menu2">
-      <el-input v-model="text" />
+      <el-input v-model="text"></el-input>
     </el-card>
   </div>
 </template>

@@ -2,16 +2,8 @@
   <div class="notify">
     <el-popover placement="bottom" :width="popoverWidth" trigger="click">
       <template #reference>
-        <el-badge
-          :value="badgeValue"
-          :max="badgeMax"
-          :hidden="badgeValue === 0"
-        >
-          <el-tooltip
-            effect="dark"
-            :content="t('message_notification')"
-            placement="bottom"
-          >
+        <el-badge :value="badgeValue" :max="badgeMax" :hidden="badgeValue === 0">
+          <el-tooltip effect="dark" :content="t('message_notification')" placement="bottom">
             <el-icon :size="20" class="shake-hover">
               <Bell></Bell>
             </el-icon>
@@ -20,18 +12,10 @@
       </template>
       <template #default>
         <el-tabs v-model="activeName" class="demo-tabs" stretch>
-          <el-tab-pane
-            v-for="(item, index) in data"
-            :name="item.name"
-            :key="index"
-          >
+          <el-tab-pane v-for="(item, index) in data" :name="item.name" :key="index">
             <template #label>
               {{ item.name }}
-              <el-badge
-                :value="item.list.length"
-                :max="badgeMax"
-                :type="item.type"
-              ></el-badge>
+              <el-badge :value="item.list.length" :max="badgeMax" :type="item.type"></el-badge>
             </template>
             <el-scrollbar height="400px">
               <NotifyList :list="item.list"></NotifyList>
@@ -64,10 +48,7 @@ const messagesText = t("messages");
 const pendingText = t("pending");
 
 // 定义 TabName 类型
-type TabName =
-  | typeof notificationsText
-  | typeof messagesText
-  | typeof pendingText;
+type TabName = typeof notificationsText | typeof messagesText | typeof pendingText;
 
 interface DataItem {
   name: TabName;
@@ -91,26 +72,24 @@ const data = ref<DataItem[]>([
   {
     name: notificationsText,
     type: "primary",
-    list: notifyData,
+    list: notifyData
   },
   // 消息数据
   {
     name: messagesText,
     type: "danger",
-    list: messageData,
+    list: messageData
   },
   // 待办数据
   {
     name: pendingText,
     type: "warning",
-    list: todoData,
-  },
+    list: todoData
+  }
 ]);
 
 const handleHistory = () => {
-  ElMessage.success(
-    t("message_jump_to_history_page", { pageName: activeName.value }),
-  );
+  ElMessage.success(t("message_jump_to_history_page", { pageName: activeName.value }));
 };
 </script>
 

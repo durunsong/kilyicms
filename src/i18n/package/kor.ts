@@ -131,8 +131,7 @@ const kor = {
   four_level_routing_cache: "4 레벨 라우팅 캐시",
   your_role: "너의 역할",
   switching_users: "사용자 전환 (재로그인 시뮬레이션)",
-  UnoCSS_use_case:
-    "이 페이지는 {UnoCSS} 의 사용 사례이며 다른 페이지는 여전히 {Scss} 를 사용합니다.",
+  UnoCSS_use_case: "이 페이지는 {UnoCSS} 의 사용 사례이며 다른 페이지는 여전히 {Scss} 를 사용합니다.",
   Reimagining_atomized_CSS: "추천 읽기: 원자화 재구성 {CSS}",
   here_adopted: "여기 채택했어요.",
   so_only: "그래서 오직",
@@ -151,8 +150,7 @@ const kor = {
   search_results: "검색 결과",
   warning_message_unique_name:
     "검색을 통해 이 메뉴에 들어갈 수 없습니다. 해당 경로에 대해 고유한 {keyword} 을 설정하십시오.",
-  mandatory_dynamic_parameters:
-    "이 메뉴에는 필수 동적 매개 변수가 있으므로 검색을 통해 들어갈 수 없습니다.",
+  mandatory_dynamic_parameters: "이 메뉴에는 필수 동적 매개 변수가 있으므로 검색을 통해 들어갈 수 없습니다.",
   Content_area_full_screen: "컨텐츠 영역 전체 화면",
   browser_is_not_working: "브라우저에서 지원되지 않음",
   Content_area_recovery: "컨텐츠 영역 복원",
@@ -161,8 +159,7 @@ const kor = {
   dark_blue: "짙은 남색",
   warning_set_watermark_after_dom_mount:
     "{dom} 마운트가 완료된 후에 {method} 메서드를 호출하여 워터마크를 설정하십시오.",
-  Please_recreate_it_watermark:
-    "워터마크 요소가 더 이상 없습니다. 다시 생성하십시오.",
+  Please_recreate_it_watermark: "워터마크 요소가 더 이상 없습니다. 다시 생성하십시오.",
   Cancel_duplicate_request: "중복 요청 취소",
   case_401: "권한이 없습니다. 로그인하십시오.",
   case_403: "액세스 거부",
@@ -212,8 +209,7 @@ const kor = {
   create_global_watermark: "글로벌 워터마크 만들기",
   disable_defense_global_watermark: "방어 기능 해제",
   clear_global_watermark: "전역 워터마크 지우기",
-  role_visibility_message:
-    "현재 페이지는 {role} 역할만 볼 수 있으며 역할을 전환하면 이 페이지에 들어갈 수 없습니다",
+  role_visibility_message: "현재 페이지는 {role} 역할만 볼 수 있으며 역할을 전환하면 이 페이지에 들어갈 수 없습니다",
   Close_current: "현재 닫기",
   Left_side_mode: "왼쪽 모드",
   Top_mode: "상단 모드",
@@ -222,8 +218,7 @@ const kor = {
   customSwitchComponent: "스위치 구성 요소 사용자 정의",
   iconIntegration: "{unocss} 통합 태그 아이콘 {iconify}",
   clickHereForIcons: "아이콘을 찾으려면 여기를 클릭하십시오.",
-  i18nComponent:
-    "국제화 구성 요소: 16개 언어 전환, {element-plus} 구성 요소 내장 언어 및 {vue-i18n} 언어 전환 동기화",
+  i18nComponent: "국제화 구성 요소: 16개 언어 전환, {element-plus} 구성 요소 내장 언어 및 {vue-i18n} 언어 전환 동기화",
   themeSwitch: "일반적인 세 가지 테마 색상 전환 (회색 및 비고정 모드 제외)",
   fullscreenSwitch: "두 가지 전체 화면 모드 전환 (메뉴 및 컨텐츠 영역)",
   fullscreenDescription: "화면 오른쪽 위 및 컨텐츠 영역 오른쪽 위",
@@ -235,8 +230,7 @@ const kor = {
   hooksExample: "10 개 이상의 {hooks} 케이스 패키지",
   clickHereToHookExample: "케이스 페이지로 이동하려면 여기를 클릭하십시오.",
   multiLevelRouteManagement: "다중 레벨 라우팅 관리",
-  clickHereToMultiRouteExample:
-    "여기를 클릭하여 다중 라우팅 관리 사례 페이지로 이동",
+  clickHereToMultiRouteExample: "여기를 클릭하여 다중 라우팅 관리 사례 페이지로 이동",
   login_success: "로그인 성공",
   switch_roles_Successfully: "역할 전환 성공",
   character: "역할",
@@ -273,14 +267,11 @@ const kor = {
   stunRequestInfo:
     "이 프레젠테이션은 요청을 기록하는 STUN 서버에 비밀리에 요청을 보냅니다.이러한 요청은 개발자 콘솔에 표시되지 않으며 브라우저 플러그인(AdBlock, Ghostery 등)에 의해 차단될 수 없습니다.",
   webrtcPublicIp: "{webrtc} 공용 네트워크 IP 주소는 다음과 같습니다.",
-  ipifyPublicIp:
-    "{ipify} 를 통해 얻은 공용 네트워크 IP 주소는 다음과 같습니다.",
-  comparisonMatch:
-    "테스트 결과: {webrtc} 와 {ipify} 의 IP 주소가 같으며 VPN/ 에이전트를 사용하지 않았습니다.",
+  ipifyPublicIp: "{ipify} 를 통해 얻은 공용 네트워크 IP 주소는 다음과 같습니다.",
+  comparisonMatch: "테스트 결과: {webrtc} 와 {ipify} 의 IP 주소가 같으며 VPN/ 에이전트를 사용하지 않았습니다.",
   comparisonMismatch:
     "테스트 결과: {webrtc} 와 {ipify} 의 IP 주소가 다르므로 VPN/ 에이전트를 사용하고 있을 수 있습니다",
-  ipifyError:
-    "{ipify} IP 주소를 가져오지 못했습니다. 네트워크 연결을 확인하십시오!",
+  ipifyError: "{ipify} IP 주소를 가져오지 못했습니다. 네트워크 연결을 확인하십시오!",
   vpnCheckTitle: "프록시/VPN 검사 결과",
   ipifyCurrentIP: "ipify가 현재 IP 주소를 감지합니다.",
   proxyCheckRange: "proxycheck.io 는 현재 IP 범위를 감지합니다.",
@@ -292,15 +283,13 @@ const kor = {
   proxyCheckTimezone: "시간대:",
   proxyCheckCoordinates: "경위도:",
   dataLoading: "데이터 로드 중, 잠시 후...",
-  comparisonMatch_ss:
-    "테스트 결과: {service} 테스트를 통해 VPN/ 에이전트를 사용하지 않았습니다.",
-  comparisonMismatch_ss:
-    "테스트 결과: {service} 테스트를 통해 VPN/에이전트를 사용하고 있을 수 있음",
+  comparisonMatch_ss: "테스트 결과: {service} 테스트를 통해 VPN/ 에이전트를 사용하지 않았습니다.",
+  comparisonMismatch_ss: "테스트 결과: {service} 테스트를 통해 VPN/에이전트를 사용하고 있을 수 있음",
   ipFetchError: "IP 주소를 가져오지 못했습니다.",
   proxyCheckError: "프록시/VPN을 테스트하지 못했습니다.",
   proxyCheckStatusError: "테스트 실패, 상태 코드 오류.",
   errorOccurred: "오류 발생:",
   router_translation_process: "번역 과정",
-  genericError: "테스트에 실패했습니다. 나중에 다시 시도하십시오.",
+  genericError: "테스트에 실패했습니다. 나중에 다시 시도하십시오."
 };
 export default kor;

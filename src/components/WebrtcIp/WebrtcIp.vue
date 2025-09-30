@@ -30,13 +30,11 @@ const ipifyIp = ref<string>("");
 const webrtcIp = ref<string>("");
 const comparisonResult = ref<{ key: string; message: string }>({
   key: "",
-  message: "",
+  message: ""
 });
 
 const comparisonResultClass = computed(() =>
-  comparisonResult.value.key === "MATCH"
-    ? "text-sky-500 font-bold text-xl"
-    : "text-red-500 font-bold text-xl",
+  comparisonResult.value.key === "MATCH" ? "text-sky-500 font-bold text-xl" : "text-red-500 font-bold text-xl"
 );
 
 // 获取 WebRTC 的 IP 地址
@@ -44,9 +42,7 @@ const getWebrtcIP = (): Promise<string> =>
   new Promise((resolve) => {
     const ipDups: Record<string, boolean> = {};
     const RTCPeerConnection =
-      window.RTCPeerConnection ||
-      (window as any).mozRTCPeerConnection ||
-      (window as any).webkitRTCPeerConnection;
+      window.RTCPeerConnection || (window as any).mozRTCPeerConnection || (window as any).webkitRTCPeerConnection;
     if (!RTCPeerConnection) {
       console.error("WebRTC is not supported by your browser.");
       return;
@@ -55,10 +51,7 @@ const getWebrtcIP = (): Promise<string> =>
     const pc = new RTCPeerConnection(servers);
     pc.onicecandidate = (ice) => {
       if (ice.candidate) {
-        const ipMatch =
-          /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(
-            ice.candidate.candidate,
-          );
+        const ipMatch = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate);
         if (ipMatch && !ipDups[ipMatch[1]]) {
           ipDups[ipMatch[1]] = true;
           resolve(ipMatch[1]);
@@ -72,10 +65,7 @@ const getWebrtcIP = (): Promise<string> =>
     setTimeout(() => {
       pc.localDescription?.sdp.split("\n").forEach((line) => {
         if (line.startsWith("a=candidate:")) {
-          const ipMatch =
-            /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(
-              line,
-            );
+          const ipMatch = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(line);
           if (ipMatch && !ipDups[ipMatch[1]]) {
             ipDups[ipMatch[1]] = true;
             resolve(ipMatch[1]);
@@ -106,18 +96,12 @@ const compareIPs = async () => {
   if (webrtc === ipifyIp.value) {
     comparisonResult.value = {
       key: "MATCH",
-      message:
-        "🟢" +
-        t("comparisonMatch", { webrtc: "WebRTC", ipify: "ipify" }) +
-        "✅",
+      message: "🟢" + t("comparisonMatch", { webrtc: "WebRTC", ipify: "ipify" }) + "✅"
     };
   } else {
     comparisonResult.value = {
       key: "MISMATCH",
-      message:
-        "🔴" +
-        t("comparisonMismatch", { webrtc: "WebRTC", ipify: "ipify" }) +
-        "❌",
+      message: "🔴" + t("comparisonMismatch", { webrtc: "WebRTC", ipify: "ipify" }) + "❌"
     };
   }
 };

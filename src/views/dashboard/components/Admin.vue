@@ -1,8 +1,6 @@
 <template>
   <div class="app-container center">
-    <el-empty
-      :description="t('hello_admin_page', { admin: 'admin' })"
-    ></el-empty>
+    <el-empty :description="t('hello_admin_page', { admin: 'admin' })"></el-empty>
   </div>
 </template>
 
