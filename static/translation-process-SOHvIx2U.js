@@ -1,0 +1,1 @@
+import{y as s,r as t,z as a,B as r,A as o}from"./vue-CDBYdBif.js";const l={class:"w-full h-screen"},n=["src"],d=s({__name:"translation-process",setup(c){const e=t("https://translation-tools.vercel.app/");return(p,_)=>(o(),a("div",l,[r("iframe",{src:e.value,frameborder:"0",class:"w-full h-full min-h-[500px]",title:"Embedded Page"},null,8,n)]))}});export{d as default};
